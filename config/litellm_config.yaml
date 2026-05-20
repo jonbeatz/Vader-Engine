@@ -1,0 +1,11 @@
+model_list:
+  - model_name: vertex-gemini-pro
+    litellm_params:
+      model: vertex_ai/gemini-pro
+      vertex_project: "your-gcp-project-id"
+      vertex_location: "us-central1"
+      vertex_credentials: "config/gcp-service-account.json"
+
+litellm_settings:
+  drop_params: true
+  set_verbose: false

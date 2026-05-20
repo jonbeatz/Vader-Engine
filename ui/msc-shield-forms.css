@@ -1,0 +1,36 @@
+.msc-viewport-shield input,
+.msc-viewport-shield textarea,
+.msc-viewport-shield select,
+.msc-dashboard-container input,
+.msc-dashboard-container textarea,
+.msc-dashboard-container select,
+.msc-viewport-shield .msc-input,
+.msc-dashboard-container .msc-input {
+    background: var(--msc-bg-main);
+    color: var(--msc-text-primary);
+    border: 1px solid var(--msc-border-color);
+    border-radius: var(--msc-radius-sm, var(--msc-radius));
+    padding: 10px 12px;
+    transition: var(--msc-transition);
+}
+
+.msc-viewport-shield input::placeholder,
+.msc-viewport-shield textarea::placeholder,
+.msc-dashboard-container input::placeholder,
+.msc-dashboard-container textarea::placeholder {
+    color: var(--msc-text-secondary);
+}
+
+.msc-viewport-shield input:focus-visible,
+.msc-viewport-shield textarea:focus-visible,
+.msc-dashboard-container input:focus-visible,
+.msc-dashboard-container textarea:focus-visible {
+    outline: 2px solid var(--msc-border-color);
+    outline-offset: 2px;
+}
+
+.msc-viewport-shield select:focus-visible,
+.msc-dashboard-container select:focus-visible {
+    outline: 2px solid var(--msc-accent);
+    outline-offset: 2px;
+}

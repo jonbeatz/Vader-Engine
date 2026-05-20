@@ -1,0 +1,18 @@
+{
+  "name": "msc-universal-boilerplate",
+  "version": "1.0.0",
+  "description": "Universal unbranded baseline scaffolding and automation framework",
+  "main": "core/msc-bootstrap.php",
+  "scripts": {
+    "verify:mcp": "node scripts/msc-verify-mcp.mjs",
+    "verify:mcp:probe": "node scripts/msc-verify-mcp.mjs --probe",
+    "msc:kill": "node scripts/msc-kill-dev-port.mjs",
+    "msc:smoke": "node scripts/msc-local-http-smoke.mjs",
+    "start-project": "npm run verify:mcp",
+    "end-project": "npm run msc:kill -- 3000 && npm run msc:smoke -- 3000",
+    "media:sync": "node scripts/msc-media-sync.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

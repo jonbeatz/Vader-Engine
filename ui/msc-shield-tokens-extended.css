@@ -1,0 +1,26 @@
+/**
+ * Optional token extensions — load after msc-shield.css
+ * Scoped to shield containers only.
+ */
+.msc-viewport-shield,
+.msc-dashboard-container {
+    --msc-surface-0: var(--msc-bg-main);
+    --msc-surface-1: var(--msc-bg-surface);
+    --msc-surface-2: var(--msc-bg-surface-hover);
+    --msc-radius-sm: 4px;
+    --msc-radius-lg: 12px;
+    --msc-gap-sm: 8px;
+    --msc-gap-md: 16px;
+    --msc-gap-lg: 24px;
+    --msc-shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.msc-theme-accent-green {
+    --msc-accent: #22c55e;
+    --msc-accent-hover: #4ade80;
+}
+
+.msc-theme-accent-gold {
+    --msc-accent: #c9a227;
+    --msc-accent-hover: #e4c04d;
+}

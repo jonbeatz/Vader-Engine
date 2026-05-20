@@ -1,0 +1,78 @@
+{
+  "mcpServers": {
+    "payload": {
+      "command": "npx",
+      "args": ["-y", "@govcraft/payload-cms-mcp@latest"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github@latest"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_PERSONAL_ACCESS_TOKEN"
+      }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--browser",
+        "chrome",
+        "--allowed-hosts",
+        "127.0.0.1,localhost",
+        "--caps",
+        "devtools"
+      ]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem@latest",
+        "d:\\Cursor_Projectz\\Boilerplate-v1"
+      ]
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-fetch@latest"]
+    },
+    "tavily": {
+      "command": "npx",
+      "args": ["-y", "tavily-mcp@latest"],
+      "env": {
+        "TAVILY_API_KEY": "YOUR_TAVILY_API_KEY"
+      }
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "YOUR_FIRECRAWL_API_KEY"
+      }
+    },
+    "resend": {
+      "command": "npx",
+      "args": ["-y", "resend-mcp"],
+      "env": {
+        "RESEND_API_KEY": "YOUR_RESEND_API_KEY"
+      }
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@zengwenliang/mcp-server-sequential-thinking"]
+    },
+    "wordpress-local": {
+      "command": "npx",
+      "args": ["-y", "@automattic/mcp-wordpress-remote@latest"],
+      "env": {
+        "WP_API_URL": "https://your-local-site.test/wp-json/mcp/mcp-adapter-default-server",
+        "WP_API_USERNAME": "YOUR_WP_ADMIN_USER",
+        "WP_API_PASSWORD": "YOUR_WP_APPLICATION_PASSWORD"
+      }
+    },
+    "neon-postgres": {
+      "url": "https://mcp.neon.tech/mcp",
+      "transport": "streamableHttp"
+    }
+  }
+}

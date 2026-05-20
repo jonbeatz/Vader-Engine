@@ -1,0 +1,19 @@
+---
+description: Local Next.js runtime recovery — ports, caches, safe build gates
+globs:
+  - "**/*"
+alwaysApply: false
+---
+
+# Local runtime recovery
+
+When `next dev` shows 500, blank `/_next/static`, or port conflicts:
+
+1. Run `node scripts/msc-kill-dev-port.mjs` (or `MSC_DEV_PORT`) — never guess PIDs.
+2. Optional one-shot: `node scripts/msc-dev-recover.mjs` with `MSC_DEV_RECOVER_CLEAN=1`.
+3. Safe build prep: `node scripts/msc-verify-next-safe.mjs` — never `clean:next` while dev listens on `MSC_DEV_PORT` (default 3000).
+4. HTTP smoke after dev is up: `node scripts/msc-local-http-smoke.mjs`.
+
+Cursor hook `.cursor/hooks/msc-guard-clean-while-dev.mjs` blocks destructive cache wipes during live dev when `hooks.json` is enabled.
+
+SQLite: backup before repair (`scripts/msc-sqlite-repair.mjs`), WAL purge before deploy (`scripts/msc-sqlite-wal-purge.mjs`). See `.cursor/docs/sqlite-repair-manifest.md`.

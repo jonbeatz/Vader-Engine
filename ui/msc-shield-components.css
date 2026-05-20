@@ -1,0 +1,53 @@
+.msc-viewport-shield .msc-btn-primary,
+.msc-dashboard-container .msc-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    background: var(--msc-accent);
+    color: var(--msc-text-primary);
+    border: none;
+    border-radius: var(--msc-radius);
+    cursor: pointer;
+    transition: var(--msc-transition);
+}
+
+.msc-viewport-shield .msc-btn-primary:hover,
+.msc-dashboard-container .msc-btn-primary:hover {
+    background: var(--msc-accent-hover);
+}
+
+.msc-viewport-shield .msc-btn-outline,
+.msc-dashboard-container .msc-btn-outline {
+    display: inline-flex;
+    padding: 10px 18px;
+    background: transparent;
+    color: var(--msc-text-primary);
+    border: 1px solid var(--msc-border-color);
+    border-radius: var(--msc-radius);
+    cursor: pointer;
+    transition: var(--msc-transition);
+}
+
+.msc-viewport-shield .msc-badge,
+.msc-dashboard-container .msc-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border: 1px solid var(--msc-border-color);
+    border-radius: var(--msc-radius-sm, var(--msc-radius));
+    color: var(--msc-text-secondary);
+}
+
+.msc-viewport-shield .msc-bento-card,
+.msc-dashboard-container .msc-bento-card {
+    transition: var(--msc-transition);
+}
+
+.msc-viewport-shield .msc-bento-card:hover,
+.msc-dashboard-container .msc-bento-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--msc-accent);
+}

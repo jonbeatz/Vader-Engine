@@ -1,0 +1,10 @@
+{
+  "addColumns": [
+    {
+      "table": "payload_locked_documents_rels",
+      "column": "media_id",
+      "definition": "INTEGER REFERENCES media(id)"
+    }
+  ],
+  "addIndexes": []
+}

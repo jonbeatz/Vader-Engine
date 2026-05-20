@@ -1,0 +1,26 @@
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# GCP / OAuth (LiteLLM, Google Workspace MCP)
+config/gcp-service-account.json
+config/google-oauth-token.json
+google-api/
+
+# Runtime / local DB
+*.sqlite-wal
+*.sqlite-shm
+vault.db
+data/
+payload.sqlite
+
+# Consumer app artifacts (when copied into Next/Payload project)
+node_modules/
+.next/
+dist/
+out/
+
+# OS
+.DS_Store
+Thumbs.db
