@@ -1,7 +1,14 @@
-# Environment & secrets
+# Environment & secrets (never stage — local hydration only)
 .env
 .env.local
 .env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+credentials.json
+secrets.json
 
 # GCP / OAuth (LiteLLM, Google Workspace MCP)
 config/gcp-service-account.json

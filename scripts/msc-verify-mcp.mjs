@@ -5,6 +5,8 @@
  * (first --probe run may download packages via npx; slow on cold cache)
  */
 
+import './lib/msc-load-env.mjs'
+
 import { execFile } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'

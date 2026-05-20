@@ -45,6 +45,7 @@ This directory houses the foundational competence profiles and execution runbook
 | Ecosystem options matrix | [ecosystem-options-matrix.md](../docs/ecosystem-options-matrix.md) |
 | Discovered logic map | [discovered-logic-map.md](../docs/discovered-logic-map.md) |
 | SQLite repair manifest | [sqlite-repair-manifest.md](../docs/sqlite-repair-manifest.md) |
+| Env ingestion (zero-leak) | [env-ingestion-compliance.mdc](../rules/env-ingestion-compliance.mdc) |
 | Constitution | [TRUTH.md](../docs/TRUTH.md) |
 | Repair protocols | [REPAIR_PROTOCOLS.md](../docs/REPAIR_PROTOCOLS.md) |
 | npm script appendix | [config/npm-scripts-appendix.json](../../config/npm-scripts-appendix.json) |

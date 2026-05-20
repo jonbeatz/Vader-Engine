@@ -3,6 +3,9 @@
  * Pluggable start-project health checks (template-safe).
  * Always: structural MCP verify. Optional: MSC_SMOKE_RUN_TYPECHECK=1, MSC_SMOKE_RUN_MIGRATIONS=path
  */
+import './lib/msc-load-env.mjs'
+import { MSC_PROJECT_ROOT } from './lib/msc-load-env.mjs'
+
 import { spawnSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -21,7 +24,7 @@ function run(label, cmd, args, opts = {}) {
 
 run('verify:mcp structure', process.execPath, [path.join(scriptsDir, 'msc-verify-mcp.mjs')])
 
-const root = process.env.MSC_PROJECT_ROOT?.trim() || path.join(scriptsDir, '..')
+const root = process.env.MSC_PROJECT_ROOT?.trim() || MSC_PROJECT_ROOT
 if (process.env.MSC_SMOKE_RUN_TYPECHECK === '1' && fs.existsSync(path.join(root, 'tsconfig.json'))) {
   run('typecheck', 'npx', ['tsc', '--noEmit'], { cwd: root, shell: true })
 }

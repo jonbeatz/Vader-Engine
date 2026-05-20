@@ -11,11 +11,22 @@ Before writing, modifying, or refactoring any code files within this workspace, 
 - Say **Start Project** or open `.cursor/prompts/Start-Project.md` (alias → `task-planner.md`).
 - Fill out the 3-Phase verification matrix and present it to the operator for explicit validation. Do not bypass this step.
 
-### 2. Phase 2: Environment Setup
+### 2. Phase 2: Environment Setup (Local Ingestion Protocol)
 
-- Copy `.env.example` to create your local `.env` (or `.env.local` in a consumer Next/Payload app).
-- Update secure API placeholders, database locations, and map your active project filesystem directory inside `.cursor/mcp.json` (see `.cursor/docs/mcp-setup.md`).
-- Read `.cursor/docs/mcp-setup.md` to coordinate local MCP server extensions with your global Cursor config.
+**Zero-leak boundary:** Live secrets exist only in `.env.local` at the repo root. That file is gitignored and must never be committed or pasted into chat.
+
+1. Copy **key names** from `.env.example` (the committed contract — placeholders only).
+2. Create `.env.local` and assign real values there (PATs, API keys, database paths, ports).
+3. Run `npm install` once so `dotenv` is available to automation scripts.
+
+**How scripts and agents consume values:**
+
+- Every `scripts/*.mjs` entry point imports `scripts/lib/msc-load-env.mjs` first.
+- Hydration order: `.env.local` → `.env.example` (example fills only missing keys).
+- Runtime reads **`process.env.VARIABLE_NAME`** only — no hardcoded tokens or production domains in committed code.
+- Cursor agents use the same hydrated process when running npm/node scripts; they must **not** ask you to paste plain-text keys into chat. New services → add the key to `.env.example` + value in `.env.local`.
+
+Optional: map your workspace path in `.cursor/mcp.json` (placeholders only in Git). See `.cursor/docs/mcp-setup.md` for MCP + global Cursor merge.
 
 ### 3. Phase 3: Structural Tool Verification
 

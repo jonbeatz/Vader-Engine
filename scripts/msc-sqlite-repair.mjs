@@ -5,6 +5,8 @@
  *
  * Built-in: optional payload_locked_documents_rels polymorphic columns from manifest.
  */
+import './lib/msc-load-env.mjs'
+
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'

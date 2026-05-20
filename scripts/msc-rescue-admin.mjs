@@ -6,6 +6,8 @@
  * Optional: PAYLOAD_CONFIG_PATH, MSC_RESCUE_ROLE (default admin)
  * Sets PAYLOAD_MIGRATING=true, PAYLOAD_SQLITE_PUSH=false for the run.
  */
+import './lib/msc-load-env.mjs'
+
 import process from 'node:process'
 
 const BANNER = '[msc:rescue-admin]'

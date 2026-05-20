@@ -8,6 +8,12 @@ description: >-
 
 # Node Runtime Mastery (Universal)
 
+## Local env hydration
+
+- Every `scripts/*.mjs` entry point imports `scripts/lib/msc-load-env.mjs` first.
+- Load order: `.env.local` (live, gitignored) → `.env.example` (contract, fills gaps only).
+- Read config via `process.env.VARIABLE_NAME` only — never hardcode secrets in scripts.
+
 ## Scope
 
 - Applies to Next.js, Payload, Electron-adjacent Node services, and standalone Node backends.

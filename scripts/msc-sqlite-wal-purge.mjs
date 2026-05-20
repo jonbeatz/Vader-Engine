@@ -3,6 +3,8 @@
  * Remove SQLite WAL/SHM sidecars before deploy or file copy.
  * Set MSC_SQLITE_WAL_PURGE=1 or pass --force
  */
+import './lib/msc-load-env.mjs'
+
 import fs from 'node:fs'
 import process from 'node:process'
 import { msc_resolveSqliteDatabaseFilePath } from './lib/msc-sqlite-path.mjs'

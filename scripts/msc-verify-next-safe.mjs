@@ -3,6 +3,8 @@
  * Safe Next build gate: kill dev port → clean caches → consumer runs `next build`.
  * Template repo exits after prep unless MSC_VERIFY_NEXT_RUN_BUILD=1 and next is installed.
  */
+import './lib/msc-load-env.mjs'
+
 import { spawnSync } from 'node:child_process'
 import path from 'node:path'
 import process from 'node:process'

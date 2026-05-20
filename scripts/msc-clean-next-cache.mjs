@@ -3,14 +3,16 @@
  * Deep-remove Next/Payload build caches (safe when dev server is stopped).
  * Enable via MSC_CLEAN_NEXT=1 or --force
  */
+import './lib/msc-load-env.mjs'
+import { MSC_PROJECT_ROOT } from './lib/msc-load-env.mjs'
+
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
-import { fileURLToPath } from 'node:url'
 
 const BANNER = '[msc:clean-next]'
 const force = process.argv.includes('--force') || process.env.MSC_CLEAN_NEXT === '1'
-const root = process.env.MSC_PROJECT_ROOT?.trim() || path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
+const root = process.env.MSC_PROJECT_ROOT?.trim() || MSC_PROJECT_ROOT
 
 if (!force) {
   console.log(`${BANNER} dry-run — set MSC_CLEAN_NEXT=1 or --force`)

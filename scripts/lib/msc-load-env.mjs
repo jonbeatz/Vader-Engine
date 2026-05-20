@@ -1,0 +1,26 @@
+/**
+ * Repo-wide local environment hydration (side-effect import).
+ * Load order: .env.local (live secrets) → .env.example (generic contract, fills gaps only).
+ * Import first in every scripts/*.mjs entry point:
+ *   import './lib/msc-load-env.mjs'   // or '../lib/msc-load-env.mjs' from scripts/repair/
+ */
+import dotenv from 'dotenv'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const ROOT = path.resolve(__dirname, '../..')
+
+const localPath = path.resolve(ROOT, '.env.local')
+const examplePath = path.resolve(ROOT, '.env.example')
+
+if (fs.existsSync(localPath)) {
+  dotenv.config({ path: localPath })
+}
+
+if (fs.existsSync(examplePath)) {
+  dotenv.config({ path: examplePath, override: false })
+}
+
+export const MSC_PROJECT_ROOT = ROOT
