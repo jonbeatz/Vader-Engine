@@ -4,6 +4,8 @@
  * Enable with MSC_REPAIR_AST=1 and consumer-provided target globs.
  * See .cursor/docs/REPAIR_PROTOCOLS.md
  */
+import '../lib/msc-load-env.mjs'
+
 import process from 'node:process'
 
 if (process.env.MSC_REPAIR_AST !== '1') {

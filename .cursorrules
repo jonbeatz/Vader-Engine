@@ -17,6 +17,12 @@
 ## 🔒 Security Baseline
 - Ensure explicit input validation, token/nonce verification, and strict file execution blocks are structured abstractly so they can hook into the destination project's native security layer seamlessly.
 
+## 🔐 Local Environment Ingestion (STRICT — Zero Leak)
+- **Hydration source:** Live parameters load from repo-root `.env.local` (gitignored), then `.env.example` for unset keys only. All `scripts/*.mjs` entry points import `scripts/lib/msc-load-env.mjs` before other logic.
+- **Runtime access:** Scripts and automation read **`process.env.VARIABLE_NAME` only**. Never hardcode API keys, passwords, personal access tokens, or production domains in committed files.
+- **Agent boundary:** The agent has full process access to hydrated environment variables from the active execution container. **Under no circumstances** should the agent ask the operator to paste plain-text API keys, passwords, or personal access tokens into the chat interface. If a new service parameter is required, instruct the operator to append the **key name** to `.env.example` and the **value** directly inside `.env.local`.
+- **Chat & logs:** Discuss only variable names and generic mappings in responses; never echo secret values from `.env.local`.
+
 ---
 
 ## 📚 Documentation Hierarchy & Source of Truth

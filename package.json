@@ -2,6 +2,7 @@
   "name": "msc-universal-boilerplate",
   "version": "1.0.0",
   "description": "Universal unbranded baseline scaffolding and automation framework",
+  "type": "module",
   "main": "core/msc-bootstrap.php",
   "scripts": {
     "verify:mcp": "node scripts/msc-verify-mcp.mjs",
@@ -14,5 +15,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
 }

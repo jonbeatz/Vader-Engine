@@ -4,6 +4,20 @@ How Model Context Protocol servers are split between **this repo** (`.cursor/mcp
 
 ---
 
+## Local secrets (zero-leak)
+
+| File | Use |
+|------|-----|
+| `.env.local` | Live `GITHUB_PERSONAL_ACCESS_TOKEN`, `TAVILY_API_KEY`, etc. — **gitignored** |
+| `.env.example` | Key names + placeholders only — safe to commit |
+
+Node scripts hydrate via `scripts/lib/msc-load-env.mjs` before reading `process.env.*`.  
+**Do not** put live tokens in committed `.cursor/mcp.json`; use Cursor global MCP env or operator-local overrides.
+
+Agents must not ask operators to paste secrets into chat — add keys to `.env.example` + values in `.env.local`.
+
+---
+
 ## Two-layer model
 
 | Layer | File | Purpose |

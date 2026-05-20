@@ -16,6 +16,8 @@
  * Exits 0 when all checks pass; 1 otherwise.
  */
 
+import './lib/msc-load-env.mjs'
+
 import http from 'node:http'
 
 const BANNER = '[msc:smoke] local HTTP smoke gate'

@@ -3,6 +3,8 @@
  * One-shot dev recovery: kill dev port → optional clean next → hint to restart dev.
  * MSC_DEV_PORT (default 3000), MSC_DEV_RECOVER_CLEAN=1 to run clean-next after kill.
  */
+import './lib/msc-load-env.mjs'
+
 import { spawnSync } from 'node:child_process'
 import path from 'node:path'
 import process from 'node:process'

@@ -1,0 +1,34 @@
+---
+description: Zero-leak local env hydration — .env.local vs .env.example, agent secret boundary
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# Environment ingestion compliance
+
+## Local files
+
+| File | Committed | Purpose |
+|------|-----------|---------|
+| `.env.example` | Yes | Key names + safe placeholders (contract) |
+| `.env.local` | **Never** | Live values (gitignored) |
+
+## Script hydration
+
+All executable entry points under `scripts/` (including `scripts/repair/`) must import first:
+
+```javascript
+import './lib/msc-load-env.mjs'
+```
+
+Load order: `.env.local` → `.env.example` (`override: false` on second pass).
+
+## Agent rules
+
+- Use hydrated `process.env.*` when running terminal scripts; do not invent inline secrets.
+- **Never** ask the user to paste API keys, passwords, or PATs into chat.
+- New integration: add key to `.env.example`, operator sets value in `.env.local`, document in `mcp-setup.md` if MCP-related.
+- In replies, reference only `VARIABLE_NAME` — never reproduce values from `.env.local`.
+
+See `START-HERE.md` Phase 2 and `.cursorrules` Security / Local Environment Ingestion.

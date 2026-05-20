@@ -1,6 +1,6 @@
 # Ecosystem Options & Skills Matrix
 
-Selectable strategies — enable via `.env` / `.env.local` in the **consumer app**. Template repo scripts run in dry-run unless force flags are set.
+Selectable strategies — enable via `.env.local` (live) + `.env.example` (contract) at repo root. Scripts auto-hydrate via `scripts/lib/msc-load-env.mjs`. Template repo scripts run in dry-run unless force flags are set.
 
 ## Environment toggles
 

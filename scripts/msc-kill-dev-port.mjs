@@ -15,6 +15,8 @@
  *
  */
 
+import './lib/msc-load-env.mjs'
+
 import { execFileSync, execSync } from 'node:child_process'
 import process from 'node:process'
 
