@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": "node .cursor/hooks/msc-guard-clean-while-dev.mjs"
+      }
+    ]
+  }
+}

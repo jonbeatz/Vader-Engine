@@ -1,0 +1,18 @@
+{
+  "_comment": "Merge these into consumer package.json scripts — template package.json is not modified.",
+  "scripts": {
+    "repair:sqlite": "node scripts/msc-sqlite-repair.mjs",
+    "db:wal-purge": "node scripts/msc-sqlite-wal-purge.mjs --force",
+    "db:rescue-admin": "node scripts/msc-rescue-admin.mjs",
+    "dev:recover": "node scripts/msc-dev-recover.mjs",
+    "clean:next": "node scripts/msc-clean-next-cache.mjs --force",
+    "verify:next:safe": "node scripts/msc-verify-next-safe.mjs",
+    "verify:local": "node scripts/msc-local-http-smoke.mjs",
+    "start-project:smoke": "node scripts/msc-start-project-smoke.mjs",
+    "repair:ast": "node scripts/repair/msc-fix-suspense.mjs",
+    "media:sync": "node scripts/msc-media-sync.mjs",
+    "verify:mcp": "node scripts/msc-verify-mcp.mjs",
+    "msc:kill": "node scripts/msc-kill-dev-port.mjs",
+    "msc:smoke": "node scripts/msc-local-http-smoke.mjs"
+  }
+}

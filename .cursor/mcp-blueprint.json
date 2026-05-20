@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "_meta": {
+    "title": "MCP Connector Blueprint",
+    "description": "Extended catalog and optional servers. Active project config: `.cursor/mcp.json`. Setup guide: `.cursor/docs/mcp-setup.md`. Never commit live API keys or machine-specific paths.",
+    "layers": {
+      "project": ".cursor/mcp.json — merged when workspace opens",
+      "global": "~/.cursor/mcp.json — playwright, github, filesystem, postgres, etc."
+    },
+    "runtimeBridge": {
+      "cdpConfigFile": ".msc-runtime.json",
+      "cdpPortRange": "9227-9236",
+      "notes": "Electron/CDP attach for playwright-electron; keep separate from web dev port 3000 and LiteLLM 4000/8000"
+    },
+    "envContract": [
+      "FIRECRAWL_API_KEY",
+      "TAVILY_API_KEY",
+      "GITHUB_PERSONAL_ACCESS_TOKEN",
+      "WORDPRESS_APP_PASSWORD",
+      "WP_API_URL",
+      "WP_API_USERNAME",
+      "GOOGLE_CREDENTIALS_PATH",
+      "GOOGLE_TOKEN_PATH",
+      "DATABASE_URL",
+      "POSTMAN_API_KEY",
+      "RESEND_API_KEY",
+      "VERCEL_API_TOKEN",
+      "INSTAWP_API_URL",
+      "INSTAWP_APP_PASSWORD",
+      "ELEMENTOR_LICENCE_KEY",
+      "WOOCOMMERCE_CONSUMER_KEY",
+      "WOOCOMMERCE_CONSUMER_SECRET"
+    ]
+  },
+  "mcpServers": {
+    "wordpress-local": {
+      "command": "npx",
+      "args": ["-y", "@automattic/mcp-wordpress-remote@latest"],
+      "env": {
+        "WP_API_URL": "https://your-local-site.test/wp-json/mcp/mcp-adapter-default-server",
+        "WP_API_USERNAME": "YOUR_WP_ADMIN_USER",
+        "WP_API_PASSWORD": "YOUR_WP_APPLICATION_PASSWORD"
+      }
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "YOUR_FIRECRAWL_API_KEY"
+      }
+    },
+    "docker": {
+      "command": "npx",
+      "args": ["-y", "docker-mcp"]
+    },
+    "google-workspace": {
+      "command": "npx",
+      "args": ["-y", "@google/mcp-server-workspace"],
+      "env": {
+        "GOOGLE_CREDENTIALS_PATH": "config/gcp-service-account.json",
+        "GOOGLE_TOKEN_PATH": "config/google-oauth-token.json"
+      }
+    },
+    "animate-ui": {
+      "command": "npx",
+      "args": ["-y", "shadcn@latest", "mcp"]
+    },
+    "instawp": {
+      "command": "npx",
+      "args": ["-y", "@instawp/mcp-wp"],
+      "env": {
+        "WP_API_URL": "https://your-instawp-site.test/wp-json",
+        "WP_API_USERNAME": "admin",
+        "WP_API_PASSWORD": "YOUR_INSTAWP_APP_PASSWORD"
+      }
+    },
+    "elementor-mcp": {
+      "command": "npx",
+      "args": ["-y", "@instawp/mcp-elementor"]
+    },
+    "woocommerce-mcp": {
+      "command": "npx",
+      "args": ["-y", "@instawp/mcp-woocommerce"]
+    },
+    "payload-cms": {
+      "command": "npx",
+      "args": ["-y", "@govcraft/payload-cms-mcp@latest"],
+      "env": {
+        "PAYLOAD_API_URL": "https://your-domain.com/api",
+        "PAYLOAD_API_KEY": "YOUR_PAYLOAD_API_KEY"
+      }
+    }
+  },
+  "globalServerCatalog": {
+    "browser": ["playwright", "playwright-electron", "browser-tools-mcp", "browsermcp", "console-ninja"],
+    "dev": ["github", "terminal-controller", "mcpterm", "desktop-commander", "filesystem", "fetch"],
+    "data": ["postgres", "neon-postgres", "task-master-ai", "sequential-thinking"],
+    "apis": ["postman", "resend", "mcp-vercel", "tavily", "firecrawl"],
+    "design": ["animate-ui-mcp", "magic-ui-mcp", "untitledui"]
+  },
+  "toolPatterns": {
+    "wordpress": "REST site management via @automattic/mcp-wordpress-remote or @instawp/mcp-wp",
+    "scrape": "firecrawl-mcp — scrape, crawl, search",
+    "browser": "playwright-electron — CDP attach; use browser_snapshot / browser_click in agent flows",
+    "database": "postgres / neon-postgres — parameterized queries only",
+    "cms": "payload-cms — schema and collection introspection when Payload project is linked"
+  },
+  "agentDiscipline": [
+    "Read tool schema descriptors before CallMcpTool",
+    "Never paste live secrets into docs or commits",
+    "Prefer project scripts/ gates (msc-kill-dev-port, msc-local-http-smoke) before MCP terminal tools for local port hygiene",
+    "Authenticate MCP servers only when a task requires that integration"
+  ]
+}
