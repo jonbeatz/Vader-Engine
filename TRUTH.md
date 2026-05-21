@@ -2,7 +2,7 @@
 
 If any document conflicts with this file for **technical precedence**, this file wins for boilerplate consumers.
 
-**Version target:** Boilerplate-v2 Gold Master (v2.0.0-Gold) — lean multi-runtime Node.js ecosystem with Next.js 15 baseline and WordPress Shield bridge.
+**Version target:** Boilerplate-v2 Jedi-Master (v2.0.0-JEDI) — lean multi-runtime Node.js ecosystem with Next.js 15 baseline and WordPress Shield bridge.
 
 ## 0. v2 guiding principles
 
