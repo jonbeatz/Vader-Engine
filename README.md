@@ -79,7 +79,7 @@ All new capabilities are **opt-in** — no forced defaults. Highlights:
 | Media pipeline | `MSC_MEDIA_STRATEGY=local\|multi-tenant\|stream-cdn` | [media-strategy-specs.md](.cursor/docs/media-strategy-specs.md) |
 | SQLite push gating | `PAYLOAD_SQLITE_PUSH`, `PAYLOAD_MIGRATING` | [ecosystem-options-matrix.md](.cursor/docs/ecosystem-options-matrix.md) |
 | Schema repair | `MSC_SQLITE_REPAIR_MANIFEST` | [sqlite-repair-manifest.md](.cursor/docs/sqlite-repair-manifest.md) |
-| UI extensions | `MSC_SHIELD_EXTENSIONS=1` | [studio-dark-ui.md](.cursor/rules/studio-dark-ui.md) · hybrid §6 [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) |
+| UI extensions | `MSC_SHIELD_EXTENSIONS=1` | [studio-dark-ui.mdc](.cursor/rules/studio-dark-ui.mdc) · hybrid §6 [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) |
 | UI Path B (Tailwind/shadcn) | Consumer `components.json` + MCP `shadcn`, `context7` | [tailwind-shadcn-bridge.mdc](.cursor/rules/tailwind-shadcn-bridge.mdc) |
 
 Full matrix: [discovered-logic-map.md](.cursor/docs/discovered-logic-map.md) (pillar-repo port audit).

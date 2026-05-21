@@ -76,7 +76,7 @@ SQLite workflows: backup-first repair manifest, WAL sidecar purge before deploy 
 
 ### 3. Scoped Presentation Shield
 
-**Paths:** `ui/`, enforced by `.cursor/rules/studio-dark-ui.md`
+**Paths:** `ui/`, enforced by `.cursor/rules/studio-dark-ui.mdc`
 
 Visual layer is **scope-isolated**—tokens and components bind to `.msc-viewport-shield` and `.msc-dashboard-container` only. No global document resets; no framework bleed.
 

@@ -98,7 +98,7 @@ When documentation conflicts occur, resolve in this order (adapt paths to the co
 - **Status handshake:** At recognized flow starts (begin, continue, deploy, verify, checkpoint, finish), open with a one-line action plan confirming docs/read state, then proceed with concise updates.
 - **Execute, don't delegate:** Run terminal commands, smoke tests, and recovery yourself; browser-only checks (Incognito, manual login) are optional supplements after server-side work is done.
 - **Scope discipline:** Prefer small, reversible diffs; match existing naming, tokens, and folder conventions; avoid speculative rewrites.
-- **UI work:** Route via skill `.cursor/skills/studio-dark-shield.md` — Path A (Shield satellites) vs Path B (Tailwind/shadcn bridge). Tokens only in `ui/msc-shield.css`. Rules: `.cursor/rules/studio-dark-ui.md`, `design-system-rules.mdc`, `tailwind-shadcn-bridge.mdc` (index: `.cursor/rules/README.md`).
+- **UI work:** Route via skill `.cursor/skills/studio-dark-shield.md` — Path A (Shield satellites) vs Path B (Tailwind/shadcn bridge). Tokens only in `ui/msc-shield.css`. Rules: `.cursor/rules/studio-dark-ui.mdc`, `design-system-rules.mdc`, `tailwind-shadcn-bridge.mdc` (index: `.cursor/rules/README.md`).
 - **Planning artefacts:** Canonical plans live in `.cursor/plans/` when they belong in Git; consolidate from profile draft paths before session closeout when needed.
 
 ---

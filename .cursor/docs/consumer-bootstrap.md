@@ -142,7 +142,7 @@ Choose **one primary styling path** per surface. Tokens always originate in `ui/
 
 4. New features: add `ui/msc-[feature].css` in the same pass as the collection/component — scoped to a unique wrapper; **no** Tailwind on these surfaces.
 
-**Rules:** [studio-dark-ui.md](../rules/studio-dark-ui.md), [design-system-rules.mdc](../rules/design-system-rules.mdc).
+**Rules:** [studio-dark-ui.mdc](../rules/studio-dark-ui.mdc), [design-system-rules.mdc](../rules/design-system-rules.mdc).
 
 ### Path B — Hybrid Tailwind (Next.js / shadcn)
 

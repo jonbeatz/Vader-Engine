@@ -8,7 +8,7 @@ description: >-
 
 # WordPress & Divi Engineering (Universal)
 
-Pair with [studio-dark-shield.md](./studio-dark-shield.md) (Path A) and `.cursor/rules/studio-dark-ui.md` for visual tokens.
+Pair with [studio-dark-shield.md](./studio-dark-shield.md) (Path A) and `.cursor/rules/studio-dark-ui.mdc` for visual tokens.
 
 ## Scope gate
 

@@ -5,7 +5,7 @@ Always-on and scoped rules for Boilerplate-v1. Precedence: [TRUTH.md](../docs/TR
 | Rule | Scope | When it applies |
 |------|--------|-----------------|
 | [env-ingestion-compliance.mdc](./env-ingestion-compliance.mdc) | `**/*` · **alwaysApply** | Every session — `.env.local` vs `.env.example`, no secret paste in chat |
-| [studio-dark-ui.md](./studio-dark-ui.md) | Studio Dark / Shield | Path A dashboards, WordPress, Payload admin chrome |
+| [studio-dark-ui.mdc](./studio-dark-ui.mdc) | `ui/**`, `*.tsx`, `*.css` | Studio Dark / Shield — Path A dashboards, WordPress, Payload admin chrome |
 | [design-system-rules.mdc](./design-system-rules.mdc) | `ui/**`, `*.tsx`, `*.css` | Tokens-first edits; new colors only in `msc-shield.css` |
 | [tailwind-shadcn-bridge.mdc](./tailwind-shadcn-bridge.mdc) | Tailwind/shadcn paths | Path B Next.js consumers — bridge `--msc-*` to Tailwind |
 | [local-runtime-recovery.mdc](./local-runtime-recovery.mdc) | On demand | Port conflicts, `.next` cache, smoke failures |

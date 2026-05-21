@@ -9,7 +9,7 @@ alwaysApply: false
 
 # Design system rules (tokens first)
 
-Aligns with [Code-Jedi.md](../docs/Code-Jedi.md) §5 (Global Shield), [studio-dark-ui.md](./studio-dark-ui.md), and skill [studio-dark-shield.md](../skills/studio-dark-shield.md). Path B consumers also follow [tailwind-shadcn-bridge.mdc](./tailwind-shadcn-bridge.mdc).
+Aligns with [Code-Jedi.md](../docs/Code-Jedi.md) §5 (Global Shield), [studio-dark-ui.mdc](./studio-dark-ui.mdc), and skill [studio-dark-shield.md](../skills/studio-dark-shield.md). Path B consumers also follow [tailwind-shadcn-bridge.mdc](./tailwind-shadcn-bridge.mdc).
 
 ## Tokens first (mandatory)
 
@@ -35,4 +35,4 @@ Aligns with [Code-Jedi.md](../docs/Code-Jedi.md) §5 (Global Shield), [studio-da
 - [ ] Checked `ui/msc-shield.css` for existing variable
 - [ ] New styles in scoped satellite or shadcn component file
 - [ ] Wrapper class present on feature root
-- [ ] No contradictions with `studio-dark-ui.md` or `tailwind-shadcn-bridge.mdc`
+- [ ] No contradictions with `studio-dark-ui.mdc` or `tailwind-shadcn-bridge.mdc`
