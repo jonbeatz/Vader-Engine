@@ -48,7 +48,8 @@ This directory houses the foundational competence profiles and execution runbook
 | Env ingestion (zero-leak) | [env-ingestion-compliance.mdc](../rules/env-ingestion-compliance.mdc) |
 | Constitution | [TRUTH.md](../docs/TRUTH.md) |
 | Repair protocols | [REPAIR_PROTOCOLS.md](../docs/REPAIR_PROTOCOLS.md) |
-| npm script appendix | [config/npm-scripts-appendix.json](../../config/npm-scripts-appendix.json) |
+| Consumer bootstrap | [consumer-bootstrap.md](../docs/consumer-bootstrap.md) |
+| npm script appendix (mirror) | [config/npm-scripts-appendix.json](../../config/npm-scripts-appendix.json) |
 | Project log | [project-log.md](../docs/project-log.md) |
 | Incident log | [incident-log.md](../docs/incident-log.md) |
 

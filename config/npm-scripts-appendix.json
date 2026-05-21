@@ -1,5 +1,5 @@
 {
-  "_comment": "Merge these into consumer package.json scripts — template package.json is not modified.",
+  "_comment": "Mirror reference only — canonical scripts live in package.json at repo root.",
   "scripts": {
     "repair:sqlite": "node scripts/msc-sqlite-repair.mjs",
     "db:wal-purge": "node scripts/msc-sqlite-wal-purge.mjs --force",

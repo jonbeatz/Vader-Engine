@@ -23,11 +23,12 @@ Selectable strategies — enable via `.env.local` (live) + `.env.example` (contr
 | `MSC_SMOKE_RUN_TYPECHECK` | `1` | Start smoke runs `tsc` | `scripts/msc-start-project-smoke.mjs` |
 | `MSC_SMOKE_RUN_MIGRATIONS` | path to script | Optional migration check | start-project-smoke |
 | `MSC_REPAIR_AST` | `1` | Enable AST repair stub | `scripts/repair/msc-fix-suspense.mjs` |
+| `MSC_SMOKE_STRICT` | `1` | Fail smoke when dev port not listening | `msc-local-http-smoke.mjs` |
 | `MSC_DEV_PORT` | port | Kill/smoke/hook guard | all gate scripts |
 
 ## npm script aliases (consumer `package.json`)
 
-Copy from `config/npm-scripts-appendix.json` — **not** wired in template `package.json` (protected).
+Canonical registry: root `package.json`. Mirror copy: `config/npm-scripts-appendix.json` for consumer merges.
 
 | Alias | Command |
 |-------|---------|
