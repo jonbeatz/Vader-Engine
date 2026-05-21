@@ -2,6 +2,10 @@
 
 Single source of truth for repository layout, subsystem boundaries, and integration contracts. Aligns with the master profile in [README.md](../../README.md). Agent routing compass: [Code-Jedi.md](./Code-Jedi.md). Technical precedence: [TRUTH.md](./TRUTH.md).
 
+> **Namespace Protocol:** All custom modules and CSS utilize the `msc-` or `MSC_` prefix to ensure cross-project portability and prevent integration conflicts. These are treated as structural namespaces for collision prevention, not branding. When cloning this boilerplate for a new project, these can be globally replaced if a different namespace anchor is required.
+
+**Core engine files:** `scripts/msc-core-sync.mjs`, `core/msc-core-engine.ts` (`MSC-Core-*` documentation convention; `msc-core-*` on disk).
+
 ---
 
 ## Unified Core Layout Tree
@@ -54,7 +58,7 @@ Portable contracts and terminal gates shared across PHP, Payload/Next, and stand
 | Area | `core/` modules | `scripts/` gates |
 |------|-----------------|------------------|
 | PHP bootstrap | `msc-bootstrap.php`, `msc-assets.php`, `msc-utilities.php`, `msc-communications.php` | — |
-| Headless CMS | `msc-payload-bridge.ts`, `msc-payload-media-hooks.ts`, `msc-payload-sqlite-push.ts`, `msc-sqlite-path.ts` | `msc-media-sync.mjs` |
+| Headless CMS | `msc-payload-bridge.ts`, `msc-payload-media-hooks.ts`, `msc-payload-sqlite-push.ts`, `msc-sqlite-path.ts` | `msc-core-sync.mjs` |
 | Data safety | `msc-payload-auth-delete-preflight.ts`, portfolio/subscription collections | `msc-sqlite-repair.mjs`, `msc-sqlite-wal-purge.mjs`, `msc-rescue-admin.mjs` (stub) |
 | Runtime recovery | — | `msc-kill-dev-port.mjs`, `msc-local-http-smoke.mjs`, `msc-dev-recover.mjs`, `msc-verify-next-safe.mjs`, `msc-clean-next-cache.mjs` |
 

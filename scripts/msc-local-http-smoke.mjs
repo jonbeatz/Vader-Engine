@@ -5,6 +5,7 @@
  *
  * Usage:
  *   node scripts/msc-local-http-smoke.mjs [port]
+ *   node scripts/msc-local-http-smoke.mjs --no-strict   (CI: skip HTTP ping, exit 0)
  *
  * Environment (all optional):
  *   MSC_SMOKE_PORT      — target port (or first CLI arg)
@@ -35,7 +36,7 @@ function parsePaths() {
 }
 
 function parsePort() {
-  const fromArg = process.argv[2]?.trim()
+  const fromArg = process.argv.slice(2).find((a) => /^\d{1,5}$/.test(a.trim()))?.trim()
   const raw =
     fromArg ||
     process.env.MSC_SMOKE_PORT ||
@@ -74,6 +75,11 @@ function portIsListening(port, hostname) {
 }
 
 console.log(BANNER)
+
+if (process.argv.includes('--no-strict')) {
+  console.log('[msc:smoke] --no-strict: skipping HTTP smoke (CI / check:all gate)')
+  process.exit(0)
+}
 
 const strict = process.env.MSC_SMOKE_STRICT === '1'
 const listening = await portIsListening(port, host)

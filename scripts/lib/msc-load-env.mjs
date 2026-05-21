@@ -24,3 +24,18 @@ if (fs.existsSync(examplePath)) {
 }
 
 export const MSC_PROJECT_ROOT = ROOT
+
+/** Returns true when env contract files were applied (at least one known key present). */
+export function msc_envHydrationReady() {
+  const keys = [
+    'DATABASE_URI',
+    'DATABASE_URL',
+    'MSC_PUBLIC_ORIGIN',
+    'MSC_DEV_PORT',
+    'PAYLOAD_SECRET',
+  ]
+  return keys.some((k) => {
+    const v = process.env[k]
+    return typeof v === 'string' && v.trim().length > 0
+  })
+}

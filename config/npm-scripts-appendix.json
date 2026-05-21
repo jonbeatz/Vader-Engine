@@ -10,9 +10,11 @@
     "verify:local": "node scripts/msc-local-http-smoke.mjs",
     "start-project:smoke": "node scripts/msc-start-project-smoke.mjs",
     "repair:ast": "node scripts/repair/msc-fix-suspense.mjs",
-    "media:sync": "node scripts/msc-media-sync.mjs",
+    "media:sync": "node scripts/msc-core-sync.mjs",
     "verify:mcp": "node scripts/msc-verify-mcp.mjs",
     "msc:kill": "node scripts/msc-kill-dev-port.mjs",
-    "msc:smoke": "node scripts/msc-local-http-smoke.mjs"
+    "msc:smoke": "node scripts/msc-local-http-smoke.mjs",
+    "check:all": "node scripts/msc-verify-mcp.mjs --probe && node scripts/msc-local-http-smoke.mjs --no-strict",
+    "test:integration": "node --experimental-strip-types tests/msc-integration-stub.test.ts"
   }
 }

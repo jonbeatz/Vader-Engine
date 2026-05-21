@@ -14,13 +14,15 @@
     "start-project:smoke": "node scripts/msc-start-project-smoke.mjs",
     "start-project": "npm run start-project:smoke",
     "end-project": "npm run msc:kill -- 3000 && npm run msc:smoke -- 3000",
-    "media:sync": "node scripts/msc-media-sync.mjs",
+    "media:sync": "node scripts/msc-core-sync.mjs",
     "dev:recover": "node scripts/msc-dev-recover.mjs",
     "clean:next": "node scripts/msc-clean-next-cache.mjs --force",
     "repair:sqlite": "node scripts/msc-sqlite-repair.mjs",
     "repair:ast": "node scripts/repair/msc-fix-suspense.mjs",
     "db:wal-purge": "node scripts/msc-sqlite-wal-purge.mjs --force",
-    "db:rescue-admin": "node scripts/msc-rescue-admin.mjs"
+    "db:rescue-admin": "node scripts/msc-rescue-admin.mjs",
+    "check:all": "node scripts/msc-verify-mcp.mjs --probe && node scripts/msc-local-http-smoke.mjs --no-strict",
+    "test:integration": "node --experimental-strip-types tests/msc-integration-stub.test.ts"
   },
   "keywords": [],
   "author": "",

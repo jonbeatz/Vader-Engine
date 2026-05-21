@@ -1,6 +1,6 @@
 # Media Strategy Specifications
 
-Multi-strategy media pipeline for Payload CMS consumers. Configuration lives in `.env` / `.env.local`; implementation in `core/msc-payload-media-hooks.ts` and `scripts/msc-media-sync.mjs`.
+Multi-strategy media pipeline for Payload CMS consumers. Configuration lives in `.env` / `.env.local`; implementation in `core/msc-payload-media-hooks.ts` and `scripts/msc-core-sync.mjs`.
 
 ---
 
@@ -160,4 +160,4 @@ Exit code **1** when orphans or unlinked rows are found (filesystem or compare m
 
 - `.cursor/docs/local-ai-proxy-setup.md` — separate AI proxy ports (4000/8000)
 - `core/msc-portfolio-collection.ts` — `featuredImage` → `media` relationship
-- `core/msc-media-engine.ts` — video/stream portal contracts (Bunny, Presto, YouTube)
+- `core/msc-core-engine.ts` — video/stream portal contracts (Bunny, Presto, YouTube)

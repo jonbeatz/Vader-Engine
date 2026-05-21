@@ -4,6 +4,10 @@
 
 **Constraints:** Unbranded baseline. Read secrets from `.env.local` via `process.env.*` only. Never paste API keys or passwords into chat.
 
+> **Namespace Protocol:** All custom modules and CSS utilize the `msc-` or `MSC_` prefix to ensure cross-project portability and prevent integration conflicts. These are treated as structural namespaces for collision prevention, not branding. When cloning this boilerplate for a new project, these can be globally replaced if a different namespace anchor is required.
+
+**Module file convention:** Consumer-facing engine files use the **`MSC-Core-`** prefix (e.g. `MSC-Core-Sync.mjs` → `scripts/msc-core-sync.mjs`). This is documentation naming; on-disk script files remain lowercase `msc-core-*` aligned with `msc_` / `msc-` anchors.
+
 ---
 
 ## Quick agent checklist
@@ -26,11 +30,11 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 |---------------------|-----------------|----------------------|------------|
 | **Email signup & verification sequence** | `core/msc-payload-bridge.ts` (`MscSubscribersCollection`), `core/msc-subscription-handler.ts`, `core/msc-communications.php` | `.env.local`: `MSC_STUDIO_OUTGOING_*`, `BREVO_API_KEY`, `FLUENT_SMTP_CONFIG`, `PAYLOAD_SECRET`, `MSC_PUBLIC_ORIGIN`; CSRF via `msc_buildCsrfOrigins()` | Consumer Payload routes + `process.env` mail keys; validate at trust boundaries |
 | **Database state & schema modifications** | `core/msc-sqlite-path.ts`, `core/msc-payload-sqlite-push.ts`, `core/msc-payload-bridge.ts` | `DATABASE_URI` / `DATABASE_URL`, `PAYLOAD_SQLITE_PUSH`, `PAYLOAD_MIGRATING`, `MSC_SQLITE_REPAIR_MANIFEST` | `npm run repair:sqlite`, `npm run db:wal-purge`; skill: [local-data-operations.md](../skills/local-data-operations.md) |
-| **Media handling & streaming CDN** | `core/msc-payload-media-hooks.ts`, `core/msc-media-engine.ts` | `MSC_MEDIA_STRATEGY` (`local` \| `multi-tenant` \| `stream-cdn`), CDN vars in `.env.example` | `npm run media:sync`; spec: [media-strategy-specs.md](./media-strategy-specs.md) |
+| **Core asset handling & streaming CDN** | `core/msc-payload-media-hooks.ts`, `core/msc-core-engine.ts`, `scripts/msc-core-sync.mjs` | `MSC_MEDIA_STRATEGY` (`local` \| `multi-tenant` \| `stream-cdn`), CDN vars in `.env.example` | `npm run media:sync` → `msc-core-sync.mjs`; spec: [media-strategy-specs.md](./media-strategy-specs.md) |
 | **Studio Dark UI layout & scoped customization** | `ui/msc-shield.css`, `ui/msc-shield-extensions.css`, `ui/msc-hero-slider.css`, `ui/msc-project-manager.tsx`, `ui/msc-portfolio-viewer.tsx` | `MSC_SHIELD_EXTENSIONS=1`; tokens `#121212` / `#1c1c1c` / `--msc-accent` | Rule: [studio-dark-ui.md](../rules/studio-dark-ui.md); PHP enqueue: `core/msc-assets.php` |
 | **Auth admin & user lifecycle** | `core/msc-payload-auth-delete-preflight.ts`, `core/msc-auth-admin.ts` | `MSC_RESCUE_*` for lockout stub | `npm run db:rescue-admin` (consumer implementation); hook `preflightDeleteAuthUserRows` on auth collections |
 | **Portfolio / showcase grid** | `core/msc-portfolio-collection.ts`, `ui/msc-portfolio-viewer.tsx` | Register collection in consumer `payload.config.ts` | Reuse `msc-dashboard-container` + `msc-card-panel` patterns |
-| **WordPress / Divi integration** | `core/msc-bootstrap.php`, `core/msc-utilities.php`, `core/msc-assets.php`; consumer bridge `core-Divi-Scriptz.js` (master frontend script) | `msc_` PHP prefix, `msc-` CSS scope; enforce **`MSC-Media-`** file naming on media-related theme/plugin assets | Skill: [wordpress-divi-engineering.md](../skills/wordpress-divi-engineering.md) |
+| **WordPress / Divi integration** | `core/msc-bootstrap.php`, `core/msc-utilities.php`, `core/msc-assets.php`; consumer bridge `core-Divi-Scriptz.js` (master frontend script) | `msc_` PHP prefix, `msc-` CSS scope; enforce **`MSC-Core-`** file naming on media-related theme/plugin assets | Skill: [wordpress-divi-engineering.md](../skills/wordpress-divi-engineering.md) |
 | **Local dev ports & HTTP health** | `scripts/msc-kill-dev-port.mjs`, `scripts/msc-local-http-smoke.mjs` | `MSC_DEV_PORT` (default **3000**), `MSC_SMOKE_STRICT`, `MSC_SMOKE_PATHS` | `npm run msc:kill`, `npm run verify:local`; skill: [node-runtime-mastery.md](../skills/node-runtime-mastery.md) |
 | **MCP & agent tooling** | `.cursor/mcp.json`, `.cursor/mcp-blueprint.json` | Keys in `.env.local`; placeholders OK in committed JSON | `npm run verify:mcp` (dual-pass hydration audit) |
 | **Next.js consumer app bootstrap** | Copy `core/`, `scripts/`, `ui/`, `.cursor/` | Full `.env.local` contract | Guide: [consumer-bootstrap.md](./consumer-bootstrap.md) |
@@ -76,7 +80,7 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 
 | Script | When to invoke | What it does |
 |--------|----------------|--------------|
-| `npm run media:sync` | Orphan files vs Payload `media` collection | Strategy-aware scan; `--with-payload` when CMS linked |
+| `npm run media:sync` | Orphan files vs Payload `media` collection | Runs `scripts/msc-core-sync.mjs`; strategy-aware scan; `--with-payload` when CMS linked |
 
 ### Agent sanity & MCP
 
@@ -91,6 +95,8 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 |--------|----------------|--------------|
 | `npm run msc:kill` | Before smoke, build, or recover | Cross-platform listener termination |
 | `npm run repair:ast` | Suspense / AST boundary issues (consumer) | Stub unless `MSC_REPAIR_AST=1` |
+| `npm run check:all` | **CI/CD green light** (GitHub Actions, etc.) | MCP `--probe` + smoke `--no-strict` (no dev server) |
+| `npm run test:integration` | Baseline engine + env hydration stub | `tests/msc-integration-stub.test.ts` |
 
 **Canonical web gate sequence (Fix-Local-First):**
 
@@ -160,7 +166,7 @@ Read in this order when depth is required. Do not skip upward links when docs co
 
 | Path | Agent use |
 |------|-----------|
-| `core/` | PHP bootstrap, Payload bridge, SQLite helpers, media hooks, auth preflight, subscriptions |
+| `core/` | PHP bootstrap, Payload bridge, SQLite helpers, `msc-core-engine`, media hooks, auth preflight, subscriptions |
 | `scripts/` | All terminal gates; import `lib/msc-load-env.mjs` first in new entry scripts |
 | `ui/` | Scoped Studio Dark CSS + TSX dashboard primitives |
 | `config/` | LiteLLM YAML, SQLite repair manifest example, npm mirror JSON |
