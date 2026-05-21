@@ -1,8 +1,8 @@
 # Boilerplate-v2 — Jedi-Master Edition
-[![Grade](https://img.shields.io/badge/grade-38%2F38-brightgreen)](https://github.com/jonbeatz/Boilerplate-v1)
-[![Node Version](https://img.shields.io/badge/node-20-339933)](https://nodejs.org/)
-[![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Grade](https://img.shields.io/badge/grade-38%2F38-成功)](https://github.com/jonbeatz/Boilerplate-v1)
+[![Node Version](https://img.shields.io/badge/node-20-绿色)](https://nodejs.org/)
+[![Cursor](https://img.shields.io/badge/Cursor-optimized-紫色)](https://cursor.sh/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-黄色.svg)](https://opensource.org/licenses/MIT)
 
 **v2.0.0-JEDI** production baseline · [github.com/jonbeatz/Boilerplate-v1](https://github.com/jonbeatz/Boilerplate-v1)
 
@@ -187,5 +187,3 @@ To maintain the Lean Boundary Rule while satisfying strict package restrictions,
 - **Powered by** the MSC Media Engine · Vader Protocol — strict namespace isolation certified
 - **Cursor-native** — calibrated for Cursor 3 Agent and Composer execution paths
 - **Release certified:** v2.0.0-JEDI · 38/38 grade — 100% pass rate. Production ready.
-
-**Operator docs:** [HOW-TO.md](.cursor/docs/HOW-TO.md) · [START-HERE.md](START-HERE.md) · [DOCS.md](DOCS.md) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
