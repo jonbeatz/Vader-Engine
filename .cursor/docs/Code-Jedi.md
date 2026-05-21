@@ -86,8 +86,19 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 
 | Script | When to invoke | What it does |
 |--------|----------------|--------------|
-| `npm run verify:mcp` | After editing `.cursor/mcp.json` or `.env.local` keys | **Dual-pass:** JSON placeholders + `process.env` hydration |
+| `npm run verify:mcp` | After editing `.cursor/mcp.json` or `.env.local` keys; **runs on every `git commit`** (Husky pre-commit) | **Dual-pass:** JSON placeholders + `process.env` hydration; exit **1** aborts commit |
 | `npm run verify:mcp:probe` | Optional registry reachability | Adds npx package probe (slower) |
+
+### Lifecycle automation
+
+| Script | When to invoke | What it does |
+|--------|----------------|--------------|
+| `npm run log` | Session milestone or feature close | `msc-log-event.mjs` → appends `### [YYYY-MM-DD] - [type] - [msg]` to `.cursor/docs/project-log.md` (skips exact duplicate of last entry) |
+| `npm run inventory` | After MCP or dependency changes | `msc-generate-inventory.mjs` → refreshes `.cursor/docs/README-inventory.md` (MCP + npm tables, env health) |
+
+**Log usage:** `npm run log -- --type feat --msg "Description"` (`feat` \| `fix` \| `chore`).
+
+**Husky:** `.husky/pre-commit` → `npm run verify:mcp`. Install hooks: `npm install` (runs `prepare`).
 
 ### Port control & repair utilities
 

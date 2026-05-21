@@ -43,6 +43,8 @@ Canonical registry: root `package.json`. Mirror copy: `config/npm-scripts-append
 | `repair:ast` | `MSC_REPAIR_AST=1 node scripts/repair/msc-fix-suspense.mjs` |
 | `media:sync` | `node scripts/msc-core-sync.mjs` |
 | `verify:mcp` | `node scripts/msc-verify-mcp.mjs` |
+| `log` | `node scripts/msc-log-event.mjs` |
+| `inventory` | `node scripts/msc-generate-inventory.mjs` |
 
 ## Skills & rules routing
 
