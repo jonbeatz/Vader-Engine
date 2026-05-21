@@ -57,8 +57,15 @@ console.log(`${BANNER} starting boilerplate quickstart`)
 copyEnvTemplate()
 runInstall()
 installExample()
+
+log('running environment validation...')
+execSync('node scripts/validate-env.mjs', {
+  cwd: MSC_PROJECT_ROOT,
+  stdio: 'inherit',
+  shell: true,
+})
+
 console.log('\n========================================')
 console.log('  ✅ MSC BOOTSTRAP QUICKSTART COMPLETE')
-console.log('  Next: npm run msc:validate-env')
 console.log('  Dev:  npm run msc:dev:example  (port 3000)')
 console.log('========================================\n')
