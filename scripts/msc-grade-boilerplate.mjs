@@ -88,6 +88,13 @@ report('msc-components.css exists', pathExists('ui/msc-components.css'))
 report('examples/nextjs-minimal/package.json exists', pathExists('examples/nextjs-minimal/package.json'))
 report('.devcontainer/devcontainer.json exists', pathExists('.devcontainer/devcontainer.json'))
 
+// 4c. Jedi roadmap P0 guardrails
+report('.nvmrc exists (Node 20 lock)', pathExists('.nvmrc'))
+report('.github/workflows/ci.yml exists', pathExists('.github/workflows/ci.yml'))
+report('health.mjs exists', pathExists('scripts/health.mjs'))
+report('msc-update.mjs exists', pathExists('scripts/msc-update.mjs'))
+report('msc-forge.mjs exists', pathExists('scripts/msc-forge.mjs'))
+
 // 5. Automation & lifecycle
 report('Husky pre-commit exists', pathExists('.husky/pre-commit'))
 if (pathExists('.husky/pre-commit')) {
@@ -110,6 +117,9 @@ try {
     'msc:validate-env',
     'msc:kill-dev-port',
     'msc:dev:example',
+    'msc:health',
+    'msc:update',
+    'msc:forge',
     'verify:mcp',
     'verify:local',
     'log',

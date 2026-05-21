@@ -1,0 +1,29 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Hydrate Core Dependencies
+        run: npm ci
+
+      - name: Run Global Credentials Scan Gate
+        run: npm run msc:validate-env
+
+      - name: Run Project Integration Self-Grader
+        run: npm run grade
+
+      - name: Validate Next.js Minimal Workspace Sandbox
+        run: |
+          cd examples/nextjs-minimal
+          npm ci
+          npm run test

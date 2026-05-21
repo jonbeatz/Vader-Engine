@@ -6,7 +6,10 @@
   "main": "core/msc-bootstrap.php",
   "scripts": {
     "prepare": "husky",
-    "bootstrap": "npm run msc:kill-dev-port && node scripts/quickstart.mjs && npm run msc:validate-env",
+    "bootstrap": "npm run msc:kill-dev-port && node scripts/quickstart.mjs",
+    "msc:health": "node scripts/health.mjs",
+    "msc:update": "node scripts/msc-update.mjs",
+    "msc:forge": "node scripts/msc-forge.mjs",
     "msc:quickstart": "node scripts/quickstart.mjs",
     "msc:validate-env": "node scripts/validate-env.mjs",
     "msc:kill-dev-port": "node scripts/kill-ports.mjs",
