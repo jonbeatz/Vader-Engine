@@ -1,6 +1,6 @@
 # System Architecture Map
 
-Single source of truth for repository layout, subsystem boundaries, and integration contracts. Aligns with the master profile in [README.md](../../README.md). Technical precedence: [TRUTH.md](./TRUTH.md).
+Single source of truth for repository layout, subsystem boundaries, and integration contracts. Aligns with the master profile in [README.md](../../README.md). Agent routing compass: [Code-Jedi.md](./Code-Jedi.md). Technical precedence: [TRUTH.md](./TRUTH.md).
 
 ---
 

@@ -2,6 +2,8 @@
 
 Welcome to the baseline repository configuration sandbox. This environment is structured as an unbranded, zero-overhead, highly defensive software factory layer.
 
+**Primary agent compass:** [.cursor/docs/Code-Jedi.md](.cursor/docs/Code-Jedi.md) — tactical intent matrix, full npm script inventory, and documentation SSoT reading order. Open it when routing features to `core/`, `scripts/`, or `ui/` modules.
+
 ## The Core Onboarding Map
 
 Before writing, modifying, or refactoring any code files within this workspace, you must sequentially execute and verify the following architectural steps:
@@ -54,6 +56,7 @@ npm run msc:smoke -- 3000
 
 | Topic | Path |
 |-------|------|
+| **Master AI routing compass** | `.cursor/docs/Code-Jedi.md` |
 | Competency routing (Nodes 1–7) | `.cursor/skills/README.md` |
 | MCP setup & API keys | `.cursor/docs/mcp-setup.md` · `.env.example` |
 | Local LiteLLM & ngrok proxy | `.cursor/docs/local-ai-proxy-setup.md` · `config/litellm_config.yaml` |
