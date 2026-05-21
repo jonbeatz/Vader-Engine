@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+/**
+ * MSC Jedi-Health — JSON-hookable console diagnostic engine (Roadmap §3.3)
+ * Socket probes: 3000, 3001, 8080 · .env.local · .nvmrc
+ * Powered by the MSC Media Engine
+ */
 import './lib/msc-load-env.mjs'
 
 import net from 'node:net'
@@ -13,7 +18,9 @@ function probeSocket(port) {
   return new Promise((resolve) => {
     const socket = new net.Socket()
     socket.setTimeout(400)
+    // Fires when a service accepts connections actively
     socket.on('connect', () => { socket.destroy(); resolve('OCCUPIED') })
+    // Unbound or TIME_WAIT recycling windows
     socket.on('error', () => { socket.destroy(); resolve('AVAILABLE') })
     socket.on('timeout', () => { socket.destroy(); resolve('TIMEOUT') })
     socket.connect(port, '127.0.0.1')
@@ -41,4 +48,7 @@ async function runSystemDiagnostics() {
   }
 }
 
-runSystemDiagnostics()
+runSystemDiagnostics().catch((err) => {
+  console.error('[msc:health] diagnostic failure:', err.message)
+  process.exit(1)
+})
