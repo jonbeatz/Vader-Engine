@@ -23,8 +23,8 @@ Boilerplate-v1/
 │   ├── mcp-blueprint.json        ◄ Optional server catalog (sanitized)
 │   ├── hooks.json                ◄ Optional: block clean:next while dev is live
 │   ├── prompts/                  ◄ Operational gates (task-planner, session-handoff, …)
-│   ├── skills/                   ◄ 7-node competency index (README.md)
-│   ├── rules/                    ◄ Studio Dark UI, local-runtime-recovery
+│   ├── skills/                   ◄ 8-node competency index (README.md)
+│   ├── rules/                    ◄ Env compliance, Studio Dark, design-system, Tailwind bridge
 │   └── docs/                     ◄ TRUTH, options matrix, repair, MCP, media, deploy
 ├── core/                         ◄ PHP bootstrappers & headless TS contracts
 ├── config/                       ◄ LiteLLM mapping, npm appendix, SQLite repair manifest
@@ -44,7 +44,7 @@ Technical precedence and env strategies: [`.cursor/docs/TRUTH.md`](.cursor/docs/
 | **`core/`** | `msc-bootstrap.php`, Payload bridge, SQLite path/push helpers, media hooks, portfolio schema, auth preflight |
 | **`config/`** | Proxy config (`litellm_config.yaml`), consumer `npm-scripts-appendix.json`, repair manifest example |
 | **`scripts/`** | Port kill, HTTP smoke, MCP verify, dev recover, SQLite repair/WAL purge, media sync, safe Next prep |
-| **`ui/`** | `msc-shield.css` (canonical tokens) + optional `msc-shield-extensions.css` (glass, forms, motion) |
+| **`ui/`** | Global Shield chain: `msc-shield-load.css` → satellites (`msc-layout`, `msc-components`, `msc-[feature].css`) + optional extensions |
 
 ---
 
@@ -79,7 +79,8 @@ All new capabilities are **opt-in** — no forced defaults. Highlights:
 | Media pipeline | `MSC_MEDIA_STRATEGY=local\|multi-tenant\|stream-cdn` | [media-strategy-specs.md](.cursor/docs/media-strategy-specs.md) |
 | SQLite push gating | `PAYLOAD_SQLITE_PUSH`, `PAYLOAD_MIGRATING` | [ecosystem-options-matrix.md](.cursor/docs/ecosystem-options-matrix.md) |
 | Schema repair | `MSC_SQLITE_REPAIR_MANIFEST` | [sqlite-repair-manifest.md](.cursor/docs/sqlite-repair-manifest.md) |
-| UI extensions | `MSC_SHIELD_EXTENSIONS=1` | [studio-dark-ui.md](.cursor/rules/studio-dark-ui.md) |
+| UI extensions | `MSC_SHIELD_EXTENSIONS=1` | [studio-dark-ui.md](.cursor/rules/studio-dark-ui.md) · hybrid §6 [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) |
+| UI Path B (Tailwind/shadcn) | Consumer `components.json` + MCP `shadcn`, `context7` | [tailwind-shadcn-bridge.mdc](.cursor/rules/tailwind-shadcn-bridge.mdc) |
 
 Full matrix: [discovered-logic-map.md](.cursor/docs/discovered-logic-map.md) (pillar-repo port audit).
 
@@ -95,7 +96,7 @@ if (file_exists(__DIR__ . '/core/msc-bootstrap.php')) {
 }
 ```
 
-Visual shield loads `ui/msc-shield.css` (and extensions when `MSC_SHIELD_EXTENSIONS=1`).
+Visual shield: `msc_enqueue_shield_satellite_chain()` in `core/msc-assets.php` (Shield → Layout → Components → Features → optional Extensions). See [studio-dark-shield.md](.cursor/skills/studio-dark-shield.md).
 
 ---
 
@@ -112,4 +113,4 @@ export default msc_createPayloadConfig({ /* collections */ })
 
 ## WordPress / Divi
 
-Use `msc_` PHP prefixes and `msc-` CSS classes per [wordpress-divi-engineering.md](.cursor/skills/wordpress-divi-engineering.md). Enqueue order: shield → optional extensions → hero slider (`core/msc-assets.php`).
+Use `msc_` PHP prefixes and `msc-` CSS classes per [wordpress-divi-engineering.md](.cursor/skills/wordpress-divi-engineering.md). Asset enqueue: `core/msc-assets.php` (full satellite chain — Path A).

@@ -18,7 +18,8 @@ Single source of truth for repository layout, subsystem boundaries, and integrat
 ├── 📂 .cursor/
 │   ├── 📄 mcp.json                ◄ [Project-Scoped AI Agent Context Connectors]
 │   ├── 📂 prompts/                ◄ [Operational Gates: task-planner, session-handoff]
-│   └── 📂 skills/                 ◄ [The 7-Node Architectural Competency Index]
+│   ├── 📂 rules/                  ◄ [Env compliance, Studio Dark, design-system, Tailwind bridge]
+│   └── 📂 skills/                 ◄ [The 8-Node Architectural Competency Index]
 ├── 📂 core/                       ◄ [PHP Engine Bootstrappers & Headless TS Contracts]
 ├── 📂 config/                     ◄ [Proxy Mappings & Structural Configuration Appendixes]
 ├── 📂 scripts/                    ◄ [Defensive Terminal Automation & Repair Gates]
@@ -41,8 +42,9 @@ Cold-start ignition routes operators through environment copy, MCP verification,
 |-------|----------|
 | `START-HERE.md` | Ordered runbook: env → gates → dev lifecycle |
 | `.cursor/prompts/` | **task-planner** (session open), **session-handoff** (close), incident/refactor protocols |
-| `.cursor/skills/README.md` | Seven-node competency router (WordPress, Node runtime, data ops, docs governance, handoff, AI proxy, GitHub) |
-| `.cursor/mcp.json` | Project-scoped MCP server definitions (keys via env, never committed) |
+| `.cursor/skills/README.md` | Eight-node competency router (incl. Studio Dark Shield) |
+| `.cursor/rules/README.md` | Always-on and scoped agent rules index |
+| `.cursor/mcp.json` | Project MCP (13 servers); placeholders in Git; live keys in `.env.local` only |
 | `scripts/msc-verify-mcp.mjs` | Structural MCP config validation |
 
 Agents read skills and prompts first; MCP extends filesystem, GitHub, search, and optional CMS connectors without embedding secrets in the tree.
@@ -91,6 +93,8 @@ Visual layer is **scope-isolated**—tokens and components bind to `.msc-viewpor
 
 PHP enqueue: `core/msc-assets.php` → Shield → Layout → Components → Features → optional Extensions. Next/React: import `ui/msc-shield-load.css` (or match that order manually).
 
+**Hybrid consumers:** Path B (Tailwind/shadcn) bridges tokens per [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc); Path A surfaces remain satellite-only. Skill: [studio-dark-shield.md](../skills/studio-dark-shield.md).
+
 ---
 
 ### 4. Multi-Strategy Configuration Matrix
@@ -106,6 +110,7 @@ All cross-cutting behavior is **selectable**, not defaulted. Operators enable st
 | Schema repair | `MSC_SQLITE_REPAIR_MANIFEST`, `MSC_SQLITE_REPAIR_DRY_RUN` | `config/sqlite-repair-manifest.example.json` |
 | Media pipeline | `MSC_MEDIA_STRATEGY` (`local` \| `multi-tenant` \| `stream-cdn`) | [media-strategy-specs.md](./media-strategy-specs.md) |
 | UI extensions | `MSC_SHIELD_EXTENSIONS` | `ui/msc-shield-extensions.css` |
+| UI hybrid (consumer) | `components.json` + MCP `shadcn` / `context7` | [consumer-bootstrap.md](./consumer-bootstrap.md) §6 |
 | Build / recovery | `MSC_CLEAN_NEXT`, `MSC_DEV_RECOVER_CLEAN`, `MSC_VERIFY_NEXT_RUN_BUILD` | [REPAIR_PROTOCOLS.md](./REPAIR_PROTOCOLS.md) |
 | AI proxy | `MSC_LITELLM_PORT`, GCP paths under `config/` | [local-ai-proxy-setup.md](./local-ai-proxy-setup.md) |
 | MCP integrations | Keys mirrored in `.env.example` | [mcp-setup.md](./mcp-setup.md) |
@@ -130,7 +135,7 @@ Consumer `package.json` scripts are appended from `config/npm-scripts-appendix.j
 
 ---
 
-## Agent Competency Index (7 Nodes)
+## Agent Competency Index (8 Nodes)
 
 See [`.cursor/skills/README.md`](../skills/README.md):
 
@@ -141,6 +146,7 @@ See [`.cursor/skills/README.md`](../skills/README.md):
 5. Session Handoff & Project Closeout  
 6. Local AI Proxy Engine (doc Node 6)  
 7. GitHub Automation & Release Governance (doc Node 7)  
+8. Studio Dark Shield (Path A / Path B UI routing)  
 
 ---
 

@@ -31,4 +31,11 @@ Load order: `.env.local` → `.env.example` (`override: false` on second pass).
 - New integration: add key to `.env.example`, operator sets value in `.env.local`, document in `mcp-setup.md` if MCP-related.
 - In replies, reference only `VARIABLE_NAME` — never reproduce values from `.env.local`.
 
-See `START-HERE.md` Phase 2 and `.cursorrules` Security / Local Environment Ingestion.
+## MCP & committed config (zero-leak)
+
+- `.cursor/mcp.json` in Git may keep `YOUR_*` placeholders — **never** replace them with live tokens in a commit.
+- Live MCP secrets belong in `.env.local` and/or Cursor Settings → MCP env; scripts hydrate via `msc-load-env.mjs`.
+- `shadcn` and `context7` servers require **no** API keys in `.env.example` for baseline use.
+- `npm run verify:mcp` validates structure only; it does not print secret values.
+
+See `START-HERE.md` Phase 2, `.cursorrules` Security / Local Environment Ingestion, and [mcp-setup.md](../docs/mcp-setup.md).

@@ -8,12 +8,13 @@ description: >-
 
 # WordPress & Divi Engineering (Universal)
 
- Pair with `.cursor/rules/studio-dark-ui.md` for visual tokens.
+Pair with [studio-dark-shield.md](./studio-dark-shield.md) (Path A) and `.cursor/rules/studio-dark-ui.md` for visual tokens.
 
 ## Scope gate
 
 - Apply when the active task is WordPress, Divi 4 (Classic Builder / `et_pb_*`), ACF, or child-theme PHP/CSS.
-- For Next.js, Electron, or standalone Node/PHP apps, defer to `node-runtime-mastery.md` and root `.cursorrules`.
+- For Next.js app shells (Tailwind/shadcn), defer to Path B in `studio-dark-shield.md` and `tailwind-shadcn-bridge.mdc`.
+- For Electron or standalone Node apps, defer to `node-runtime-mastery.md` and root `.cursorrules`.
 
 ## Core identity
 
@@ -30,6 +31,12 @@ description: >-
 - **Priority:** Document non-default priorities when order matters; prefer late enqueue (`wp_enqueue_scripts` priority ≥ 10) for front-end assets.
 - **Conditional registration:** Register hooks inside `msc_bootstrap_*` loaders only when the feature is enabled (option flag or environment constant).
 - **Remove on teardown:** Use `remove_action` / `remove_filter` when unregistering feature modules to prevent ghost hooks after deactivation.
+
+## Studio Dark asset enqueue (Path A)
+
+- Use `core/msc-assets.php` → `msc_enqueue_shield_satellite_chain()` (Shield → Layout → Components → Features → optional Extensions).
+- Do not hand-enqueue only `msc-shield.css` unless you intentionally omit satellites.
+- Set `MSC_SHIELD_EXTENSIONS=1` when glass/forms/motion packs are required.
 
 ## Theme Builder & asset bloat prevention
 

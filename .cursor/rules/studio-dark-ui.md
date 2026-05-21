@@ -2,6 +2,8 @@
 
 Any time a UI component, dashboard panel, or layout widget is generated, follow the **Global Shield** Core-to-Satellite CSS architecture. Do not write styles inside React/TSX components or ad-hoc `.css` files outside `ui/`.
 
+**Companion rules:** [design-system-rules.mdc](./design-system-rules.mdc) (tokens first) · [tailwind-shadcn-bridge.mdc](./tailwind-shadcn-bridge.mdc) (Path B only) · index [rules/README.md](./README.md).
+
 ## Design tokens (defined only in `ui/msc-shield.css`)
 
 - `--msc-bg-main`: `#121212`
@@ -46,3 +48,7 @@ Before creating a new style, check `ui/msc-shield.css` for an existing variable.
 ## Optional extensions
 
 Set `MSC_SHIELD_EXTENSIONS=1` for glass, forms, a11y, motion, and extended tokens (`msc-shield-tokens-extended.css`).
+
+## Hybrid consumers (Next.js + shadcn)
+
+Path B only: [tailwind-shadcn-bridge.mdc](./tailwind-shadcn-bridge.mdc) and skill [studio-dark-shield.md](../skills/studio-dark-shield.md). Shield token rules in this file still apply; Tailwind maps `var(--msc-*)` from `msc-shield.css`.

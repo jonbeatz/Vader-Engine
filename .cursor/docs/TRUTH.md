@@ -27,7 +27,11 @@ Reproduce on the operator machine before cloud deploy. Backup SQLite before sche
 - Accent default: `#e02b20` (override via `msc-theme-accent-*` in extensions CSS)
 - Border: `#2d2d2d`
 
-Canonical tokens live in `ui/msc-shield.css`. Extensions are opt-in (`MSC_SHIELD_EXTENSIONS=1`).
+**Token SSoT:** `ui/msc-shield.css` only. Satellites: `ui/msc-layout.css`, `ui/msc-components.css`, `ui/msc-[feature].css`. Barrel: `ui/msc-shield-load.css`. Extensions opt-in (`MSC_SHIELD_EXTENSIONS=1`).
+
+**Consumer paths:** Path A Shield-only (dashboards/WordPress) · Path B hybrid Tailwind/shadcn — [consumer-bootstrap.md](./consumer-bootstrap.md) §6 · skill [studio-dark-shield.md](../skills/studio-dark-shield.md).
+
+**Rules:** [studio-dark-ui.md](../rules/studio-dark-ui.md), [design-system-rules.mdc](../rules/design-system-rules.mdc), [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc) — index [rules/README.md](../rules/README.md).
 
 ## 5. Data safety
 
@@ -37,7 +41,9 @@ Canonical tokens live in `ui/msc-shield.css`. Extensions are opt-in (`MSC_SHIELD
 
 ## 6. Agent tooling
 
-MCP project layer: `.cursor/mcp.json`. Extended catalog: `mcp-setup.md`, `mcp-blueprint.json`. Verify structure with `scripts/msc-verify-mcp.mjs`.
+MCP project layer: `.cursor/mcp.json` (13 servers including `shadcn`, `context7` — no keys in committed JSON for those two). Extended catalog: `mcp-setup.md`, `mcp-blueprint.json`. Verify: `npm run verify:mcp`.
+
+**Zero-leak:** Placeholders (`YOUR_*`) in committed `mcp.json` are intentional. Live values only in `.env.local` / Cursor MCP UI — never commit or paste into chat.
 
 ## 7. Additive-only boilerplate
 

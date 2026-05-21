@@ -31,12 +31,12 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 | **Email signup & verification sequence** | `core/msc-payload-bridge.ts` (`MscSubscribersCollection`), `core/msc-subscription-handler.ts`, `core/msc-communications.php` | `.env.local`: `MSC_STUDIO_OUTGOING_*`, `BREVO_API_KEY`, `FLUENT_SMTP_CONFIG`, `PAYLOAD_SECRET`, `MSC_PUBLIC_ORIGIN`; CSRF via `msc_buildCsrfOrigins()` | Consumer Payload routes + `process.env` mail keys; validate at trust boundaries |
 | **Database state & schema modifications** | `core/msc-sqlite-path.ts`, `core/msc-payload-sqlite-push.ts`, `core/msc-payload-bridge.ts` | `DATABASE_URI` / `DATABASE_URL`, `PAYLOAD_SQLITE_PUSH`, `PAYLOAD_MIGRATING`, `MSC_SQLITE_REPAIR_MANIFEST` | `npm run repair:sqlite`, `npm run db:wal-purge`; skill: [local-data-operations.md](../skills/local-data-operations.md) |
 | **Core asset handling & streaming CDN** | `core/msc-payload-media-hooks.ts`, `core/msc-core-engine.ts`, `scripts/msc-core-sync.mjs` | `MSC_MEDIA_STRATEGY` (`local` \| `multi-tenant` \| `stream-cdn`), CDN vars in `.env.example` | `npm run media:sync` → `msc-core-sync.mjs`; spec: [media-strategy-specs.md](./media-strategy-specs.md) |
-| **Studio Dark UI layout & scoped customization** | `ui/msc-shield-load.css`, `ui/msc-shield.css`, `ui/msc-layout.css`, `ui/msc-components.css`, `ui/msc-[feature].css`, `ui/msc-project-manager.tsx`, `ui/msc-portfolio-viewer.tsx` | `MSC_SHIELD_EXTENSIONS=1`; tokens in Shield only | Rule: [studio-dark-ui.md](../rules/studio-dark-ui.md); enqueue: `core/msc-assets.php` |
+| **Studio Dark UI layout & scoped customization** | `ui/msc-shield-load.css`, satellites, `ui/msc-*.tsx`; MCP: `shadcn`, `context7` | Path A Shield-only · Path B hybrid Tailwind — [consumer-bootstrap.md](./consumer-bootstrap.md) §6 | Rules: [studio-dark-ui.md](../rules/studio-dark-ui.md), [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc), [design-system-rules.mdc](../rules/design-system-rules.mdc); skill: [studio-dark-shield.md](../skills/studio-dark-shield.md) |
 | **Auth admin & user lifecycle** | `core/msc-payload-auth-delete-preflight.ts`, `core/msc-auth-admin.ts` | `MSC_RESCUE_*` for lockout stub | `npm run db:rescue-admin` (consumer implementation); hook `preflightDeleteAuthUserRows` on auth collections |
 | **Portfolio / showcase grid** | `core/msc-portfolio-collection.ts`, `ui/msc-portfolio-viewer.tsx`, `ui/msc-portfolio.css` | Register collection in consumer `payload.config.ts` | `.msc-portfolio-wrapper` + `msc-shield-load.css` |
 | **WordPress / Divi integration** | `core/msc-bootstrap.php`, `core/msc-utilities.php`, `core/msc-assets.php`; consumer bridge `core-Divi-Scriptz.js` (master frontend script) | `msc_` PHP prefix, `msc-` CSS scope; enforce **`MSC-Core-`** file naming on media-related theme/plugin assets | Skill: [wordpress-divi-engineering.md](../skills/wordpress-divi-engineering.md) |
 | **Local dev ports & HTTP health** | `scripts/msc-kill-dev-port.mjs`, `scripts/msc-local-http-smoke.mjs` | `MSC_DEV_PORT` (default **3000**), `MSC_SMOKE_STRICT`, `MSC_SMOKE_PATHS` | `npm run msc:kill`, `npm run verify:local`; skill: [node-runtime-mastery.md](../skills/node-runtime-mastery.md) |
-| **MCP & agent tooling** | `.cursor/mcp.json`, `.cursor/mcp-blueprint.json` | Keys in `.env.local`; placeholders OK in committed JSON | `npm run verify:mcp` (dual-pass hydration audit) |
+| **MCP & agent tooling** | `.cursor/mcp.json`, `.cursor/mcp-blueprint.json` | Keys in `.env.local`; `shadcn` / `context7` need no committed secrets | `npm run verify:mcp` (13 servers; dual-pass hydration audit) |
 | **Next.js consumer app bootstrap** | Copy `core/`, `scripts/`, `ui/`, `.cursor/` | Full `.env.local` contract | Guide: [consumer-bootstrap.md](./consumer-bootstrap.md) |
 | **Session governance & handoff** | `.cursor/prompts/task-planner.md`, `session-handoff.md` | [TRUTH.md](./TRUTH.md) precedence | `npm run end-project`; log: [project-log.md](./project-log.md) |
 | **Deploy / hosting (Node)** | — | `SPACESHIP_*` env keys | [spaceship-node-deployment.md](./spaceship-node-deployment.md) |
@@ -136,7 +136,7 @@ Read in this order when depth is required. Do not skip upward links when docs co
         ┌──────────────────────┴──────────────────────┐
         ▼                      ▼                      ▼
    TRUTH.md          ecosystem-options-matrix.md   skills/README.md
- (constitution)         (env toggles)            (7-node deep dives)
+ (constitution)         (env toggles)            (8-node deep dives)
 ```
 
 ### Satellite references (by task)
@@ -145,6 +145,7 @@ Read in this order when depth is required. Do not skip upward links when docs co
 |------|----------|
 | Env keys & strategies | [ecosystem-options-matrix.md](./ecosystem-options-matrix.md) · [.env.example](../../.env.example) |
 | Zero-leak secrets | [env-ingestion-compliance.mdc](../rules/env-ingestion-compliance.mdc) · [mcp-setup.md](./mcp-setup.md) |
+| UI / CSS / hybrid | [studio-dark-shield.md](../skills/studio-dark-shield.md) · [rules/README.md](../rules/README.md) · [consumer-bootstrap.md](./consumer-bootstrap.md) §6 |
 | SQLite repair | [sqlite-repair-manifest.md](./sqlite-repair-manifest.md) · [REPAIR_PROTOCOLS.md](./REPAIR_PROTOCOLS.md) |
 | Incidents | [incident-response.md](../prompts/incident-response.md) · [incident-log.md](./incident-log.md) |
 | Refactors | [refactor-protocol.md](../prompts/refactor-protocol.md) |
@@ -171,8 +172,8 @@ Read in this order when depth is required. Do not skip upward links when docs co
 | `ui/` | Global Shield CSS satellites + TSX dashboard primitives (`msc-shield-load.css` entry) |
 | `config/` | LiteLLM YAML, SQLite repair manifest example, npm mirror JSON |
 | `.cursor/prompts/` | Session gates and protocols |
-| `.cursor/skills/` | Task-specific competence (7 nodes) |
-| `.cursor/rules/` | Always-on UI and env compliance |
+| `.cursor/skills/` | Task-specific competence (8 nodes) |
+| `.cursor/rules/` | Env compliance + Studio Dark + design-system + Tailwind bridge ([README](../rules/README.md)) |
 | `.cursor/docs/` | Architecture, matrices, logs, this compass |
 
 ---
@@ -195,6 +196,8 @@ Core-to-Satellite flow — **never** add tokens, resets, or feature layout to a 
 
 When adding a feature (e.g. `msc-portfolio-collection`), create `ui/msc-[feature].css` in the same pass.
 
+**Hybrid consumers (Path B):** Tailwind/shadcn app shells may bridge `--msc-*` into `tailwind.config.ts`; tokens remain defined in `msc-shield.css` first. See [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc) — does not replace satellite rules for dashboard surfaces (Path A).
+
 ---
 
 ## 6. Anti-patterns (do not)
@@ -213,7 +216,7 @@ When adding a feature (e.g. `msc-portfolio-collection`), create `ui/msc-[feature
 |----------|------------------------|
 | New agent, blank context | This file → `START-HERE.md` → `npm run start-project` |
 | Building Payload feature | [consumer-bootstrap.md](./consumer-bootstrap.md) + tactical matrix row |
-| UI work | `ui/msc-shield-load.css` → [studio-dark-ui.md](../rules/studio-dark-ui.md) → feature satellite |
+| UI work | [studio-dark-shield.md](../skills/studio-dark-shield.md) → Path A or B in [consumer-bootstrap.md](./consumer-bootstrap.md) §6 |
 | DB incident | [REPAIR_PROTOCOLS.md](./REPAIR_PROTOCOLS.md) → `repair:sqlite` |
 | Port / white screen | `dev:recover` → `verify:next:safe` → restart dev |
 | MCP red in Cursor | `verify:mcp` + `.env.local` keys |
