@@ -1,0 +1,45 @@
+/**
+ * Layout satellite — grid, flex, containers (no feature chrome).
+ * Scoped to namespace containers only; never target bare tags.
+ */
+
+.msc-viewport-shield .msc-container,
+.msc-dashboard-container .msc-container {
+    width: 100%;
+    max-width: min(1200px, 100%);
+    margin-inline: auto;
+}
+
+.msc-viewport-shield .msc-section-padding,
+.msc-dashboard-container .msc-section-padding {
+    padding-block: var(--msc-gap-lg);
+}
+
+.msc-viewport-shield [id^="msc-"],
+.msc-dashboard-container [id^="msc-"] {
+    scroll-margin-top: var(--msc-anchor-offset, 80px);
+}
+
+.msc-viewport-shield .msc-grid-auto-fill,
+.msc-dashboard-container .msc-grid-auto-fill,
+.msc-portfolio-wrapper .msc-grid-auto-fill {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--msc-gap-md);
+}
+
+.msc-viewport-shield .msc-flex-row,
+.msc-dashboard-container .msc-flex-row,
+.msc-dashboard-wrapper .msc-flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--msc-gap-sm);
+}
+
+@media (max-width: 768px) {
+    .msc-viewport-shield .msc-section-padding,
+    .msc-dashboard-container .msc-section-padding {
+        padding-block: var(--msc-gap-md);
+    }
+}

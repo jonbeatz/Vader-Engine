@@ -2,7 +2,7 @@
 
 /**
  * MSC Project Manager — Add Project wizard, project grid, member avatar cluster
- * Requires: msc-shield.css, msc-hero-slider.css (optional), msc-dashboard-container wrapper
+ * Requires: msc-shield-load.css (or Shield → Layout → Components → msc-dashboard.css)
  */
 
 import { useCallback, useState } from "react"
@@ -117,26 +117,14 @@ export function MscAddProjectModal({
 
   return (
     <div
-      className="msc-dashboard-container"
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 100,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "rgba(0,0,0,0.65)",
-      }}
+      className="msc-dashboard-wrapper msc-dashboard-container msc-modal-overlay"
       role="dialog"
       aria-modal="true"
       aria-labelledby="msc-add-project-title"
     >
-      <div
-        className="msc-card-panel"
-        style={{ width: "min(100%, 640px)", maxHeight: "90vh", overflow: "auto" }}
-      >
-        <header style={{ display: "flex", justifyContent: "space-between", marginBottom: "1rem" }}>
-          <h2 id="msc-add-project-title" style={{ margin: 0, color: "var(--msc-accent)" }}>
+      <div className="msc-card-panel msc-modal-panel">
+        <header className="msc-modal-header">
+          <h2 id="msc-add-project-title" className="msc-modal-title">
             Add Project
           </h2>
           <button type="button" onClick={handleClose} aria-label="Close">
@@ -144,17 +132,11 @@ export function MscAddProjectModal({
           </button>
         </header>
 
-        <nav aria-label="Wizard steps" style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "1.25rem" }}>
+        <nav aria-label="Wizard steps" className="msc-wizard-nav">
           {WIZARD_STEPS.map((s, i) => (
             <span
               key={s.id}
-              style={{
-                fontSize: "0.75rem",
-                padding: "0.25rem 0.5rem",
-                borderRadius: "var(--msc-radius, 8px)",
-                background: i === stepIndex ? "var(--msc-accent)" : "var(--msc-bg-surface-hover, #252525)",
-                color: "var(--msc-text-primary)",
-              }}
+              className={i === stepIndex ? "msc-wizard-step msc-wizard-step--active" : "msc-wizard-step"}
             >
               {s.label}
             </span>
@@ -240,7 +222,7 @@ export function MscAddProjectModal({
         {step === "credentials" && (
           <div>
             {credentials.map((c, index) => (
-              <div key={index} className="msc-card-panel" style={{ marginBottom: "0.75rem" }}>
+              <div key={index} className="msc-card-panel msc-credential-row">
                 <input
                   placeholder="Label"
                   value={c.label}
@@ -261,7 +243,7 @@ export function MscAddProjectModal({
                   }}
                   style={{ width: "100%", marginBottom: "0.5rem" }}
                 />
-                <div style={{ display: "flex", gap: "0.5rem" }}>
+                <div className="msc-credential-actions">
                   <input
                     type={c.visible ? "text" : "password"}
                     placeholder="Password"
@@ -373,7 +355,7 @@ export function MscMemberCluster({ members, stackLimit = 3 }: MscMemberClusterPr
   const overflow = members.length - visible.length
 
   return (
-    <div className="msc-member-cluster" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+    <div className="msc-member-cluster">
       <div style={{ display: "flex" }}>
         {visible.map((m) => (
           <span
@@ -446,7 +428,7 @@ export type MscProjectGridProps = {
 
 export function MscProjectGrid({ projects, onSelect, onAddProject }: MscProjectGridProps) {
   return (
-    <div className="msc-dashboard-container msc-viewport-shield">
+    <div className="msc-dashboard-wrapper msc-dashboard-container msc-viewport-shield">
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5rem" }}>
         <h2 style={{ margin: 0 }}>Projects</h2>
         {onAddProject ? (

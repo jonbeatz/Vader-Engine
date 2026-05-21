@@ -1,0 +1,80 @@
+/**
+ * Dashboard / project-manager feature satellite — scoped to .msc-dashboard-wrapper.
+ */
+
+.msc-dashboard-wrapper {
+    --msc-dashboard-overlay-bg: rgba(0, 0, 0, 0.65);
+    --msc-dashboard-modal-width: min(100%, 640px);
+}
+
+.msc-dashboard-wrapper.msc-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--msc-dashboard-overlay-bg);
+}
+
+.msc-dashboard-wrapper .msc-modal-panel {
+    width: var(--msc-dashboard-modal-width);
+    max-height: 90vh;
+    overflow: auto;
+}
+
+.msc-dashboard-wrapper .msc-modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.msc-dashboard-wrapper .msc-modal-title {
+    margin: 0;
+    color: var(--msc-accent);
+}
+
+.msc-dashboard-wrapper .msc-wizard-nav {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+
+.msc-dashboard-wrapper .msc-wizard-step {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--msc-radius);
+    background: var(--msc-bg-surface-hover);
+    color: var(--msc-text-primary);
+}
+
+.msc-dashboard-wrapper .msc-wizard-step--active {
+    background: var(--msc-accent);
+}
+
+.msc-dashboard-wrapper .msc-member-cluster {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.msc-dashboard-wrapper .msc-field-block {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+}
+
+.msc-dashboard-wrapper .msc-field-label {
+    display: block;
+    margin-top: 1rem;
+}
+
+.msc-dashboard-wrapper .msc-credential-row {
+    margin-bottom: 0.75rem;
+}
+
+.msc-dashboard-wrapper .msc-credential-actions {
+    display: flex;
+    gap: 0.5rem;
+}

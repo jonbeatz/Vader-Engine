@@ -1,23 +1,4 @@
-.msc-viewport-shield .msc-container,
-.msc-dashboard-container .msc-container {
-    width: 100%;
-    max-width: min(1200px, 100%);
-    margin-inline: auto;
-}
-
-.msc-viewport-shield .msc-section-padding,
-.msc-dashboard-container .msc-section-padding {
-    padding-block: var(--msc-gap-lg, 24px);
-}
-
-.msc-viewport-shield [id^="msc-"],
-.msc-dashboard-container [id^="msc-"] {
-    scroll-margin-top: var(--msc-anchor-offset, 80px);
-}
-
-@media (max-width: 768px) {
-    .msc-viewport-shield .msc-section-padding,
-    .msc-dashboard-container .msc-section-padding {
-        padding-block: var(--msc-gap-md, 16px);
-    }
-}
+/**
+ * @deprecated Use msc-layout.css (Core-to-Satellite layout satellite).
+ */
+@import url("msc-layout.css");
