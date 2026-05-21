@@ -34,7 +34,7 @@ Optional: map your workspace path in `.cursor/mcp.json` (placeholders only in Gi
 
 ```bash
 npm run start-project
-# or: npm run verify:mcp
+# runs start-project:smoke (MCP verify + optional gates)
 ```
 
 - Optional registry/network probe:
@@ -61,6 +61,7 @@ npm run msc:smoke -- 3000
 | Spaceship / cPanel Node deploy | `.cursor/docs/spaceship-node-deployment.md` |
 | GitHub releases & branching | `.cursor/docs/github-automation-rules.md` |
 | System architecture map | `.cursor/docs/system-architecture.md` |
+| Consumer Next + Payload bootstrap | `.cursor/docs/consumer-bootstrap.md` |
 
 ## Session Closeout
 

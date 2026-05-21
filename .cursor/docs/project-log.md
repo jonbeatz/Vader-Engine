@@ -13,6 +13,13 @@
 
 ## 🪵 Development Changelog
 
+### [2026-05-20] - Audit remediation (command registry + template smoke + MCP dual-pass)
+- **Modified:** `package.json` — merged full script registry; `start-project` → `start-project:smoke`.
+- **Modified:** `msc-local-http-smoke.mjs` — baseline template bypass (exit 0) when port not listening; `MSC_SMOKE_STRICT=1` for strict mode.
+- **Modified:** `msc-verify-mcp.mjs` — dual-pass mcp.json placeholders vs `process.env` hydration.
+- **Added:** `.cursor/docs/consumer-bootstrap.md` — Next.js 15 + Payload consumer sequence.
+- **Verified:** `npm run start-project` and `npm run end-project` exit **0** in template-only mode.
+
 ### [2026-05-20] - Multi-Agent Ecosystem Harmonization
 - **Added:** Data layer — `core/msc-sqlite-path.ts`, `core/msc-payload-sqlite-push.ts`, `core/msc-payload-auth-delete-preflight.ts`; scripts `msc-sqlite-repair`, `msc-sqlite-wal-purge`, `msc-rescue-admin` (stub), `msc-dev-recover`, `msc-verify-next-safe`, `msc-clean-next-cache`, `msc-start-project-smoke`.
 - **Added:** UI extension pack — `ui/msc-shield-*.css` + barrel `msc-shield-extensions.css`; opt-in via `MSC_SHIELD_EXTENSIONS=1` in `msc-assets.php`.

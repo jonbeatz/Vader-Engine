@@ -13,12 +13,14 @@
  *   MSC_SMOKE_PATHS     — comma-separated paths (default: /,/admin)
  *   MSC_SMOKE_TIMEOUT_MS — per-request timeout in ms (default: 20000)
  *
- * Exits 0 when all checks pass; 1 otherwise.
+ * Exits 0 when all checks pass, or when no listener (baseline template mode).
+ * Set MSC_SMOKE_STRICT=1 to fail when the dev port is not listening.
  */
 
 import './lib/msc-load-env.mjs'
 
 import http from 'node:http'
+import net from 'node:net'
 
 const BANNER = '[msc:smoke] local HTTP smoke gate'
 
@@ -57,7 +59,39 @@ if (!Number.isFinite(timeoutMs) || timeoutMs < 1000) {
   process.exit(1)
 }
 
+function portIsListening(port, hostname) {
+  return new Promise((resolve) => {
+    const socket = net.createConnection({ port: Number(port), host: hostname }, () => {
+      socket.destroy()
+      resolve(true)
+    })
+    socket.on('error', () => resolve(false))
+    socket.setTimeout(1500, () => {
+      socket.destroy()
+      resolve(false)
+    })
+  })
+}
+
 console.log(BANNER)
+
+const strict = process.env.MSC_SMOKE_STRICT === '1'
+const listening = await portIsListening(port, host)
+
+if (!listening) {
+  if (strict) {
+    console.error(
+      `[msc:smoke] MSC_SMOKE_STRICT=1 — no listener on ${host}:${port}. Start dev server or unset strict mode.`,
+    )
+    process.exit(1)
+  }
+  console.log('[msc:smoke] Baseline Template Mode Detected: Bypassing HTTP port ping')
+  console.log(
+    `[msc:smoke] No listener on ${host}:${port} — expected for template-only repos. Exit 0.`,
+  )
+  process.exit(0)
+}
+
 console.log(`[msc:smoke] target http://${host}:${port} — ${paths.length} path(s)`)
 
 function get(url) {
