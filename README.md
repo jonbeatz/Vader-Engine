@@ -4,7 +4,7 @@ A pristine, unbranded, highly defensive software baseline and automation framewo
 
 The codebase is engineered around strict **Fix-Local-First** principles, providing runtime port protection, automated asset optimization, and defensive structural validation gates before deployment.
 
-**Cold start:** Read [START-HERE.md](START-HERE.md) first.
+**Cold start:** Read [START-HERE.md](START-HERE.md) first. **Agent compass:** [.cursor/docs/Code-Jedi.md](.cursor/docs/Code-Jedi.md).
 
 ---
 

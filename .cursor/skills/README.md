@@ -1,6 +1,10 @@
 # Skills Index
 
-This directory houses the foundational competence profiles and execution runbooks for the AI agent. Use this map to instantly reference the exact technical rules required based on the task type.
+This directory houses the foundational competence profiles and execution runbooks for the AI agent.
+
+**Primary directory compass:** [Code-Jedi.md](../docs/Code-Jedi.md) — maps objectives → `core/` / `scripts/` / `ui/` modules, lists every native `package.json` script, and defines the documentation SSoT reading order. Read it before deep-diving into individual skills.
+
+Use the map below for task-specific technical rules after Code-Jedi routing.
 
 ## 🧭 Competency Routing Map
 
@@ -36,6 +40,7 @@ This directory houses the foundational competence profiles and execution runbook
 
 | Doc | Path |
 |-----|------|
+| **Code-Jedi (master compass)** | [Code-Jedi.md](../docs/Code-Jedi.md) |
 | Local AI proxy | [local-ai-proxy-setup.md](../docs/local-ai-proxy-setup.md) |
 | GitHub automation | [github-automation-rules.md](../docs/github-automation-rules.md) |
 | Spaceship deploy | [spaceship-node-deployment.md](../docs/spaceship-node-deployment.md) |
