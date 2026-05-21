@@ -4,7 +4,29 @@ A pristine, unbranded, highly defensive software baseline and automation framewo
 
 The codebase is engineered around strict **Fix-Local-First** principles, providing runtime port protection, automated asset optimization, and defensive structural validation gates before deployment.
 
-**Cold start:** [HOW-TO.md](.cursor/docs/HOW-TO.md) (operator runbook) · [START-HERE.md](START-HERE.md) (agent phases) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md) (module compass).
+**Cold start:** [HOW-TO.md](.cursor/docs/HOW-TO.md) (operator runbook) · [START-HERE.md](START-HERE.md) (agent phases) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md) (module compass) · [DOCS.md](DOCS.md) (full index).
+
+---
+
+## QUICKSTART (10-minute clone-to-dev)
+
+```bash
+git clone <your-repo-url> my-project && cd my-project
+npm run bootstrap
+# assign live values in .env.local (never commit secrets)
+npm run msc:dev:example
+```
+
+Open **http://localhost:3000** — you should see the Boilerplate v2 example page.
+
+| Step | Command | Purpose |
+|------|---------|---------|
+| Full setup | `npm run bootstrap` | Kill ports 3000/3001/8080 · install deps · `.env.local` template · validate placeholders |
+| Run example | `npm run msc:dev:example` | Next.js 15 minimal app on port **3000** |
+| Run tests | `npm run msc:test` | Vitest smoke (3/3) in `examples/nextjs-minimal` |
+| Gold audit | `npm run grade` | Structural PASS/FAIL — target **100%** |
+
+**Dev container:** open in Codespaces / VS Code Dev Containers — `postCreateCommand` runs `npm run bootstrap` automatically.
 
 ---
 

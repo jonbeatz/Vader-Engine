@@ -49,6 +49,7 @@ console.log('--- 📊 Grading Boilerplate-v1 (Gold Master) ---\n')
 report('HOW-TO.md exists', pathExists('.cursor/docs/HOW-TO.md'))
 report('Code-Jedi.md exists', pathExists('.cursor/docs/Code-Jedi.md'))
 report('TRUTH.md exists', pathExists('TRUTH.md'))
+report('DOCS.md exists (v2 index)', pathExists('DOCS.md'))
 report('system-architecture.md exists', pathExists('.cursor/docs/system-architecture.md'))
 report('consumer-bootstrap.md exists', pathExists('.cursor/docs/consumer-bootstrap.md'))
 
@@ -78,16 +79,25 @@ catch {
 
 // 4. UI Shield chain
 report('msc-shield.css exists', pathExists('ui/msc-shield.css'))
+report('ui/studio-dark-shield.css exists (v2)', pathExists('ui/studio-dark-shield.css'))
 report('msc-shield-load.css exists', pathExists('ui/msc-shield-load.css'))
 report('msc-layout.css exists', pathExists('ui/msc-layout.css'))
 report('msc-components.css exists', pathExists('ui/msc-components.css'))
+
+// 4b. v2 example scaffold
+report('examples/nextjs-minimal/package.json exists', pathExists('examples/nextjs-minimal/package.json'))
+report('.devcontainer/devcontainer.json exists', pathExists('.devcontainer/devcontainer.json'))
 
 // 5. Automation & lifecycle
 report('Husky pre-commit exists', pathExists('.husky/pre-commit'))
 if (pathExists('.husky/pre-commit')) {
   const hook = readFileSync(join(MSC_PROJECT_ROOT, '.husky/pre-commit'), 'utf8')
   report('pre-commit runs verify:mcp', /verify:mcp/.test(hook))
+  report('pre-commit runs msc:validate-env', /msc:validate-env/.test(hook))
 }
+report('quickstart.mjs exists', pathExists('scripts/quickstart.mjs'))
+report('validate-env.mjs exists', pathExists('scripts/validate-env.mjs'))
+report('kill-ports.mjs exists', pathExists('scripts/kill-ports.mjs'))
 report('msc-log-event.mjs exists', pathExists('scripts/msc-log-event.mjs'))
 report('msc-generate-inventory.mjs exists', pathExists('scripts/msc-generate-inventory.mjs'))
 report('msc-verify-mcp.mjs exists', pathExists('scripts/msc-verify-mcp.mjs'))
@@ -95,6 +105,11 @@ report('msc-verify-mcp.mjs exists', pathExists('scripts/msc-verify-mcp.mjs'))
 try {
   const pkg = JSON.parse(readFileSync(join(MSC_PROJECT_ROOT, 'package.json'), 'utf8'))
   const required = [
+    'bootstrap',
+    'msc:quickstart',
+    'msc:validate-env',
+    'msc:kill-dev-port',
+    'msc:dev:example',
     'verify:mcp',
     'verify:local',
     'log',

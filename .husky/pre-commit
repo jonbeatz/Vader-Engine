@@ -1,1 +1,2 @@
+npm run msc:validate-env
 npm run verify:mcp

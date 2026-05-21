@@ -6,6 +6,13 @@
   "main": "core/msc-bootstrap.php",
   "scripts": {
     "prepare": "husky",
+    "bootstrap": "npm run msc:kill-dev-port && node scripts/quickstart.mjs && npm run msc:validate-env",
+    "msc:quickstart": "node scripts/quickstart.mjs",
+    "msc:validate-env": "node scripts/validate-env.mjs",
+    "msc:kill-dev-port": "node scripts/kill-ports.mjs",
+    "msc:test": "cd examples/nextjs-minimal && npm run test",
+    "msc:test:watch": "cd examples/nextjs-minimal && npm run test:watch",
+    "msc:dev:example": "cd examples/nextjs-minimal && npm run dev",
     "verify:mcp": "node scripts/msc-verify-mcp.mjs",
     "verify:mcp:probe": "node scripts/msc-verify-mcp.mjs --probe",
     "verify:local": "node scripts/msc-local-http-smoke.mjs",

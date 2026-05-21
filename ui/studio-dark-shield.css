@@ -1,0 +1,73 @@
+/**
+ * Studio Dark Shield — v2 isolation contract
+ * Tokens: canvas #121212, surface #1c1c1c
+ * Strict msc- prefix — shields layouts from Divi/Tailwind collisions
+ * Powered by the MSC Media Engine
+ *
+ * Hybrid guidance:
+ * - Path A: import this file + msc-shield-load.css (Shield satellites only)
+ * - Path B: map var(--msc-*) in tailwind.config; never hardcode hex in TSX
+ * - Token SSoT remains ui/msc-shield.css; this file documents the v2 contract
+ */
+
+:root {
+  --msc-v2-bg-canvas: #121212;
+  --msc-v2-bg-surface: #1c1c1c;
+}
+
+.msc-viewport-shield,
+.msc-dashboard-container,
+.msc-shield-root {
+  --msc-bg-main: var(--msc-v2-bg-canvas, #121212);
+  --msc-bg-surface: var(--msc-v2-bg-surface, #1c1c1c);
+}
+
+.msc-title {
+  color: var(--msc-text-primary, #ffffff);
+  font-weight: 600;
+  margin: 0;
+}
+
+.msc-text {
+  color: var(--msc-text-secondary, #b3b3b3);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.msc-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--msc-accent, #e02b20);
+  color: var(--msc-text-primary, #ffffff);
+  border: 1px solid var(--msc-border-color, #2d2d2d);
+  border-radius: var(--msc-radius, 8px);
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--msc-transition, all 0.25s ease-in-out);
+}
+
+.msc-button:hover {
+  background-color: var(--msc-accent-hover, #ff3b30);
+}
+
+.msc-card-panel {
+  background-color: var(--msc-bg-surface, #1c1c1c);
+  border: 1px solid var(--msc-border-color, #2d2d2d);
+  border-radius: var(--msc-radius, 8px);
+  padding: var(--msc-gap-md, 16px);
+}
+
+.msc-shield-root {
+  background-color: var(--msc-bg-main, #121212);
+  color: var(--msc-text-primary, #ffffff);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.msc-shield-root *,
+.msc-viewport-shield *,
+.msc-dashboard-container * {
+  box-sizing: border-box;
+}
