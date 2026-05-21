@@ -80,7 +80,7 @@ When localhost fails (`ERR_CONNECTION_REFUSED`, 500s, missing vendor chunks, sta
 
 ## UI coupling
 
-When runtime changes affect UI, enforce Studio Dark tokens via `ui/msc-shield.css` and `.cursor/rules/studio-dark-ui.md`—no hardcoded hex in components.
+When runtime changes affect UI, enforce Studio Dark tokens via `ui/msc-shield.css` and `.cursor/rules/studio-dark-ui.mdc`—no hardcoded hex in components.
 
 Load order (WordPress or standalone): **`msc-shield.css` first**, then **`msc-hero-slider.css`** (declared as a dependency in `core/msc-assets.php` via `msc_register_core_visual_shield()`).
 

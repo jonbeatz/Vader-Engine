@@ -1,3 +1,12 @@
+---
+description: Studio Dark Global Shield — Core-to-Satellite CSS, msc- wrappers, no inline theme styles
+globs:
+  - "ui/**"
+  - "**/*.tsx"
+  - "**/*.css"
+alwaysApply: false
+---
+
 # Rules: Studio Dark / Vader Protocol UI System
 
 Any time a UI component, dashboard panel, or layout widget is generated, follow the **Global Shield** Core-to-Satellite CSS architecture. Do not write styles inside React/TSX components or ad-hoc `.css` files outside `ui/`.

@@ -32,7 +32,7 @@ Use this blueprint before restructuring modules, renaming prefixes, or migrating
 | Smallest subtree | Touch only files required for the refactor goal |
 | No fighting code | Do not leave parallel implementations |
 | Zero hardcoding | Paths, domains, credentials via env or constants |
-| UI scope | Studio Dark tokens via `msc-shield.css` / `.cursor/rules/studio-dark-ui.md` |
+| UI scope | Studio Dark tokens via `msc-shield.css` / `.cursor/rules/studio-dark-ui.mdc` |
 | Bootstrap | Do not auto-load new TS modules from `msc-bootstrap.php` unless explicitly requested |
 
 ---

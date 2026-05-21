@@ -31,7 +31,7 @@ Reproduce on the operator machine before cloud deploy. Backup SQLite before sche
 
 **Consumer paths:** Path A Shield-only (dashboards/WordPress) · Path B hybrid Tailwind/shadcn — [consumer-bootstrap.md](./consumer-bootstrap.md) §6 · skill [studio-dark-shield.md](../skills/studio-dark-shield.md).
 
-**Rules:** [studio-dark-ui.md](../rules/studio-dark-ui.md), [design-system-rules.mdc](../rules/design-system-rules.mdc), [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc) — index [rules/README.md](../rules/README.md).
+**Rules:** [studio-dark-ui.mdc](../rules/studio-dark-ui.mdc), [design-system-rules.mdc](../rules/design-system-rules.mdc), [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc) — index [rules/README.md](../rules/README.md).
 
 ## 5. Data safety
 
