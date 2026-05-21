@@ -6,6 +6,8 @@ This directory houses the foundational competence profiles and execution runbook
 
 Use the map below for task-specific technical rules after Code-Jedi routing.
 
+**Rules index:** [.cursor/rules/README.md](../rules/README.md) · **Zero-leak:** [env-ingestion-compliance.mdc](../rules/env-ingestion-compliance.mdc) (always on).
+
 ## 🧭 Competency Routing Map
 
 ### 1. 🌐 [WordPress & Divi Engineering](./wordpress-divi-engineering.md)
@@ -36,6 +38,10 @@ Use the map below for task-specific technical rules after Code-Jedi routing.
 - **When to invoke:** Prepping commits, cutting semantic version tags (e.g., `v1.0.4`), managing feature/dev branches, preparing Pull Requests, or validating structural pipeline expectations for GitHub Actions.
 - **Core Standard:** Pre-tag **runtime-gate** sequence on port **3000**, then build/verify; explicit operator confirmation before commit/push/tag.
 
+### 8. 🛡️ [Studio Dark Shield](./studio-dark-shield.md)
+- **When to invoke:** Shield → Satellite CSS, hybrid consumer paths (Shield-only vs Tailwind/shadcn), `msc-shield-load.css` import order, or choosing between satellite files and Tailwind for a surface.
+- **Core Standard:** Tokens only in `ui/msc-shield.css`; Path A for dashboards/WordPress; Path B for Next/shadcn with [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc). MCP: `shadcn`, `context7`.
+
 ## 📂 Docs cross-reference (`.cursor/docs/`)
 
 | Doc | Path |
@@ -51,6 +57,9 @@ Use the map below for task-specific technical rules after Code-Jedi routing.
 | Discovered logic map | [discovered-logic-map.md](../docs/discovered-logic-map.md) |
 | SQLite repair manifest | [sqlite-repair-manifest.md](../docs/sqlite-repair-manifest.md) |
 | Env ingestion (zero-leak) | [env-ingestion-compliance.mdc](../rules/env-ingestion-compliance.mdc) |
+| Tailwind / shadcn bridge | [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc) |
+| Design system (tokens first) | [design-system-rules.mdc](../rules/design-system-rules.mdc) |
+| Studio Dark Shield skill | [studio-dark-shield.md](./studio-dark-shield.md) |
 | Constitution | [TRUTH.md](../docs/TRUTH.md) |
 | Repair protocols | [REPAIR_PROTOCOLS.md](../docs/REPAIR_PROTOCOLS.md) |
 | Consumer bootstrap | [consumer-bootstrap.md](../docs/consumer-bootstrap.md) |

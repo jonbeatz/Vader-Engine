@@ -55,7 +55,10 @@ Canonical registry: root `package.json`. Mirror copy: `config/npm-scripts-append
 | Constitution / precedence | `TRUTH.md` |
 | Incident | `incident-response.md` prompt |
 | Refactor | `refactor-protocol.md` prompt |
-| UI extensions | `studio-dark-ui.md` + `ui/msc-shield-extensions.css` |
+| UI Path A (Shield) | `studio-dark-shield.md` + `msc-shield-load.css` + satellites |
+| UI Path B (hybrid) | `tailwind-shadcn-bridge.mdc` + MCP `shadcn` / `context7` |
+| UI extensions | `MSC_SHIELD_EXTENSIONS=1` + `msc-shield-extensions.css` |
+| Design tokens | `design-system-rules.mdc` — hex only in `msc-shield.css` |
 
 ## Hooks (optional)
 

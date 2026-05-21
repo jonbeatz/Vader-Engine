@@ -5,7 +5,8 @@ You must completely fill out this planning matrix and present it to the operator
 ## 🧠 Phase 1: Context Isolation & Source of Truth
 
 - **Target Objective:** [What feature, repair, or optimization are we executing?]
-- **Pillar File References:** [List the exact files, rules, or schema specs from `.cursor/` docs or skills that govern this task]
+- **Pillar File References:** [List exact paths — e.g. `Code-Jedi.md`, `studio-dark-shield.md`, `tailwind-shadcn-bridge.mdc`, `env-ingestion-compliance.mdc`, relevant skill]
+- **UI path (if applicable):** Path A Shield-only / Path B hybrid Tailwind — per [consumer-bootstrap.md](../docs/consumer-bootstrap.md) §6
 - **Anti-Conflict Check:** Scan the workspace. Are there any existing utilities, helper functions, or components that perform similar logic? (Ensure zero "fighting code".)
 
 ## 🛠️ Phase 2: Structural Execution Map

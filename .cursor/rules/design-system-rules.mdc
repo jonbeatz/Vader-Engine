@@ -1,0 +1,38 @@
+---
+description: Tokens-first design system — all colors from msc-shield.css, components before raw markup
+globs:
+  - "ui/**"
+  - "**/*.tsx"
+  - "**/*.css"
+alwaysApply: false
+---
+
+# Design system rules (tokens first)
+
+Aligns with [Code-Jedi.md](../docs/Code-Jedi.md) §5 (Global Shield), [studio-dark-ui.md](./studio-dark-ui.md), and skill [studio-dark-shield.md](../skills/studio-dark-shield.md). Path B consumers also follow [tailwind-shadcn-bridge.mdc](./tailwind-shadcn-bridge.mdc).
+
+## Tokens first (mandatory)
+
+1. **All color and spacing values** used in components must exist as `--msc-*` variables in `ui/msc-shield.css` before use anywhere else.
+2. If a new color is required, **add the variable to the Shield** — not to a satellite file, not to `tailwind.config.ts`, not inline in TSX.
+3. Satellites (`ui/msc-[feature].css`) reference only `var(--msc-*)` and optional **wrapper modifier** variables (e.g. `--msc-portfolio-media-height` on `.msc-portfolio-wrapper`).
+
+## Component architecture
+
+- **Design system first:** Use existing `ui/msc-*.tsx` primitives and `.msc-card-panel` patterns before creating new markup.
+- **Namespace wrappers:** Every feature block uses a unique container (`.msc-portfolio-wrapper`, `.msc-dashboard-wrapper`, `.msc-auth-wrapper`).
+- **No bare-tag styling:** Do not target global `div`, `p`, `button`, or `body` selectors outside Shield scope.
+- **Props:** TypeScript interfaces for component props; extend via `className` + satellite CSS, not ad-hoc `style` for theme values.
+
+## What to avoid
+
+- Hardcoded hex/rgb/hsl in TSX, CSS satellites, or Tailwind arbitrary values when a token exists.
+- Duplicating token names (`--background` vs `--msc-bg-main`) without documenting the bridge in `tailwind-shadcn-bridge.mdc`.
+- Monolithic CSS files — one feature → one `ui/msc-[feature].css` satellite.
+
+## Agent checklist
+
+- [ ] Checked `ui/msc-shield.css` for existing variable
+- [ ] New styles in scoped satellite or shadcn component file
+- [ ] Wrapper class present on feature root
+- [ ] No contradictions with `studio-dark-ui.md` or `tailwind-shadcn-bridge.mdc`

@@ -120,9 +120,15 @@ mkdir -p media data
 
 ---
 
-## 6. Studio Dark UI
+## 6. Studio Dark UI — The Hybrid Workflow
 
-Import the Global Shield chain in root `app/layout.tsx` or global CSS:
+Choose **one primary styling path** per surface. Tokens always originate in `ui/msc-shield.css` (Code-Jedi §5 · TRUTH §4). Skill: [studio-dark-shield.md](../skills/studio-dark-shield.md) · Rules: [rules/README.md](../rules/README.md).
+
+### Path A — Shield-only (dashboards / WordPress)
+
+**When:** Payload admin panels, `ui/msc-project-manager.tsx`, `ui/msc-portfolio-viewer.tsx`, Divi/PHP frontends, anything inside `.msc-viewport-shield` / `.msc-dashboard-container`.
+
+1. Import the Global Shield chain in root `app/layout.tsx`, theme `functions.php`, or global CSS:
 
 ```css
 @import "../ui/msc-shield-load.css";
@@ -130,9 +136,45 @@ Import the Global Shield chain in root `app/layout.tsx` or global CSS:
 @import "../ui/msc-shield-extensions.css";
 ```
 
-Or set `MSC_SHIELD_EXTENSIONS=1` when using WordPress `msc-assets.php` (enqueue order is automatic).
+2. Or set `MSC_SHIELD_EXTENSIONS=1` when using WordPress `msc-assets.php` (enqueue order is automatic via `msc_enqueue_shield_satellite_chain()`).
 
-Use components: `ui/msc-project-manager.tsx`, `ui/msc-portfolio-viewer.tsx` inside `.msc-dashboard-container` + feature wrappers (`.msc-dashboard-wrapper`, `.msc-portfolio-wrapper`). New features: add `ui/msc-[feature].css` scoped to a unique wrapper class; tokens only in `msc-shield.css`.
+3. Use feature wrappers: `.msc-portfolio-wrapper`, `.msc-dashboard-wrapper`, `.msc-auth-wrapper`.
+
+4. New features: add `ui/msc-[feature].css` in the same pass as the collection/component — scoped to a unique wrapper; **no** Tailwind on these surfaces.
+
+**Rules:** [studio-dark-ui.md](../rules/studio-dark-ui.md), [design-system-rules.mdc](../rules/design-system-rules.mdc).
+
+### Path B — Hybrid Tailwind (Next.js / shadcn)
+
+**When:** Consumer `app/` marketing pages, auth flows, shadcn forms, public app shell with `components.json`.
+
+1. Scaffold shadcn in the consumer repo (`npx shadcn@latest init`; Tailwind v4 consumers: follow [shadcn canary guidance](https://ui.shadcn.com/docs/mcp)).
+
+2. Enable MCP in `.cursor/mcp.json` (already in boilerplate): `shadcn`, `context7`. In Cursor Settings → MCP, enable both servers.
+
+3. Bridge Shield tokens into `tailwind.config.ts` (see [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc)) — map `--msc-*` from `msc-shield.css`, do not duplicate hex values.
+
+4. Still import Shield CSS for shared dashboard islands:
+
+```css
+@import "../ui/msc-shield-load.css";
+```
+
+5. Prefer shadcn registry components for app routes; keep custom MSC chrome in satellite CSS under `.msc-*` wrappers.
+
+**Prompt examples:**
+
+- “Add login form from shadcn registry” (shadcn MCP)
+- “use context7 — how does Next.js 15 cacheComponents work with this route?”
+
+### MCP (Tier 1 design tools)
+
+| Server | Package | Keys |
+|--------|---------|------|
+| `shadcn` | `npx shadcn@latest mcp` | None in committed `mcp.json` |
+| `context7` | `@upstash/context7-mcp@latest` | None |
+
+Verify: `npm run verify:mcp`
 
 ---
 

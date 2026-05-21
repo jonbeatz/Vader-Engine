@@ -57,8 +57,10 @@ npm run msc:smoke -- 3000
 | Topic | Path |
 |-------|------|
 | **Master AI routing compass** | `.cursor/docs/Code-Jedi.md` |
-| Competency routing (Nodes 1–7) | `.cursor/skills/README.md` |
-| MCP setup & API keys | `.cursor/docs/mcp-setup.md` · `.env.example` |
+| Competency routing (Nodes 1–8) | `.cursor/skills/README.md` |
+| Studio Dark / hybrid UI | `.cursor/skills/studio-dark-shield.md` · [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) §6 |
+| Cursor rules index | `.cursor/rules/README.md` |
+| MCP setup & API keys (zero-leak) | `.cursor/docs/mcp-setup.md` · `.env.example` |
 | Local LiteLLM & ngrok proxy | `.cursor/docs/local-ai-proxy-setup.md` · `config/litellm_config.yaml` |
 | Media strategies (local / tenant / CDN) | `.cursor/docs/media-strategy-specs.md` · `npm run media:sync` |
 | Spaceship / cPanel Node deploy | `.cursor/docs/spaceship-node-deployment.md` |

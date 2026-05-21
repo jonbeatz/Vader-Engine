@@ -29,6 +29,7 @@ Do not paste secrets, API keys, or passwords. Reference env keys by name only (`
 - **Env keys touched** (names only):
 - **Database / SQLite impact:** Yes / No — backup-first required?
 - **Namespace compliance:** `msc-` / `MSC_` / `MSC-Core-*` file convention preserved?
+- **UI path:** Path A (Shield satellites) / Path B (Tailwind+shadcn) / N/A — tokens only in `ui/msc-shield.css`
 - **Anti-conflict check:** Existing utilities that overlap?
 
 ---

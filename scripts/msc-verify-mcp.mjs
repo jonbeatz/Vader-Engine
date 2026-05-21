@@ -30,6 +30,8 @@ const EXPECTED_SERVERS = [
   'sequential-thinking',
   'wordpress-local',
   'neon-postgres',
+  'shadcn',
+  'context7',
 ]
 
 /** Map mcp.json env leaf keys to process.env names (hydrated via msc-load-env). */

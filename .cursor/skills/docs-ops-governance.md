@@ -26,7 +26,8 @@ description: >-
 
 ## Minimal update set (when relevant)
 
-- Startup / architecture map
+- Startup / architecture map (`START-HERE.md`, `system-architecture.md`)
+- UI / MCP changes: `Code-Jedi.md`, `consumer-bootstrap.md` §6, `mcp-setup.md`, `studio-dark-shield.md`, `.cursor/rules/README.md`
 - Session snapshots
 - Development roadmap
 - Agent runbook

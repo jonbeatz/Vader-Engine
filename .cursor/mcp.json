@@ -73,6 +73,14 @@
     "neon-postgres": {
       "url": "https://mcp.neon.tech/mcp",
       "transport": "streamableHttp"
+    },
+    "shadcn": {
+      "command": "npx",
+      "args": ["shadcn@latest", "mcp"]
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
     }
   }
 }

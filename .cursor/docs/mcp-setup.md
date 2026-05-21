@@ -22,7 +22,7 @@ Agents must not ask operators to paste secrets into chat — add keys to `.env.e
 
 | Layer | File | Purpose |
 |-------|------|---------|
-| **Project** | `.cursor/mcp.json` | Payload, GitHub, browser verify, search, WordPress template — travels with the boilerplate copy |
+| **Project** | `.cursor/mcp.json` | 13 servers: Payload, GitHub, Playwright, search, WordPress, Neon, **shadcn**, **context7**, … — travels with the boilerplate copy |
 | **Global** | `~/.cursor/mcp.json` | Machine-specific tools: `console-ninja`, `mcpterm`, `desktop-commander`, `playwright-electron`, wide filesystem roots |
 | **Reference** | `.cursor/mcp-blueprint.json` | Full catalog + optional servers (Docker, InstaWP, Google Workspace) to add per consumer |
 
@@ -45,12 +45,22 @@ Cursor **merges** project + global servers when this workspace is open.
 | `sequential-thinking` | `@zengwenliang/mcp-server-sequential-thinking` | None |
 | `wordpress-local` | `@automattic/mcp-wordpress-remote` | `WP_API_*` + MCP adapter on WP site |
 | `neon-postgres` | Neon hosted MCP | Browser auth on first use |
+| `shadcn` | `shadcn@latest mcp` | Consumer `components.json`; enable in Cursor MCP UI |
+| `context7` | `@upstash/context7-mcp` | None; prompt with “use context7” for live library docs |
 
 ### Intentionally **not** in project file
 
 - **Site-specific** WordPress MCP entries (multiple `.local` hosts) — add one generic `wordpress-local` per consumer
 - **`playwright-electron`** — only for Electron/CDP apps (Node-Launcher VPE pattern)
 - **Wide filesystem roots** (`C:\Users\...`, entire `D:\Cursor_Projectz`) — scope filesystem to **one project root** only
+- **Figma Dev Mode MCP** — desktop SSE; enable globally per machine (see blueprint `figma-dev-mode`)
+
+### Design / UI MCP pair (Tier 1)
+
+- **shadcn** — registry browse/install; requires consumer `components.json` for full tool surface.
+- **context7** — up-to-date Tailwind, React, Next, Payload docs in agent context.
+
+Hybrid styling paths: [consumer-bootstrap.md](./consumer-bootstrap.md) §6 · skill [studio-dark-shield.md](../skills/studio-dark-shield.md).
 
 ---
 

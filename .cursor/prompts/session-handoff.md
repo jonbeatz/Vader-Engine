@@ -5,7 +5,8 @@ When the operator triggers this closeout blueprint, execute the following state-
 ## 📝 1. The Git Status & File Audit
 
 1. Run a local directory evaluation to identify all Modified, Created, or Deleted files.
-2. Ensure no project-specific credentials, environment tokens, or hardcoded local server directory paths have accidentally leaked into trackable files.
+2. Ensure no credentials, live API keys, or PATs leaked into trackable files (including replacing `YOUR_*` placeholders in `.cursor/mcp.json` with real secrets).
+3. Confirm `.env.local` was not staged; grep staged diff for patterns like `ghp_`, `sk-`, `Bearer `, or raw `password=` assignments in committed paths.
 
 ## 📊 2. The Project Log Update (Document Check-in)
 

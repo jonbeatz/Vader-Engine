@@ -1,0 +1,65 @@
+---
+description: Hybrid Shield-to-Tailwind consumer workflow — map msc tokens to Tailwind, shadcn registry, no global apply
+globs:
+  - "**/tailwind.config.*"
+  - "**/globals.css"
+  - "**/components.json"
+  - "ui/**/*.tsx"
+  - "app/**/*.tsx"
+  - "src/**/*.tsx"
+alwaysApply: false
+---
+
+# Tailwind / shadcn bridge (consumer hybrid path)
+
+Use with **Path B** in [consumer-bootstrap.md](../docs/consumer-bootstrap.md) §6. Path A (Shield-only) defers to [studio-dark-ui.md](./studio-dark-ui.md) and [studio-dark-shield.md](../skills/studio-dark-shield.md). Token SSoT: [TRUTH.md](../docs/TRUTH.md) §4 · [design-system-rules.mdc](./design-system-rules.mdc).
+
+## Token bridge (Shield is SSoT)
+
+Map tokens from `ui/msc-shield.css` into the consumer `tailwind.config.ts` (or `@theme` in Tailwind v4) — never invent parallel hex values in Tailwind config.
+
+```ts
+// Example theme.extend — values must match msc-shield.css
+colors: {
+  msc: {
+    main: "var(--msc-bg-main)",
+    surface: "var(--msc-bg-surface)",
+    "surface-hover": "var(--msc-bg-surface-hover)",
+    accent: "var(--msc-accent)",
+    "accent-hover": "var(--msc-accent-hover)",
+    "text-primary": "var(--msc-text-primary)",
+    "text-secondary": "var(--msc-text-secondary)",
+    border: "var(--msc-border-color)",
+  },
+},
+borderRadius: {
+  msc: "var(--msc-radius)",
+},
+spacing: {
+  "msc-sm": "var(--msc-gap-sm)",
+  "msc-md": "var(--msc-gap-md)",
+  "msc-lg": "var(--msc-gap-lg)",
+},
+```
+
+Load Shield CSS before Tailwind utilities so `var(--msc-*)` resolves inside `.msc-viewport-shield` / `.msc-dashboard-container`.
+
+## Forbidden patterns
+
+- **No** global `@apply` on `body`, `html`, or unprefixed layout tags.
+- **No** hardcoded hex/rgb in TSX `style` or arbitrary Tailwind literals (`bg-[#121212]`) when a `--msc-*` token exists.
+- **No** inline layout/color styles in components — use satellite CSS (`ui/msc-[feature].css`) or shadcn `className` utilities.
+
+## shadcn / MCP discipline
+
+- Prefer **shadcn registry** components (`npx shadcn add`, or **shadcn MCP**) for app-shell UI (forms, dialogs, tables).
+- Custom Studio Dark chrome stays in **satellite files** scoped to `.msc-*` wrappers; do not fork shadcn primitives into global CSS.
+- For up-to-date Tailwind/React/Next APIs, prompt with **context7** (e.g. “use context7 for Next.js 15 routing”).
+
+## Coexistence
+
+| Surface | Styling system |
+|---------|----------------|
+| Payload admin, dashboards, WordPress | Shield → Layout → Components → Feature satellites |
+| Marketing / app routes (Next + shadcn) | Tailwind + shadcn + bridged `--msc-*` theme |
+| Shared tokens | Always defined first in `ui/msc-shield.css` |
