@@ -13,6 +13,17 @@
 
 ## 🪵 Development Changelog
 
+### [2026-05-20] - CI/CD smoke, planning template, integration stub
+- **Added:** `npm run check:all` (MCP `--probe` + smoke `--no-strict`), `npm run test:integration`, `.cursor/prompts/TEMPLATE-PLAN.md`, `tests/msc-integration-stub.test.ts`.
+- **Added:** `msc_envHydrationReady()` in `scripts/lib/msc-load-env.mjs`; smoke `--no-strict` flag for CI.
+- **Verified:** `check:all` exit **0**, `test:integration` exit **0**.
+
+### [2026-05-20] - Namespace standardization (MSC-Core engine)
+- **Renamed:** Media-sync scripts → `msc-core-sync.mjs`; core engine module → `msc-core-engine.ts`.
+- **Refactored:** Legacy MSC-Media nomenclature → MSC-Core standard across docs and module metadata; `msc-` / `MSC_` env anchors unchanged.
+- **Added:** Namespace Protocol block in `Code-Jedi.md` and `system-architecture.md`.
+- **Verified:** `npm run verify:mcp`, `npm run media:sync` → `msc-core-sync.mjs`.
+
 ### [2026-05-20] - Audit remediation (command registry + template smoke + MCP dual-pass)
 - **Modified:** `package.json` — merged full script registry; `start-project` → `start-project:smoke`.
 - **Modified:** `msc-local-http-smoke.mjs` — baseline template bypass (exit 0) when port not listening; `MSC_SMOKE_STRICT=1` for strict mode.

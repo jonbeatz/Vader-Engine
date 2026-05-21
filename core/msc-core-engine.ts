@@ -1,7 +1,7 @@
 /**
  * Video embed contracts, stream providers, and portal metadata
- * Synthesized from MSC-Media-Pro-v2 UI contracts + WordPress engine module map (Presto/Bunny/ACF).
- * Provider-agnostic; wire PHP bridges (msc-media-scriptz, bunny-api-bridge) in consumer projects.
+ * Synthesized from MSC-Core-Pro-v2 UI contracts + WordPress engine module map (Presto/Bunny/ACF).
+ * Provider-agnostic; wire PHP bridges (MSC-Core-scriptz, bunny-api-bridge) in consumer projects.
  */
 
 /** Supported video delivery backends */
@@ -18,7 +18,7 @@ export type MscVideoSource = {
   libraryId?: string
 }
 
-/** Portal card / grid row (MSC-Media-Pro VideoData universalized) */
+/** Portal card / grid row (MSC-Core-Pro VideoData universalized) */
 export type MscVideoPortalItem = {
   id: string
   title: string
@@ -60,8 +60,8 @@ export type MscMediaEngineModule = {
 export const MSC_MEDIA_ENGINE_MODULES: MscMediaEngineModule[] = [
   {
     id: "scriptz",
-    title: "MSC-Media-Scriptz Engine",
-    file: "msc-media-scriptz.php",
+    title: "MSC-Core-Scriptz Engine",
+    file: "MSC-Core-scriptz.php",
     description:
       "Shortcode registration, video ID resolution, and dynamic iframe injection for Presto Player embeds.",
     tags: ["PHP", "Shortcodes", "Core"],
@@ -175,7 +175,7 @@ export function msc_defaultThumbnailForSource(source: MscVideoSource): string {
 }
 
 /**
- * Five-step pipeline labels (MSC-Media-Pro instruction flow).
+ * Five-step pipeline labels (MSC-Core-Pro instruction flow).
  */
 export const MSC_VIDEO_PIPELINE_STEPS = [
   {

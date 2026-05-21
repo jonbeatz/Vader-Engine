@@ -4,9 +4,9 @@
  * Scans disk based on MSC_MEDIA_STRATEGY; optional Payload DB compare with --with-payload.
  *
  * Usage:
- *   node scripts/msc-media-sync.mjs
- *   node scripts/msc-media-sync.mjs --dry-run
- *   node scripts/msc-media-sync.mjs --with-payload
+ *   node scripts/msc-core-sync.mjs
+ *   node scripts/msc-core-sync.mjs --dry-run
+ *   node scripts/msc-core-sync.mjs --with-payload
  */
 
 import './lib/msc-load-env.mjs'
@@ -139,7 +139,7 @@ async function loadPayloadFilenames() {
     return names
   }
   catch (e) {
-    console.warn("[msc:media-sync] Payload compare skipped:", e?.message || e)
+    console.warn("[msc:core-sync] Payload compare skipped:", e?.message || e)
     return null
   }
 }
@@ -149,11 +149,11 @@ async function main() {
   const withPayload = process.argv.includes("--with-payload")
   const cfg = getMediaConfig()
 
-  console.log("[msc:media-sync] strategy:", cfg.strategy)
-  console.log("[msc:media-sync] dry-run:", dryRun)
+  console.log("[msc:core-sync] strategy:", cfg.strategy)
+  console.log("[msc:core-sync] dry-run:", dryRun)
 
   const roots = await resolveScanRoots(cfg)
-  console.log("[msc:media-sync] scan roots:")
+  console.log("[msc:core-sync] scan roots:")
   for (const r of roots) {
     console.log("  -", r)
   }
@@ -166,13 +166,13 @@ async function main() {
     }
   }
 
-  console.log(`[msc:media-sync] disk images found: ${diskFiles.length}`)
+  console.log(`[msc:core-sync] disk images found: ${diskFiles.length}`)
 
   let dbNames = null
   if (withPayload) {
     dbNames = await loadPayloadFilenames()
     if (dbNames) {
-      console.log(`[msc:media-sync] database media rows: ${dbNames.size}`)
+      console.log(`[msc:core-sync] database media rows: ${dbNames.size}`)
     }
   }
 
@@ -194,11 +194,11 @@ async function main() {
     }
   }
   else {
-    console.log("[msc:media-sync] filesystem-only mode (pass --with-payload when Payload app is linked)")
+    console.log("[msc:core-sync] filesystem-only mode (pass --with-payload when Payload app is linked)")
   }
 
   if (orphansOnDisk.length > 0) {
-    console.log("\n[msc:media-sync] ORPHAN files on disk (no DB row):")
+    console.log("\n[msc:core-sync] ORPHAN files on disk (no DB row):")
     for (const k of orphansOnDisk.slice(0, 50)) {
       console.log("  +", k)
     }
@@ -208,7 +208,7 @@ async function main() {
   }
 
   if (missingOnDisk.length > 0) {
-    console.log("\n[msc:media-sync] UNLINKED DB rows (file missing on disk):")
+    console.log("\n[msc:core-sync] UNLINKED DB rows (file missing on disk):")
     for (const k of missingOnDisk.slice(0, 50)) {
       console.log("  -", k)
     }
@@ -218,11 +218,11 @@ async function main() {
   }
 
   if (orphansOnDisk.length === 0 && missingOnDisk.length === 0) {
-    console.log("\n[msc:media-sync] no orphans/unlinked items detected in compared scope.")
+    console.log("\n[msc:core-sync] no orphans/unlinked items detected in compared scope.")
   }
 
   if (dryRun) {
-    console.log("\n[msc:media-sync] dry-run complete — no writes performed.")
+    console.log("\n[msc:core-sync] dry-run complete — no writes performed.")
   }
 
   const exitCode = orphansOnDisk.length + missingOnDisk.length > 0 ? 1 : 0
@@ -230,6 +230,6 @@ async function main() {
 }
 
 main().catch((e) => {
-  console.error("[msc:media-sync] fatal:", e)
+  console.error("[msc:core-sync] fatal:", e)
   process.exit(1)
 })

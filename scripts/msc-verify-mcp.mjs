@@ -99,14 +99,22 @@ function isLiveRuntimeValue(val) {
 }
 
 async function probeOne(pkg) {
-  if (process.platform === 'win32') {
-    await execFileAsync('cmd.exe', ['/c', 'npx', '-y', pkg, '--version'], {
-      timeout: 120_000,
-      windowsHide: true,
-    })
+  const winArgs = ['cmd.exe', ['/c', 'npx', '-y', pkg, '--version']]
+  const posixArgs = ['npx', ['-y', pkg, '--version']]
+  try {
+    if (process.platform === 'win32') {
+      await execFileAsync(winArgs[0], winArgs[1], { timeout: 120_000, windowsHide: true })
+    }
+    else {
+      await execFileAsync(posixArgs[0], posixArgs[1], { timeout: 120_000 })
+    }
   }
-  else {
-    await execFileAsync('npx', ['-y', pkg, '--version'], { timeout: 120_000 })
+  catch (e) {
+    const blob = [e.stdout, e.stderr, e.message].filter(Boolean).join(' ')
+    if (/running on stdio|MCP Server|@\d+\.\d+/i.test(blob)) {
+      return
+    }
+    throw e
   }
 }
 

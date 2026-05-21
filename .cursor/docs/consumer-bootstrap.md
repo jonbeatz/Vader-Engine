@@ -153,7 +153,7 @@ Ensure consumer `package.json` includes the merged script block from the boilerp
     "verify:mcp": "node scripts/msc-verify-mcp.mjs",
     "dev:recover": "node scripts/msc-dev-recover.mjs",
     "verify:next:safe": "node scripts/msc-verify-next-safe.mjs",
-    "media:sync": "node scripts/msc-media-sync.mjs"
+    "media:sync": "node scripts/msc-core-sync.mjs"
   }
 }
 ```

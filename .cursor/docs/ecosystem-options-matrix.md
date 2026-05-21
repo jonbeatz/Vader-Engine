@@ -41,7 +41,7 @@ Canonical registry: root `package.json`. Mirror copy: `config/npm-scripts-append
 | `verify:local` | `node scripts/msc-local-http-smoke.mjs` |
 | `start-project:smoke` | `node scripts/msc-start-project-smoke.mjs` |
 | `repair:ast` | `MSC_REPAIR_AST=1 node scripts/repair/msc-fix-suspense.mjs` |
-| `media:sync` | `node scripts/msc-media-sync.mjs` |
+| `media:sync` | `node scripts/msc-core-sync.mjs` |
 | `verify:mcp` | `node scripts/msc-verify-mcp.mjs` |
 
 ## Skills & rules routing

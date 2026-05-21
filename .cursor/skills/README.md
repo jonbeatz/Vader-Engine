@@ -63,6 +63,7 @@ Use the map below for task-specific technical rules after Code-Jedi routing.
 | Prompt | Path | When |
 |--------|------|------|
 | **Start Project** (alias) | [`.cursor/prompts/Start-Project.md`](../prompts/Start-Project.md) | Routes → `task-planner.md` |
+| Feature plan template | [`.cursor/prompts/TEMPLATE-PLAN.md`](../prompts/TEMPLATE-PLAN.md) | **New features** — populate plan; operator approval before code |
 | Task planner gate | [`.cursor/prompts/task-planner.md`](../prompts/task-planner.md) | **Start** of implementation — before any code edits |
 | **End Project** (alias) | [`.cursor/prompts/End-Project.md`](../prompts/End-Project.md) | Routes → `session-handoff.md` |
 | Session closeout | [`.cursor/prompts/session-handoff.md`](../prompts/session-handoff.md) | **End** of session — git audit, log check-in, Handoff Block |

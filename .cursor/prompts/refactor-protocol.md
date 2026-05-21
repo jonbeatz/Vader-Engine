@@ -53,7 +53,7 @@ Use this blueprint before restructuring modules, renaming prefixes, or migrating
 
 ### Phase C — Integration wiring
 
-- Register hooks via factories (`msc-payload-media-hooks.ts`, `msc-media-engine.ts`) in consumer config
+- Register hooks via factories (`msc-payload-media-hooks.ts`, `msc-core-engine.ts`) in consumer config
 - PHP stacks: keep mail on `msc_send_mail()` — do not duplicate SMTP
 
 ### Phase D — Verification gate (mandatory)
