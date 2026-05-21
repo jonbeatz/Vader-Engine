@@ -16,6 +16,7 @@
     "msc:test": "cd examples/nextjs-minimal && npm run test",
     "msc:test:watch": "cd examples/nextjs-minimal && npm run test:watch",
     "msc:dev:example": "cd examples/nextjs-minimal && npm run dev",
+    "msc:dev:payload": "cd examples/nextjs-payload && npm run dev",
     "verify:mcp": "node scripts/msc-verify-mcp.mjs",
     "verify:mcp:probe": "node scripts/msc-verify-mcp.mjs --probe",
     "verify:local": "node scripts/msc-local-http-smoke.mjs",

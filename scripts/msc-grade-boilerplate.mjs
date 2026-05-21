@@ -86,6 +86,9 @@ report('msc-components.css exists', pathExists('ui/msc-components.css'))
 
 // 4b. v2 example scaffold
 report('examples/nextjs-minimal/package.json exists', pathExists('examples/nextjs-minimal/package.json'))
+report('examples/nextjs-payload/package.json exists', pathExists('examples/nextjs-payload/package.json'))
+report('examples/nextjs-payload payload.config exists', pathExists('examples/nextjs-payload/src/payload.config.ts'))
+report('examples/nextjs-payload MediaVault exists', pathExists('examples/nextjs-payload/src/collections/MediaVault.ts'))
 report('.devcontainer/devcontainer.json exists', pathExists('.devcontainer/devcontainer.json'))
 
 // 4c. Jedi roadmap P0 guardrails

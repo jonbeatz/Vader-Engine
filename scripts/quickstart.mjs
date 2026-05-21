@@ -40,12 +40,12 @@ function runInstall() {
   })
 }
 
-function installExample() {
-  const exampleDir = path.join(MSC_PROJECT_ROOT, 'examples/nextjs-minimal')
+function installExampleWorkspace(relDir) {
+  const exampleDir = path.join(MSC_PROJECT_ROOT, relDir)
   if (!fs.existsSync(path.join(exampleDir, 'package.json'))) {
     return
   }
-  log('installing examples/nextjs-minimal dependencies...')
+  log(`installing ${relDir} dependencies...`)
   execSync('npm install', {
     cwd: exampleDir,
     stdio: 'inherit',
@@ -56,7 +56,8 @@ function installExample() {
 console.log(`${BANNER} starting boilerplate quickstart`)
 copyEnvTemplate()
 runInstall()
-installExample()
+installExampleWorkspace('examples/nextjs-minimal')
+installExampleWorkspace('examples/nextjs-payload')
 
 log('running environment validation...')
 execSync('node scripts/validate-env.mjs', {
