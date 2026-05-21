@@ -12,7 +12,7 @@ alwaysApply: false
 
 # Tailwind / shadcn bridge (consumer hybrid path)
 
-Use with **Path B** in [consumer-bootstrap.md](../docs/consumer-bootstrap.md) §6. Path A (Shield-only) defers to [studio-dark-ui.mdc](./studio-dark-ui.mdc) and [studio-dark-shield.md](../skills/studio-dark-shield.md). Token SSoT: [TRUTH.md](../docs/TRUTH.md) §4 · [design-system-rules.mdc](./design-system-rules.mdc).
+Use with **Path B** in [consumer-bootstrap.md](../docs/consumer-bootstrap.md) §6. Path A (Shield-only) defers to [studio-dark-ui.mdc](./studio-dark-ui.mdc) and [studio-dark-shield.md](../skills/studio-dark-shield.md). Token SSoT: [TRUTH.md](../../TRUTH.md) §4 · [design-system-rules.mdc](./design-system-rules.mdc).
 
 ## Token bridge (Shield is SSoT)
 

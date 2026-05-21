@@ -1,6 +1,6 @@
 # System Architecture Map
 
-Single source of truth for repository layout, subsystem boundaries, and integration contracts. Aligns with the master profile in [README.md](../../README.md). Agent routing compass: [Code-Jedi.md](./Code-Jedi.md). Technical precedence: [TRUTH.md](./TRUTH.md).
+Single source of truth for repository layout, subsystem boundaries, and integration contracts. Aligns with the master profile in [README.md](../../README.md). Agent routing compass: [Code-Jedi.md](./Code-Jedi.md). Technical precedence: [TRUTH.md](../../TRUTH.md).
 
 > **Namespace Protocol:** All custom modules and CSS utilize the `msc-` or `MSC_` prefix to ensure cross-project portability and prevent integration conflicts. These are treated as structural namespaces for collision prevention, not branding. When cloning this boilerplate for a new project, these can be globally replaced if a different namespace anchor is required.
 
@@ -154,7 +154,7 @@ See [`.cursor/skills/README.md`](../skills/README.md):
 
 | Document | Purpose |
 |----------|---------|
-| [TRUTH.md](./TRUTH.md) | Constitution — doc precedence, Fix-Local-First, token baseline |
+| [TRUTH.md](../../TRUTH.md) | Constitution — doc precedence, Fix-Local-First, token baseline |
 | [ecosystem-options-matrix.md](./ecosystem-options-matrix.md) | Full env ↔ script matrix |
 | [discovered-logic-map.md](./discovered-logic-map.md) | Pillar-repo port audit |
 | [project-log.md](./project-log.md) | Session changelog |

@@ -4,7 +4,7 @@ A pristine, unbranded, highly defensive software baseline and automation framewo
 
 The codebase is engineered around strict **Fix-Local-First** principles, providing runtime port protection, automated asset optimization, and defensive structural validation gates before deployment.
 
-**Cold start:** Read [START-HERE.md](START-HERE.md) first. **Agent compass:** [.cursor/docs/Code-Jedi.md](.cursor/docs/Code-Jedi.md).
+**Cold start:** [HOW-TO.md](.cursor/docs/HOW-TO.md) (operator runbook) · [START-HERE.md](START-HERE.md) (agent phases) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md) (module compass).
 
 ---
 
@@ -14,7 +14,8 @@ The architecture is explicitly decoupled into clear, isolated layers so frontend
 
 ```text
 Boilerplate-v1/
-├── START-HERE.md                 ◄ Universal cold-start runbook
+├── TRUTH.md                      ◄ Constitution (technical precedence)
+├── START-HERE.md                 ◄ Agent cold-start phases
 ├── package.json                  ◄ Command registry (verify, kill, smoke, media)
 ├── .env.example                  ◄ Strategy environment configuration contract
 ├── .cursorrules                  ◄ Session bindings (task-planner / session-handoff)
@@ -25,14 +26,27 @@ Boilerplate-v1/
 │   ├── prompts/                  ◄ Operational gates (task-planner, session-handoff, …)
 │   ├── skills/                   ◄ 8-node competency index (README.md)
 │   ├── rules/                    ◄ Env compliance, Studio Dark, design-system, Tailwind bridge
-│   └── docs/                     ◄ TRUTH, options matrix, repair, MCP, media, deploy
+│   └── docs/                     ◄ HOW-TO, Code-Jedi, options matrix, repair, MCP, deploy
 ├── core/                         ◄ PHP bootstrappers & headless TS contracts
 ├── config/                       ◄ LiteLLM mapping, npm appendix, SQLite repair manifest
 ├── scripts/                      ◄ Terminal automation, repair gates, MCP verify
 └── ui/                           ◄ Scope-isolated CSS shields & layout primitives
 ```
 
-Technical precedence and env strategies: [`.cursor/docs/TRUTH.md`](.cursor/docs/TRUTH.md) · [`.cursor/docs/ecosystem-options-matrix.md`](.cursor/docs/ecosystem-options-matrix.md)
+Technical precedence and env strategies: [TRUTH.md](TRUTH.md) · [ecosystem-options-matrix.md](.cursor/docs/ecosystem-options-matrix.md)
+
+---
+
+## Documentation
+
+| Document | Purpose |
+|----------|---------|
+| [TRUTH.md](TRUTH.md) | Constitution — doc precedence, Fix-Local-First, token baseline |
+| [HOW-TO.md](.cursor/docs/HOW-TO.md) | Operator runbook — commands, build ritual, commit gates |
+| [START-HERE.md](START-HERE.md) | Agent cold-start phases |
+| [Code-Jedi.md](.cursor/docs/Code-Jedi.md) | Module compass and npm script index |
+| [ecosystem-options-matrix.md](.cursor/docs/ecosystem-options-matrix.md) | Env strategies and toggles |
+| [system-architecture.md](.cursor/docs/system-architecture.md) | Structural blueprint |
 
 ---
 

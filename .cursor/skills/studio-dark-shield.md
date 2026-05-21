@@ -8,7 +8,7 @@ description: >-
 
 # Studio Dark Shield — Agent Skill
 
-**Compass:** [Code-Jedi.md](../docs/Code-Jedi.md) §5 · [TRUTH.md](../docs/TRUTH.md) §4–§6 · **Rules:** [rules/README.md](../rules/README.md), [studio-dark-ui.mdc](../rules/studio-dark-ui.mdc), [design-system-rules.mdc](../rules/design-system-rules.mdc), [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc) · **Zero-leak:** [env-ingestion-compliance.mdc](../rules/env-ingestion-compliance.mdc)
+**Compass:** [Code-Jedi.md](../docs/Code-Jedi.md) §5 · [TRUTH.md](../../TRUTH.md) §4–§6 · **Rules:** [rules/README.md](../rules/README.md), [studio-dark-ui.mdc](../rules/studio-dark-ui.mdc), [design-system-rules.mdc](../rules/design-system-rules.mdc), [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc) · **Zero-leak:** [env-ingestion-compliance.mdc](../rules/env-ingestion-compliance.mdc)
 
 ## When to invoke
 

@@ -60,7 +60,7 @@ Use the map below for task-specific technical rules after Code-Jedi routing.
 | Tailwind / shadcn bridge | [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc) |
 | Design system (tokens first) | [design-system-rules.mdc](../rules/design-system-rules.mdc) |
 | Studio Dark Shield skill | [studio-dark-shield.md](./studio-dark-shield.md) |
-| Constitution | [TRUTH.md](../docs/TRUTH.md) |
+| Constitution | [TRUTH.md](../../TRUTH.md) |
 | Repair protocols | [REPAIR_PROTOCOLS.md](../docs/REPAIR_PROTOCOLS.md) |
 | Consumer bootstrap | [consumer-bootstrap.md](../docs/consumer-bootstrap.md) |
 | npm script appendix (mirror) | [config/npm-scripts-appendix.json](../../config/npm-scripts-appendix.json) |

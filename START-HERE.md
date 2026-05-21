@@ -2,6 +2,10 @@
 
 Welcome to the baseline repository configuration sandbox. This environment is structured as an unbranded, zero-overhead, highly defensive software factory layer.
 
+**Constitution:** [TRUTH.md](TRUTH.md) — technical precedence when docs conflict.
+
+**Operator runbook:** [HOW-TO.md](.cursor/docs/HOW-TO.md) — commands, build ritual, commit gates, Path A/B UI.
+
 **Primary agent compass:** [.cursor/docs/Code-Jedi.md](.cursor/docs/Code-Jedi.md) — tactical intent matrix, full npm script inventory, and documentation SSoT reading order. Open it when routing features to `core/`, `scripts/`, or `ui/` modules.
 
 ## The Core Onboarding Map
@@ -56,6 +60,8 @@ npm run msc:smoke -- 3000
 
 | Topic | Path |
 |-------|------|
+| **Constitution** | `TRUTH.md` |
+| **Operational runbook (commands)** | `.cursor/docs/HOW-TO.md` |
 | **Master AI routing compass** | `.cursor/docs/Code-Jedi.md` |
 | Competency routing (Nodes 1–8) | `.cursor/skills/README.md` |
 | Studio Dark / hybrid UI | `.cursor/skills/studio-dark-shield.md` · [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) §6 |

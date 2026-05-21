@@ -237,7 +237,7 @@ Strict mode when dev must be up: `MSC_SMOKE_STRICT=1 npm run msc:smoke -- 3000`
 |------|--------|
 | Session open | `.cursor/prompts/task-planner.md` |
 | Session close | `.cursor/prompts/session-handoff.md` → `npm run end-project` |
-| Architecture | [system-architecture.md](./system-architecture.md) · [TRUTH.md](./TRUTH.md) |
+| Architecture | [system-architecture.md](./system-architecture.md) · [TRUTH.md](../../TRUTH.md) |
 
 ---
 
