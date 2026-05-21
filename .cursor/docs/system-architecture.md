@@ -80,12 +80,16 @@ Visual layer is **scope-isolated**—tokens and components bind to `.msc-viewpor
 
 | File | Role |
 |------|------|
-| `msc-shield.css` | Canonical Studio Dark tokens (`#121212` canvas, `#1c1c1c` surface, accent via `--msc-accent`) |
-| `msc-shield-extensions.css` | Optional barrel: glass, forms, motion, layout utilities (load when `MSC_SHIELD_EXTENSIONS=1`) |
-| `msc-hero-slider.css` / `.tsx` | Carousel primitive atop shield |
-| `msc-project-manager.tsx`, `msc-portfolio-viewer.tsx` | Dashboard grids reusing `.msc-card-panel` |
+| `msc-shield.css` | Canonical tokens + scoped resets only |
+| `msc-layout.css` | Grid, flex, containers |
+| `msc-components.css` | Shared cards, buttons, badges |
+| `msc-[feature].css` | Feature satellites (`msc-portfolio.css`, `msc-dashboard.css`, `msc-auth.css`, …) |
+| `msc-shield-load.css` | Consumer import barrel (fixed order) |
+| `msc-shield-extensions.css` | Optional: glass, forms, motion, extra tokens (`MSC_SHIELD_EXTENSIONS=1`) |
+| `msc-hero-slider.css` / `.tsx` | Carousel primitive (`.msc-hero-slider` namespace) |
+| `msc-project-manager.tsx`, `msc-portfolio-viewer.tsx` | TSX primitives using feature wrappers + satellite CSS |
 
-PHP enqueue path: `core/msc-assets.php` loads shield → optional extensions → hero slider. Next/React consumers import CSS in the same order.
+PHP enqueue: `core/msc-assets.php` → Shield → Layout → Components → Features → optional Extensions. Next/React: import `ui/msc-shield-load.css` (or match that order manually).
 
 ---
 

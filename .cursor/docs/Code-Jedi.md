@@ -31,9 +31,9 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 | **Email signup & verification sequence** | `core/msc-payload-bridge.ts` (`MscSubscribersCollection`), `core/msc-subscription-handler.ts`, `core/msc-communications.php` | `.env.local`: `MSC_STUDIO_OUTGOING_*`, `BREVO_API_KEY`, `FLUENT_SMTP_CONFIG`, `PAYLOAD_SECRET`, `MSC_PUBLIC_ORIGIN`; CSRF via `msc_buildCsrfOrigins()` | Consumer Payload routes + `process.env` mail keys; validate at trust boundaries |
 | **Database state & schema modifications** | `core/msc-sqlite-path.ts`, `core/msc-payload-sqlite-push.ts`, `core/msc-payload-bridge.ts` | `DATABASE_URI` / `DATABASE_URL`, `PAYLOAD_SQLITE_PUSH`, `PAYLOAD_MIGRATING`, `MSC_SQLITE_REPAIR_MANIFEST` | `npm run repair:sqlite`, `npm run db:wal-purge`; skill: [local-data-operations.md](../skills/local-data-operations.md) |
 | **Core asset handling & streaming CDN** | `core/msc-payload-media-hooks.ts`, `core/msc-core-engine.ts`, `scripts/msc-core-sync.mjs` | `MSC_MEDIA_STRATEGY` (`local` \| `multi-tenant` \| `stream-cdn`), CDN vars in `.env.example` | `npm run media:sync` → `msc-core-sync.mjs`; spec: [media-strategy-specs.md](./media-strategy-specs.md) |
-| **Studio Dark UI layout & scoped customization** | `ui/msc-shield.css`, `ui/msc-shield-extensions.css`, `ui/msc-hero-slider.css`, `ui/msc-project-manager.tsx`, `ui/msc-portfolio-viewer.tsx` | `MSC_SHIELD_EXTENSIONS=1`; tokens `#121212` / `#1c1c1c` / `--msc-accent` | Rule: [studio-dark-ui.md](../rules/studio-dark-ui.md); PHP enqueue: `core/msc-assets.php` |
+| **Studio Dark UI layout & scoped customization** | `ui/msc-shield-load.css`, `ui/msc-shield.css`, `ui/msc-layout.css`, `ui/msc-components.css`, `ui/msc-[feature].css`, `ui/msc-project-manager.tsx`, `ui/msc-portfolio-viewer.tsx` | `MSC_SHIELD_EXTENSIONS=1`; tokens in Shield only | Rule: [studio-dark-ui.md](../rules/studio-dark-ui.md); enqueue: `core/msc-assets.php` |
 | **Auth admin & user lifecycle** | `core/msc-payload-auth-delete-preflight.ts`, `core/msc-auth-admin.ts` | `MSC_RESCUE_*` for lockout stub | `npm run db:rescue-admin` (consumer implementation); hook `preflightDeleteAuthUserRows` on auth collections |
-| **Portfolio / showcase grid** | `core/msc-portfolio-collection.ts`, `ui/msc-portfolio-viewer.tsx` | Register collection in consumer `payload.config.ts` | Reuse `msc-dashboard-container` + `msc-card-panel` patterns |
+| **Portfolio / showcase grid** | `core/msc-portfolio-collection.ts`, `ui/msc-portfolio-viewer.tsx`, `ui/msc-portfolio.css` | Register collection in consumer `payload.config.ts` | `.msc-portfolio-wrapper` + `msc-shield-load.css` |
 | **WordPress / Divi integration** | `core/msc-bootstrap.php`, `core/msc-utilities.php`, `core/msc-assets.php`; consumer bridge `core-Divi-Scriptz.js` (master frontend script) | `msc_` PHP prefix, `msc-` CSS scope; enforce **`MSC-Core-`** file naming on media-related theme/plugin assets | Skill: [wordpress-divi-engineering.md](../skills/wordpress-divi-engineering.md) |
 | **Local dev ports & HTTP health** | `scripts/msc-kill-dev-port.mjs`, `scripts/msc-local-http-smoke.mjs` | `MSC_DEV_PORT` (default **3000**), `MSC_SMOKE_STRICT`, `MSC_SMOKE_PATHS` | `npm run msc:kill`, `npm run verify:local`; skill: [node-runtime-mastery.md](../skills/node-runtime-mastery.md) |
 | **MCP & agent tooling** | `.cursor/mcp.json`, `.cursor/mcp-blueprint.json` | Keys in `.env.local`; placeholders OK in committed JSON | `npm run verify:mcp` (dual-pass hydration audit) |
@@ -168,7 +168,7 @@ Read in this order when depth is required. Do not skip upward links when docs co
 |------|-----------|
 | `core/` | PHP bootstrap, Payload bridge, SQLite helpers, `msc-core-engine`, media hooks, auth preflight, subscriptions |
 | `scripts/` | All terminal gates; import `lib/msc-load-env.mjs` first in new entry scripts |
-| `ui/` | Scoped Studio Dark CSS + TSX dashboard primitives |
+| `ui/` | Global Shield CSS satellites + TSX dashboard primitives (`msc-shield-load.css` entry) |
 | `config/` | LiteLLM YAML, SQLite repair manifest example, npm mirror JSON |
 | `.cursor/prompts/` | Session gates and protocols |
 | `.cursor/skills/` | Task-specific competence (7 nodes) |
@@ -177,7 +177,27 @@ Read in this order when depth is required. Do not skip upward links when docs co
 
 ---
 
-## 5. Anti-patterns (do not)
+## 5. CSS architecture (Global Shield)
+
+Core-to-Satellite flow — **never** add tokens, resets, or feature layout to a monolithic stylesheet.
+
+| Layer | File | Rule |
+|-------|------|------|
+| Foundation | `ui/msc-shield.css` | Sole SSoT for `--msc-*` variables and scoped resets |
+| Layout | `ui/msc-layout.css` | Grid, flex, containers (no feature UI) |
+| Shared chrome | `ui/msc-components.css` | Cards, buttons, badges under namespace containers |
+| Features | `ui/msc-[feature].css` | One file per domain; unique wrapper (`.msc-portfolio-wrapper`, `.msc-dashboard-wrapper`, …) |
+| Optional | `ui/msc-shield-extensions.css` | Glass, forms, motion — only when `MSC_SHIELD_EXTENSIONS=1` |
+
+**Load order:** Shield → Layout → Components → Features → (optional) Extensions. WordPress: `msc_enqueue_shield_satellite_chain()` in `core/msc-assets.php`. Next.js consumers: `@import` `ui/msc-shield-load.css` in `app/layout` or global CSS.
+
+**Agent rule:** Before creating a new style, check `ui/msc-shield.css` for an existing variable. If missing, create the variable in the Shield, not the satellite. New styles must be placed in a satellite file prefixed with `msc-` and scoped to a unique container class. Do not style bare HTML tags globally; do not hardcode colors or spacing in satellites; do not put layout CSS in TSX `style` props.
+
+When adding a feature (e.g. `msc-portfolio-collection`), create `ui/msc-[feature].css` in the same pass.
+
+---
+
+## 6. Anti-patterns (do not)
 
 - Invent npm scripts not listed in `package.json`
 - Hardcode domains, API keys, or machine-specific absolute paths in committed files
@@ -187,13 +207,13 @@ Read in this order when depth is required. Do not skip upward links when docs co
 
 ---
 
-## 6. First action by scenario
+## 7. First action by scenario
 
 | Scenario | First commands / files |
 |----------|------------------------|
 | New agent, blank context | This file → `START-HERE.md` → `npm run start-project` |
 | Building Payload feature | [consumer-bootstrap.md](./consumer-bootstrap.md) + tactical matrix row |
-| UI work | `ui/msc-shield.css` + [studio-dark-ui.md](../rules/studio-dark-ui.md) |
+| UI work | `ui/msc-shield-load.css` → [studio-dark-ui.md](../rules/studio-dark-ui.md) → feature satellite |
 | DB incident | [REPAIR_PROTOCOLS.md](./REPAIR_PROTOCOLS.md) → `repair:sqlite` |
 | Port / white screen | `dev:recover` → `verify:next:safe` → restart dev |
 | MCP red in Cursor | `verify:mcp` + `.env.local` keys |

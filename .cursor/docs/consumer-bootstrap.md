@@ -122,17 +122,17 @@ mkdir -p media data
 
 ## 6. Studio Dark UI
 
-Import in root `app/layout.tsx` or global CSS:
+Import the Global Shield chain in root `app/layout.tsx` or global CSS:
 
 ```css
-@import "../ui/msc-shield.css";
-/* optional: */
+@import "../ui/msc-shield-load.css";
+/* optional extensions (after load barrel): */
 @import "../ui/msc-shield-extensions.css";
 ```
 
-Or set `MSC_SHIELD_EXTENSIONS=1` when using WordPress `msc-assets.php`.
+Or set `MSC_SHIELD_EXTENSIONS=1` when using WordPress `msc-assets.php` (enqueue order is automatic).
 
-Use components: `ui/msc-project-manager.tsx`, `ui/msc-portfolio-viewer.tsx` inside `.msc-dashboard-container`.
+Use components: `ui/msc-project-manager.tsx`, `ui/msc-portfolio-viewer.tsx` inside `.msc-dashboard-container` + feature wrappers (`.msc-dashboard-wrapper`, `.msc-portfolio-wrapper`). New features: add `ui/msc-[feature].css` scoped to a unique wrapper class; tokens only in `msc-shield.css`.
 
 ---
 

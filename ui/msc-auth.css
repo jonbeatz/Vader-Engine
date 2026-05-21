@@ -1,0 +1,14 @@
+/**
+ * Auth feature satellite — sign-in / verification shells (stub).
+ * Extend under .msc-auth-wrapper only; use Shield tokens, never hardcoded colors.
+ */
+
+.msc-auth-wrapper {
+    --msc-auth-panel-max-width: 420px;
+}
+
+.msc-auth-wrapper .msc-auth-panel {
+    width: 100%;
+    max-width: var(--msc-auth-panel-max-width);
+    margin-inline: auto;
+}

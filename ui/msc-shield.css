@@ -1,9 +1,9 @@
 /**
- * Universal Viewport Shield & Layout Engine
- * * Completely isolated, environment-agnostic CSS architecture.
+ * Global Shield — single source of truth for Studio Dark tokens and scoped resets.
+ * Do not add feature layout or component chrome here; use satellite files.
+ * Load order: Shield → Layout → Components → Features → (optional) Extensions
  */
 
-/* Scope-isolated design tokens bound to the system wrapper */
 .msc-viewport-shield,
 .msc-dashboard-container {
     --msc-bg-main: #121212;
@@ -16,43 +16,23 @@
     --msc-border-color: #2d2d2d;
     --msc-radius: 8px;
     --msc-transition: all 0.25s ease-in-out;
+    --msc-gap-sm: 8px;
+    --msc-gap-md: 16px;
+    --msc-gap-lg: 24px;
 
-    /* Enforce baseline reset within our isolated dashboard scope */
     background-color: var(--msc-bg-main);
     color: var(--msc-text-primary);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     box-sizing: border-box;
-    padding: 24px;
+}
+
+.msc-viewport-shield.msc-dashboard-container,
+.msc-dashboard-container.msc-viewport-shield {
+    padding: var(--msc-gap-lg);
     border-radius: var(--msc-radius);
 }
 
-/* Ensure child elements respect box sizing rules natively */
 .msc-viewport-shield *,
 .msc-dashboard-container * {
     box-sizing: border-box;
-}
-
-/* Reusable Studio Dark Structural Component Card */
-.msc-card-panel {
-    background-color: var(--msc-bg-surface);
-    border: 1px solid var(--msc-border-color);
-    border-radius: var(--msc-radius);
-    padding: 20px;
-    transition: var(--msc-transition);
-}
-
-.msc-card-panel:hover {
-    border-color: var(--msc-accent);
-}
-
-/* Optional footer slot (unbranded) */
-.msc-engine-signature {
-    margin-top: 40px;
-    padding-top: 16px;
-    border-top: 1px solid var(--msc-border-color);
-    font-size: 11px;
-    color: var(--msc-text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    text-align: center;
 }

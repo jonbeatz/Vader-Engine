@@ -1,0 +1,17 @@
+/**
+ * Consumer entry barrel — fixed load order for Studio Dark CSS.
+ * Next.js: import in app/layout or globals: @import "./ui/msc-shield-load.css";
+ * WordPress: prefer core/msc-assets.php enqueue chain (same order).
+ */
+
+@import url("msc-shield.css");
+@import url("msc-layout.css");
+@import url("msc-components.css");
+@import url("msc-portfolio.css");
+@import url("msc-dashboard.css");
+@import url("msc-auth.css");
+@import url("msc-hero-slider.css");
+
+/* Optional: set MSC_SHIELD_EXTENSIONS=1 and add after this file:
+   @import url("msc-shield-extensions.css");
+ */

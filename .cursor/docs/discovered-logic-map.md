@@ -20,8 +20,8 @@ Deep scan of pillar repositories vs Boilerplate-v1. Items marked **ported** exis
 | **UI** | Motion + reduced-motion | MSC_Clean, Node-Launcher `globals.css` | **ported** → `ui/msc-shield-motion.css` |
 | **UI** | Extended tokens + accent packs | MSC_Clean divi-theme-vars, Media-Pro hex map | **ported** → `ui/msc-shield-tokens-extended.css` |
 | **UI** | A11y focus/scrollbar/selection | MSC_Clean, MSC-Projectz | **ported** → `ui/msc-shield-a11y.css` |
-| **UI** | Buttons, badges, bento | MSC_Clean `globals.css` | **ported** → `ui/msc-shield-components.css` |
-| **UI** | Layout/container/anchor | MSC_Clean `globals.css` | **ported** → `ui/msc-shield-layout.css` |
+| **UI** | Buttons, badges, bento | MSC_Clean `globals.css` | **ported** → `ui/msc-components.css` (legacy alias: `msc-shield-components.css`) |
+| **UI** | Layout/container/anchor | MSC_Clean `globals.css` | **ported** → `ui/msc-layout.css` (legacy alias: `msc-shield-layout.css`) |
 | **UI** | Route-specific canvas gradients | MSC-Projectz clients/calendar | **skipped** (app-specific) |
 | **DevOps** | `dev:recover` / kill + clean | MSC-Projectz, MSC_Clean | **ported** → `scripts/msc-dev-recover.mjs` |
 | **DevOps** | `verify:next:safe` | MSC-Projectz, MSC_Clean | **ported** → `scripts/msc-verify-next-safe.mjs` |

@@ -1,11 +1,10 @@
 /**
  * Optional Studio Dark extensions barrel.
- * Load after msc-shield.css; does not redefine core 7 tokens.
+ * Load after core satellites (Shield → Layout → Components → Features).
+ * Does not redefine core tokens in msc-shield.css.
  */
 @import url("msc-shield-tokens-extended.css");
 @import url("msc-shield-glass.css");
 @import url("msc-shield-forms.css");
 @import url("msc-shield-a11y.css");
-@import url("msc-shield-components.css");
 @import url("msc-shield-motion.css");
-@import url("msc-shield-layout.css");
