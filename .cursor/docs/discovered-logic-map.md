@@ -28,7 +28,7 @@ Deep scan of pillar repositories vs Boilerplate-v1. Items marked **ported** exis
 | **DevOps** | `clean:next` deep wipe | MSC_Clean `clean-next-cache.mjs` | **ported** → `scripts/msc-clean-next-cache.mjs` |
 | **DevOps** | Guard clean while dev | MSC_Clean `.cursor/hooks/guard-clean-while-dev.mjs` | **ported** → `.cursor/hooks/msc-guard-clean-while-dev.mjs` |
 | **DevOps** | `start-project:smoke` | Node-Launcher `package.json` | **ported** → `scripts/msc-start-project-smoke.mjs` |
-| **DevOps** | TRUTH constitution | Node-Launcher `.cursor/docs/TRUTH.md` | **ported** (generic) → `.cursor/docs/TRUTH.md` |
+| **DevOps** | TRUTH constitution | Node-Launcher `TRUTH.md` (repo root) | **ported** (generic) → `TRUTH.md` (repo root) |
 | **DevOps** | AST suspense repair | Node-Launcher `vader-fix-suspense.mjs` | **stub** → `scripts/repair/msc-fix-suspense.mjs` |
 | **DevOps** | LiteLLM PS bridge scripts | Node-Launcher `google-api/*.ps1` | **doc-only** — see `local-ai-proxy-setup.md` |
 | **DevOps** | MCP catalog (CDP, global servers) | Node-Launcher `MCPs.md` | **partial** — `mcp-setup.md` + blueprint |

@@ -29,15 +29,19 @@
 
 When documentation conflicts occur, resolve in this order (adapt paths to the consuming project):
 
-1. **Constitution doc** — non-negotiable principles (e.g. `.cursor/docs/TRUTH.md` or equivalent)
+1. **Constitution doc** — non-negotiable principles (`TRUTH.md` at repository root, or equivalent)
 2. **Root rules** — this file and project `.cursor/rules/*` (index: `.cursor/rules/README.md`)
-3. **Architecture / runbook** — `.cursor/docs/` maps, START-HERE, Agent-Runbook
+3. **Architecture / runbook** — `.cursor/docs/` (HOW-TO, Code-Jedi), START-HERE
 4. **Executable truth** — `package.json` scripts only (never invent commands)
 
 - Before build, deploy, or environment setup: read the project's canonical startup doc and repair/runbook protocols.
 - On **cold start** / **ready to begin**: re-read the startup contract and docs map **before** coding, even if read earlier the same day, unless the operator explicitly skips refresh.
 - Keep docs synchronized to `package.json` when scripts change; avoid duplicated instructions—one source of truth with pointers elsewhere.
 - Capture incidents as: **symptom → root cause → shortest verified recovery path** in project docs or `.cursor/docs/incidents/`.
+
+### Documentation Policy
+
+Before performing any structural changes, always check the `README.md` in the target directory (e.g., `.cursor/rules/` or `.cursor/skills/`) to understand the local enforcement patterns. Never duplicate logic if a README already defines a standard.
 
 ---
 

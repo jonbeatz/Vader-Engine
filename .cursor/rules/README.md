@@ -1,6 +1,6 @@
 # Cursor Rules Index
 
-Always-on and scoped rules for Boilerplate-v1. Precedence: [TRUTH.md](../docs/TRUTH.md) → `.cursorrules` → this folder.
+Always-on and scoped rules for Boilerplate-v1. Precedence: [TRUTH.md](../../TRUTH.md) → `.cursorrules` → this folder.
 
 | Rule | Scope | When it applies |
 |------|--------|-----------------|

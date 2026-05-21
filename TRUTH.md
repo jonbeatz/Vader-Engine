@@ -6,7 +6,7 @@ If any document conflicts with this file for **technical precedence**, this file
 
 - Local port clearance: `scripts/msc-kill-dev-port.mjs` (never ad-hoc `taskkill` without listing listeners).
 - HTTP smoke: `scripts/msc-local-http-smoke.mjs` on `MSC_DEV_PORT` (default **3000**).
-- AI proxy ports: **4000** / **8000** per `local-ai-proxy-setup.md` — separate from web dev.
+- AI proxy ports: **4000** / **8000** per [local-ai-proxy-setup.md](.cursor/docs/local-ai-proxy-setup.md) — separate from web dev.
 
 ## 2. Fix local first
 
@@ -14,11 +14,11 @@ Reproduce on the operator machine before cloud deploy. Backup SQLite before sche
 
 ## 3. Doc hierarchy
 
-1. This file (`TRUTH.md`)
+1. This file (`TRUTH.md` at repository root)
 2. `.cursorrules` (session bindings)
 3. `.cursor/docs/ecosystem-options-matrix.md` (env strategies)
 4. Skill runbooks under `.cursor/skills/`
-5. `project-log.md` / `incident-log.md` (session history)
+5. `.cursor/docs/project-log.md` / `.cursor/docs/incident-log.md` (session history)
 
 ## 4. UI constants (Studio Dark baseline)
 
@@ -29,9 +29,9 @@ Reproduce on the operator machine before cloud deploy. Backup SQLite before sche
 
 **Token SSoT:** `ui/msc-shield.css` only. Satellites: `ui/msc-layout.css`, `ui/msc-components.css`, `ui/msc-[feature].css`. Barrel: `ui/msc-shield-load.css`. Extensions opt-in (`MSC_SHIELD_EXTENSIONS=1`).
 
-**Consumer paths:** Path A Shield-only (dashboards/WordPress) · Path B hybrid Tailwind/shadcn — [consumer-bootstrap.md](./consumer-bootstrap.md) §6 · skill [studio-dark-shield.md](../skills/studio-dark-shield.md).
+**Consumer paths:** Path A Shield-only (dashboards/WordPress) · Path B hybrid Tailwind/shadcn — [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) §6 · skill [studio-dark-shield.md](.cursor/skills/studio-dark-shield.md).
 
-**Rules:** [studio-dark-ui.mdc](../rules/studio-dark-ui.mdc), [design-system-rules.mdc](../rules/design-system-rules.mdc), [tailwind-shadcn-bridge.mdc](../rules/tailwind-shadcn-bridge.mdc) — index [rules/README.md](../rules/README.md).
+**Rules:** [studio-dark-ui.mdc](.cursor/rules/studio-dark-ui.mdc), [design-system-rules.mdc](.cursor/rules/design-system-rules.mdc), [tailwind-shadcn-bridge.mdc](.cursor/rules/tailwind-shadcn-bridge.mdc) — index [rules/README.md](.cursor/rules/README.md).
 
 ## 5. Data safety
 
@@ -41,7 +41,7 @@ Reproduce on the operator machine before cloud deploy. Backup SQLite before sche
 
 ## 6. Agent tooling
 
-MCP project layer: `.cursor/mcp.json` (13 servers including `shadcn`, `context7` — no keys in committed JSON for those two). Extended catalog: `mcp-setup.md`, `mcp-blueprint.json`. Verify: `npm run verify:mcp`.
+MCP project layer: `.cursor/mcp.json` (13 servers including `shadcn`, `context7` — no keys in committed JSON for those two). Extended catalog: [mcp-setup.md](.cursor/docs/mcp-setup.md), `mcp-blueprint.json`. Verify: `npm run verify:mcp`.
 
 **Zero-leak:** Placeholders (`YOUR_*`) in committed `mcp.json` are intentional. Live values only in `.env.local` / Cursor MCP UI — never commit or paste into chat.
 

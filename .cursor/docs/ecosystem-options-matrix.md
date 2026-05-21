@@ -54,7 +54,7 @@ Canonical registry: root `package.json`. Mirror copy: `config/npm-scripts-append
 | Port / cache recovery | `node-runtime-mastery.md` + `local-runtime-recovery.mdc` |
 | Media strategy | `media-strategy-specs.md` |
 | MCP setup | `mcp-setup.md` |
-| Constitution / precedence | `TRUTH.md` |
+| Constitution / precedence | [TRUTH.md](../../TRUTH.md) |
 | Incident | `incident-response.md` prompt |
 | Refactor | `refactor-protocol.md` prompt |
 | UI Path A (Shield) | `studio-dark-ui.mdc` + `studio-dark-shield.md` + `msc-shield-load.css` + satellites |

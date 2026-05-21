@@ -46,8 +46,9 @@ function pathExists(rel) {
 console.log('--- 📊 Grading Boilerplate-v1 (Gold Master) ---\n')
 
 // 1. Documentation SSoT
+report('HOW-TO.md exists', pathExists('.cursor/docs/HOW-TO.md'))
 report('Code-Jedi.md exists', pathExists('.cursor/docs/Code-Jedi.md'))
-report('TRUTH.md exists', pathExists('.cursor/docs/TRUTH.md'))
+report('TRUTH.md exists', pathExists('TRUTH.md'))
 report('system-architecture.md exists', pathExists('.cursor/docs/system-architecture.md'))
 report('consumer-bootstrap.md exists', pathExists('.cursor/docs/consumer-bootstrap.md'))
 
