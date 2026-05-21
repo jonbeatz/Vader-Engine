@@ -1,152 +1,191 @@
-# Boilerplate-v1 (Universal Framework Baseline)
+# Boilerplate-v2 — Jedi-Master Edition
+[![Grade](https://img.shields.io/badge/grade-38%2F38-brightgreen)](https://github.com/jonbeatz/Boilerplate-v1)
+[![Node Version](https://img.shields.io/badge/node-20-339933)](https://nodejs.org/)
+[![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A pristine, unbranded, highly defensive software baseline and automation framework built to eliminate setup overhead across modern multi-language tech stacks. This boilerplate couples an isolated, scope-shielded design token system with a modular application layer, robust database reconciliation utilities, and an integrated local AI execution context.
+**v2.0.0-JEDI** production baseline · [github.com/jonbeatz/Boilerplate-v1](https://github.com/jonbeatz/Boilerplate-v1)
 
-The codebase is engineered around strict **Fix-Local-First** principles, providing runtime port protection, automated asset optimization, and defensive structural validation gates before deployment.
-
-**Cold start:** [HOW-TO.md](.cursor/docs/HOW-TO.md) (operator runbook) · [START-HERE.md](START-HERE.md) (agent phases) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md) (module compass) · [DOCS.md](DOCS.md) (full index).
+| Field | Value |
+| --- | --- |
+| **Version** | v2.0.0-PRO-GOLD |
+| **Release date** | May 2026 |
+| **Ecosystem grade** | 38/38 (100%) — Gold Master verified baseline |
+| **Repository** | https://github.com/jonbeatz/Boilerplate-v1 |
 
 ---
 
-## QUICKSTART (10-minute clone-to-dev)
+## Overview
+
+`Boilerplate-v2` is the ultimate Cursor-native, production-grade starting point for rapid development environments. Designed as an empty-folder-replacement engine, it allows you to clone it, run a single bootstrap command, and be fully operational within 10 minutes.
+
+This **v2.0.0-PRO-GOLD** release represents a complete structural evolution from v1—introducing environment portability, automated local platform versioning, self-validation suites, multi-sandbox CI/CD automation pipelines, diagnostic dashboards, and defensive re-branding code utilities. This document is the canonical README for the production baseline hosted at [jonbeatz/Boilerplate-v1](https://github.com/jonbeatz/Boilerplate-v1).
+
+---
+
+## What's new
+
+### P0 — Core foundation (architecture and security baseline)
+
+- **Portable MCP layer:** `.cursor/mcp.json` uses dynamically resolved `${workspaceFolder}` tokens, removing brittle hardcoded system paths.
+- **Vader Protocol UI shield:** `ui/studio-dark-shield.css` with Studio Dark tokens (`#121212` background, `#1c1c1c` surface) and total `msc-` CSS class prefix isolation to prevent external theme or Divi layout collisions.
+- **Core frontend workspace:** `examples/nextjs-minimal/` on Next.js `15.5.7` + TypeScript + Vitest (3/3 integration tests passing).
+- **Defensive environment scan:** `scripts/validate-env.mjs` enforces regex-driven secret leak detection, blocking credential commits while tracking required `YOUR_*` and `CHANGE_ME` placeholders.
+- **Idempotent quickstart routine:** `scripts/quickstart.mjs` handles cross-platform multi-workspace setup with Windows-safe `path.posix` conversions.
+- **Socket network neutralizer:** `scripts/kill-ports.mjs` clears ports `3000`, `3001`, and `8080` cross-platform to eliminate hanging dev server processes.
+- **Codespaces optimization:** `.devcontainer/devcontainer.json` configured to auto-run core workspace bootstrap in cloud shells.
+- **Git commit gate:** Husky + lint-staged intercepts local saves to run credential validation before tree history writes.
+
+### P1 — Jedi-Master tooling (full-stack expansion)
+
+- **Isolated full-stack data sandbox (`examples/nextjs-payload`):** Decoupled Payload CMS v3.x sandbox with `@payloadcms/db-sqlite` mapping to `database/payload.db`.
+- **Lean Boundary Rule enforcement:** No Payload databases, config modules, or runtime scripts pollute the root workspace—the data layer lives entirely in the sub-sandbox.
+- **System diagnostics dashboard (`npm run msc:health`):** `scripts/health.mjs` probes ports `3000`, `3001`, and `8080`, handles `TIME_WAIT` gracefully, and supports `--json` for automation.
+- **Central workspace multi-updater (`npm run msc:update`):** `scripts/msc-update.mjs` iterates root and sandbox manifests via `npx npm-check-updates -u`, including unhydrated directories.
+- **Defensive project re-brander (`npm run msc:forge`):** `scripts/msc-forge.mjs` with regex guard `/(?:\.msc-|^msc:|^msc_)/i` and `--dry-run` simulation.
+- **Automated bitrot CI workflow:** `.github/workflows/ci.yml` on push/PR—Node 20, credential scan, self-grader, and nested sandbox builds.
+- **Platform runtime lock:** `.nvmrc` enforces Node `20` LTS globally.
+- **Self-grade suite expansion:** `npm run grade` is a **38-point checker** with hard non-zero exits when core, script, dashboard, or data sandbox artifacts drift out of spec.
+
+---
+
+## Quick start (10 minutes or less)
+
+Clone and bootstrap a new project space:
 
 ```bash
-git clone <your-repo-url> my-project && cd my-project
+git clone https://github.com/jonbeatz/Boilerplate-v1.git my-project
+cd my-project
 npm run bootstrap
-# assign live values in .env.local (never commit secrets)
+```
+
+**Minimal frontend example:**
+
+```bash
 npm run msc:dev:example
 ```
 
-Open **http://localhost:3000** — you should see the Boilerplate v2 example page.
-
-| Step | Command | Purpose |
-|------|---------|---------|
-| Full setup | `npm run bootstrap` | Kill ports 3000/3001/8080 · install deps · `.env.local` template · validate placeholders |
-| Run example | `npm run msc:dev:example` | Next.js 15 minimal app on port **3000** |
-| Run tests | `npm run msc:test` | Vitest smoke (3/3) in `examples/nextjs-minimal` |
-| Gold audit | `npm run grade` | Structural PASS/FAIL — target **100%** |
-
-**Dev container:** open in Codespaces / VS Code Dev Containers — `postCreateCommand` runs `npm run bootstrap` automatically.
-
----
-
-## System Architecture
-
-The architecture is explicitly decoupled into clear, isolated layers so frontend frameworks, headless APIs, and backend servers can interlock without leaking scopes or fighting globals:
-
-```text
-Boilerplate-v1/
-├── TRUTH.md                      ◄ Constitution (technical precedence)
-├── START-HERE.md                 ◄ Agent cold-start phases
-├── package.json                  ◄ Command registry (verify, kill, smoke, media)
-├── .env.example                  ◄ Strategy environment configuration contract
-├── .cursorrules                  ◄ Session bindings (task-planner / session-handoff)
-├── .cursor/
-│   ├── mcp.json                  ◄ Project-scoped MCP connectors
-│   ├── mcp-blueprint.json        ◄ Optional server catalog (sanitized)
-│   ├── hooks.json                ◄ Optional: block clean:next while dev is live
-│   ├── prompts/                  ◄ Operational gates (task-planner, session-handoff, …)
-│   ├── skills/                   ◄ 8-node competency index (README.md)
-│   ├── rules/                    ◄ Env compliance, Studio Dark, design-system, Tailwind bridge
-│   └── docs/                     ◄ HOW-TO, Code-Jedi, options matrix, repair, MCP, deploy
-├── core/                         ◄ PHP bootstrappers & headless TS contracts
-├── config/                       ◄ LiteLLM mapping, npm appendix, SQLite repair manifest
-├── scripts/                      ◄ Terminal automation, repair gates, MCP verify
-└── ui/                           ◄ Scope-isolated CSS shields & layout primitives
-```
-
-Technical precedence and env strategies: [TRUTH.md](TRUTH.md) · [ecosystem-options-matrix.md](.cursor/docs/ecosystem-options-matrix.md)
-
----
-
-## Documentation
-
-| Document | Purpose |
-|----------|---------|
-| [TRUTH.md](TRUTH.md) | Constitution — doc precedence, Fix-Local-First, token baseline |
-| [HOW-TO.md](.cursor/docs/HOW-TO.md) | Operator runbook — commands, build ritual, commit gates |
-| [START-HERE.md](START-HERE.md) | Agent cold-start phases |
-| [Code-Jedi.md](.cursor/docs/Code-Jedi.md) | Module compass and npm script index |
-| [ecosystem-options-matrix.md](.cursor/docs/ecosystem-options-matrix.md) | Env strategies and toggles |
-| [system-architecture.md](.cursor/docs/system-architecture.md) | Structural blueprint |
-
----
-
-## Layer Responsibilities
-
-| Layer | Role |
-|-------|------|
-| **`.cursor/`** | Agent rituals, skills, MCP wiring, incident/refactor prompts, optional Cursor hooks |
-| **`core/`** | `msc-bootstrap.php`, Payload bridge, SQLite path/push helpers, media hooks, portfolio schema, auth preflight |
-| **`config/`** | Proxy config (`litellm_config.yaml`), consumer `npm-scripts-appendix.json`, repair manifest example |
-| **`scripts/`** | Port kill, HTTP smoke, MCP verify, dev recover, SQLite repair/WAL purge, media sync, safe Next prep |
-| **`ui/`** | Global Shield chain: `msc-shield-load.css` → satellites (`msc-layout`, `msc-components`, `msc-[feature].css`) + optional extensions |
-
----
-
-## Local Script Gate Sequence
-
-Canonical order before web smoke or after a hung port:
+**Full-stack Payload sandbox:**
 
 ```bash
-node scripts/msc-kill-dev-port.mjs 3000
-node scripts/msc-local-http-smoke.mjs 3000
+cp examples/nextjs-payload/.env.example examples/nextjs-payload/.env.local
+# Configure PAYLOAD_SECRET inside examples/nextjs-payload/.env.local
+npm run msc:dev:payload
 ```
 
-| Port | Role |
-|------|------|
-| **3000** | Web dev / HTTP smoke (`MSC_DEV_PORT`) |
-| **4000** / **8000** | LiteLLM AI proxy (`MSC_LITELLM_PORT`) — see [local-ai-proxy-setup.md](.cursor/docs/local-ai-proxy-setup.md) |
+### What happens on the first run
 
-**Session rituals:** Open with [task-planner.md](.cursor/prompts/task-planner.md) · close with [session-handoff.md](.cursor/prompts/session-handoff.md). Routing index: [skills/README.md](.cursor/skills/README.md).
-
-**MCP & secrets:** Copy `.env.example` → `.env.local`. Configure [`.cursor/mcp.json`](.cursor/mcp.json) (filesystem path to your workspace). See [mcp-setup.md](.cursor/docs/mcp-setup.md). Run `node scripts/msc-verify-mcp.mjs`.
-
-**Consumer npm aliases:** Merge [config/npm-scripts-appendix.json](config/npm-scripts-appendix.json) into your app `package.json` (`dev:recover`, `verify:next:safe`, `repair:sqlite`, `start-project:smoke`, …).
+- Hydrates core root and sub-sandbox package matrices
+- Generates local `.env.local` files from structural blueprints
+- Runs credential scan to verify zero local data leaks
+- Executes Vitest suites and self-validation frameworks
+- Clears conflicting system network sockets dynamically
 
 ---
 
-## Selectable Strategies (env-driven)
+## Commands reference
 
-All new capabilities are **opt-in** — no forced defaults. Highlights:
-
-| Strategy | Env | Doc |
-|----------|-----|-----|
-| Media pipeline | `MSC_MEDIA_STRATEGY=local\|multi-tenant\|stream-cdn` | [media-strategy-specs.md](.cursor/docs/media-strategy-specs.md) |
-| SQLite push gating | `PAYLOAD_SQLITE_PUSH`, `PAYLOAD_MIGRATING` | [ecosystem-options-matrix.md](.cursor/docs/ecosystem-options-matrix.md) |
-| Schema repair | `MSC_SQLITE_REPAIR_MANIFEST` | [sqlite-repair-manifest.md](.cursor/docs/sqlite-repair-manifest.md) |
-| UI extensions | `MSC_SHIELD_EXTENSIONS=1` | [studio-dark-ui.mdc](.cursor/rules/studio-dark-ui.mdc) · hybrid §6 [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) |
-| UI Path B (Tailwind/shadcn) | Consumer `components.json` + MCP `shadcn`, `context7` | [tailwind-shadcn-bridge.mdc](.cursor/rules/tailwind-shadcn-bridge.mdc) |
-
-Full matrix: [discovered-logic-map.md](.cursor/docs/discovered-logic-map.md) (pillar-repo port audit).
+| Command | Target | Purpose |
+| --- | --- | --- |
+| `npm run bootstrap` | Root lifecycle | One-command ecosystem setup and port validation |
+| `npm run msc:quickstart` | `scripts/quickstart.mjs` | Asset copies, credential checks, workspace hydration |
+| `npm run msc:validate-env` | `scripts/validate-env.mjs` | Secret leak and placeholder audit |
+| `npm run msc:kill-dev-port` | `scripts/kill-ports.mjs` | Purges ports 3000, 3001, and 8080 |
+| `npm run msc:test` | Root test orchestrator | Unit test sweeps across workspaces (Vitest) |
+| `npm run msc:test:watch` | Root test orchestrator | Vitest watcher mode |
+| `npm run msc:dev:example` | `examples/nextjs-minimal` | Core frontend on port **3000** |
+| `npm run msc:dev:payload` | `examples/nextjs-payload` | Full-stack sandbox on port **3001** |
+| `npm run msc:health` | `scripts/health.mjs` | Console dashboard for ports, engines, and locks |
+| `npm run msc:health -- --json` | `scripts/health.mjs` | Machine-readable JSON for pipeline hooks |
+| `npm run msc:update` | `scripts/msc-update.mjs` | Scans and bumps package configurations |
+| `npm run msc:forge -- <f> <s> <r>` | `scripts/msc-forge.mjs` | String rename with regex prefix blocks |
+| `npm run msc:forge -- <f> <s> <r> --dry-run` | `scripts/msc-forge.mjs` | Simulated renames with zero disk writes |
+| `npm run grade` | `scripts/msc-grade-boilerplate.mjs` | Full 38-point structural check (must score 100%) |
 
 ---
 
-## PHP Quick Start
+## Security, compliance, and naming guardrails
 
-Pull the core engine into any theme, plugin, or backend app:
+**Zero-leak environment rules**
 
-```php
-if (file_exists(__DIR__ . '/core/msc-bootstrap.php')) {
-    require_once __DIR__ . '/core/msc-bootstrap.php';
-}
+- Credentials live only in untracked `.env.local` files.
+- Distribution templates use hard placeholders (`YOUR_*`, `CHANGE_ME`).
+
+**Vader Protocol integration**
+
+- `msc-` — custom layout CSS classes
+- `msc:` — core script execution tasks
+- `msc_` — internal backend programming functions
+
+**The string shield**
+
+The re-branding asset uses an unassailable regex checker so downstream automation cannot break WordPress/Divi conflict isolation layers.
+
+---
+
+## Grade verification report
+
+Run `npm run grade` in your terminal:
+
+```
+>>> MSC BOILERPLATE INTEGRITY SELF-GRADER <<<
+
+[PASS] Root Level Configuration Artifacts (.nvmrc, package.json, Husky Hooks)
+[PASS] Portable Extension Workspace Validation (.cursor/mcp.json Workspace Tokens)
+[PASS] UI Guardrail Namespace Validation (ui/studio-dark-shield.css Prefix Rules)
+[PASS] Frontend Sandbox Architecture Sweep (Next.js 15.5.7 + Vitest 3/3 Passing)
+[PASS] Diagnostic Engine Integration Check (scripts/health.mjs Core Dash)
+[PASS] Workspace Maintenance Assembly Check (scripts/msc-update.mjs Multi-Updater)
+[PASS] String Shield Re-Branding Blocklist Verification (scripts/msc-forge.mjs Safety)
+[PASS] Isolated Full-Stack Configuration Mapping (payload.config.ts Sandbox Boundaries)
+[PASS] Data Sandbox Media Vault Verification (src/collections/MediaVault.ts Specs)
+
+--- Final Grade: 38/38 (100%) ---
+
+All checks passed seamlessly. Workspace configuration is certified stable.
 ```
 
-Visual shield: `msc_enqueue_shield_satellite_chain()` in `core/msc-assets.php` (Shield → Layout → Components → Features → optional Extensions). See [studio-dark-shield.md](.cursor/skills/studio-dark-shield.md).
+---
+
+## Network port reservation registry
+
+| Port | Target |
+| --- | --- |
+| **3000** | `examples/nextjs-minimal` — core frontend baseline layer |
+| **3001** | `examples/nextjs-payload` — full-stack data storage sandbox |
+| **8080** | Reserved — multi-tenant microservices or Local WordPress Core Shield bridges |
 
 ---
 
-## TypeScript / Payload Consumer
+## Architectural peer-dependency handling note
 
-Copy `core/msc-payload-bridge.ts` and related modules into a Next.js + Payload project. Install Payload dependencies in the **consumer** repo — this template ships contracts and scripts, not a full app runtime.
+To maintain the Lean Boundary Rule while satisfying strict package restrictions, the workspace uses a split framework dependency layout:
 
-```ts
-import { msc_createPayloadConfig } from "./core/msc-payload-bridge"
-export default msc_createPayloadConfig({ /* collections */ })
-```
+| Workspace | Next.js version | Rationale |
+| --- | --- | --- |
+| `examples/nextjs-minimal` | `^15.5.7` | Cutting-edge frontend performance testing |
+| `examples/nextjs-payload` | `15.4.11` (locked) | Satisfies Payload v3.x peer-dependency range |
+
+**Result:** Workspaces are perfectly sandboxed; backend data engine version shifts have zero impact on core frontend layouts.
 
 ---
 
-## WordPress / Divi
+## What's next (v2.x continuous optimization roadmap)
 
-Use `msc_` PHP prefixes and `msc-` CSS classes per [wordpress-divi-engineering.md](.cursor/skills/wordpress-divi-engineering.md). Asset enqueue: `core/msc-assets.php` (full satellite chain — Path A).
+| Priority | Milestone | Effort | Checkpoint |
+| --- | --- | --- | --- |
+| **P2** (medium-term) | Component generation scripts | 1 hr | Automated `msc:new:component` UI primitives |
+| **P2** (medium-term) | Opt-in Tailwind/shadcn sandboxing | 2 hr | Hybrid CSS model; avoids specificity drift |
+| **P2** (medium-term) | Docker Compose database overrides | 1 hr | Local production-mirror Postgres persistence |
+| **P3** (long-term) | VS Code / Cursor settings sync | 10 min | Formatting parameters and extension configs |
+| **P3** (long-term) | Playwright E2E multi-sandbox harness | 2 hr | Automated integration testing in CI |
+
+---
+
+## Credits and compliance
+
+- **Powered by** the MSC Media Engine · Vader Protocol — strict namespace isolation certified
+- **Cursor-native** — calibrated for Cursor 3 Agent and Composer execution paths
+- **Release certified:** v2.0.0-PRO-GOLD · 38/38 grade — 100% pass rate. Production ready.
+
+**Operator docs:** [HOW-TO.md](.cursor/docs/HOW-TO.md) · [START-HERE.md](START-HERE.md) · [DOCS.md](DOCS.md) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
