@@ -25,5 +25,5 @@ jobs:
       - name: Validate Next.js Minimal Workspace Sandbox
         run: |
           cd examples/nextjs-minimal
-          npm ci
+          npm install
           npm run test
