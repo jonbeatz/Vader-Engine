@@ -5,6 +5,7 @@
   "type": "module",
   "main": "core/msc-bootstrap.php",
   "scripts": {
+    "prepare": "husky",
     "verify:mcp": "node scripts/msc-verify-mcp.mjs",
     "verify:mcp:probe": "node scripts/msc-verify-mcp.mjs --probe",
     "verify:local": "node scripts/msc-local-http-smoke.mjs",
@@ -22,12 +23,17 @@
     "db:wal-purge": "node scripts/msc-sqlite-wal-purge.mjs --force",
     "db:rescue-admin": "node scripts/msc-rescue-admin.mjs",
     "check:all": "node scripts/msc-verify-mcp.mjs --probe && node scripts/msc-local-http-smoke.mjs --no-strict",
-    "test:integration": "node --experimental-strip-types tests/msc-integration-stub.test.ts"
+    "test:integration": "node --experimental-strip-types tests/msc-integration-stub.test.ts",
+    "log": "node scripts/msc-log-event.mjs",
+    "inventory": "node scripts/msc-generate-inventory.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }

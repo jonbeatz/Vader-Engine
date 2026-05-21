@@ -13,6 +13,8 @@
 
 ## 🪵 Development Changelog
 
+### [2026-05-21] - [chore] - [Lifecycle automation: Husky pre-commit, log-event, inventory scripts]
+
 ### [2026-05-20] - CI/CD smoke, planning template, integration stub
 - **Added:** `npm run check:all` (MCP `--probe` + smoke `--no-strict`), `npm run test:integration`, `.cursor/prompts/TEMPLATE-PLAN.md`, `tests/msc-integration-stub.test.ts`.
 - **Added:** `msc_envHydrationReady()` in `scripts/lib/msc-load-env.mjs`; smoke `--no-strict` flag for CI.
