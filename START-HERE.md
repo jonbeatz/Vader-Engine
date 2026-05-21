@@ -8,6 +8,16 @@ Welcome to the baseline repository configuration sandbox. This environment is st
 
 **Primary agent compass:** [.cursor/docs/Code-Jedi.md](.cursor/docs/Code-Jedi.md) — tactical intent matrix, full npm script inventory, and documentation SSoT reading order. Open it when routing features to `core/`, `scripts/`, or `ui/` modules.
 
+## v2 Gold Master checklist (iterative features)
+
+- [ ] `npm run bootstrap` — ports cleared, deps installed, `.env.local` template, env validation
+- [ ] `npm run msc:validate-env` — no live secrets in committed config
+- [ ] `npm run msc:test` — example Vitest 3/3 pass
+- [ ] `npm run grade` — **100%** structural audit
+- [ ] `npm run msc:dev:example` — UI on port **3000**
+
+Full doc index: [DOCS.md](DOCS.md).
+
 ## The Core Onboarding Map
 
 Before writing, modifying, or refactoring any code files within this workspace, you must sequentially execute and verify the following architectural steps:
@@ -32,7 +42,9 @@ Before writing, modifying, or refactoring any code files within this workspace, 
 - Runtime reads **`process.env.VARIABLE_NAME`** only — no hardcoded tokens or production domains in committed code.
 - Cursor agents use the same hydrated process when running npm/node scripts; they must **not** ask you to paste plain-text keys into chat. New services → add the key to `.env.example` + value in `.env.local`.
 
-Optional: map your workspace path in `.cursor/mcp.json` (placeholders only in Git). See `.cursor/docs/mcp-setup.md` for MCP + global Cursor merge.
+MCP paths in `.cursor/mcp.json` must use `"${workspaceFolder}"` — never machine-specific paths. See `.cursor/docs/mcp-setup.md` for MCP + global Cursor merge.
+
+**Fast path:** `npm run bootstrap` then `npm run msc:dev:example`.
 
 ### 3. Phase 3: Structural Tool Verification
 
@@ -61,6 +73,7 @@ npm run msc:smoke -- 3000
 | Topic | Path |
 |-------|------|
 | **Constitution** | `TRUTH.md` |
+| **Documentation index** | `DOCS.md` |
 | **Operational runbook (commands)** | `.cursor/docs/HOW-TO.md` |
 | **Master AI routing compass** | `.cursor/docs/Code-Jedi.md` |
 | Competency routing (Nodes 1–8) | `.cursor/skills/README.md` |
