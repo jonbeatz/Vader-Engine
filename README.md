@@ -8,8 +8,10 @@
 
 **v2.1.0 Gold Master** — Production-ready, self-validating, Cursor-native development foundation.
 
-> [!IMPORTANT]
-> **GitHub About (short):** Cursor-native full-stack boilerplate with a 52-point self-grader, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows.
+| Link | Destination |
+| --- | --- |
+| **Quick start** | [#quick-start](#quick-start) |
+| **Documentation** | [#documentation-map](#documentation-map) · [DOCS.md](DOCS.md) · [START-HERE.md](START-HERE.md) |
 
 | Field | Value |
 | --- | --- |

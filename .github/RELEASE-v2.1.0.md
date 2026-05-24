@@ -1,6 +1,6 @@
-# Changelog
+## v2.1.0 Gold Master — May 23, 2026
 
-## [2.1.0] - 2026-05-23 (Gold Master)
+Production-ready, self-validating, Cursor-native development foundation. **Grade: 52/52 (100%).**
 
 ### Major Features & Improvements
 
@@ -50,18 +50,17 @@
 - **Before**: 38/38
 - **After**: **52/52 (100%)**
 
-### Documentation (post-release sync)
-- Synchronized TRUTH, DOCS, START-HERE, ARCHITECTURE, TROUBLESHOOTING, CONTRIBUTING, Code-Jedi, HOW-TO to v2.1.0 Gold Master
-- Full command catalog, CI/pre-push workflow, and 52-point grader references
-- Git-README deprecated in favor of root README.md
-
 ---
 
-## [2.0.0-JEDI] - Previous Baseline
-*(Initial Jedi-Master release — see previous changelog entries)*
+### Getting started
 
----
+- **Quick start:** https://github.com/jonbeatz/Boilerplate-v1#quick-start
+- **Documentation:** https://github.com/jonbeatz/Boilerplate-v1#documentation-map · [DOCS.md](https://github.com/jonbeatz/Boilerplate-v1/blob/main/DOCS.md)
 
-**All notable changes to this project will be documented in this file.**
+```bash
+git clone https://github.com/jonbeatz/Boilerplate-v1.git my-project
+cd my-project
+npm run msc:onboard
+```
 
-This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Full changelog: [CHANGELOG.md](https://github.com/jonbeatz/Boilerplate-v1/blob/main/CHANGELOG.md)

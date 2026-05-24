@@ -125,7 +125,9 @@ Before performing any structural changes, always check the `README.md` in the ta
 
 | Service | Port(s) | Env / CLI |
 |---------|---------|-----------|
-| Web dev / HTTP smoke gate | **3000** | `MSC_DEV_PORT`, CLI arg, `.env` `PORT` |
+| Minimal frontend sandbox | **3000** | `MSC_DEV_PORT`, CLI arg, `.env` `PORT` |
+| Payload full-stack sandbox | **3001** | Payload sandbox dev server |
+| Reserved (WordPress / services) | **8080** | Multi-tenant / Local WP bridges |
 | LiteLLM AI proxy | **4000** (default) or **8000** | `MSC_LITELLM_PORT`, CLI to `msc-kill-dev-port` |
 | Ngrok inspector | **4040** | ngrok default |
 
