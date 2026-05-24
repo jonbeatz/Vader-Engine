@@ -1,0 +1,11 @@
+/**
+ * msc-smoke-test — Studio Dark token contract
+ * Background: var(--msc-bg-main) | Surface: var(--msc-bg-surface)
+ */
+.msc-smoke-test {
+  background-color: var(--msc-bg-surface);
+  color: var(--msc-text-primary);
+  border: 1px solid var(--msc-border-color);
+  border-radius: var(--msc-radius);
+  padding: var(--msc-gap-md);
+}

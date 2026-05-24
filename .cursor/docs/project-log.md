@@ -13,6 +13,16 @@
 
 ## 🪵 Development Changelog
 
+### [2026-05-23] - Phase 3 complete — Vader Protocol & Shield Layer (Session 3)
+
+- **Exit gate (Node 24):** `msc:shield:audit` PASS · `msc:new:component -- msc-smoke-test nextjs-minimal` PASS · `npm run test --prefix examples/nextjs-minimal` **5/5** · `npm run grade` **39/39 (100%)**
+- **Scripts:** `msc-shield-audit.mjs`, `msc-ingest.mjs`, `msc-new-component.mjs` + package.json aliases
+- **Shield chain:** `core/msc-assets.php` enqueue order → msc-shield.css → studio-dark-shield.css → msc-shield-load.css → extensions
+- **Next.js minimal:** layout shield wrapper, globals.css @import chain, page.tsx hex removed (Studio Dark classes)
+- **Vault:** `.cursor/blueprints/` README + snippet stubs; `tests/fixtures/sample-input.html`; `ui/imports/` ingest output dir
+- **Note:** `examples/nextjs-payload` inline hex deferred to Phase 4; Phase 5 adds grader hex check
+- **Phase 3 complete — grade 39/39.**
+
 ### [2026-05-23] - Phase 2 complete — Core workspace & tooling (Session 2)
 
 - **Exit gate:** `npm run msc:lint` exit 0 · `npm run grade` **39/39 (100%)** · `[PASS] Token map complete`

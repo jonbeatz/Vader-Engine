@@ -1,0 +1,24 @@
+@import "../../../ui/msc-shield.css";
+@import "../../../ui/studio-dark-shield.css";
+@import "../../../ui/msc-shield-load.css";
+
+.msc-home-main {
+  padding: var(--msc-gap-lg);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.msc-home-sub {
+  font-size: 1.125rem;
+  margin-top: var(--msc-gap-md);
+}
+
+.msc-home-footer {
+  margin-top: var(--msc-gap-lg);
+  font-size: 0.75rem;
+  color: var(--msc-text-secondary);
+}
+
+.msc-home-button {
+  margin-top: var(--msc-gap-md);
+}
