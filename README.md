@@ -1,5 +1,5 @@
 # Boilerplate-v2 — Jedi-Master Edition
-[![Grade](https://img.shields.io/badge/grade-38%2F38-brightgreen)](https://github.com/jonbeatz/Boilerplate-v1)
+[![Grade](https://img.shields.io/badge/grade-52%2F52-brightgreen)](https://github.com/jonbeatz/Boilerplate-v1)
 [![CI](https://github.com/jonbeatz/Boilerplate-v1/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate-v1/actions/workflows/ci.yml)
 [![Node Version](https://img.shields.io/badge/node-20-339933)](https://nodejs.org/)
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
@@ -11,7 +11,7 @@
 | --- | --- |
 | **Version** | v2.0.0-JEDI |
 | **Release date** | May 2026 |
-| **Ecosystem grade** | 38/38 (100%) — Gold Master verified baseline |
+| **Ecosystem grade** | 52/52 (100%) — Gold Master verified baseline |
 | **Repository** | https://github.com/jonbeatz/Boilerplate-v1 |
 
 ---
@@ -63,7 +63,7 @@ PHP never installs via npm. The WordPress layer provides CSS namespace isolation
 - **Defensive project re-brander (`npm run msc:forge`):** `scripts/msc-forge.mjs` with regex guard `/(?:\.msc-|^msc:|^msc_)/i` and `--dry-run` simulation.
 - **Automated bitrot CI workflow:** `.github/workflows/ci.yml` on push/PR—Node 20, credential scan, self-grader, and nested sandbox builds.
 - **Platform runtime lock:** `.nvmrc` enforces Node `20` LTS globally.
-- **Self-grade suite expansion:** `npm run grade` is a **38-point checker** with hard non-zero exits when core, script, dashboard, or data sandbox artifacts drift out of spec.
+- **Self-grade suite expansion:** `npm run grade` is a **52-point checker** with hard non-zero exits when core, script, dashboard, or data sandbox artifacts drift out of spec.
 
 ---
 
@@ -126,7 +126,7 @@ npm run msc:dev:payload
 | `npm run msc:update` | `scripts/msc-update.mjs` | Scans and bumps package configurations |
 | `npm run msc:forge -- <f> <s> <r>` | `scripts/msc-forge.mjs` | String rename with regex prefix blocks |
 | `npm run msc:forge -- <f> <s> <r> --dry-run` | `scripts/msc-forge.mjs` | Simulated renames with zero disk writes |
-| `npm run grade` | `scripts/msc-grade-boilerplate.mjs` | Full 38-point structural check (must score 100%) |
+| `npm run grade` | `scripts/msc-grade-boilerplate.mjs` | Full 52-point structural check (must score 100%) |
 
 ---
 
@@ -166,7 +166,7 @@ Run `npm run grade` in your terminal:
 [PASS] Isolated Full-Stack Configuration Mapping (payload.config.ts Sandbox Boundaries)
 [PASS] Data Sandbox Media Vault Verification (src/collections/MediaVault.ts Specs)
 
---- Final Grade: 38/38 (100%) ---
+--- Final Grade: 52/52 (100%) ---
 
 All checks passed seamlessly. Workspace configuration is certified stable.
 ```
@@ -212,6 +212,6 @@ To maintain the Lean Boundary Rule while satisfying strict package restrictions,
 
 - **Powered by** the MSC Media Engine · Vader Protocol — strict namespace isolation certified
 - **Cursor-native** — calibrated for Cursor 3 Agent and Composer execution paths
-- **Release certified:** v2.0.0-JEDI · 38/38 grade — 100% pass rate. Production ready.
+- **Release certified:** v2.1.0 · 52/52 grade — 100% pass rate. Production ready.
 
 **Operator docs:** [HOW-TO.md](.cursor/docs/HOW-TO.md) · [START-HERE.md](START-HERE.md) · [DOCS.md](DOCS.md) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
