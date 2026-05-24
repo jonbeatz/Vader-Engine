@@ -1,16 +1,18 @@
-# HOW-TO: Boilerplate-v1 Operational Runbook
+# HOW-TO: Boilerplate-v2.1.0 Operational Runbook
 
-Single operator-facing guide for running, verifying, and extending **Boilerplate-v1** (`msc-universal-boilerplate`). For agent routing and module maps, use [Code-Jedi.md](./Code-Jedi.md). Constitutional precedence: [TRUTH.md](../../TRUTH.md).
+Single operator-facing guide for running, verifying, and extending **Boilerplate-v2.1.0 Gold Master** (`msc-universal-boilerplate`). For agent routing and module maps, use [Code-Jedi.md](./Code-Jedi.md). Constitutional precedence: [TRUTH.md](../../TRUTH.md).
 
 ---
 
 ## Mission
 
-Boilerplate-v1 is an **unbranded, self-validating engine** — a portable factory layer for Payload/Next.js consumers, WordPress/Divi surfaces, and Studio Dark UI. It ships:
+Boilerplate-v2.1.0 is an **unbranded, self-validating engine** — a portable factory layer for Payload/Next.js consumers, WordPress/Divi surfaces, and Studio Dark UI. It ships:
 
+- **52-point** structural grader with CI and pre-push enforcement
 - Env-driven, selectable strategies (no forced production defaults)
 - A **13-server** Cursor MCP registry with pre-commit structural verification
 - Global Shield CSS (Core-to-Satellite) with optional Tailwind/shadcn hybrid path
+- Dual sandboxes: `examples/nextjs-minimal` (:3000) and `examples/nextjs-payload` (:3001)
 - Terminal automation under `scripts/` with `package.json` as the only command authority
 
 This repository is a **template**, not a runnable app: HTTP smoke on port **3000** may bypass when no dev server is listening. Consumer apps add `app/`, `payload.config.ts`, and full dependencies per [consumer-bootstrap.md](./consumer-bootstrap.md).
@@ -26,16 +28,15 @@ Cold-start sequence every operator or agent session should follow.
 ```bash
 git clone https://github.com/jonbeatz/Boilerplate-v1.git
 cd Boilerplate-v1
-npm install
+npm run msc:onboard
+# or: npm install && npm run bootstrap
 ```
-
-`npm install` runs `prepare` → installs **Husky** git hooks.
 
 ### 2. Environment contract (zero-leak)
 
 1. Copy `.env.example` → `.env.local` (`.env.local` is gitignored).
 2. Fill live values in `.env.local` only — never commit tokens or paste secrets into chat.
-3. Set `filesystem` path in `.cursor/mcp.json` to your machine’s absolute project root if you relocate the clone.
+3. Keep `.cursor/mcp.json` portable — use `"${workspaceFolder}"` for path-scoped servers (never machine-specific absolute paths).
 4. Mirror MCP keys into Cursor Settings → MCP env, or rely on hydration via `scripts/lib/msc-load-env.mjs`.
 
 All `scripts/*.mjs` entry points import `msc-load-env.mjs` first: **`.env.local` → `.env.example`** (example fills gaps only).
@@ -55,14 +56,17 @@ Equivalent to `start-project:smoke` (MCP verify + optional typecheck/migrations 
 
 ```bash
 npm run verify:mcp
+npm run msc:lint
 npm run verify:local
 npm run grade
+npm run msc:test:root
 ```
 
 Optional CI-style bundle:
 
 ```bash
 npm run check:all
+npm run msc:test:all
 npm run test:integration
 ```
 
@@ -72,13 +76,15 @@ When releasing or forking to a new consumer:
 
 ```bash
 npm run verify:mcp
+npm run msc:lint
 npm run verify:local
 npm run grade
+npm run msc:test:all
 npm run inventory
 npm run log -- --type chore --msg "Gold Master audit passed"
 ```
 
-`grade` must report **100%** before treating the tree as forge-ready.
+`grade` must report **52/52 (100%)** before treating the tree as forge-ready.
 
 ### 6. Session close
 
@@ -94,6 +100,50 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 
 **Authority:** root `package.json` only. Do not invent ad-hoc shell workflows that duplicate `scripts/msc-*.mjs`.
 
+### Bootstrap & onboarding
+
+| Task | Command | Description |
+|------|---------|-------------|
+| Interactive setup | `npm run msc:onboard` | Guided first-run wizard (recommended) |
+| Full bootstrap | `npm run bootstrap` | Kill dev ports + quickstart hydration |
+| Re-hydrate | `npm run msc:quickstart` | Env checks + workspace install |
+| Env validation | `npm run msc:validate-env` | Secret leak scan; **pre-commit gate** |
+| Kill all dev ports | `npm run msc:kill-dev-port` | Clears 3000, 3001, 8080 |
+
+### Development sandboxes
+
+| Task | Command | Description |
+|------|---------|-------------|
+| Minimal frontend | `npm run msc:dev:example` | Next.js on port **3000** |
+| Payload CMS | `npm run msc:dev:payload` | Full-stack on port **3001** |
+| Health dashboard | `npm run msc:health` | Ports, engines, locks |
+| Health JSON | `npm run msc:health:json` | Machine-readable output |
+
+### Quality & lint
+
+| Task | Command | Description |
+|------|---------|-------------|
+| Biome lint | `npm run msc:lint` | Full-tree check; **CI gate** |
+| Biome fix | `npm run msc:lint:fix` | Auto-fix lint issues |
+| Biome format | `npm run msc:format` | Format pass |
+| Structural grade | `npm run grade` | **52 checks**; **pre-push gate** |
+| Root tests | `npm run msc:test:root` | Vitest at repo root; **pre-push** |
+| Full test sweep | `npm run msc:test:all` | Root + minimal sandbox |
+| Grader tests | `npm run msc:test:grader` | Grader unit regression |
+| Minimal tests only | `npm run msc:test` | Vitest in nextjs-minimal |
+
+### Shield & scaffolding
+
+| Task | Command | Description |
+|------|---------|-------------|
+| Namespace audit | `npm run msc:shield:audit` | Verify `msc-` compliance |
+| New component | `npm run msc:new:component` | Vader-compliant UI scaffold |
+| Asset ingest | `npm run msc:ingest` | HTML → shield markup |
+| Safe re-brand | `npm run msc:forge -- <from> <to> <root>` | Protected string replace |
+| Dependency bumps | `npm run msc:update` | Multi-workspace updates |
+| Mock media | `npm run msc:mock:media` | Payload sandbox media seed |
+| Lockfile check | `npm run msc:ensure-lockfiles` | Root + sandbox lockfiles |
+
 ### Session & initialization
 
 | Task | Command | Description |
@@ -106,7 +156,7 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 
 | Task | Command | Description |
 |------|---------|-------------|
-| MCP structure audit | `npm run verify:mcp` | 13 servers, placeholder hygiene, `.env.local` hydration; **runs on every `git commit`** |
+| MCP structure audit | `npm run verify:mcp` | 13 servers, placeholder hygiene, `.env.local` hydration; **pre-commit** |
 | MCP + registry probe | `npm run verify:mcp:probe` | Adds npx reachability check (slower) |
 | Local HTTP smoke | `npm run verify:local` | Smoke `MSC_DEV_PORT` (default **3000**); template bypass if no listener |
 | HTTP smoke (alias) | `npm run msc:smoke` | Same as `verify:local` |
@@ -119,7 +169,15 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 |------|---------|-------------|
 | Append changelog | `npm run log -- --type feat --msg "Description"` | Types: `feat`, `fix`, `chore` → `.cursor/docs/project-log.md` |
 | Refresh dep/MCP inventory | `npm run inventory` | Writes `.cursor/docs/README-inventory.md` |
-| Gold Master structural grade | `npm run grade` | PASS/FAIL audit vs TRUTH + layout; exit **1** on failure |
+| Gold Master structural grade | `npm run grade` | **52-point** PASS/FAIL audit; exit **1** on failure; **pre-push** |
+
+### Git hooks (automatic)
+
+| Mechanism | Behavior |
+|-----------|----------|
+| `prepare` (npm) | Installs Husky on `npm install` |
+| `.husky/pre-commit` | lint-staged (Biome) → `msc:validate-env` → `verify:mcp` |
+| `.husky/pre-push` | `grade` → `msc:test:root` |
 
 ### Port & runtime recovery
 
@@ -154,13 +212,6 @@ LiteLLM proxy uses ports **4000** / **8000** — not the web smoke port. See [lo
 | Media filesystem sync | `npm run media:sync` | `scripts/msc-core-sync.mjs`; strategy via `MSC_MEDIA_STRATEGY` |
 | AST repair stub | `npm run repair:ast` | Active when `MSC_REPAIR_AST=1` |
 
-### Git hooks (automatic)
-
-| Mechanism | Behavior |
-|-----------|----------|
-| `prepare` (npm) | Installs Husky on `npm install` |
-| `.husky/pre-commit` | Runs `npm run verify:mcp` — commit aborted on exit **1** |
-
 ---
 
 ## Agent Routing Protocol
@@ -175,7 +226,7 @@ LiteLLM proxy uses ports **4000** / **8000** — not the web smoke port. See [lo
 ### Documentation precedence (conflicts)
 
 1. [TRUTH.md](../../TRUTH.md)
-2. `.cursorrules` + [rules/README.md](../rules/README.md)
+2. [.cursor/rules/global.mdc](../rules/global.mdc) + [rules/README.md](../rules/README.md)
 3. [ecosystem-options-matrix.md](./ecosystem-options-matrix.md)
 4. Skills under `.cursor/skills/`
 5. [project-log.md](./project-log.md) / [incident-log.md](./incident-log.md)
@@ -217,7 +268,7 @@ Setup details: [mcp-setup.md](./mcp-setup.md). Extended catalog: `.cursor/mcp-bl
 
 2. **Single source of truth** — Commands from `package.json`; tokens from `ui/msc-shield.css`; secrets from `.env.local`; tactics from Code-Jedi + TRUTH. Regenerate inventory with `npm run inventory` after MCP or dependency changes.
 
-3. **Commit gating** — Every commit runs `verify:mcp` via Husky. Do not bypass with `--no-verify` unless the operator explicitly requests it and accepts drift risk.
+3. **Commit gating** — Pre-commit: lint-staged + validate-env + verify:mcp. Pre-push: grade + msc:test:root. Do not bypass with `--no-verify` unless the operator explicitly accepts drift risk.
 
 4. **Anti-patterns** — No invented npm scripts; no live tokens in committed files; no global `@apply` on `body`; no monolithic CSS files; no `clean:next` while dev listens on **3000**; no ad-hoc `taskkill` (use `msc:kill`).
 
@@ -232,10 +283,14 @@ Setup details: [mcp-setup.md](./mcp-setup.md). Extended catalog: `.cursor/mcp-bl
 | [TRUTH.md](../../TRUTH.md) | Constitution — technical precedence |
 | [START-HERE.md](../../START-HERE.md) | Phased onboarding for new agents |
 | [README.md](../../README.md) | Ecosystem overview and layer map |
+| [ARCHITECTURE.md](../../ARCHITECTURE.md) | High-level layout and CI gates |
+| [TROUBLESHOOTING.md](../../TROUBLESHOOTING.md) | Recovery paths |
+| [CONTRIBUTING.md](../../CONTRIBUTING.md) | PR and hook conventions |
+| [CHANGELOG.md](../../CHANGELOG.md) | Release history |
 | [consumer-bootstrap.md](./consumer-bootstrap.md) | Next.js 15 + Payload consumer install |
 | [system-architecture.md](./system-architecture.md) | Structural blueprint |
 | [README-inventory.md](./README-inventory.md) | Auto-generated MCP + npm inventory (`npm run inventory`) |
 
 ---
 
-*Operational runbook for Boilerplate-v1 v1.0.0. When scripts or gates change, update `package.json`, Code-Jedi, and this file in the same session.*
+*Operational runbook for Boilerplate-v2.1.0 Gold Master. When scripts or gates change, update `package.json`, Code-Jedi, and this file in the same session.*

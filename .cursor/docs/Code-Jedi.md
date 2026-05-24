@@ -97,9 +97,37 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 | `npm run inventory` | After MCP or dependency changes | `msc-generate-inventory.mjs` → refreshes `.cursor/docs/README-inventory.md` (MCP + npm tables, env health) |
 | `npm run grade` | Gold Master / release audit | `msc-grade-boilerplate.mjs` → structural PASS/FAIL vs TRUTH + Code-Jedi layout (exit **1** on any fail) |
 
-**Log usage:** `npm run log -- --type feat --msg "Description"` (`feat` \| `fix` \| `chore`).
+**Husky pre-commit:** lint-staged (Biome) → `msc:validate-env` → `verify:mcp`. **Pre-push:** `grade` + `msc:test:root`. Install hooks: `npm install` (runs `prepare`).
 
-**Husky:** `.husky/pre-commit` → `npm run verify:mcp`. Install hooks: `npm install` (runs `prepare`).
+### Bootstrap, sandboxes & quality (v2.1.0)
+
+| Script | When to invoke | What it does |
+|--------|----------------|--------------|
+| `npm run msc:onboard` | First clone / new operator | Interactive setup wizard |
+| `npm run bootstrap` | Manual cold start | Kill dev ports + `quickstart.mjs` hydration |
+| `npm run msc:quickstart` | Re-hydrate without full bootstrap | Asset copies, env checks, workspace install |
+| `npm run msc:validate-env` | Before commit; credential audit | Secret leak + placeholder scan |
+| `npm run msc:kill-dev-port` | All default ports busy | Clears **3000**, **3001**, **8080** |
+| `npm run msc:dev:example` | Frontend sandbox | Next.js minimal on port **3000** |
+| `npm run msc:dev:payload` | Full-stack sandbox | Payload CMS on port **3001** |
+| `npm run msc:health` | Diagnostics | Port/engine dashboard |
+| `npm run msc:health -- --json` | Automation hooks | Machine-readable health |
+| `npm run msc:lint` | Pre-PR / CI mirror | Biome check entire tree |
+| `npm run msc:lint:fix` | Auto-fix lint issues | Biome check --write |
+| `npm run msc:format` | Format pass | Biome format --write |
+| `npm run msc:test` | Minimal sandbox only | Vitest in `examples/nextjs-minimal` |
+| `npm run msc:test:root` | Root structural tests | Vitest at repo root |
+| `npm run msc:test:all` | Full release audit | Root Vitest + minimal sandbox |
+| `npm run msc:test:grader` | Grader regression | Grader unit test suite |
+| `npm run msc:shield:audit` | UI namespace work | Verify `msc-` compliance |
+| `npm run msc:new:component` | Scaffold UI | Vader-compliant component generator |
+| `npm run msc:ingest` | Import HTML assets | Shield-compliant markup parser |
+| `npm run msc:update` | Dependency bumps | Multi-workspace `npm-check-updates` |
+| `npm run msc:forge -- <f> <t> <root>` | Re-brand project | Protected namespace string replace |
+| `npm run msc:mock:media` | Payload sandbox media | Seed mock media vault |
+| `npm run msc:ensure-lockfiles` | Lockfile hygiene | Verify root + sandbox lockfiles |
+
+**Log usage:** `npm run log -- --type feat --msg "Description"` (`feat` \| `fix` \| `chore`).
 
 ### Port control & repair utilities
 
@@ -241,4 +269,4 @@ When adding a feature (e.g. `msc-portfolio-collection`), create `ui/msc-[feature
 
 ---
 
-*Maintained as the primary AI routing compass for Boilerplate-v1. Update when `package.json` scripts or core module paths change.*
+*Maintained as the primary AI routing compass for Boilerplate-v2.1.0 Gold Master. Update when `package.json` scripts or core module paths change.*

@@ -1,6 +1,6 @@
 # System Architecture Map
 
-Single source of truth for repository layout, subsystem boundaries, and integration contracts. Aligns with the master profile in [README.md](../../README.md). Agent routing compass: [Code-Jedi.md](./Code-Jedi.md). Technical precedence: [TRUTH.md](../../TRUTH.md).
+Single source of truth for repository layout, subsystem boundaries, and integration contracts. Aligns with [README.md](../../README.md) (v2.1.0 Gold Master). Agent routing compass: [Code-Jedi.md](./Code-Jedi.md). Technical precedence: [TRUTH.md](../../TRUTH.md).
 
 > **Namespace Protocol:** All custom modules and CSS utilize the `msc-` or `MSC_` prefix to ensure cross-project portability and prevent integration conflicts. These are treated as structural namespaces for collision prevention, not branding. When cloning this boilerplate for a new project, these can be globally replaced if a different namespace anchor is required.
 
@@ -11,10 +11,14 @@ Single source of truth for repository layout, subsystem boundaries, and integrat
 ## Unified Core Layout Tree
 
 ```text
-📁 Boilerplate-v1/
+📁 Boilerplate-v1/  (v2.1.0 Gold Master)
 ├── 📄 START-HERE.md              ◄ [Universal Cold-Start Ignition Runbook]
-├── 📄 package.json                ◄ [Command Registry: verify, kill, smoke, repair]
+├── 📄 README.md · DOCS.md        ◄ [Overview + documentation index]
+├── 📄 package.json                ◄ [Command Registry — 52-point grade authority]
 ├── 📄 .env.example                ◄ [Strategy Environment Configuration Contract]
+├── 📂 examples/
+│   ├── nextjs-minimal/            ◄ [Frontend sandbox · :3000]
+│   └── nextjs-payload/            ◄ [Payload CMS sandbox · :3001]
 ├── 📂 .cursor/
 │   ├── 📄 mcp.json                ◄ [Project-Scoped AI Agent Context Connectors]
 │   ├── 📂 prompts/                ◄ [Operational Gates: task-planner, session-handoff]
@@ -62,7 +66,8 @@ Portable contracts and terminal gates shared across PHP, Payload/Next, and stand
 | PHP bootstrap | `msc-bootstrap.php`, `msc-assets.php`, `msc-utilities.php`, `msc-communications.php` | — |
 | Headless CMS | `msc-payload-bridge.ts`, `msc-payload-media-hooks.ts`, `msc-payload-sqlite-push.ts`, `msc-sqlite-path.ts` | `msc-core-sync.mjs` |
 | Data safety | `msc-payload-auth-delete-preflight.ts`, portfolio/subscription collections | `msc-sqlite-repair.mjs`, `msc-sqlite-wal-purge.mjs`, `msc-rescue-admin.mjs` (stub) |
-| Runtime recovery | — | `msc-kill-dev-port.mjs`, `msc-local-http-smoke.mjs`, `msc-dev-recover.mjs`, `msc-verify-next-safe.mjs`, `msc-clean-next-cache.mjs` |
+| Runtime recovery | — | `msc-kill-all-dev-ports.mjs`, `msc-kill-dev-port.mjs`, `msc-local-http-smoke.mjs`, `msc-dev-recover.mjs`, `msc-verify-next-safe.mjs`, `msc-clean-next-cache.mjs` |
+| Quality / shield | — | `msc-grade-boilerplate.mjs`, `msc-shield-audit.mjs`, `msc-onboarding.mjs`, `validate-env.mjs` |
 
 **Fix-Local-First gate sequence (web):**
 
@@ -123,7 +128,9 @@ Consumer `package.json` scripts are appended from `config/npm-scripts-appendix.j
 
 | Port | Role |
 |------|------|
-| **3000** | Web dev + HTTP smoke (`MSC_DEV_PORT`) |
+| **3000** | Minimal frontend sandbox + HTTP smoke (`MSC_DEV_PORT`) |
+| **3001** | Payload full-stack CMS sandbox |
+| **8080** | Reserved — WordPress / microservices |
 | **4000** / **8000** | Local AI proxy (`MSC_LITELLM_PORT`) |
 
 | Connector | Entry |
