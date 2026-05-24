@@ -31,3 +31,7 @@ out/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local-only operator docs (not published to GitHub)
+.cursor/docs/BOILERPLATE-IMPROVEMENT/
+.cursor/docs/README/
