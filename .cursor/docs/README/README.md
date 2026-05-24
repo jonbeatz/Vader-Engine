@@ -8,7 +8,6 @@
 
 **v2.1.0 Gold Master** — Production-ready, self-validating, Cursor-native development foundation.
 
-> [!IMPORTANT]
 > **GitHub About (short):** Cursor-native full-stack boilerplate with a 52-point self-grader, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows.
 
 | Field | Value |
@@ -78,7 +77,7 @@ Token single source of truth: `ui/msc-shield.css`. The v2 isolation contract is 
 - **Codespaces ready** — `.devcontainer/devcontainer.json` auto-bootstraps in cloud shells
 - **Cross-platform scripts** — Windows-safe path handling throughout `scripts/`
 
-Full release notes: [CHANGELOG.md](CHANGELOG.md)
+Full release notes: [CHANGELOG.md](../../../CHANGELOG.md)
 
 ---
 
@@ -113,7 +112,7 @@ cp examples/nextjs-payload/.env.example examples/nextjs-payload/.env.local
 npm run msc:dev:payload
 ```
 
-See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
+See [TROUBLESHOOTING.md](../../../TROUBLESHOOTING.md) if bootstrap or ports fail.
 
 ### What happens on first run
 
@@ -184,13 +183,13 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 
 | Audience | Start here | Then |
 | --- | --- | --- |
-| First-time operator | [START-HERE.md](START-HERE.md) | [DOCS.md](DOCS.md) |
-| AI agent / Cursor | [Code-Jedi.md](.cursor/docs/Code-Jedi.md) | [TRUTH.md](TRUTH.md) |
-| Contributors | [CONTRIBUTING.md](CONTRIBUTING.md) | [ARCHITECTURE.md](ARCHITECTURE.md) |
-| System debugging | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | [HOW-TO.md](.cursor/docs/HOW-TO.md) |
-| MCP setup | [mcp-setup.md](.cursor/docs/mcp-setup.md) | `.cursor/mcp.json` |
+| First-time operator | [START-HERE.md](../../../START-HERE.md) | [DOCS.md](../../../DOCS.md) |
+| AI agent / Cursor | [Code-Jedi.md](../Code-Jedi.md) | [TRUTH.md](../../../TRUTH.md) |
+| Contributors | [CONTRIBUTING.md](../../../CONTRIBUTING.md) | [ARCHITECTURE.md](../../../ARCHITECTURE.md) |
+| System debugging | [TROUBLESHOOTING.md](../../../TROUBLESHOOTING.md) | [HOW-TO.md](../HOW-TO.md) |
+| MCP setup | [mcp-setup.md](../mcp-setup.md) | `.cursor/mcp.json` |
 
-Architecture diagrams and dependency flow: [ARCHITECTURE.md](ARCHITECTURE.md)
+Architecture diagrams and dependency flow: [ARCHITECTURE.md](../../../ARCHITECTURE.md)
 
 ---
 
@@ -290,7 +289,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 - **Cursor-native** — calibrated for Cursor Agent and Composer execution paths
 - **Release certified:** v2.1.0 · 52/52 grade · 100% pass rate · production ready
 
-**Operator docs:** [HOW-TO.md](.cursor/docs/HOW-TO.md) · [START-HERE.md](START-HERE.md) · [DOCS.md](DOCS.md) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
+**Operator docs:** [HOW-TO.md](../HOW-TO.md) · [START-HERE.md](../../../START-HERE.md) · [DOCS.md](../../../DOCS.md) · [Code-Jedi.md](../Code-Jedi.md)
 
 ---
 
