@@ -34,9 +34,12 @@ All custom classes use the `msc-` prefix. Studio Dark tokens belong in `ui/msc-s
 
 Husky runs (in order):
 
-1. **lint-staged** — Biome check/write on `*.{js,mjs,ts,tsx,jsx}`; format on `*.{json,css}` (excludes `package-lock.json`)
-2. **`npm run msc:validate-env`** — secret leak scan
-3. **`npm run verify:mcp`** — MCP structure validation
+1. **prepare-commit-msg** — strips `Co-authored-by: Cursor <cursoragent@cursor.com>` (JonBeatz-only commit policy)
+2. **lint-staged** — Biome check/write on `*.{js,mjs,ts,tsx,jsx}`; format on `*.{json,css}` (excludes `package-lock.json`)
+3. **`npm run msc:validate-env`** — secret leak scan
+4. **`npm run verify:mcp`** — MCP structure validation
+
+**Cursor IDE:** Turn off **Settings → Agents → Attribution → Commit attribution** so agents do not inject co-author trailers. The Husky hook above is a second line of defense.
 
 ## Pre-Push Gates
 
