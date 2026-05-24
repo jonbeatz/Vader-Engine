@@ -65,8 +65,8 @@ On push/PR to `main`:
 5. `grade`
 6. `msc:test:root`
 7. `examples/nextjs-minimal` — `npm ci` + test
-8. `examples/nextjs-payload` — `npm ci` + build
-9. Playwright install + `npm run msc:e2e`
+8. `examples/nextjs-payload` — `npm ci` + build (requires `PAYLOAD_SECRET`)
+9. Playwright install + `npm run msc:e2e` (mkdir `database/`, uses `payload-e2e.db`)
 
 ## Git hooks
 

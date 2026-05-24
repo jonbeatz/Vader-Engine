@@ -1,6 +1,6 @@
-## v2.1.0 Gold Master — May 23, 2026
+## v2.1.0 Gold Master — May 24, 2026
 
-Production-ready, self-validating, Cursor-native development foundation. **Grade: 52/52 (100%).**
+Production-ready, self-validating, Cursor-native development foundation. **Grade: 52/52 (100%).** Repository: [jonbeatz/Boilerplate-v2](https://github.com/jonbeatz/Boilerplate-v2).
 
 ### Major Features & Improvements
 
@@ -49,6 +49,11 @@ Production-ready, self-validating, Cursor-native development foundation. **Grade
 ### Grade
 - **Before**: 38/38
 - **After**: **52/52 (100%)**
+
+### P3 polish (100/100)
+- Playwright E2E multi-sandbox harness (`npm run msc:e2e`) in CI
+- `.cursor/settings.json` — AI rules, default model, terminal preferences
+- Repository renamed to **Boilerplate-v2**
 
 ---
 

@@ -13,6 +13,15 @@
 
 ## 🪵 Development Changelog
 
+## Feature Complete — 2026-05-24
+
+- **Commit:** Feature Complete: 100/100 — Playwright E2E, Cursor settings, repo rename
+- **Repository:** `jonbeatz/Boilerplate-v2` (renamed from Boilerplate-v1)
+- **Grade:** 52/52 (100%) · CI green (validate → E2E)
+- **P3 shipped:** Playwright E2E, `.cursor/settings.json`, repo rename URL sweep
+- **CI fixes:** minimal sandbox lockfile committed; Payload `database/.gitkeep` + `payload-e2e.db` for E2E
+- **Docs:** final catalog sync (DOCS, TRUTH, CONTRIBUTING, TROUBLESHOOTING, HOW-TO, CHANGELOG)
+
 ## Chunk C complete — 2026-05-24
 
 - Last step: 57

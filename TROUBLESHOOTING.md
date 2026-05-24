@@ -73,7 +73,35 @@ Note: Markdown is not processed by Biome — pre-commit lint-staged covers JS/TS
 - Grader unit tests: `npm run msc:test:grader`
 - Root tests: `npm run msc:test:root`
 - Full sweep: `npm run msc:test:all`
+- E2E parity with CI: `npm run msc:e2e:install` then `npm run msc:e2e`
 - On failure, read stderr `FAILED CHECK:` lines and fix the named artifact.
+
+## Playwright E2E
+
+First-time browser setup:
+
+```powershell
+npm run msc:e2e:install
+npm run msc:e2e
+```
+
+- Spins up dev servers on ports **3000** (minimal) and **3001** (payload).
+- Payload uses a dedicated SQLite file (`database/payload-e2e.db`) — separate from local dev DB.
+- CI ensures `examples/nextjs-payload/database/` exists before E2E (committed via `database/.gitkeep`).
+
+If `/admin` returns 500 in CI or locally:
+
+- Confirm `examples/nextjs-payload/database/` exists and is writable.
+- Set `PAYLOAD_SECRET` in env or `.env.local` for the payload sandbox.
+- Run `npm run msc:kill-dev-port` before retrying (port conflict).
+
+## CI failures (GitHub Actions)
+
+| Symptom | Fix |
+|---------|-----|
+| `npm ci` fails in `examples/nextjs-minimal` | Ensure `examples/nextjs-minimal/package-lock.json` is committed (required for CI). |
+| Payload E2E 500 on `/admin` | Ensure `database/` directory exists; E2E uses `payload-e2e.db`. |
+| Playwright browser missing | Run `npm run msc:e2e:install` locally; CI runs `npx playwright install --with-deps chromium firefox`. |
 
 ## Shield / UI Namespace
 

@@ -13,7 +13,7 @@ If any document conflicts with this file for **technical precedence**, this file
 - **UI layer:** `ui/` — Studio Dark Shield; token SSoT in `msc-shield.css`; v2 isolation contract in `studio-dark-shield.css`; strict `msc-` CSS prefix.
 - **Zero-leak:** `.env.example` = structural contract only; live keys in `.env.local` (gitignored); pre-commit runs lint-staged, `validate-env`, and `verify:mcp`.
 - **Clone-to-productive:** `npm run msc:onboard` or `npm run bootstrap` → `npm run msc:dev:example` within **≤ 10 minutes** on a fresh clone.
-- **Self-validating:** `npm run grade` — **52 checks**, hard non-zero exit; pre-push runs grade + root Vitest.
+- **Self-validating:** `npm run grade` — **52 checks**, hard non-zero exit; pre-push runs grade + root Vitest; CI runs Playwright multi-sandbox E2E (`npm run msc:e2e`).
 - **Naming:** `msc-`, `msc:`, `msc_` on all custom code; signature *Powered by the MSC Media Engine* where appropriate.
 
 ## 1. Command authority

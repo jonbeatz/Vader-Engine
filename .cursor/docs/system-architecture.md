@@ -17,8 +17,9 @@ Single source of truth for repository layout, subsystem boundaries, and integrat
 ├── 📄 package.json                ◄ [Command Registry — 52-point grade authority]
 ├── 📄 .env.example                ◄ [Strategy Environment Configuration Contract]
 ├── 📂 examples/
-│   ├── nextjs-minimal/            ◄ [Frontend sandbox · :3000]
-│   └── nextjs-payload/            ◄ [Payload CMS sandbox · :3001]
+│   ├── nextjs-minimal/            ◄ [Frontend sandbox · :3000 · committed package-lock.json]
+│   └── nextjs-payload/            ◄ [Payload CMS sandbox · :3001 · database/.gitkeep]
+├── 📂 e2e/                         ◄ [Playwright multi-sandbox smoke · CI gate]
 ├── 📂 .cursor/
 │   ├── 📄 mcp.json                ◄ [Project-Scoped AI Agent Context Connectors]
 │   ├── 📂 prompts/                ◄ [Operational Gates: task-planner, session-handoff]
@@ -68,6 +69,7 @@ Portable contracts and terminal gates shared across PHP, Payload/Next, and stand
 | Data safety | `msc-payload-auth-delete-preflight.ts`, portfolio/subscription collections | `msc-sqlite-repair.mjs`, `msc-sqlite-wal-purge.mjs`, `msc-rescue-admin.mjs` (stub) |
 | Runtime recovery | — | `msc-kill-all-dev-ports.mjs`, `msc-kill-dev-port.mjs`, `msc-local-http-smoke.mjs`, `msc-dev-recover.mjs`, `msc-verify-next-safe.mjs`, `msc-clean-next-cache.mjs` |
 | Quality / shield | — | `msc-grade-boilerplate.mjs`, `msc-shield-audit.mjs`, `msc-onboarding.mjs`, `validate-env.mjs` |
+| E2E (CI + local) | — | `e2e/playwright.config.ts`, `e2e/tests/smoke.spec.ts` via `npm run msc:e2e` |
 
 **Fix-Local-First gate sequence (web):**
 

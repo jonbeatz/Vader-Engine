@@ -27,7 +27,7 @@ All custom classes use the `msc-` prefix. Studio Dark tokens belong in `ui/msc-s
 
 Husky runs (in order):
 
-1. **lint-staged** — Biome check/write on `*.{js,mjs,ts,tsx,jsx}`; format on `*.{json,css}`
+1. **lint-staged** — Biome check/write on `*.{js,mjs,ts,tsx,jsx}`; format on `*.{json,css}` (excludes `package-lock.json`)
 2. **`npm run msc:validate-env`** — secret leak scan
 3. **`npm run verify:mcp`** — MCP structure validation
 
@@ -47,6 +47,8 @@ npm run msc:validate-env
 npm run msc:lint
 npm run grade
 npm run msc:test:all
+npm run msc:e2e:install   # first time only
+npm run msc:e2e           # optional local parity with CI
 ```
 
 ## Pull Requests
@@ -55,7 +57,7 @@ npm run msc:test:all
 - Keep grade at **52/52** before push
 - Do not commit `.env.local`, sandbox `.env.local`, or live MCP tokens
 - Update [CHANGELOG.md](CHANGELOG.md) for user-visible changes
-- CI must pass: validate-env → verify:mcp → lint → grade → tests → sandbox builds
+- CI must pass: validate-env → verify:mcp → lint → grade → root tests → sandbox builds → Playwright E2E
 
 ## Documentation Sync
 

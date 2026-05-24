@@ -16,7 +16,7 @@
 | Field | Value |
 | --- | --- |
 | **Version** | v2.1.0 Gold Master |
-| **Release date** | May 23, 2026 |
+| **Release date** | May 24, 2026 (Gold Master certified) |
 | **Ecosystem grade** | 52/52 (100%) — verified baseline |
 | **Repository** | [github.com/jonbeatz/Boilerplate-v2](https://github.com/jonbeatz/Boilerplate-v2) |
 | **Node** | 20.x LTS (pinned) · 24.x supported via runtime guard |
@@ -68,7 +68,7 @@ Token single source of truth: `ui/msc-shield.css`. The v2 isolation contract is 
 - **Node 20 & 24 support** — runtime guard in `scripts/lib/msc-node-version-guard.mjs`
 - **Docker Compose** — opt-in Postgres/Redis service mirroring for production-like local dev
 - **Documentation suite** — `ARCHITECTURE.md`, `TROUBLESHOOTING.md`, `CONTRIBUTING.md`, modular Cursor rules
-- **Full CI pipeline** — validate-env → verify MCP → lint → grade → root tests → sandbox builds
+- **Full CI pipeline** — validate-env → verify MCP → lint → grade → root tests → sandbox builds → Playwright E2E
 
 ### Foundation (carried forward from v2.0)
 

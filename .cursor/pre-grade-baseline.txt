@@ -2,7 +2,7 @@
 > msc-universal-boilerplate@1.0.0 grade
 > node scripts/msc-grade-boilerplate.mjs
 
---- ≡ƒôè Grading Boilerplate-v1 (Gold Master) ---
+--- 📊 Grading Boilerplate-v2 (Gold Master) ---
 
 Γ£à [PASS] HOW-TO.md exists
 Γ£à [PASS] Code-Jedi.md exists

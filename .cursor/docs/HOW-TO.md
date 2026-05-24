@@ -13,6 +13,7 @@ Boilerplate-v2.1.0 is an **unbranded, self-validating engine** — a portable fa
 - A **13-server** Cursor MCP registry with pre-commit structural verification
 - Global Shield CSS (Core-to-Satellite) with optional Tailwind/shadcn hybrid path
 - Dual sandboxes: `examples/nextjs-minimal` (:3000) and `examples/nextjs-payload` (:3001)
+- Playwright multi-sandbox E2E (`npm run msc:e2e`) — 3 smoke tests × chromium + firefox
 - Terminal automation under `scripts/` with `package.json` as the only command authority
 
 This repository is a **template**, not a runnable app: HTTP smoke on port **3000** may bypass when no dev server is listening. Consumer apps add `app/`, `payload.config.ts`, and full dependencies per [consumer-bootstrap.md](./consumer-bootstrap.md).
@@ -80,6 +81,8 @@ npm run msc:lint
 npm run verify:local
 npm run grade
 npm run msc:test:all
+npm run msc:e2e:install   # first time only
+npm run msc:e2e
 npm run inventory
 npm run log -- --type chore --msg "Gold Master audit passed"
 ```
@@ -178,7 +181,7 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 | Mechanism | Behavior |
 |-----------|----------|
 | `prepare` (npm) | Installs Husky on `npm install` |
-| `.husky/pre-commit` | lint-staged (Biome) → `msc:validate-env` → `verify:mcp` |
+| `.husky/pre-commit` | lint-staged (Biome; skips `package-lock.json`) → `msc:validate-env` → `verify:mcp` |
 | `.husky/pre-push` | `grade` → `msc:test:root` |
 
 ### Port & runtime recovery

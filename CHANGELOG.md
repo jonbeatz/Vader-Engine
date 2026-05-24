@@ -60,6 +60,12 @@
 - Deep Cursor settings: `.cursor/settings.json` with AI model bindings
 - Repository renamed to `jonbeatz/Boilerplate-v2` with internal URL sweep
 
+### Post-release fixes (2026-05-24)
+- CI: committed `examples/nextjs-minimal/package-lock.json` for sandbox `npm ci`
+- CI: Payload E2E SQLite — `database/.gitkeep`, dedicated `payload-e2e.db`, mkdir before E2E step
+- lint-staged: exclude `package-lock.json` from Biome format pass
+- Documentation sweep: E2E, CI pipeline, lockfile, and repo rename parity across catalog
+
 ---
 
 ## [2.0.0-JEDI] - Previous Baseline

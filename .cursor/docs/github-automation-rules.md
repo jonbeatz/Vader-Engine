@@ -26,15 +26,16 @@ When cutting a release from a verified build:
 ### Pre-release gates (local)
 
 1. Align **`package.json` `version`** with the target release (semver).
-2. Run the project build gate (`npm run verify:next`, `npm run build`, or equivalent) until exit **0**.
-3. Clear stuck dev ports when needed:
+2. Run **`npm run grade`** (must show **52/52**) and **`npm run msc:test:all`**.
+3. Run **`npm run msc:e2e`** after `npm run msc:e2e:install` (CI parity).
+4. Clear stuck dev ports when needed:
 
 ```bash
 node scripts/msc-kill-dev-port.mjs 3000
 node scripts/msc-local-http-smoke.mjs 3000
 ```
 
-4. Confirm distributable artifacts exist (`dist/`, `final_deploy.zip`, `.next/`, etc.) per project scripts.
+5. Confirm distributable artifacts exist (`dist/`, `final_deploy.zip`, `.next/`, etc.) per project scripts.
 
 ### Tag convention
 
