@@ -3,9 +3,9 @@
  * Copy into a Payload + Next.js consumer; install @payloadcms/* deps in that project.
  */
 
+import path from 'node:path';
 import { sqliteAdapter } from '@payloadcms/db-sqlite';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
-import path from 'path';
 import type { CollectionConfig, GlobalConfig } from 'payload';
 import { buildConfig } from 'payload';
 import { msc_resolveSqlitePush } from './msc-payload-sqlite-push';
