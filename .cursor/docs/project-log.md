@@ -13,6 +13,16 @@
 
 ## 🪵 Development Changelog
 
+## Chunk A complete — 2026-05-24
+
+- Last step: 20
+- Grade: 52/52 (100%)
+- Pre-flight HEAD: `b65188bb7126d2bf5f4b3e49a6880774db537c2f` (`.cursor/pre-upgrade-commit.txt`)
+- Steps 0–20: verified against Phases 1–5 deliverables; all validation gates pass
+- Chunk A lint gate fix: `biome.json` excludes ingest output + generated next-env; fixture button type
+- Commits: pending operator commit (working tree has snapshot + lint fixes)
+- Awaiting human confirmation to proceed to Chunk B
+
 ### [2026-05-23] - Phase 5 complete — 52-point grader expansion (Session 5)
 
 - **Exit gate (Node 24):** `npm run grade` **52/52 (100%)** · `npm run msc:test:all` PASS · `npm run msc:shield:audit` PASS · `npm run msc:test:grader` PASS
