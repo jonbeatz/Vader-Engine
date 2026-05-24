@@ -9,8 +9,10 @@ describe('msc-grade-boilerplate.mjs self-tests', () => {
 
   it('prints FAILED CHECK on failure paths', () => {
     try {
+      // Added stdio: 'pipe' to intercept terminal output and prevent visual noise
       execSync('node scripts/msc-grade-boilerplate.mjs', {
         encoding: 'utf8',
+        stdio: 'pipe',
         env: { ...process.env, MSC_GRADE_MOCK_FAIL: '1' },
       });
       expect.unreachable('expected grade to fail under MSC_GRADE_MOCK_FAIL');
