@@ -299,3 +299,14 @@ Setup details: [mcp-setup.md](./mcp-setup.md). Extended catalog: `.cursor/mcp-bl
 ---
 
 *Operational runbook for Boilerplate-v2.1.0 Gold Master. When scripts or gates change, update `package.json`, Code-Jedi, and this file in the same session.*
+
+---
+
+## 📁 The Template & Scaffolding System (v2.2.0)
+Boilerplate-v2 contains a cross-platform, native scaffolding CLI to generate custom workspaces into sibling directories outside the main repository root.
+
+### Available Subcommands
+- **List Blueprints:** `npm run msc:template -- list`
+- **Scaffold New Instance:** `npm run msc:template -- apply <category/blueprint-name> --name="My Project" --target=../my-project-path`
+- **Dry-Run Analysis:** Append `--dry-run` to the apply command to analyze structural configurations without writing files to disk.
+- **Engine Doctor:** `npm run msc:template -- doctor`

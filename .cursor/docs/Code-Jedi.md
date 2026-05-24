@@ -129,6 +129,13 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 | `npm run msc:mock:media` | Payload sandbox media | Seed mock media vault |
 | `npm run msc:ensure-lockfiles` | Lockfile hygiene | Verify root + sandbox lockfiles |
 
+### Scaffolding Engine Routines (v2.2.0)
+| Script Command | Engine Payload Responsibility |
+| :--- | :--- |
+| `npm run msc:template -- list` | Inspects and displays all blueprints within the `templates/` directory registry. |
+| `npm run msc:template -- apply` | Syncs a targeted blueprint out to a `--target` path and executes a deep regex token swap. |
+| `npm run msc:template -- doctor` | Runs local connectivity diagnostics on core folder architecture bindings. |
+
 **Log usage:** `npm run log -- --type feat --msg "Description"` (`feat` \| `fix` \| `chore`).
 
 ### Port control & repair utilities

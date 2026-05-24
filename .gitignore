@@ -16,6 +16,7 @@ config/google-oauth-token.json
 google-api/
 
 # Runtime / local DB
+.sandbox/
 *.sqlite-wal
 *.sqlite-shm
 vault.db

@@ -1,0 +1,12 @@
+{
+  "name": "{{PROJECT_SLUG}}",
+  "version": "{{MSC_VERSION}}",
+  "description": "{{PROJECT_NAME}} - Powered by the MSC Media Engine",
+  "scripts": {
+    "dev": "next dev -p {{PORT}}"
+  },
+  "theme": {
+    "background": "{{VADER_BG}}",
+    "surface": "{{VADER_SURFACE}}"
+  }
+}

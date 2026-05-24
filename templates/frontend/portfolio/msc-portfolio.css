@@ -1,0 +1,32 @@
+/* Vader Protocol Structural UI Shield */
+:root {
+  --msc-bg-main: {{VADER_BG}};
+  --msc-bg-surface: {{VADER_SURFACE}};
+  --msc-text-bright: #ffffff;
+  --msc-text-muted: #a0a0a0;
+}
+
+.msc-viewport-shield {
+  min-height: 100vh;
+  background-color: var(--msc-bg-main);
+  color: var(--msc-text-bright);
+  font-family: system-ui, -apple-system, sans-serif;
+  padding: 2rem;
+  margin: 0;
+}
+
+.msc-surface-container {
+  background-color: var(--msc-bg-surface);
+  border: 1px solid #2c2c2c;
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.msc-footer-signature {
+  margin-top: 4rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--msc-text-muted);
+}

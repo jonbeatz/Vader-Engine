@@ -28,7 +28,8 @@
       "!examples/**/next-env.d.ts",
       "!**/test-results",
       "!**/playwright-report",
-      "!**/package-lock.json"
+      "!**/package-lock.json",
+      "!templates/**"
     ]
   },
   "overrides": [
