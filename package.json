@@ -7,7 +7,7 @@
   "scripts": {
     "prepare": "husky",
     "build": "cd examples/nextjs-minimal && npm install && npm run build",
-    "start": "cd examples/nextjs-minimal && npm run start",
+    "start": "cd examples/nextjs-minimal && npm run start -- -p $PORT",
     "bootstrap": "npm run msc:kill-dev-port && node scripts/quickstart.mjs",
     "msc:health": "node scripts/health.mjs",
     "msc:health:json": "node scripts/health.mjs --json",
