@@ -43,7 +43,10 @@
     "msc:lint:fix": "biome check --write .",
     "msc:format": "biome format --write .",
     "msc:test:root": "vitest run",
-    "msc:onboard": "node scripts/msc-onboarding.mjs"
+    "msc:onboard": "node scripts/msc-onboarding.mjs",
+    "msc:shield:audit": "node scripts/msc-shield-audit.mjs",
+    "msc:ingest": "node scripts/msc-ingest.mjs",
+    "msc:new:component": "node scripts/msc-new-component.mjs"
   },
   "lint-staged": {
     "*.{js,mjs,ts,tsx,jsx}": [

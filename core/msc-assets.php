@@ -19,32 +19,20 @@ add_action('wp_enqueue_scripts', 'msc_register_core_visual_shield');
  */
 function msc_enqueue_shield_satellite_chain($ui_url) {
     if (!function_exists('wp_enqueue_style')) {
-        return 'msc-hero-slider';
+        return 'msc-shield-load';
     }
 
     $version = '1.1.0';
 
     wp_enqueue_style('msc-shield-tokens', $ui_url . 'msc-shield.css', [], $version, 'all');
-    wp_enqueue_style('msc-layout', $ui_url . 'msc-layout.css', ['msc-shield-tokens'], $version, 'all');
-    wp_enqueue_style('msc-components', $ui_url . 'msc-components.css', ['msc-layout'], $version, 'all');
+    wp_enqueue_style('msc-studio-dark-shield', $ui_url . 'studio-dark-shield.css', ['msc-shield-tokens'], $version, 'all');
+    wp_enqueue_style('msc-shield-load', $ui_url . 'msc-shield-load.css', ['msc-studio-dark-shield'], $version, 'all');
 
-    $deps = ['msc-components'];
+    $deps = ['msc-shield-load'];
 
     if (getenv('MSC_SHIELD_EXTENSIONS') === '1' || (defined('MSC_SHIELD_EXTENSIONS') && MSC_SHIELD_EXTENSIONS)) {
         wp_enqueue_style('msc-shield-extensions', $ui_url . 'msc-shield-extensions.css', $deps, $version, 'all');
         $deps = ['msc-shield-extensions'];
-    }
-
-    $features = [
-        'msc-portfolio' => 'msc-portfolio.css',
-        'msc-dashboard' => 'msc-dashboard.css',
-        'msc-auth' => 'msc-auth.css',
-        'msc-hero-slider' => 'msc-hero-slider.css',
-    ];
-
-    foreach ($features as $handle => $file) {
-        wp_enqueue_style($handle, $ui_url . $file, $deps, $version, 'all');
-        $deps = [$handle];
     }
 
     return $deps[0];
@@ -70,12 +58,8 @@ function msc_register_core_visual_shield() {
     $version = '1.1.0';
     $files = [
         'msc-shield.css',
-        'msc-layout.css',
-        'msc-components.css',
-        'msc-portfolio.css',
-        'msc-dashboard.css',
-        'msc-auth.css',
-        'msc-hero-slider.css',
+        'studio-dark-shield.css',
+        'msc-shield-load.css',
     ];
 
     $html = '';
@@ -84,7 +68,7 @@ function msc_register_core_visual_shield() {
         $html .= '<link rel="stylesheet" href="ui/' . $file . '?v=' . $version . '" id="' . $id . '" media="all">' . "\n";
     }
 
-    if (getenv('MSC_SHIELD_EXTENSIONS') === '1') {
+    if (getenv('MSC_SHIELD_EXTENSIONS') === '1' || (defined('MSC_SHIELD_EXTENSIONS') && MSC_SHIELD_EXTENSIONS)) {
         $html .= '<link rel="stylesheet" href="ui/msc-shield-extensions.css?v=' . $version . '" id="msc-shield-extensions-standalone" media="all">' . "\n";
     }
 
