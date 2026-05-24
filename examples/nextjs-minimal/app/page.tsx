@@ -1,9 +1,18 @@
-'use client'
+'use client';
 
 export default function Home() {
   return (
-    <main style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif', maxWidth: '800px', margin: '0 auto' }}>
-      <h1 className="msc-title" style={{ color: '#3b82f6' }}>✅ Boilerplate v2 Works!</h1>
+    <main
+      style={{
+        padding: '2rem',
+        fontFamily: 'system-ui, sans-serif',
+        maxWidth: '800px',
+        margin: '0 auto',
+      }}
+    >
+      <h1 className="msc-title" style={{ color: '#3b82f6' }}>
+        ✅ Boilerplate v2 Works!
+      </h1>
       <p className="msc-text" style={{ fontSize: '1.125rem', marginTop: '1rem' }}>
         Your development environment is ready. The MCP servers are active.
       </p>
@@ -27,5 +36,5 @@ export default function Home() {
         Powered by the MSC Media Engine
       </footer>
     </main>
-  )
+  );
 }

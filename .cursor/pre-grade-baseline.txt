@@ -1,0 +1,46 @@
+
+> msc-universal-boilerplate@1.0.0 grade
+> node scripts/msc-grade-boilerplate.mjs
+
+--- ≡ƒôè Grading Boilerplate-v1 (Gold Master) ---
+
+Γ£à [PASS] HOW-TO.md exists
+Γ£à [PASS] Code-Jedi.md exists
+Γ£à [PASS] TRUTH.md exists
+Γ£à [PASS] DOCS.md exists (v2 index)
+Γ£à [PASS] system-architecture.md exists
+Γ£à [PASS] consumer-bootstrap.md exists
+Γ£à [PASS] studio-dark-ui.mdc exists
+Γ£à [PASS] tailwind-shadcn-bridge.mdc exists
+Γ£à [PASS] design-system-rules.mdc exists
+Γ£à [PASS] Skills README exists
+Γ£à [PASS] studio-dark-shield skill exists
+Γ£à [PASS] MCP registry has 13 servers (found: 13)
+Γ£à [PASS] All expected MCP server IDs registered
+Γ£à [PASS] msc-shield.css exists
+Γ£à [PASS] ui/studio-dark-shield.css exists (v2)
+Γ£à [PASS] msc-shield-load.css exists
+Γ£à [PASS] msc-layout.css exists
+Γ£à [PASS] msc-components.css exists
+Γ£à [PASS] examples/nextjs-minimal/package.json exists
+Γ£à [PASS] examples/nextjs-payload/package.json exists
+Γ£à [PASS] examples/nextjs-payload payload.config exists
+Γ£à [PASS] examples/nextjs-payload MediaVault exists
+Γ£à [PASS] .devcontainer/devcontainer.json exists
+Γ£à [PASS] .nvmrc exists (Node 20 lock)
+Γ£à [PASS] .github/workflows/ci.yml exists
+Γ£à [PASS] health.mjs exists
+Γ£à [PASS] msc-update.mjs exists
+Γ£à [PASS] msc-forge.mjs exists
+Γ£à [PASS] Husky pre-commit exists
+Γ£à [PASS] pre-commit runs verify:mcp
+Γ£à [PASS] pre-commit runs msc:validate-env
+Γ£à [PASS] quickstart.mjs exists
+Γ£à [PASS] validate-env.mjs exists
+Γ£à [PASS] kill-ports.mjs exists
+Γ£à [PASS] msc-log-event.mjs exists
+Γ£à [PASS] msc-generate-inventory.mjs exists
+Γ£à [PASS] msc-verify-mcp.mjs exists
+Γ£à [PASS] package.json lifecycle scripts present
+
+--- ≡ƒÅü Final Grade: 38/38 (100%) ---

@@ -1,35 +1,35 @@
 .msc-viewport-shield .msc-focus-ring:focus-visible,
 .msc-dashboard-container .msc-focus-ring:focus-visible {
-    outline: 2px solid var(--msc-border-color);
-    outline-offset: 2px;
+  outline: 2px solid var(--msc-border-color);
+  outline-offset: 2px;
 }
 
 .msc-viewport-shield .msc-focus-ring-accent:focus-visible,
 .msc-dashboard-container .msc-focus-ring-accent:focus-visible {
-    outline: 2px solid var(--msc-accent);
-    outline-offset: 2px;
+  outline: 2px solid var(--msc-accent);
+  outline-offset: 2px;
 }
 
 .msc-viewport-shield ::selection,
 .msc-dashboard-container ::selection {
-    background: color-mix(in srgb, var(--msc-accent) 35%, transparent);
-    color: var(--msc-text-primary);
+  background: color-mix(in srgb, var(--msc-accent) 35%, transparent);
+  color: var(--msc-text-primary);
 }
 
 .msc-viewport-shield .msc-scrollbar-thin,
 .msc-dashboard-container .msc-scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: var(--msc-border-color) var(--msc-bg-main);
+  scrollbar-width: thin;
+  scrollbar-color: var(--msc-border-color) var(--msc-bg-main);
 }
 
 .msc-viewport-shield .msc-scrollbar-thin::-webkit-scrollbar,
 .msc-dashboard-container .msc-scrollbar-thin::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 .msc-viewport-shield .msc-scrollbar-thin::-webkit-scrollbar-thumb,
 .msc-dashboard-container .msc-scrollbar-thin::-webkit-scrollbar-thumb {
-    background: var(--msc-border-color);
-    border-radius: 4px;
+  background: var(--msc-border-color);
+  border-radius: 4px;
 }

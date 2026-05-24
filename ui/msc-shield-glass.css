@@ -1,39 +1,39 @@
 .msc-viewport-shield .msc-glass-subtle,
 .msc-dashboard-container .msc-glass-subtle {
-    background: color-mix(in srgb, var(--msc-bg-surface) 72%, transparent);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid color-mix(in srgb, var(--msc-border-color) 80%, transparent);
+  background: color-mix(in srgb, var(--msc-bg-surface) 72%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in srgb, var(--msc-border-color) 80%, transparent);
 }
 
 .msc-viewport-shield .msc-glass-panel,
 .msc-dashboard-container .msc-glass-panel {
-    background: color-mix(in srgb, var(--msc-bg-surface) 65%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--msc-border-color);
-    border-radius: var(--msc-radius);
+  background: color-mix(in srgb, var(--msc-bg-surface) 65%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--msc-border-color);
+  border-radius: var(--msc-radius);
 }
 
 .msc-viewport-shield .msc-glass-card,
 .msc-dashboard-container .msc-glass-card {
-    position: relative;
-    background: color-mix(in srgb, var(--msc-bg-surface) 55%, transparent);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--msc-border-color);
-    border-radius: var(--msc-radius);
+  position: relative;
+  background: color-mix(in srgb, var(--msc-bg-surface) 55%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--msc-border-color);
+  border-radius: var(--msc-radius);
 }
 
 @media (prefers-reduced-transparency: reduce) {
-    .msc-viewport-shield .msc-glass-subtle,
-    .msc-viewport-shield .msc-glass-panel,
-    .msc-viewport-shield .msc-glass-card,
-    .msc-dashboard-container .msc-glass-subtle,
-    .msc-dashboard-container .msc-glass-panel,
-    .msc-dashboard-container .msc-glass-card {
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        background: var(--msc-bg-surface);
-    }
+  .msc-viewport-shield .msc-glass-subtle,
+  .msc-viewport-shield .msc-glass-panel,
+  .msc-viewport-shield .msc-glass-card,
+  .msc-dashboard-container .msc-glass-subtle,
+  .msc-dashboard-container .msc-glass-panel,
+  .msc-dashboard-container .msc-glass-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--msc-bg-surface);
+  }
 }

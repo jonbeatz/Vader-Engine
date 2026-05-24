@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "description": "Universal unbranded baseline scaffolding and automation framework",
   "type": "module",
-  "main": "core/msc-bootstrap.php",
+  "main": "core/index.mjs",
   "scripts": {
     "prepare": "husky",
     "bootstrap": "npm run msc:kill-dev-port && node scripts/quickstart.mjs",
     "msc:health": "node scripts/health.mjs",
+    "msc:health:json": "node scripts/health.mjs --json",
     "msc:update": "node scripts/msc-update.mjs",
     "msc:forge": "node scripts/msc-forge.mjs",
     "msc:quickstart": "node scripts/quickstart.mjs",
     "msc:validate-env": "node scripts/validate-env.mjs",
-    "msc:kill-dev-port": "node scripts/kill-ports.mjs",
+    "msc:kill-dev-port": "node scripts/msc-kill-all-dev-ports.mjs",
     "msc:test": "cd examples/nextjs-minimal && npm run test",
     "msc:test:watch": "cd examples/nextjs-minimal && npm run test:watch",
     "msc:dev:example": "cd examples/nextjs-minimal && npm run dev",
@@ -37,15 +38,36 @@
     "test:integration": "node --experimental-strip-types tests/msc-integration-stub.test.ts",
     "log": "node scripts/msc-log-event.mjs",
     "inventory": "node scripts/msc-generate-inventory.mjs",
-    "grade": "node scripts/msc-grade-boilerplate.mjs"
+    "grade": "node scripts/msc-grade-boilerplate.mjs",
+    "msc:lint": "biome check .",
+    "msc:lint:fix": "biome check --write .",
+    "msc:format": "biome format --write .",
+    "msc:test:root": "vitest run",
+    "msc:onboard": "node scripts/msc-onboarding.mjs"
+  },
+  "lint-staged": {
+    "*.{js,mjs,ts,tsx,jsx}": [
+      "biome check --write"
+    ],
+    "*.{json,css,md}": [
+      "biome format --write"
+    ]
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "packageManager": "npm@10.9.2",
+  "engines": {
+    "node": ">=20.0.0 <25.0.0",
+    "npm": ">=10.0.0"
+  },
   "dependencies": {
     "dotenv": "^16.4.7"
   },
   "devDependencies": {
-    "husky": "^9.1.7"
+    "@biomejs/biome": "^2.4.15",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.5",
+    "vitest": "^4.1.7"
   }
 }

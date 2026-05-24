@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from 'payload';
 
 /**
  * MSC Media Vault — isolated media attachments (examples/nextjs-payload only)
@@ -35,11 +35,13 @@ export const MediaVault: CollectionConfig = {
     beforeValidate: [
       ({ data }) => {
         if (data && typeof data === 'object' && !data.alt && data.filename) {
-          const base = String(data.filename).replace(/\.[^.]+$/i, '').replace(/[-_]+/g, ' ')
-          data.alt = base || 'Media asset'
+          const base = String(data.filename)
+            .replace(/\.[^.]+$/i, '')
+            .replace(/[-_]+/g, ' ');
+          data.alt = base || 'Media asset';
         }
-        return data
+        return data;
       },
     ],
   },
-}
+};

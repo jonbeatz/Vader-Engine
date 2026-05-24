@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function HomePage() {
   return (
@@ -10,9 +10,13 @@ export default function HomePage() {
         Admin UI and API run on port <strong>3001</strong>. Database file:{' '}
         <code>examples/nextjs-payload/database/payload.db</code>
       </p>
-      <Link href="/admin" className="msc-button" style={{ display: 'inline-block', marginTop: '1rem' }}>
+      <Link
+        href="/admin"
+        className="msc-button"
+        style={{ display: 'inline-block', marginTop: '1rem' }}
+      >
         Open Payload Admin
       </Link>
     </section>
-  )
+  );
 }

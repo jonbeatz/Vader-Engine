@@ -1,0 +1,24 @@
+---
+description: Agent session open/close and execution discipline
+globs: ["**/*"]
+alwaysApply: false
+---
+
+## 🤖 Agent Workflow & Execution Discipline
+
+- **Session open (binding):** At the start of any implementation session, complete and present `.cursor/prompts/task-planner.md` (Phase 1–3 matrix) and obtain **explicit operator confirmation** before writing, modifying, or deleting code.
+- **Session close (binding):** At session pause, branch cut, or handoff, execute `.cursor/prompts/session-handoff.md` (git audit → `project-log.md` check-in → Handoff Block) before declaring work complete.
+- **Plan before code:** For new features or migrations, the task planner matrix replaces ad-hoc planning—do not skip Phase 1 anti-conflict or Phase 3 smoke gates.
+- **Status handshake:** At recognized flow starts (begin, continue, deploy, verify, checkpoint, finish), open with a one-line action plan confirming docs/read state, then proceed with concise updates.
+- **Execute, don't delegate:** Run terminal commands, smoke tests, and recovery yourself; browser-only checks (Incognito, manual login) are optional supplements after server-side work is done.
+- **Scope discipline:** Prefer small, reversible diffs; match existing naming, tokens, and folder conventions; avoid speculative rewrites.
+- **UI work:** Route via skill `.cursor/skills/studio-dark-shield.md` — Path A (Shield satellites) vs Path B (Tailwind/shadcn bridge). Tokens only in `ui/msc-shield.css`. Rules: `.cursor/rules/studio-dark-ui.mdc`, `design-system-rules.mdc`, `tailwind-shadcn-bridge.mdc` (index: `.cursor/rules/README.md`).
+- **Planning artefacts:** Canonical plans live in `.cursor/plans/` when they belong in Git; consolidate from profile draft paths before session closeout when needed.
+
+## 📋 Session & Data Discipline
+
+- **Handoff snapshots:** Update session snapshot docs at meaningful handoff points (branch, commit state, localhost up/down, what changed, validation outcomes, next-start commands).
+- **Restore points:** Add rollback rows for major architectural or schema milestones.
+- **Media safety:** Store generated/uploaded assets under project-root `media/` only; no absolute machine-specific paths in code or config.
+- **Tenant isolation:** Never broaden ownership boundaries casually; scope storage keys and server actions per user/tenant patterns in the target project.
+- **Session closeout:** On *finish* flows, update snapshots with 3–7 bullets of work done, validation results, open risks, and exact next-start steps.

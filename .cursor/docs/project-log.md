@@ -13,6 +13,24 @@
 
 ## 🪵 Development Changelog
 
+### [2026-05-23] - Phase 2 complete — Core workspace & tooling (Session 2)
+
+- **Exit gate:** `npm run msc:lint` exit 0 · `npm run grade` **39/39 (100%)** · `[PASS] Token map complete`
+- **Tooling:** Biome + lint-staged + vitest; Husky pre-commit (lint-staged) + pre-push (grade + msc:test:root)
+- **Rules:** `.cursor/rules/global.mdc` + agent-workflow / terminal-discipline / error-handling splits; `.cursorrules` deprecated
+- **Docs:** TROUBLESHOOTING, ARCHITECTURE, CHANGELOG, CONTRIBUTING, config/README, mcp-env-token-map
+- **Scripts:** msc-onboarding.mjs, health JSON diagnostics, MCP token map verification
+- **Phase 2 complete — grade 39/39.**
+
+### [2026-05-23] - Phase 1 complete — Gold Master pre-flight (Session 1)
+
+- **Baseline:** Next.js pins verified (minimal 15.5.7, payload 15.4.11). Pre-upgrade grade **38/38 (100%)**; post-Phase-1 grade **39/39 (100%)** (added `package.json main is not PHP` check).
+- **Audits:** Root lean OK · Lean boundary OK · Divi canonical path created · Inventory run (`npm run inventory`).
+- **1.4 namespace drift (documented, not mutated):** `package.json` name `msc-universal-boilerplate`, version `1.0.0` — target alignment deferred to Phase 6 Step 57 / operator choice on repo rename.
+- **Node guard note:** Scripts require Node **20.x or 24.x**. Cursor bundled Node (v22.x) fails the guard — use system Node 24 (`C:\Program Files\nodejs\node.exe`) or `nvm use 20.19.1` for `npm run grade` / hooks.
+- **Exit gate (Node 24):** `msc:validate-env` PASS · `verify:mcp` PASS · `grade` **39/39 (100%)**.
+- **Phase 1 complete — grade 39/39.**
+
 ### [2026-05-21] - [chore] - [Gold Master v2 FINAL: all 11 steps verified local + cloud, PR #1 ready]
 
 ### [2026-05-21] - [chore] - [Gold Master v2: bootstrap, example app, grade 30/30 (100%)]

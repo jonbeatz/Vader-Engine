@@ -28,7 +28,7 @@ Reproduce on the operator machine before cloud deploy. Backup SQLite before sche
 ## 3. Doc hierarchy
 
 1. This file (`TRUTH.md` at repository root)
-2. `.cursorrules` (session bindings)
+2. `.cursor/rules/global.mdc` (session bindings — alwaysApply)
 3. `.cursor/docs/ecosystem-options-matrix.md` (env strategies)
 4. Skill runbooks under `.cursor/skills/`
 5. `.cursor/docs/project-log.md` / `.cursor/docs/incident-log.md` (session history)

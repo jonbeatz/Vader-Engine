@@ -1,4 +1,4 @@
-import { msc_sqliteDatabaseExists } from "./msc-sqlite-path"
+import { msc_sqliteDatabaseExists } from './msc-sqlite-path';
 
 /**
  * Resolves whether Payload should run Drizzle dev schema push for SQLite.
@@ -9,15 +9,15 @@ import { msc_sqliteDatabaseExists } from "./msc-sqlite-path"
  * Legacy:   PAYLOAD_DB_PUSH=true forces push
  */
 export function msc_resolveSqlitePush(cwd = process.cwd()): boolean {
-  if (process.env.PAYLOAD_SQLITE_PUSH === "true") return true
-  if (process.env.PAYLOAD_SQLITE_PUSH === "false") return false
-  if (process.env.PAYLOAD_DB_PUSH === "true") return true
-  if (process.env.NODE_ENV === "production") return false
-  if (process.env.PAYLOAD_MIGRATING === "true") return false
+  if (process.env.PAYLOAD_SQLITE_PUSH === 'true') return true;
+  if (process.env.PAYLOAD_SQLITE_PUSH === 'false') return false;
+  if (process.env.PAYLOAD_DB_PUSH === 'true') return true;
+  if (process.env.NODE_ENV === 'production') return false;
+  if (process.env.PAYLOAD_MIGRATING === 'true') return false;
 
   try {
-    return !msc_sqliteDatabaseExists(cwd)
+    return !msc_sqliteDatabaseExists(cwd);
   } catch {
-    return false
+    return false;
   }
 }

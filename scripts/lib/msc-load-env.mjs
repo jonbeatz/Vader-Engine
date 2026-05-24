@@ -4,26 +4,27 @@
  * Import first in every scripts/*.mjs entry point:
  *   import './lib/msc-load-env.mjs'   // or '../lib/msc-load-env.mjs' from scripts/repair/
  */
-import dotenv from 'dotenv'
-import fs from 'node:fs'
-import path from 'node:path'
-import { fileURLToPath } from 'url'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const ROOT = path.resolve(__dirname, '../..')
+import fs from 'node:fs';
+import path from 'node:path';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
 
-const localPath = path.resolve(ROOT, '.env.local')
-const examplePath = path.resolve(ROOT, '.env.example')
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '../..');
+
+const localPath = path.resolve(ROOT, '.env.local');
+const examplePath = path.resolve(ROOT, '.env.example');
 
 if (fs.existsSync(localPath)) {
-  dotenv.config({ path: localPath })
+  dotenv.config({ path: localPath });
 }
 
 if (fs.existsSync(examplePath)) {
-  dotenv.config({ path: examplePath, override: false })
+  dotenv.config({ path: examplePath, override: false });
 }
 
-export const MSC_PROJECT_ROOT = ROOT
+export const MSC_PROJECT_ROOT = ROOT;
 
 /** Returns true when env contract files were applied (at least one known key present). */
 export function msc_envHydrationReady() {
@@ -33,9 +34,9 @@ export function msc_envHydrationReady() {
     'MSC_PUBLIC_ORIGIN',
     'MSC_DEV_PORT',
     'PAYLOAD_SECRET',
-  ]
+  ];
   return keys.some((k) => {
-    const v = process.env[k]
-    return typeof v === 'string' && v.trim().length > 0
-  })
+    const v = process.env[k];
+    return typeof v === 'string' && v.trim().length > 0;
+  });
 }

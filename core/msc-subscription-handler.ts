@@ -4,20 +4,20 @@
  */
 
 export type MscSubscriptionPayload = {
-  email: string
-  source?: string
-  metadata?: Record<string, string>
-}
+  email: string;
+  source?: string;
+  metadata?: Record<string, string>;
+};
 
 export type MscSubscriptionResult =
   | { ok: true; message: string }
-  | { ok: false; error: string; code?: string }
+  | { ok: false; error: string; code?: string };
 
 export type MscSubscriptionSubmitAdapter = (
   payload: MscSubscriptionPayload,
-) => Promise<MscSubscriptionResult>
+) => Promise<MscSubscriptionResult>;
 
-const MSC_EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const MSC_EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
  * Normalize and validate subscription email input.
@@ -25,43 +25,40 @@ const MSC_EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 export function msc_validateSubscriptionEmail(
   raw: string,
 ): { valid: true; email: string } | { valid: false; error: string } {
-  const email = raw.trim().toLowerCase()
+  const email = raw.trim().toLowerCase();
   if (!email) {
-    return { valid: false, error: "Please enter your email address." }
+    return { valid: false, error: 'Please enter your email address.' };
   }
   if (!MSC_EMAIL_RE.test(email)) {
-    return { valid: false, error: "Please enter a valid email address." }
+    return { valid: false, error: 'Please enter a valid email address.' };
   }
-  return { valid: true, email }
+  return { valid: true, email };
 }
 
 /**
  * Map HTTP/API error bodies to user-safe messages (no stack traces).
  */
-export function msc_parseSubscriptionApiError(
-  status: number,
-  bodyText: string,
-): string {
-  const normalized = bodyText.toLowerCase()
+export function msc_parseSubscriptionApiError(status: number, bodyText: string): string {
+  const normalized = bodyText.toLowerCase();
   if (
     status === 409 ||
-    normalized.includes("already registered") ||
-    normalized.includes("already exists") ||
-    normalized.includes("duplicate")
+    normalized.includes('already registered') ||
+    normalized.includes('already exists') ||
+    normalized.includes('duplicate')
   ) {
-    return "This email is already subscribed. Check your inbox for a verification message."
+    return 'This email is already subscribed. Check your inbox for a verification message.';
   }
   try {
     const json = JSON.parse(bodyText) as {
-      errors?: Array<{ message?: string }>
-      message?: string
-    }
-    const first = json.errors?.[0]?.message
-    return first || json.message || "Signup failed. Please try again."
+      errors?: Array<{ message?: string }>;
+      message?: string;
+    };
+    const first = json.errors?.[0]?.message;
+    return first || json.message || 'Signup failed. Please try again.';
   } catch {
     return status >= 500
-      ? "Server error. Please try again shortly."
-      : "Signup failed. Please try again."
+      ? 'Server error. Please try again shortly.'
+      : 'Signup failed. Please try again.';
   }
 }
 
@@ -74,28 +71,28 @@ export function msc_createRestSubscriptionAdapter(
 ): MscSubscriptionSubmitAdapter {
   return async (payload) => {
     const res = await fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", ...(init?.headers || {}) },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', ...(init?.headers || {}) },
       body: JSON.stringify({
         email: payload.email,
-        source: payload.source || "web",
+        source: payload.source || 'web',
         ...payload.metadata,
       }),
       ...init,
-    })
+    });
     if (!res.ok) {
-      const text = await res.text().catch(() => "")
+      const text = await res.text().catch(() => '');
       return {
         ok: false,
         error: msc_parseSubscriptionApiError(res.status, text),
         code: String(res.status),
-      }
+      };
     }
     return {
       ok: true,
-      message: "Check your inbox to verify your email.",
-    }
-  }
+      message: 'Check your inbox to verify your email.',
+    };
+  };
 }
 
 /**
@@ -108,18 +105,18 @@ export function msc_createRestSubscriptionAdapter(
  */
 
 export type MscSubscriptionFormState = {
-  email: string
-  error: string | null
-  success: string | null
-  submitting: boolean
-}
+  email: string;
+  error: string | null;
+  success: string | null;
+  submitting: boolean;
+};
 
 export const MSC_SUBSCRIPTION_INITIAL_STATE: MscSubscriptionFormState = {
-  email: "",
+  email: '',
   error: null,
   success: null,
   submitting: false,
-}
+};
 
 /**
  * Async submission orchestrator for React/Vanilla handlers.
@@ -129,13 +126,13 @@ export async function msc_submitSubscription(
   adapter: MscSubscriptionSubmitAdapter,
   options?: { source?: string; metadata?: Record<string, string> },
 ): Promise<MscSubscriptionFormState> {
-  const check = msc_validateSubscriptionEmail(rawEmail)
+  const check = msc_validateSubscriptionEmail(rawEmail);
   if (!check.valid) {
     return {
       ...MSC_SUBSCRIPTION_INITIAL_STATE,
       email: rawEmail,
       error: check.error,
-    }
+    };
   }
 
   try {
@@ -143,28 +140,28 @@ export async function msc_submitSubscription(
       email: check.email,
       source: options?.source,
       metadata: options?.metadata,
-    })
+    });
     if (!result.ok) {
       return {
         email: check.email,
         error: result.error,
         success: null,
         submitting: false,
-      }
+      };
     }
     return {
-      email: "",
+      email: '',
       error: null,
       success: result.message,
       submitting: false,
-    }
+    };
   } catch {
     return {
       email: check.email,
-      error: "Something went wrong. Please try again.",
+      error: 'Something went wrong. Please try again.',
       success: null,
       submitting: false,
-    }
+    };
   }
 }
 
@@ -176,13 +173,12 @@ export async function msc_notifySubscriptionCaptured(
   subscriberEmail: string,
   sendMail: (to: string, subject: string, html: string) => Promise<boolean>,
 ): Promise<void> {
-  const subject = "New subscription capture"
-  const body = `<p>New subscriber: <strong>${subscriberEmail}</strong></p>`
+  const subject = 'New subscription capture';
+  const body = `<p>New subscriber: <strong>${subscriberEmail}</strong></p>`;
   const html =
-    typeof globalThis !== "undefined" &&
-    "msc_build_transactional_email_template" in globalThis
+    typeof globalThis !== 'undefined' && 'msc_build_transactional_email_template' in globalThis
       ? // consumer may inject PHP-rendered HTML server-side
         body
-      : `<div style="background:#121212;color:#fff;padding:24px;font-family:sans-serif">${body}</div>`
-  await sendMail(adminEmail, subject, html)
+      : `<div style="background:#121212;color:#fff;padding:24px;font-family:sans-serif">${body}</div>`;
+  await sendMail(adminEmail, subject, html);
 }

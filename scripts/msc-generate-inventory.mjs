@@ -4,16 +4,16 @@
  * Usage: npm run inventory
  */
 
-import './lib/msc-load-env.mjs'
+import './lib/msc-load-env.mjs';
 
-import fs from 'node:fs'
-import path from 'node:path'
-import { MSC_PROJECT_ROOT } from './lib/msc-load-env.mjs'
+import fs from 'node:fs';
+import path from 'node:path';
+import { MSC_PROJECT_ROOT } from './lib/msc-load-env.mjs';
 
-const MCP_PATH = path.join(MSC_PROJECT_ROOT, '.cursor', 'mcp.json')
-const PKG_PATH = path.join(MSC_PROJECT_ROOT, 'package.json')
-const OUT_PATH = path.join(MSC_PROJECT_ROOT, '.cursor', 'docs', 'README-inventory.md')
-const ENV_LOCAL = path.join(MSC_PROJECT_ROOT, '.env.local')
+const MCP_PATH = path.join(MSC_PROJECT_ROOT, '.cursor', 'mcp.json');
+const PKG_PATH = path.join(MSC_PROJECT_ROOT, 'package.json');
+const OUT_PATH = path.join(MSC_PROJECT_ROOT, '.cursor', 'docs', 'README-inventory.md');
+const ENV_LOCAL = path.join(MSC_PROJECT_ROOT, '.env.local');
 
 /** MCP servers and optional env keys checked for hydration. */
 const SERVER_ENV_KEYS = {
@@ -22,75 +22,76 @@ const SERVER_ENV_KEYS = {
   firecrawl: ['FIRECRAWL_API_KEY'],
   resend: ['RESEND_API_KEY'],
   'wordpress-local': ['WP_API_USERNAME', 'WP_API_PASSWORD', 'WORDPRESS_APP_PASSWORD'],
-}
+};
 
 function isLiveRuntimeValue(val) {
-  if (!val || typeof val !== 'string') return false
-  const t = val.trim()
-  if (t.length < 4) return false
-  if (/^YOUR_|REPLACE_WITH|your_[a-z_]+$/i.test(t)) return false
-  return true
+  if (!val || typeof val !== 'string') return false;
+  const t = val.trim();
+  if (t.length < 4) return false;
+  if (/^YOUR_|REPLACE_WITH|your_[a-z_]+$/i.test(t)) return false;
+  return true;
 }
 
 function healthForServer(name, hasEnvLocal) {
-  const keys = SERVER_ENV_KEYS[name]
+  const keys = SERVER_ENV_KEYS[name];
   if (!keys || keys.length === 0) {
-    return '— (no key required)'
+    return '— (no key required)';
   }
   if (!hasEnvLocal) {
-    return 'Unknown (no .env.local)'
+    return 'Unknown (no .env.local)';
   }
-  const hydrated = keys.filter((k) => isLiveRuntimeValue(process.env[k]))
-  if (hydrated.length === keys.length) return 'OK'
-  if (hydrated.length > 0) return `Partial (${hydrated.length}/${keys.length})`
-  return 'Missing (.env.local)'
+  const hydrated = keys.filter((k) => isLiveRuntimeValue(process.env[k]));
+  if (hydrated.length === keys.length) return 'OK';
+  if (hydrated.length > 0) return `Partial (${hydrated.length}/${keys.length})`;
+  return 'Missing (.env.local)';
 }
 
 function escapeCell(s) {
-  return String(s).replace(/\|/g, '\\|').replace(/\n/g, ' ')
+  return String(s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
 }
 
 function buildMcpTable(mcp, hasEnvLocal) {
-  const rows = []
+  const rows = [];
   for (const [name, cfg] of Object.entries(mcp.mcpServers ?? {})) {
-    const transport = cfg.url ? 'streamableHttp' : 'stdio'
-    const target = cfg.url ?? (cfg.args ? cfg.args.join(' ') : cfg.command ?? '—')
+    const transport = cfg.url ? 'streamableHttp' : 'stdio';
+    const target = cfg.url ?? (cfg.args ? cfg.args.join(' ') : (cfg.command ?? '—'));
     rows.push(
       `| ${escapeCell(name)} | ${escapeCell(transport)} | ${escapeCell(target)} | ${escapeCell(healthForServer(name, hasEnvLocal))} |`,
-    )
+    );
   }
-  return rows
+  return rows;
 }
 
 function buildDepTable(pkg) {
-  const rows = []
-  const deps = { ...pkg.dependencies, ...pkg.devDependencies }
+  const rows = [];
+  const deps = { ...pkg.dependencies, ...pkg.devDependencies };
   for (const [name, version] of Object.entries(deps).sort(([a], [b]) => a.localeCompare(b))) {
-    rows.push(`| ${escapeCell(name)} | ${escapeCell(version)} |`)
+    rows.push(`| ${escapeCell(name)} | ${escapeCell(version)} |`);
   }
-  return rows
+  return rows;
 }
 
 function main() {
-  let mcp
-  let pkg
+  let mcp;
+  let pkg;
   try {
-    mcp = JSON.parse(fs.readFileSync(MCP_PATH, 'utf8'))
-    pkg = JSON.parse(fs.readFileSync(PKG_PATH, 'utf8'))
-  }
-  catch (e) {
-    console.error('[msc:inventory] FAIL parse:', e.message)
-    process.exit(1)
+    mcp = JSON.parse(fs.readFileSync(MCP_PATH, 'utf8'));
+    pkg = JSON.parse(fs.readFileSync(PKG_PATH, 'utf8'));
+  } catch (e) {
+    console.error('[msc:inventory] FAIL parse:', e.message);
+    process.exit(1);
   }
 
-  const hasEnvLocal = fs.existsSync(ENV_LOCAL)
+  const hasEnvLocal = fs.existsSync(ENV_LOCAL);
   if (!hasEnvLocal) {
-    console.warn('[msc:inventory] WARN .env.local not found — health column uses Unknown for keyed servers')
+    console.warn(
+      '[msc:inventory] WARN .env.local not found — health column uses Unknown for keyed servers',
+    );
   }
 
-  const generatedAt = new Date().toISOString()
-  const mcpRows = buildMcpTable(mcp, hasEnvLocal)
-  const depRows = buildDepTable(pkg)
+  const generatedAt = new Date().toISOString();
+  const mcpRows = buildMcpTable(mcp, hasEnvLocal);
+  const depRows = buildDepTable(pkg);
 
   const md = `# README Inventory (auto-generated)
 
@@ -122,12 +123,12 @@ ${depRows.join('\n')}
 \`\`\`bash
 npm run inventory
 \`\`\`
-`
+`;
 
-  fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true })
-  fs.writeFileSync(OUT_PATH, md, 'utf8')
-  console.log('[msc:inventory] wrote:', OUT_PATH)
-  console.log(`[msc:inventory] mcp servers: ${mcpRows.length} · dependencies: ${depRows.length}`)
+  fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
+  fs.writeFileSync(OUT_PATH, md, 'utf8');
+  console.log('[msc:inventory] wrote:', OUT_PATH);
+  console.log(`[msc:inventory] mcp servers: ${mcpRows.length} · dependencies: ${depRows.length}`);
 }
 
-main()
+main();

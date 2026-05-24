@@ -1,0 +1,17 @@
+---
+description: Error handling and observability baseline
+globs: ["**/*.{ts,tsx,mjs}"]
+alwaysApply: false
+---
+
+## 🛡️ Error Handling & Observability Baseline
+
+- **Boundary discipline:** Wrap I/O, network, subprocess, and framework hooks in try/catch (or language equivalent); return structured errors—never swallow failures silently.
+- **Logging:** Use the project's logger with redaction for user paths, tokens, and secrets; prefer leveled output (INFO / WARN / ERROR).
+- **User feedback:**
+  - Transient actions → toast/notification pattern (non-blocking, auto-dismiss, accent border on severity).
+  - Persistent failures → inline card/state (border + icon + short error snippet).
+  - Catastrophic UI failure → top-level error boundary with recovery action.
+- **Automated repair (when applicable):** backup before AST or bulk file transforms; show diff before apply in interactive flows; smallest subtree fix for framework-specific bailouts (e.g. Suspense boundaries).
+- **Validation matrix:** sanitize all inbound payloads; validate outbound shapes before render or API response; use `msc_sanitize_deep` or project equivalents at trust boundaries.
+- **Empty states:** provide centered guidance and a primary CTA when lists or dashboards have no data.
