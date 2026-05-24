@@ -3,29 +3,29 @@
  * Deep-remove Next/Payload build caches (safe when dev server is stopped).
  * Enable via MSC_CLEAN_NEXT=1 or --force
  */
-import './lib/msc-load-env.mjs'
-import { MSC_PROJECT_ROOT } from './lib/msc-load-env.mjs'
+import './lib/msc-load-env.mjs';
 
-import fs from 'node:fs'
-import path from 'node:path'
-import process from 'node:process'
+import fs from 'node:fs';
+import path from 'node:path';
+import process from 'node:process';
+import { MSC_PROJECT_ROOT } from './lib/msc-load-env.mjs';
 
-const BANNER = '[msc:clean-next]'
-const force = process.argv.includes('--force') || process.env.MSC_CLEAN_NEXT === '1'
-const root = process.env.MSC_PROJECT_ROOT?.trim() || MSC_PROJECT_ROOT
+const BANNER = '[msc:clean-next]';
+const force = process.argv.includes('--force') || process.env.MSC_CLEAN_NEXT === '1';
+const root = process.env.MSC_PROJECT_ROOT?.trim() || MSC_PROJECT_ROOT;
 
 if (!force) {
-  console.log(`${BANNER} dry-run — set MSC_CLEAN_NEXT=1 or --force`)
-  process.exit(0)
+  console.log(`${BANNER} dry-run — set MSC_CLEAN_NEXT=1 or --force`);
+  process.exit(0);
 }
 
 for (const rel of ['.next', path.join('node_modules', '.cache'), '.turbo', '.payload']) {
-  const p = path.join(root, rel)
+  const p = path.join(root, rel);
   try {
-    fs.rmSync(p, { recursive: true, force: true })
-    console.log(`${BANNER} removed ${rel}`)
+    fs.rmSync(p, { recursive: true, force: true });
+    console.log(`${BANNER} removed ${rel}`);
   } catch {
     // ignore
   }
 }
-console.log(`${BANNER} done`)
+console.log(`${BANNER} done`);

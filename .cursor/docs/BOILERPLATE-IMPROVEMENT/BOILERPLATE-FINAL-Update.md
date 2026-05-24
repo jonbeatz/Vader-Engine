@@ -98,7 +98,7 @@ npm run grade
 ```bash
 git status --porcelain          # Must be empty
 git checkout -b upgrade/v2.1.0  # Branch isolation
-node -v                         # Must print v20.x.x
+node -v                         # Must print v20.x.x or v24.x.x
 npm -v                          # Must print 10.x.x
 npm run grade                   # Capture baseline — record X/Y
 ```
@@ -264,9 +264,27 @@ Root `package.json` orchestrates scripts only. Sandboxes own all framework depen
 
 **ESM-native lean boundary check (run from repository root):**
 
-```bash
-node -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('./package.json','utf8')); const bad=[...Object.keys(p.dependencies||{}),...Object.keys(p.devDependencies||{})].filter(k=>/^(next|payload|@payloadcms)/.test(k)); if(bad.length){console.error('LEAN BOUNDARY VIOLATION:',bad);process.exit(1)} console.log('Lean boundary OK')"
+```powershell
+node -e 'import fs from "node:fs"; const p=JSON.parse(fs.readFileSync("./package.json","utf8")); const bad=[...Object.keys(p.dependencies||{}),...Object.keys(p.devDependencies||{})].filter(k=>/^(next|payload|@payloadcms)/.test(k)); if(bad.length){console.error("LEAN BOUNDARY VIOLATION:",bad);process.exit(1)} console.log("Lean boundary OK")'
 ```
+
+---
+
+### Windows PowerShell Command Translation (Cursor terminal)
+
+| Bash pattern | PowerShell equivalent |
+|-------------|----------------------|
+| `test -f <path>` | `Test-Path "<path>"` |
+| `test ! -f <path>` | `-not (Test-Path "<path>")` |
+| `test ! -d <path>` | `-not (Test-Path "<path>")` |
+| `rm -f <file>` | `Remove-Item "<file>" -Force -ErrorAction SilentlyContinue` |
+| `mkdir -p <dir>` | `New-Item -ItemType Directory -Force -Path "<dir>"` |
+| `grep -q "pattern" <file>` | `Select-String "pattern" <file>` |
+| `cat <file>` | `Get-Content <file>` |
+| `KEY=value command` | `$env:KEY = "value"; command` |
+| `cmd1 \| grep -q "x" && echo "OK"` | `if (cmd1 \| Select-String "x") { "OK" }` |
+| `echo "text" > file` | `"text" \| Set-Content "file"` |
+| `cd dir && npm run x` | `npm run x --prefix dir` |
 
 ---
 
@@ -297,8 +315,8 @@ My global system Node version is v24.14.0 and NVM is not installed. When configu
 
 **Pre-flight version pin verification (run before any mutations):**
 
-```bash
-node -e "import fs from 'node:fs'; const m=JSON.parse(fs.readFileSync('examples/nextjs-minimal/package.json','utf8')); const p=JSON.parse(fs.readFileSync('examples/nextjs-payload/package.json','utf8')); if(!String(m.dependencies?.next||'').includes('15.5.7')){console.error('HALT: nextjs-minimal must pin Next 15.5.7');process.exit(1)} if(!String(p.dependencies?.next||'').includes('15.4.11')){console.error('HALT: nextjs-payload must pin Next 15.4.11');process.exit(1)} console.log('Next.js pins verified')"
+```powershell
+node -e 'import fs from "node:fs"; const m=JSON.parse(fs.readFileSync("examples/nextjs-minimal/package.json","utf8")); const p=JSON.parse(fs.readFileSync("examples/nextjs-payload/package.json","utf8")); if(!String(m.dependencies?.next||"").includes("15.5.7")){console.error("HALT: nextjs-minimal must pin Next 15.5.7");process.exit(1)} if(!String(p.dependencies?.next||"").includes("15.4.11")){console.error("HALT: nextjs-payload must pin Next 15.4.11");process.exit(1)} console.log("Next.js pins verified")'
 ```
 
 Run from repository root:
@@ -333,8 +351,8 @@ Record the output line `Final Grade: X/Y` in `.cursor/docs/project-log.md`. If `
 
 **Root `node_modules` audit (P0):**
 
-```bash
-test ! -d node_modules/next && test ! -d node_modules/payload && echo "Root lean OK" || echo "HALT: framework deps in root node_modules"
+```powershell
+node -e "import fs from 'node:fs'; const bad=['node_modules/next','node_modules/payload'].filter(p=>fs.existsSync(p)); if(bad.length){console.error('HALT:',bad);process.exit(1)} console.log('Root lean OK')"
 ```
 
 ---
@@ -368,9 +386,8 @@ core/core-Divi-Scriptz.js
 
 Verification:
 
-```bash
-test -f core/core-Divi-Scriptz.js && echo "Canonical path OK" || echo "MISSING: core/core-Divi-Scriptz.js"
-test ! -f core/coreDiviScriptz.js && echo "No camelCase drift" || echo "HALT: rename coreDiviScriptz.js to core-Divi-Scriptz.js"
+```powershell
+node -e "import fs from 'node:fs'; console.log(fs.existsSync('core/core-Divi-Scriptz.js')?'Canonical path OK':'MISSING: core/core-Divi-Scriptz.js'); if(fs.existsSync('core/coreDiviScriptz.js'))console.error('HALT: rename coreDiviScriptz.js')"
 ```
 
 If missing, create `core/core-Divi-Scriptz.js` with:
@@ -448,8 +465,9 @@ Before any file mutation, reject when `protectedPathRegex.test(filePath)`.
 
 Add pre-mutation verification command (run before Phase 6 mutations):
 
-```bash
-node scripts/msc-forge.mjs ui/msc-shield.css msc-accent msc-danger --dry-run 2>&1 | grep -q "blocked\|protected\|shield" && echo "Forge shield active" || echo "HALT: forge shield not blocking"
+```powershell
+$result = node scripts/msc-forge.mjs ui/msc-shield.css msc-accent msc-danger --dry-run 2>&1
+if ($result -match "blocked|protected|shield") { "Forge shield active" } else { "HALT: forge shield not blocking" }
 ```
 
 Add unit coverage in `scripts/__tests__/msc-forge.test.mjs`:
@@ -557,8 +575,8 @@ Add `scripts/lib/msc-node-version-guard.mjs`:
 ```javascript
 import process from 'node:process'
 const major = Number(process.versions.node.split('.')[0])
-if (major !== 20) {
-  console.error(`[msc:node-guard] Node 20.x required; found ${process.versions.node}`)
+if (major < 20 || (major !== 20 && major !== 24)) {
+  console.error(`[msc:node-guard] Node 20.x or 24.x required; found ${process.versions.node}`)
   process.exit(1)
 }
 ```
@@ -628,6 +646,22 @@ npm run grade
 
 All three must exit `0`. Log result: `Phase 1 complete — grade X/X`. Tag: `git tag phase-1-pass`.
 
+### ⛔ PHASE 1 COMPLETE — STOP AND REPORT
+
+Before proceeding to Phase 2, **stop and output this checklist to the human operator:**
+
+```
+✅ PHASE 1 COMPLETE
+- Grade: X/X (100%)
+- Tag created: git tag phase-1-pass
+- Files modified: [list]
+- Files created: [list]
+- Any STOP_AND_ASK events: [none / describe]
+
+⏳ Awaiting human confirmation to begin Phase 2.
+Type "CONTINUE" to proceed or "ABORT" to stop here.
+```
+
 ---
 
 # 📌 Phase 2: Core Workspace & Tooling Enhancements
@@ -644,7 +678,7 @@ Add to root `package.json`:
 {
   "packageManager": "npm@10.9.2",
   "engines": {
-    "node": ">=20.0.0 <21.0.0",
+    "node": ">=20.0.0 <25.0.0",
     "npm": ">=10.0.0"
   },
   "license": "MIT"
@@ -715,15 +749,6 @@ Add npm script alias `"msc:health:json": "node scripts/health.mjs --json"`.
 ### 2.4 — Biome lint/format baseline (P0)
 
 **Before Biome init — remove Prettier configs if present (root and sandboxes):**
-
-```bash
-rm -f .prettierrc .prettierrc.json .prettierrc.js .prettierignore
-rm -f examples/nextjs-minimal/.prettierrc examples/nextjs-minimal/.prettierignore
-rm -f examples/nextjs-payload/.prettierrc examples/nextjs-payload/.prettierignore
-find examples -name '.prettierrc*' -o -name '.prettierignore' 2>/dev/null | while read f; do rm -f "$f"; done
-```
-
-On Windows PowerShell:
 
 ```powershell
 Get-ChildItem -Recurse -Include .prettierrc,.prettierrc.json,.prettierrc.js,.prettierignore -File | Remove-Item -Force -ErrorAction SilentlyContinue
@@ -889,12 +914,6 @@ Each split file uses the same frontmatter pattern with blank line after `---`.
 
 **Post-creation verification (mandatory after Step 21 in Phase 6):**
 
-```bash
-head -n 6 .cursor/rules/global.mdc | tail -n 1 | grep -q '^$' && echo "OK: blank line present" || echo "FIX: add blank line after ---"
-```
-
-On Windows PowerShell:
-
 ```powershell
 $lines = Get-Content .cursor/rules/global.mdc -TotalCount 6; if ($lines[5] -match '^\s*$') { 'OK: blank line present' } else { 'FIX: add blank line after ---' }
 ```
@@ -947,6 +966,22 @@ npm run grade
 
 Grade must remain 100%. New checks added in Phase 5 increase the denominator — target 100% of expanded total. Tag: `git tag phase-2-pass`.
 
+### ⛔ PHASE 2 COMPLETE — STOP AND REPORT
+
+Before proceeding to Phase 3, **stop and output this checklist to the human operator:**
+
+```
+✅ PHASE 2 COMPLETE
+- Grade: X/X (100%)
+- Tag created: git tag phase-2-pass
+- Files modified: [list]
+- Files created: [list]
+- Any STOP_AND_ASK events: [none / describe]
+
+⏳ Awaiting human confirmation to begin Phase 3.
+Type "CONTINUE" to proceed or "ABORT" to stop here.
+```
+
 ---
 
 # 📌 Phase 3: Vader Protocol & Shield Layer Isolation Upgrades
@@ -991,10 +1026,11 @@ Create `scripts/msc-ingest.mjs`:
 
 Validation command:
 
-```bash
+```powershell
 npm run msc:ingest -- tests/fixtures/sample-input.html ui/imports
-grep -q 'msc-import-' ui/imports/msc-import-*.html && echo "Ingest OK"
-grep -q 'msc-viewport-shield' ui/imports/msc-import-*.html && echo "Shield wrapper OK"
+$files = Get-ChildItem "ui/imports/msc-import-*.html" -ErrorAction SilentlyContinue
+if ($files | Select-String 'msc-import-') { "Ingest OK" } else { "FAIL: msc-import- not found" }
+if ($files | Select-String 'msc-viewport-shield') { "Shield wrapper OK" } else { "FAIL: shield wrapper missing" }
 ```
 
 ---
@@ -1019,9 +1055,8 @@ Create `.cursor/blueprints/README.md` indexing: `msc-smtp-verification.php`, `ms
 
 Generate initial blueprint stub:
 
-```bash
-mkdir -p .cursor/blueprints
-echo "# msc-smtp-verification.php — MSC SMTP verification snippet stub" > .cursor/blueprints/msc-smtp-verification.php
+```powershell
+node -e "import fs from 'node:fs'; fs.mkdirSync('.cursor/blueprints',{recursive:true}); fs.writeFileSync('.cursor/blueprints/msc-smtp-verification.php','# msc-smtp-verification.php — MSC SMTP verification snippet stub\n')"
 ```
 
 ---
@@ -1037,11 +1072,27 @@ Create `scripts/msc-new-component.mjs` — usage `npm run msc:new:component -- m
 ```bash
 npm run msc:shield:audit
 npm run msc:new:component -- msc-smoke-test nextjs-minimal
-cd examples/nextjs-minimal && npm run test
+npm run test --prefix examples/nextjs-minimal
 npm run grade
 ```
 
 Tag: `git tag phase-3-pass`.
+
+### ⛔ PHASE 3 COMPLETE — STOP AND REPORT
+
+Before proceeding to Phase 4, **stop and output this checklist to the human operator:**
+
+```
+✅ PHASE 3 COMPLETE
+- Grade: X/X (100%)
+- Tag created: git tag phase-3-pass
+- Files modified: [list]
+- Files created: [list]
+- Any STOP_AND_ASK events: [none / describe]
+
+⏳ Awaiting human confirmation to begin Phase 4.
+Type "CONTINUE" to proceed or "ABORT" to stop here.
+```
 
 ---
 
@@ -1071,11 +1122,13 @@ if (process.env.NODE_ENV === 'production' && !process.env.PAYLOAD_SECRET) {
 
 Test failure mode:
 
-```bash
-cd examples/nextjs-payload
-NODE_ENV=production PAYLOAD_SECRET= npm run build
+```powershell
+$env:NODE_ENV = "production"; $env:PAYLOAD_SECRET = ""; npm run build --prefix examples/nextjs-payload
+Remove-Item Env:NODE_ENV -ErrorAction SilentlyContinue
+Remove-Item Env:PAYLOAD_SECRET -ErrorAction SilentlyContinue
 # Must exit non-zero with PAYLOAD_SECRET error
-NODE_ENV=development npm run build
+$env:NODE_ENV = "development"; npm run build --prefix examples/nextjs-payload
+Remove-Item Env:NODE_ENV -ErrorAction SilentlyContinue
 # Must succeed with dev defaults
 ```
 
@@ -1155,11 +1208,28 @@ Update `.github/workflows/ci.yml` to run payload `npm ci && npm run build`.
 
 ```bash
 npm run msc:mock:media
-cd examples/nextjs-payload && npm ci && npm run build
+npm ci --prefix examples/nextjs-payload
+npm run build --prefix examples/nextjs-payload
 npm run grade
 ```
 
 Tag: `git tag phase-4-pass`.
+
+### ⛔ PHASE 4 COMPLETE — STOP AND REPORT
+
+Before proceeding to Phase 5, **stop and output this checklist to the human operator:**
+
+```
+✅ PHASE 4 COMPLETE
+- Grade: X/X (100%)
+- Tag created: git tag phase-4-pass
+- Files modified: [list]
+- Files created: [list]
+- Any STOP_AND_ASK events: [none / describe]
+
+⏳ Awaiting human confirmation to begin Phase 5.
+Type "CONTINUE" to proceed or "ABORT" to stop here.
+```
 
 ---
 
@@ -1215,7 +1285,7 @@ Expand `scripts/msc-grade-boilerplate.mjs` from 38 to **52 checks**. Preserve no
 | 38 | package.json lifecycle scripts present | required scripts array |
 | 39 | package.json main is not PHP | `!pkg.main.endsWith('.php')` |
 | 40 | packageManager field present | `Boolean(pkg.packageManager)` |
-| 41 | engines.node locks to 20.x | `/20/.test(pkg.engines.node)` |
+| 41 | engines.node locks to 20.x or 24.x | `/20|24/.test(pkg.engines.node)` |
 | 42 | license is MIT | `pkg.license === 'MIT'` |
 | 43 | .env.example exists at root | file exists |
 | 44 | LICENSE exists | file exists |
@@ -1243,7 +1313,7 @@ try {
   const pkg = JSON.parse(readFileSync(join(MSC_PROJECT_ROOT, 'package.json'), 'utf8'))
   report('package.json main is not PHP', !/\.php$/.test(pkg.main ?? ''))
   report('packageManager field present', Boolean(pkg.packageManager))
-  report('engines.node locks to 20.x', /20/.test(pkg.engines?.node ?? ''))
+  report('engines.node locks to 20.x or 24.x', /20|24/.test(pkg.engines?.node ?? ''))
   report('license is MIT', pkg.license === 'MIT')
 } catch {
   report('package.json expanded checks readable', false)
@@ -1358,7 +1428,7 @@ Add scripts:
 
 ```json
 "msc:test:root": "vitest run",
-"msc:test:all": "vitest run && cd examples/nextjs-minimal && npm test"
+"msc:test:all": "vitest run && npm test --prefix examples/nextjs-minimal"
 ```
 
 ---
@@ -1378,6 +1448,22 @@ npm run msc:shield:audit
 ```
 
 Expected: `Final Grade: 52/52 (100%)`. Tag: `git tag phase-5-pass`.
+
+### ⛔ PHASE 5 COMPLETE — STOP AND REPORT
+
+Before proceeding to Phase 6, **stop and output this checklist to the human operator:**
+
+```
+✅ PHASE 5 COMPLETE
+- Grade: X/X (100%)
+- Tag created: git tag phase-5-pass
+- Files modified: [list]
+- Files created: [list]
+- Any STOP_AND_ASK events: [none / describe]
+
+⏳ Awaiting human confirmation to begin Phase 6.
+Type "CONTINUE" to proceed or "ABORT" to stop here.
+```
 
 ---
 
@@ -1454,10 +1540,10 @@ After each chunk, write to `.cursor/docs/project-log.md` and **STOP — request 
 | 1 | Baseline: `node -v`, `npm run grade`, `npm run msc:validate-env` | Record grade in `project-log.md` |
 | 2 | Create `scripts/lib/msc-node-version-guard.mjs`; import in `quickstart.mjs`, `msc-grade-boilerplate.mjs`, `health.mjs` | `node scripts/lib/msc-node-version-guard.mjs` exits 0 |
 | 3 | **4a — Verify guard in isolation:** `node scripts/lib/msc-node-version-guard.mjs` | Must exit 0 before proceeding |
-| 4 | Fix `.devcontainer/devcontainer.json` to Node 20 image | `grep node:20 .devcontainer/devcontainer.json` |
-| 5 | Pin `.nvmrc` to `20.19.1` | `cat .nvmrc` prints `20.19.1` |
+| 4 | Fix `.devcontainer/devcontainer.json` to Node 20 image | `Select-String "node:20" .devcontainer/devcontainer.json` |
+| 5 | Pin `.nvmrc` to `20.19.1` | `Get-Content .nvmrc` prints `20.19.1` |
 | 6 | Replace PHP main with `core/index.mjs`; set `"main": "core/index.mjs"` | `node -e "import('./core/index.mjs').then(m=>console.log(m.MSC_VERSION))"` |
-| 7 | Ensure `core/core-Divi-Scriptz.js` exists at canonical path; remove camelCase variants | `test -f core/core-Divi-Scriptz.js` |
+| 7 | Ensure `core/core-Divi-Scriptz.js` exists at canonical path; remove camelCase variants | `if (Test-Path "core/core-Divi-Scriptz.js") { "OK" } else { exit 1 }` |
 | 8 | Rename `kill-ports.mjs` → `msc-kill-all-dev-ports.mjs`; update `package.json` | `npm run msc:kill-dev-port` exits 0 (ports free OK) |
 | 9 | Harden `msc-forge.mjs` regex guards | protected path mutation blocked |
 | 10 | Extend `validate-env.mjs` with `REQUIRED_ENV_KEYS` + `looksLikeRealSecret` regex | `npm run msc:validate-env` exits 0 |
@@ -1465,7 +1551,7 @@ After each chunk, write to `.cursor/docs/project-log.md` and **STOP — request 
 | 12 | Extend `msc-verify-mcp.mjs` path + JSON output | `npm run verify:mcp` exits 0 |
 | 13 | Expand `health.mjs` JSON diagnostics | `npm run msc:health -- --json` returns ports array |
 | 14 | Add packageManager, engines, MIT license + LICENSE file; run `npm install` | `npm pkg get license` prints `"MIT"` |
-| 15 | Remove `.prettierrc*` / `.prettierignore` if present | `test ! -f .prettierrc && test ! -f .prettierignore` |
+| 15 | Remove `.prettierrc*` / `.prettierignore` if present | `if (-not (Test-Path ".prettierrc") -and -not (Test-Path ".prettierignore")) { "OK: Prettier removed" } else { "HALT: Prettier files still present" }` |
 | 16 | Install Biome; add `msc:lint` scripts; verify `npm run msc:lint` | lint exits 0 |
 | 17 | Configure lint-staged (after Biome verified) | `npx lint-staged --help` available |
 | 18 | Update `.husky/pre-commit` | contains lint-staged + validate-env + verify:mcp |
@@ -1487,7 +1573,7 @@ After each chunk, write to `.cursor/docs/project-log.md` and **STOP — request 
 | 34 | Payload README pin + package.json _comment | 15.4.11 documented |
 | 35 | Tighten `payload.config.ts` secret guard — see §6.2 below | production build fails without secret |
 | 36 | Create payload `database/.gitkeep` | dir tracked |
-| 37 | **`cd examples/nextjs-payload && npm ci`** | node_modules installed |
+| 37 | **`npm ci --prefix examples/nextjs-payload`** | node_modules installed |
 
 **Step 37 lockfile fallback:** If `npm ci` fails with `ENOENT package-lock.json` or missing lockfile error, run Step 46 (`npm run msc:ensure-lockfiles`) immediately, commit the generated lockfiles, then retry Step 37. Do not proceed to Step 38 until `npm ci` succeeds.
 
@@ -1502,7 +1588,7 @@ After each chunk, write to `.cursor/docs/project-log.md` and **STOP — request 
 | 46 | Run `npm run msc:ensure-lockfiles` | all three lockfiles present |
 | 47 | Run `npm run bootstrap` | exits 0 |
 | 48 | Run dev smoke: `verify:local` | smoke passes |
-| 49 | Payload sandbox: `cd examples/nextjs-payload && npm ci && npm run build` | exits 0 |
+| 49 | Payload sandbox: `npm ci --prefix examples/nextjs-payload` then `npm run build --prefix examples/nextjs-payload` | exits 0 |
 
 **Step 49 timing note:** Payload CMS full build may take **3–5 minutes** on first run after `npm ci`. If the Cursor agent session times out, run this step **manually** in a terminal, capture the exit code, log the result in `project-log.md`, and continue at Step 50 only after build exits `0`.
 
@@ -1521,8 +1607,8 @@ After each chunk, write to `.cursor/docs/project-log.md` and **STOP — request 
 
 Current `examples/nextjs-minimal/app/layout.tsx` body tag lacks shield wrapper. Execute:
 
-```bash
-grep -n 'className=' examples/nextjs-minimal/app/layout.tsx || echo "No className yet — expected"
+```powershell
+Select-String -Pattern 'className=' examples/nextjs-minimal/app/layout.tsx; if (-not $?) { "No className yet — expected" }
 ```
 
 Replace the entire file with:
@@ -1547,8 +1633,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 Validation:
 
-```bash
-grep 'className="msc-viewport-shield msc-shield-root"' examples/nextjs-minimal/app/layout.tsx
+```powershell
+Select-String 'className="msc-viewport-shield msc-shield-root"' examples/nextjs-minimal/app/layout.tsx
 ```
 
 Must return exactly one match. Also verify `app/globals.css` contains:
@@ -1573,12 +1659,14 @@ if (process.env.NODE_ENV === 'production' && !process.env.PAYLOAD_SECRET) {
 
 Validation sequence:
 
-```bash
-cd examples/nextjs-payload
-NODE_ENV=production PAYLOAD_SECRET= npm run build
+```powershell
+$env:NODE_ENV = "production"; $env:PAYLOAD_SECRET = ""; npm run build --prefix examples/nextjs-payload
+Remove-Item Env:NODE_ENV -ErrorAction SilentlyContinue
+Remove-Item Env:PAYLOAD_SECRET -ErrorAction SilentlyContinue
 # Expected: non-zero exit, error message contains PAYLOAD_SECRET
 
-NODE_ENV=development npm run build
+$env:NODE_ENV = "development"; npm run build --prefix examples/nextjs-payload
+Remove-Item Env:NODE_ENV -ErrorAction SilentlyContinue
 # Expected: exit 0
 ```
 

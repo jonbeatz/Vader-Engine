@@ -26,11 +26,7 @@
     },
     "filesystem": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem@latest",
-        "${workspaceFolder}"
-      ]
+      "args": ["-y", "@modelcontextprotocol/server-filesystem@latest", "${workspaceFolder}"]
     },
     "fetch": {
       "command": "npx",

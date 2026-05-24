@@ -4,11 +4,7 @@
  * * Completely decoupled, environment-agnostic logic helpers.
  */
 
-// Global security fallback guardrail
-if (defined('ABSPATH')) {
-    // If running inside WordPress, prevent direct access to this file
-    defined('WPINC') || exit;
-}
+defined('ABSPATH') || exit;
 
 /**
  * Deep recursive sanitation for strings, arrays, and objects.

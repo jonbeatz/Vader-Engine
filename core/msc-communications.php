@@ -4,9 +4,7 @@
  * * Completely decoupled, environment-agnostic mailing structures.
  */
 
-if (defined('ABSPATH')) {
-    defined('WPINC') || exit;
-}
+defined('ABSPATH') || exit;
 
 /**
  * Route an outbound email using available structural parameters.

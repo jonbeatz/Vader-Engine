@@ -1,5 +1,6 @@
 # Boilerplate-v2 — Jedi-Master Edition
 [![Grade](https://img.shields.io/badge/grade-38%2F38-brightgreen)](https://github.com/jonbeatz/Boilerplate-v1)
+[![CI](https://github.com/jonbeatz/Boilerplate-v1/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate-v1/actions/workflows/ci.yml)
 [![Node Version](https://img.shields.io/badge/node-20-339933)](https://nodejs.org/)
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -20,6 +21,13 @@
 `Boilerplate-v2` is the ultimate Cursor-native, production-grade starting point for rapid development environments. Designed as an empty-folder-replacement engine, it allows you to clone it, run a single bootstrap command, and be fully operational within 10 minutes.
 
 This **v2.0.0-JEDI** release represents a complete structural evolution from v1—introducing environment portability, automated local platform versioning, self-validation suites, multi-sandbox CI/CD automation pipelines, diagnostic dashboards, and defensive re-branding code utilities. This document is the canonical README for the production baseline hosted at [jonbeatz/Boilerplate-v1](https://github.com/jonbeatz/Boilerplate-v1).
+
+### Documentation Navigation
+
+| Audience | Start here | Then |
+|----------|------------|------|
+| First-time operator | [START-HERE.md](START-HERE.md) | [DOCS.md](DOCS.md) |
+| AI agent | [Code-Jedi.md](.cursor/docs/Code-Jedi.md) | [TRUTH.md](TRUTH.md) |
 
 ---
 
@@ -51,13 +59,21 @@ This **v2.0.0-JEDI** release represents a complete structural evolution from v1�
 
 ## Quick start (10 minutes or less)
 
-Clone and bootstrap a new project space:
+Interactive onboarding (recommended):
 
 ```bash
 git clone https://github.com/jonbeatz/Boilerplate-v1.git my-project
 cd my-project
+npm run msc:onboard
+```
+
+Or bootstrap directly:
+
+```bash
 npm run bootstrap
 ```
+
+See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 
 **Minimal frontend example:**
 

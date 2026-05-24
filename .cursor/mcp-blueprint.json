@@ -100,7 +100,13 @@
     }
   },
   "globalServerCatalog": {
-    "browser": ["playwright", "playwright-electron", "browser-tools-mcp", "browsermcp", "console-ninja"],
+    "browser": [
+      "playwright",
+      "playwright-electron",
+      "browser-tools-mcp",
+      "browsermcp",
+      "console-ninja"
+    ],
     "dev": ["github", "terminal-controller", "mcpterm", "desktop-commander", "filesystem", "fetch"],
     "data": ["postgres", "neon-postgres", "task-master-ai", "sequential-thinking"],
     "apis": ["postman", "resend", "mcp-vercel", "tavily", "firecrawl"],

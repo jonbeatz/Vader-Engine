@@ -1,39 +1,39 @@
 @keyframes msc-fade-up {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes msc-pulse-status {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.55;
-    }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
 }
 
 .msc-viewport-shield .msc-animate-fade-up,
 .msc-dashboard-container .msc-animate-fade-up {
-    animation: msc-fade-up 0.4s ease-out both;
+  animation: msc-fade-up 0.4s ease-out both;
 }
 
 .msc-viewport-shield .msc-animate-pulse-status,
 .msc-dashboard-container .msc-animate-pulse-status {
-    animation: msc-pulse-status 2s ease-in-out infinite;
+  animation: msc-pulse-status 2s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .msc-viewport-shield .msc-animate-fade-up,
-    .msc-viewport-shield .msc-animate-pulse-status,
-    .msc-dashboard-container .msc-animate-fade-up,
-    .msc-dashboard-container .msc-animate-pulse-status {
-        animation: none;
-    }
+  .msc-viewport-shield .msc-animate-fade-up,
+  .msc-viewport-shield .msc-animate-pulse-status,
+  .msc-dashboard-container .msc-animate-fade-up,
+  .msc-dashboard-container .msc-animate-pulse-status {
+    animation: none;
+  }
 }

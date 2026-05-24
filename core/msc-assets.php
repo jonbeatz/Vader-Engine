@@ -7,11 +7,9 @@
  *   Shield → Layout → Components → Features → (optional) Extensions
  */
 
-if (defined('ABSPATH')) {
-    defined('WPINC') || exit;
+defined('ABSPATH') || exit;
 
-    add_action('wp_enqueue_scripts', 'msc_register_core_visual_shield');
-}
+add_action('wp_enqueue_scripts', 'msc_register_core_visual_shield');
 
 /**
  * Enqueue the Studio Dark satellite chain in dependency order.

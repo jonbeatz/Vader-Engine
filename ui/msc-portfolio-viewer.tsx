@@ -1,28 +1,28 @@
-"use client"
+'use client';
 
 /**
  * MSC Portfolio Viewer — responsive Studio Dark grid for Payload showcase entries
  * Requires: msc-shield-load.css (or Shield → Layout → Components → msc-portfolio.css)
  */
 
-import type { MscPortfolioRecord } from "../core/msc-portfolio-collection"
+import type { MscPortfolioRecord } from '../core/msc-portfolio-collection';
 
-export type MscPortfolioItem = MscPortfolioRecord
+export type MscPortfolioItem = MscPortfolioRecord;
 
 export type MscPortfolioViewerProps = {
-  items: MscPortfolioItem[]
-  titleOverride?: string
-  onSelectItem?: (item: MscPortfolioItem) => void
-}
+  items: MscPortfolioItem[];
+  titleOverride?: string;
+  onSelectItem?: (item: MscPortfolioItem) => void;
+};
 
 export function MscPortfolioViewer({
   items,
-  titleOverride = "Project Showcase",
+  titleOverride = 'Project Showcase',
   onSelectItem,
 }: MscPortfolioViewerProps) {
   const sortedItems = [...items].sort(
     (a, b) => (a.manualSortIndex ?? 0) - (b.manualSortIndex ?? 0),
-  )
+  );
 
   return (
     <section className="msc-dashboard-container msc-viewport-shield">
@@ -43,10 +43,10 @@ export function MscPortfolioViewer({
             {sortedItems.map((item) => (
               <article
                 key={item.id}
-                className={`msc-card-panel msc-portfolio-card${onSelectItem ? " msc-portfolio-card--interactive" : ""}`}
+                className={`msc-card-panel msc-portfolio-card${onSelectItem ? ' msc-portfolio-card--interactive' : ''}`}
                 onClick={() => onSelectItem?.(item)}
-                onKeyDown={(e) => e.key === "Enter" && onSelectItem?.(item)}
-                role={onSelectItem ? "button" : undefined}
+                onKeyDown={(e) => e.key === 'Enter' && onSelectItem?.(item)}
+                role={onSelectItem ? 'button' : undefined}
                 tabIndex={onSelectItem ? 0 : undefined}
               >
                 <div className="msc-portfolio-media">
@@ -80,7 +80,7 @@ export function MscPortfolioViewer({
         )}
       </div>
     </section>
-  )
+  );
 }
 
-export default MscPortfolioViewer
+export default MscPortfolioViewer;
