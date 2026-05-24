@@ -55,6 +55,11 @@
 - Full command catalog, CI/pre-push workflow, and 52-point grader references
 - Git-README deprecated in favor of root README.md
 
+### P3 polish (100/100 product layer)
+- Playwright E2E: `e2e/playwright.config.ts`, `e2e/tests/smoke.spec.ts`, `npm run msc:e2e` in CI
+- Deep Cursor settings: `.cursor/settings.json` with AI model bindings
+- Repository renamed to `jonbeatz/Boilerplate-v2` with internal URL sweep
+
 ---
 
 ## [2.0.0-JEDI] - Previous Baseline

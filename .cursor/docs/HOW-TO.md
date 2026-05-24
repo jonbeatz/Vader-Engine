@@ -26,8 +26,8 @@ Cold-start sequence every operator or agent session should follow.
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/jonbeatz/Boilerplate-v1.git
-cd Boilerplate-v1
+git clone https://github.com/jonbeatz/Boilerplate-v2.git
+cd Boilerplate-v2
 npm run msc:onboard
 # or: npm install && npm run bootstrap
 ```
@@ -137,6 +137,8 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 | Task | Command | Description |
 |------|---------|-------------|
 | Namespace audit | `npm run msc:shield:audit` | Verify `msc-` compliance |
+| Multi-sandbox E2E | `npm run msc:e2e` | Playwright smoke (3 tests × chromium + firefox) |
+| E2E browser install | `npm run msc:e2e:install` | Install Playwright chromium + firefox |
 | New component | `npm run msc:new:component` | Vader-compliant UI scaffold |
 | Asset ingest | `npm run msc:ingest` | HTML → shield markup |
 | Safe re-brand | `npm run msc:forge -- <from> <to> <root>` | Protected string replace |

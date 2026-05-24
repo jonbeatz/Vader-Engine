@@ -54,13 +54,13 @@ Production-ready, self-validating, Cursor-native development foundation. **Grade
 
 ### Getting started
 
-- **Quick start:** https://github.com/jonbeatz/Boilerplate-v1#quick-start
-- **Documentation:** https://github.com/jonbeatz/Boilerplate-v1#documentation-map · [DOCS.md](https://github.com/jonbeatz/Boilerplate-v1/blob/main/DOCS.md)
+- **Quick start:** https://github.com/jonbeatz/Boilerplate-v2#quick-start
+- **Documentation:** https://github.com/jonbeatz/Boilerplate-v2#documentation-map · [DOCS.md](https://github.com/jonbeatz/Boilerplate-v2/blob/main/DOCS.md)
 
 ```bash
-git clone https://github.com/jonbeatz/Boilerplate-v1.git my-project
+git clone https://github.com/jonbeatz/Boilerplate-v2.git my-project
 cd my-project
 npm run msc:onboard
 ```
 
-Full changelog: [CHANGELOG.md](https://github.com/jonbeatz/Boilerplate-v1/blob/main/CHANGELOG.md)
+Full changelog: [CHANGELOG.md](https://github.com/jonbeatz/Boilerplate-v2/blob/main/CHANGELOG.md)

@@ -1,0 +1,6 @@
+{
+  "cursor.aiRules": [".cursor/rules/global.mdc"],
+  "cursor.composer.defaultModel": "claude-sonnet-4-20250514",
+  "cursor.terminal.defaultProfile": "powershell",
+  "cursor.terminal.integrated.defaultLocation": "panel"
+}

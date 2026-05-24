@@ -45,6 +45,7 @@ PHP entry: `core/msc-bootstrap.php`. Divi consumer bridge: `core/core-Divi-Scrip
 
 | Gate | Command | When |
 |------|---------|------|
+| Multi-sandbox E2E | `npm run msc:e2e` | CI after sandbox builds; 3 tests × chromium + firefox |
 | Environment scan | `npm run msc:validate-env` | Pre-commit, CI |
 | MCP structure | `npm run verify:mcp` | Pre-commit, CI |
 | Lint/format | `npm run msc:lint` | CI, local |
@@ -65,6 +66,7 @@ On push/PR to `main`:
 6. `msc:test:root`
 7. `examples/nextjs-minimal` — `npm ci` + test
 8. `examples/nextjs-payload` — `npm ci` + build
+9. Playwright install + `npm run msc:e2e`
 
 ## Git hooks
 

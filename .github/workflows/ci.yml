@@ -39,8 +39,19 @@ jobs:
 
       - name: Validate Payload Full-Stack Sandbox
         env:
-          PAYLOAD_SECRET: ci-build-placeholder-secret
+          PAYLOAD_SECRET: ci-build-placeholder-secret-min-32-chars-long
         run: |
           cd examples/nextjs-payload
           npm ci
           npm run build
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium firefox
+
+      - name: Run Multi-Sandbox E2E
+        env:
+          PAYLOAD_SECRET: ci-build-placeholder-secret-min-32-chars-long
+        run: |
+          mkdir -p examples/nextjs-payload/database
+          rm -f examples/nextjs-payload/database/payload-e2e.db*
+          npm run msc:e2e

@@ -48,7 +48,7 @@ function processFileMutation(filePath, searchStr, replaceStr) {
 const positional = process.argv.slice(2).filter((a) => a !== '--dry-run');
 if (positional.length < 3) {
   console.log('Usage: npm run msc:forge -- <file> <search> <replace> [--dry-run]');
-  console.log('Example: npm run msc:forge -- README.md "Boilerplate-v1" "MyApp" --dry-run');
+  console.log('Example: npm run msc:forge -- README.md "MyOldName" "MyApp" --dry-run');
   process.exit(1);
 }
 

@@ -120,6 +120,8 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 | `npm run msc:test:all` | Full release audit | Root Vitest + minimal sandbox |
 | `npm run msc:test:grader` | Grader regression | Grader unit test suite |
 | `npm run msc:shield:audit` | UI namespace work | Verify `msc-` compliance |
+| `npm run msc:e2e` | Release / CI parity | Playwright multi-sandbox smoke |
+| `npm run msc:e2e:install` | First-time E2E setup | Install Playwright browsers |
 | `npm run msc:new:component` | Scaffold UI | Vader-compliant component generator |
 | `npm run msc:ingest` | Import HTML assets | Shield-compliant markup parser |
 | `npm run msc:update` | Dependency bumps | Multi-workspace `npm-check-updates` |

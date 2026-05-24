@@ -25,7 +25,10 @@
       "!**/dist",
       "!examples/*/node_modules",
       "!ui/imports",
-      "!examples/**/next-env.d.ts"
+      "!examples/**/next-env.d.ts",
+      "!**/test-results",
+      "!**/playwright-report",
+      "!**/package-lock.json"
     ]
   },
   "overrides": [

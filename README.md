@@ -1,7 +1,7 @@
 # Boilerplate-v2.1.0 — Gold Master
 
-[![Grade](https://img.shields.io/badge/grade-52%2F52-brightgreen)](https://github.com/jonbeatz/Boilerplate-v1)
-[![CI](https://github.com/jonbeatz/Boilerplate-v1/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate-v1/actions/workflows/ci.yml)
+[![Grade](https://img.shields.io/badge/grade-52%2F52-brightgreen)](https://github.com/jonbeatz/Boilerplate-v2)
+[![CI](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml)
 [![Node](https://img.shields.io/badge/node-20%7C24-339933)](https://nodejs.org/)
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -18,7 +18,7 @@
 | **Version** | v2.1.0 Gold Master |
 | **Release date** | May 23, 2026 |
 | **Ecosystem grade** | 52/52 (100%) — verified baseline |
-| **Repository** | [github.com/jonbeatz/Boilerplate-v1](https://github.com/jonbeatz/Boilerplate-v1) |
+| **Repository** | [github.com/jonbeatz/Boilerplate-v2](https://github.com/jonbeatz/Boilerplate-v2) |
 | **Node** | 20.x LTS (pinned) · 24.x supported via runtime guard |
 | **Package manager** | npm ≥ 10 |
 
@@ -89,7 +89,7 @@ Full release notes: [CHANGELOG.md](CHANGELOG.md)
 **Recommended — interactive onboarding:**
 
 ```bash
-git clone https://github.com/jonbeatz/Boilerplate-v1.git my-project
+git clone https://github.com/jonbeatz/Boilerplate-v2.git my-project
 cd my-project
 npm run msc:onboard
 ```
@@ -176,6 +176,8 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 | --- | --- |
 | `npm run msc:update` | Scan and bump package versions across workspaces |
 | `npm run msc:ensure-lockfiles` | Verify lockfile hygiene in root + sandboxes |
+| `npm run msc:e2e` | Playwright multi-sandbox smoke (ports 3000 + 3001) |
+| `npm run msc:e2e:install` | Install Playwright chromium + firefox browsers |
 | `npm run msc:mock:media` | Seed mock media in Payload sandbox |
 | `npm run repair:sqlite` | SQLite repair utilities |
 | `npm run clean:next` | Clear Next.js build cache |
@@ -281,8 +283,9 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 | **P2** | Component generation (`msc:new:component`) | ✅ Shipped in v2.1.0 |
 | **P2** | Docker Compose Postgres/Redis mirroring | ✅ Shipped in v2.1.0 |
 | **P2** | Opt-in Tailwind/shadcn sandboxing | Planned |
-| **P3** | VS Code / Cursor settings sync | Partial (`.vscode/` baseline) |
-| **P3** | Playwright E2E multi-sandbox harness | Planned |
+| **P3** | Playwright E2E multi-sandbox harness | ✅ Shipped in v2.1.0 |
+| **P3** | VS Code / Cursor settings sync | ✅ Shipped (`.cursor/settings.json` + `.vscode/`) |
+| **P3** | Repo rename (`Boilerplate-v2`) | ✅ Shipped |
 
 ---
 

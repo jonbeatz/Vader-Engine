@@ -7,7 +7,7 @@ Thank you for improving the MSC boilerplate (**v2.1.0 Gold Master**).
 Use the defensive re-brander with dry-run first:
 
 ```powershell
-npm run msc:forge -- README.md "Boilerplate-v1" "MyProject" --dry-run
+npm run msc:forge -- README.md "MyOldName" "MyProject" --dry-run
 ```
 
 The forge shield blocks mutations on protected `msc-` namespaces and paths under `core/`, `ui/`, and `scripts/msc-*`.

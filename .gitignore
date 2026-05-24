@@ -32,6 +32,11 @@ out/
 .DS_Store
 Thumbs.db
 
+# Playwright E2E artifacts
+test-results/
+playwright-report/
+playwright/.cache/
+
 # Local-only operator docs (not published to GitHub)
 .cursor/docs/BOILERPLATE-IMPROVEMENT/
 .cursor/docs/README/

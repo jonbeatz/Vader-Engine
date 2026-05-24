@@ -11,7 +11,7 @@ git clone https://github.com/your-org/your-app.git
 cd your-app
 ```
 
-Copy (or submodule) these paths from Boilerplate-v1 into the consumer repo root:
+Copy (or submodule) these paths from Boilerplate-v2 into the consumer repo root:
 
 | Source | Destination |
 |--------|-------------|
