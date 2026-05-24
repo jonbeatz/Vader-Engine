@@ -6,6 +6,19 @@
 - **Current Version:** 2.1.0
 - **Status:** Gold Master — Phase 6 complete (52/52)
 
+## 🚀 Next Session Queue (Start Project)
+
+**Say "Start Project" tomorrow** → load [.cursor/plans/templates-and-msc-cli.md](../plans/templates-and-msc-cli.md)
+
+**Goal:** Add user-facing **read-only templates** + internal **`tools/msc-cli`** ESM CLI for apply/seed scaffolding.
+
+```text
+templates/          → frontend/portfolio, cms/divi-bridge, full-stack/task-manager
+tools/msc-cli/      → cli.ts, template-engine.ts, demo-seeder.ts, utils.ts
+```
+
+Do not code until task-planner Phase 1–3 matrix is operator-approved.
+
 ## ⚙️ Core Environment Specs
 - Local Environment URL: `MSC_PUBLIC_ORIGIN` or localhost
 - Primary Database Layer: `DATABASE_URI` / `DATABASE_URL`
@@ -21,6 +34,11 @@
 - **P3 shipped:** Playwright E2E, `.cursor/settings.json`, repo rename URL sweep
 - **CI fixes:** minimal sandbox lockfile committed; Payload `database/.gitkeep` + `payload-e2e.db` for E2E
 - **Docs:** final catalog sync (DOCS, TRUTH, CONTRIBUTING, TROUBLESHOOTING, HOW-TO, CHANGELOG)
+
+### [2026-05-24] - Session Closeout — Gold Master certified
+- **Added:** Playwright E2E harness, `.cursor/settings.json`, minimal/payload CI lockfile + SQLite E2E fixes
+- **Modified:** Repo renamed to `jonbeatz/Boilerplate-v2`; git history rewritten (JonBeatz sole author); full doc catalog sync
+- **Verified:** `npm run grade` 52/52 · CI green · `npm run msc:e2e` 6/6 local · working tree clean on `main`
 
 ## Chunk C complete — 2026-05-24
 
