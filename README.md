@@ -1,4 +1,4 @@
-# Boilerplate-v2.1.0 — Gold Master
+# Boilerplate-v2.2.0 — Gold Master
 
 [![Grade](https://img.shields.io/badge/grade-52%2F52-brightgreen)](https://github.com/jonbeatz/Boilerplate-v2)
 [![CI](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml)
@@ -6,7 +6,7 @@
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**v2.1.0 Gold Master** — Production-ready, self-validating, Cursor-native development foundation.
+**v2.2.0** — Production-ready, self-validating, Cursor-native development foundation with template scaffolding CLI.
 
 | Link | Destination |
 | --- | --- |
@@ -15,8 +15,8 @@
 
 | Field | Value |
 | --- | --- |
-| **Version** | v2.1.0 Gold Master |
-| **Release date** | May 24, 2026 (Gold Master certified) |
+| **Version** | v2.2.0 |
+| **Release date** | May 24, 2026 (v2.2.0 template scaffolding) |
 | **Ecosystem grade** | 52/52 (100%) — verified baseline |
 | **Repository** | [github.com/jonbeatz/Boilerplate-v2](https://github.com/jonbeatz/Boilerplate-v2) |
 | **Node** | 20.x LTS (pinned) · 24.x supported via runtime guard |
@@ -34,7 +34,7 @@ Designed as an **empty-folder replacement engine**, it combines deep AI integrat
 
 | Principle | What it means |
 | --- | --- |
-| **Lean Boundary Rule** | Root orchestrates scripts only. Frameworks and data live in isolated `examples/*` sandboxes. |
+| **Lean Boundary Rule** | Root orchestrates scripts only. Frameworks and data live in isolated `examples/*` sandboxes. Blueprints scaffold to sibling `--target` paths via `msc:template`. |
 | **Self-validating** | 52-point automated integrity grader (`npm run grade`) with hard non-zero exits on failure. |
 | **Vader Protocol Shield** | Strict `msc-` namespace + Studio Dark design tokens for total CSS isolation from themes and Divi. |
 | **Cursor-first** | Modular `.mdc` rules, agent skills, portable MCP config, and operator/agent documentation paths. |
@@ -53,6 +53,27 @@ Designed as an **empty-folder replacement engine**, it combines deep AI integrat
 PHP never installs via npm. The WordPress layer enforces CSS namespace isolation (`msc-` prefix) to prevent theme and plugin conflicts on Divi-based sites. The Divi consumer bridge is `core/core-Divi-Scriptz.js` (registered as `MSC_DIVI_SCRIPT` in `core/index.mjs`).
 
 Token single source of truth: `ui/msc-shield.css`. The v2 isolation contract is documented in `ui/studio-dark-shield.css`.
+
+---
+
+## What's new in v2.2.0
+
+### Template Scaffolding CLI
+
+- **`npm run msc:template`** — native ESM CLI under `tools/msc-cli/` with `list`, `apply`, `seed`, and `doctor` subcommands
+- **Read-only blueprints** — `templates/frontend/portfolio`, `templates/cms/divi-bridge`, `templates/full-stack/task-manager`
+- **Token injection engine** — deep `{{TOKEN}}` substitution (`.tsx`/`.jsx` supported) with `--dry-run` planning mode
+- **Demo seeding** — writes schema-aligned `seed-payload.json` to `--target` or `.sandbox/` fallback
+- **52/52 grader preserved** — zero new grade rows; full v2.1.0 compatibility
+
+```bash
+npm run msc:template -- list
+npm run msc:template -- apply frontend/portfolio --name="My Studio" --target=../my-studio
+npm run msc:template -- seed --template=full-stack/task-manager --target=../my-studio
+npm run msc:template -- doctor
+```
+
+Full operator guide: [HOW-TO.md — Template & Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v220)
 
 ---
 
@@ -165,6 +186,10 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 
 | Command | Purpose |
 | --- | --- |
+| `npm run msc:template -- list` | List registered blueprints under `templates/` |
+| `npm run msc:template -- apply` | Clone blueprint to `--target` with token substitution |
+| `npm run msc:template -- seed` | Write mock JSON payload (`--template`, optional `--target`, `--fresh`) |
+| `npm run msc:template -- doctor` | CLI structural health check |
 | `npm run msc:new:component` | Generate a Vader-compliant UI component |
 | `npm run msc:ingest` | Parse and ingest HTML assets into shield-compliant markup |
 | `npm run msc:forge -- <from> <to> <root>` | Safe string replacement with namespace guards |
@@ -280,6 +305,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 
 | Priority | Milestone | Status |
 | --- | --- | --- |
+| **P2** | Template scaffolding CLI (`msc:template`) | ✅ Shipped in v2.2.0 |
 | **P2** | Component generation (`msc:new:component`) | ✅ Shipped in v2.1.0 |
 | **P2** | Docker Compose Postgres/Redis mirroring | ✅ Shipped in v2.1.0 |
 | **P2** | Opt-in Tailwind/shadcn sandboxing | Planned |
@@ -293,7 +319,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 
 - **Powered by** MSC Media Engine · Vader Protocol — strict namespace isolation certified
 - **Cursor-native** — calibrated for Cursor Agent and Composer execution paths
-- **Release certified:** v2.1.0 · 52/52 grade · 100% pass rate · production ready
+- **Release certified:** v2.2.0 · 52/52 grade · 100% pass rate · production ready
 
 **Operator docs:** [HOW-TO.md](.cursor/docs/HOW-TO.md) · [START-HERE.md](START-HERE.md) · [DOCS.md](DOCS.md) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
 

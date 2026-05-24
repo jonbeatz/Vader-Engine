@@ -1,6 +1,6 @@
 # System Architecture Map
 
-Single source of truth for repository layout, subsystem boundaries, and integration contracts. Aligns with [README.md](../../README.md) (v2.1.0 Gold Master). Agent routing compass: [Code-Jedi.md](./Code-Jedi.md). Technical precedence: [TRUTH.md](../../TRUTH.md).
+Single source of truth for repository layout, subsystem boundaries, and integration contracts. Aligns with [README.md](../../README.md) (v2.2.0). Agent routing compass: [Code-Jedi.md](./Code-Jedi.md). Technical precedence: [TRUTH.md](../../TRUTH.md).
 
 > **Namespace Protocol:** All custom modules and CSS utilize the `msc-` or `MSC_` prefix to ensure cross-project portability and prevent integration conflicts. These are treated as structural namespaces for collision prevention, not branding. When cloning this boilerplate for a new project, these can be globally replaced if a different namespace anchor is required.
 
@@ -11,11 +11,13 @@ Single source of truth for repository layout, subsystem boundaries, and integrat
 ## Unified Core Layout Tree
 
 ```text
-📁 Boilerplate-v2/  (v2.1.0 Gold Master)
+📁 Boilerplate-v2/  (v2.2.0)
 ├── 📄 START-HERE.md              ◄ [Universal Cold-Start Ignition Runbook]
 ├── 📄 README.md · DOCS.md        ◄ [Overview + documentation index]
 ├── 📄 package.json                ◄ [Command Registry — 52-point grade authority]
 ├── 📄 .env.example                ◄ [Strategy Environment Configuration Contract]
+├── 📂 templates/                  ◄ [Read-only blueprint registry — portfolio, divi-bridge, task-manager]
+├── 📂 tools/msc-cli/              ◄ [Scaffolding CLI — list, apply, seed, doctor]
 ├── 📂 examples/
 │   ├── nextjs-minimal/            ◄ [Frontend sandbox · :3000 · committed package-lock.json]
 │   └── nextjs-payload/            ◄ [Payload CMS sandbox · :3001 · database/.gitkeep]
@@ -132,6 +134,7 @@ Consumer `package.json` scripts are appended from `config/npm-scripts-appendix.j
 |------|------|
 | **3000** | Minimal frontend sandbox + HTTP smoke (`MSC_DEV_PORT`) |
 | **3001** | Payload full-stack CMS sandbox |
+| **3002+** | Scaffolded sibling projects (dynamic via `msc_findFreePort`) |
 | **8080** | Reserved — WordPress / microservices |
 | **4000** / **8000** | Local AI proxy (`MSC_LITELLM_PORT`) |
 

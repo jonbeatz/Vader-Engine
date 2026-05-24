@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for improving the MSC boilerplate (**v2.1.0 Gold Master**).
+Thank you for improving the MSC boilerplate (**v2.2.0**).
 
 ## Fork and Rename
 
@@ -18,6 +18,13 @@ The forge shield blocks mutations on protected `msc-` namespaces and paths under
 - First import: `import './lib/msc-load-env.mjs'` (and node guard where applicable).
 - Register new commands in root `package.json` only.
 - Update [Code-Jedi.md](.cursor/docs/Code-Jedi.md) and [HOW-TO.md](.cursor/docs/HOW-TO.md) when adding scripts.
+- Template blueprints under `templates/` use `{{TOKEN}}` placeholders — excluded from Biome (`biome.json` → `!templates/**`). Do not run forge against protected paths.
+
+## Scaffolding contributions
+
+- Keep `templates/` read-only in Git; test applies to sibling `--target` directories outside the repo.
+- Seed output belongs in `--target` or `.sandbox/` — never commit `.sandbox/`.
+- New blueprints must enforce `msc-` / `msc_` namespace and WordPress `ABSPATH` guards on PHP files.
 
 ## CSS Naming
 

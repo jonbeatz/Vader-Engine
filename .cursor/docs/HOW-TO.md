@@ -1,18 +1,19 @@
-# HOW-TO: Boilerplate-v2.1.0 Operational Runbook
+# HOW-TO: Boilerplate-v2.2.0 Operational Runbook
 
-Single operator-facing guide for running, verifying, and extending **Boilerplate-v2.1.0 Gold Master** (`msc-universal-boilerplate`). For agent routing and module maps, use [Code-Jedi.md](./Code-Jedi.md). Constitutional precedence: [TRUTH.md](../../TRUTH.md).
+Single operator-facing guide for running, verifying, and extending **Boilerplate-v2.2.0** (`msc-universal-boilerplate`). For agent routing and module maps, use [Code-Jedi.md](./Code-Jedi.md). Constitutional precedence: [TRUTH.md](../../TRUTH.md).
 
 ---
 
 ## Mission
 
-Boilerplate-v2.1.0 is an **unbranded, self-validating engine** — a portable factory layer for Payload/Next.js consumers, WordPress/Divi surfaces, and Studio Dark UI. It ships:
+Boilerplate-v2.2.0 is an **unbranded, self-validating engine** — a portable factory layer for Payload/Next.js consumers, WordPress/Divi surfaces, Studio Dark UI, and **sibling-directory scaffolding** via `msc:template`. It ships:
 
 - **52-point** structural grader with CI and pre-push enforcement
 - Env-driven, selectable strategies (no forced production defaults)
 - A **13-server** Cursor MCP registry with pre-commit structural verification
 - Global Shield CSS (Core-to-Satellite) with optional Tailwind/shadcn hybrid path
 - Dual sandboxes: `examples/nextjs-minimal` (:3000) and `examples/nextjs-payload` (:3001)
+- Read-only template blueprints under `templates/` with `npm run msc:template` scaffolding CLI
 - Playwright multi-sandbox E2E (`npm run msc:e2e`) — 3 smoke tests × chromium + firefox
 - Terminal automation under `scripts/` with `package.json` as the only command authority
 
@@ -298,7 +299,7 @@ Setup details: [mcp-setup.md](./mcp-setup.md). Extended catalog: `.cursor/mcp-bl
 
 ---
 
-*Operational runbook for Boilerplate-v2.1.0 Gold Master. When scripts or gates change, update `package.json`, Code-Jedi, and this file in the same session.*
+*Operational runbook for Boilerplate-v2.2.0. When scripts or gates change, update `package.json`, Code-Jedi, and this file in the same session.*
 
 ---
 
@@ -309,4 +310,25 @@ Boilerplate-v2 contains a cross-platform, native scaffolding CLI to generate cus
 - **List Blueprints:** `npm run msc:template -- list`
 - **Scaffold New Instance:** `npm run msc:template -- apply <category/blueprint-name> --name="My Project" --target=../my-project-path`
 - **Dry-Run Analysis:** Append `--dry-run` to the apply command to analyze structural configurations without writing files to disk.
+- **Seed Mock Data:** `npm run msc:template -- seed --template=<blueprint> [--target=../path] [--fresh]`
 - **Engine Doctor:** `npm run msc:template -- doctor`
+
+### Registered blueprints (v2.2.0)
+| Blueprint | Path | Notes |
+|-----------|------|-------|
+| Portfolio | `frontend/portfolio` | Vader Shield Path A · tokenized Next.js scaffold |
+| Divi Bridge | `cms/divi-bridge` | WordPress `ABSPATH` guard · `core-Divi-Scriptz.js` |
+| Task Manager | `full-stack/task-manager` | Payload collection stubs · seed writes `seed-payload.json` |
+
+### Lean Boundary rules
+- `templates/` is **read-only** in Git — never edit applied copies back into the registry.
+- `--target` must be **outside** the repo root (sibling directory pattern).
+- Seed fallback without `--target` writes to `.sandbox/` (gitignored).
+- Scaffolded ports start at **3002** via dynamic free-port probe.
+
+### Example workflow
+```bash
+npm run msc:template -- apply frontend/portfolio --name="My Studio" --target=../my-studio --dry-run
+npm run msc:template -- apply frontend/portfolio --name="My Studio" --target=../my-studio
+npm run msc:template -- seed --template=full-stack/task-manager --target=../my-studio --fresh
+```

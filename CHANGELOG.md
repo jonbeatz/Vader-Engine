@@ -1,5 +1,40 @@
 # Changelog
 
+## [2.2.0] - 2026-05-24 (Template Scaffolding CLI)
+
+### Major Features
+
+**Template & Scaffolding CLI (`tools/msc-cli/`)**
+- New `npm run msc:template` entry with subcommands: `list`, `apply`, `seed`, `doctor`
+- Cross-platform blueprint copy via native `node:fs` (`cpSync`) with regex-safe `{{TOKEN}}` injection
+- Extension coverage: `.ts`, `.js`, `.mjs`, `.tsx`, `.jsx`, `.json`, `.md`, `.css`, `.env`, `.php`
+- Dynamic port assignment (`msc_findFreePort`) starting at **3002** for scaffolded projects
+- `--dry-run` mode for zero-disk planning passes
+
+**Read-only blueprint registry (`templates/`)**
+- `frontend/portfolio` — Vader Protocol Shield UI (Path A), Next.js-ready scaffold
+- `cms/divi-bridge` — WordPress/Divi 4 bridge with `ABSPATH` guard + `core-Divi-Scriptz.js`
+- `full-stack/task-manager` — Payload v3 collection stubs (clients + tasks CRM baseline)
+
+**Demo seeding & disk persistence**
+- `seed --template=<blueprint>` with optional `--target` and `--fresh` flags
+- Writes schema-aligned `seed-payload.json` to explicit `--target` or `.sandbox/` fallback
+- Path normalization supports short names (`task-manager`) and full paths (`full-stack/task-manager`)
+
+### Documentation & Tooling
+- HOW-TO.md and Code-Jedi.md — Scaffolding Engine Routines (v2.2.0) sections
+- `biome.json` — exclude `templates/**` from formatter (mustache tokens in blueprints)
+- `.gitignore` — `.sandbox/` runtime seed output quarantined
+
+### Compatibility
+- **Zero API breakages** to v2.1.0 Gold Master scripts, sandboxes, MCP, Shield chain, or PHP bootstrap
+- **Grader unchanged** — still **52 checks** at **100%** (no new grade rows)
+
+### Grade
+- **Maintained:** **52/52 (100%)**
+
+---
+
 ## [2.1.0] - 2026-05-23 (Gold Master)
 
 ### Major Features & Improvements

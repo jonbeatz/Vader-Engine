@@ -1,6 +1,6 @@
 # Git README (Deprecated)
 
-This file is **deprecated**. The canonical repository overview is the root **[README.md](../../README.md)** (v2.1.0 Gold Master).
+This file is **deprecated**. The canonical repository overview is the root **[README.md](../../README.md)** (v2.2.0).
 
 | Need | Document |
 |------|----------|

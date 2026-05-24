@@ -18,13 +18,17 @@ Welcome to the baseline repository configuration sandbox. This environment is st
 
 
 
-## v2.1 Gold Master checklist
+## v2.2 checklist
 
 
 
 - [ ] `npm run msc:onboard` or `npm run bootstrap` — ports cleared, deps installed, env validation
 
 - [ ] `npm run msc:validate-env` — no live secrets in committed config
+
+- [ ] `npm run msc:template -- doctor` — scaffolding CLI health check
+
+- [ ] `npm run msc:template -- list` — verify three blueprints registered
 
 - [ ] `npm run msc:lint` — Biome clean
 

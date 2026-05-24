@@ -3,21 +3,27 @@
 ## 📋 General Overview
 - **Project Name:** [Insert Name]
 - **Target Stack:** [e.g., WordPress/Divi, Next.js, Standalone PHP]
-- **Current Version:** 2.1.0
-- **Status:** Gold Master — Phase 6 complete (52/52)
+- **Current Version:** 2.2.0
+- **Status:** v2.2.0 Template Scaffolding — shipped (52/52)
 
-## 🚀 Next Session Queue (Start Project)
+## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 
-**Say "Start Project" tomorrow** → load [.cursor/plans/templates-and-msc-cli.md](../plans/templates-and-msc-cli.md)
-
-**Goal:** Add user-facing **read-only templates** + internal **`tools/msc-cli`** ESM CLI for apply/seed scaffolding.
+**Shipped 2026-05-24** — commit `9b2188c` · tag `v2.2.0`
 
 ```text
 templates/          → frontend/portfolio, cms/divi-bridge, full-stack/task-manager
-tools/msc-cli/      → cli.ts, template-engine.ts, demo-seeder.ts, utils.ts
+tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 ```
 
-Do not code until task-planner Phase 1–3 matrix is operator-approved.
+- CLI subcommands: `list`, `apply`, `seed`, `doctor` via `npm run msc:template`
+- Token injection: `.tsx`/`.jsx` supported; `--dry-run` for planning
+- Seed persistence: `seed-payload.json` to `--target` or `.sandbox/` fallback
+- Docs synced: HOW-TO.md, Code-Jedi.md, README, CHANGELOG, ARCHITECTURE, TRUTH, DOCS
+- Grader: **52/52 unchanged**
+
+## 🚀 Next Session Queue (Start Project)
+
+*(No queued scaffolding work — pick next milestone from roadmap or operator backlog.)*
 
 ## ⚙️ Core Environment Specs
 - Local Environment URL: `MSC_PUBLIC_ORIGIN` or localhost
@@ -25,6 +31,12 @@ Do not code until task-planner Phase 1–3 matrix is operator-approved.
 - Port Allocations: Web **3000** (`MSC_DEV_PORT`) · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
 
 ## 🪵 Development Changelog
+
+## Feature Complete — v2.2.0 Template Scaffolding — 2026-05-24
+
+- **Commit:** `9b2188c` · **Tag:** `v2.2.0`
+- **Added:** `tools/msc-cli/` (list, apply, seed, doctor), `templates/` blueprints, `msc:template` npm script
+- **Verified:** Live apply + token swap · seed disk persistence · `npm run grade` 52/52 · pre-push hooks green
 
 ## Feature Complete — 2026-05-24
 
@@ -47,7 +59,7 @@ Do not code until task-planner Phase 1–3 matrix is operator-approved.
 - Steps 41–57 executed; Phases 4–5 artifacts verified + Step 45 test gaps filled
 - Step 45: added `scripts/__tests__/validate-env.test.mjs`, `scripts/__tests__/health.test.mjs` (8 root tests total)
 - Step 55: README Self-Grade badge → 52/52
-- Step 57: `package.json` version → `2.1.0`
+- Step 57: `package.json` version → `2.1.0` (superseded by **2.2.0** — 2026-05-24 doc sync)
 - FORCE_LOOP Run 1 — 2026-05-23T21:39:50Z — PASS — Grade: 52/52
 - FORCE_LOOP Run 2 — 2026-05-23T21:39:59Z — PASS — Grade: 52/52
 - FORCE_LOOP Run 3 — 2026-05-23T21:40:01Z — PASS — Grade: 52/52

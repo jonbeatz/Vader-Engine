@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Operational recovery paths for the **MSC v2.1.0 Gold Master** workspace.
+Operational recovery paths for the **MSC v2.2.0** workspace.
 
 ## Bootstrap Failures
 
@@ -102,6 +102,21 @@ If `/admin` returns 500 in CI or locally:
 | `npm ci` fails in `examples/nextjs-minimal` | Ensure `examples/nextjs-minimal/package-lock.json` is committed (required for CI). |
 | Payload E2E 500 on `/admin` | Ensure `database/` directory exists; E2E uses `payload-e2e.db`. |
 | Playwright browser missing | Run `npm run msc:e2e:install` locally; CI runs `npx playwright install --with-deps chromium firefox`. |
+
+## Template Scaffolding CLI
+
+- List blueprints: `npm run msc:template -- list`
+- Health check: `npm run msc:template -- doctor`
+- Apply requires `--name` and `--target` (or `--dry-run` without target write):
+
+```powershell
+npm run msc:template -- apply frontend/portfolio --name="My App" --target=../my-app --dry-run
+```
+
+- **`{{TOKEN}}` literals in output:** ensure file extension is covered by `template-engine.mjs` (includes `.tsx`/`.jsx`).
+- **Seed writes nowhere:** pass `--template=<blueprint>`; optional `--target=../path`; fallback is `.sandbox/` at repo root.
+- **Biome fails on template CSS:** expected — `templates/**` is excluded from Biome; do not remove the ignore without changing token syntax.
+- **Never apply into repo root or `examples/*`** unless explicitly testing — use sibling paths like `../my-project`.
 
 ## Shield / UI Namespace
 

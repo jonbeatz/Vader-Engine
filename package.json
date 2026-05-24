@@ -1,11 +1,13 @@
 {
   "name": "msc-universal-boilerplate",
-  "version": "2.1.0",
-  "description": "Cursor-native full-stack boilerplate with a 52-point self-grader, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows",
+  "version": "2.2.0",
+  "description": "Cursor-native full-stack boilerplate with a 52-point self-grader, template scaffolding CLI, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows",
   "type": "module",
   "main": "core/index.mjs",
   "scripts": {
     "prepare": "husky",
+    "build": "cd examples/nextjs-minimal && npm install && npm run build",
+    "start": "cd examples/nextjs-minimal && npm run start",
     "bootstrap": "npm run msc:kill-dev-port && node scripts/quickstart.mjs",
     "msc:health": "node scripts/health.mjs",
     "msc:health:json": "node scripts/health.mjs --json",

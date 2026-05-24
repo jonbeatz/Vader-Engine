@@ -1,19 +1,19 @@
 # Documentation Index (SSoT Router)
 
-Single entry point for all **Boilerplate-v2.1.0 Gold Master** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
+Single entry point for all **Boilerplate-v2.2.0** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
 
 ## Human control panel (root)
 
 | Document | Purpose |
 |----------|---------|
-| [TRUTH.md](TRUTH.md) | Constitution — v2.1 principles, tokens, zero-leak, MCP portability |
+| [TRUTH.md](TRUTH.md) | Constitution — v2 principles, tokens, zero-leak, MCP portability |
 | [README.md](README.md) | System overview, quick start, full command reference |
 | [START-HERE.md](START-HERE.md) | Agent/operator cold-start phases and checklists |
 | [DOCS.md](DOCS.md) | This index |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | High-level layout, sandboxes, CI pipeline |
 | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Operational recovery paths |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Fork, forge, hooks, PR gates |
-| [CHANGELOG.md](CHANGELOG.md) | Release history (v2.1.0 Gold Master) |
+| [CHANGELOG.md](CHANGELOG.md) | Release history (v2.2.0 · v2.1.0 Gold Master) |
 
 ## Operator runbooks (`.cursor/docs/`)
 
@@ -57,9 +57,21 @@ Single entry point for all **Boilerplate-v2.1.0 Gold Master** documentation. Tec
 | [examples/nextjs-minimal/](examples/nextjs-minimal/) | Next.js 15.5.7 + TypeScript + Vitest | **3000** |
 | [examples/nextjs-payload/](examples/nextjs-payload/) | Next.js 15.4.11 + Payload CMS v3 + SQLite | **3001** |
 
-## v2.1 Gold Master verification
+## Template blueprints (read-only registry)
+
+| Path | Purpose |
+|------|---------|
+| [templates/frontend/portfolio/](templates/frontend/portfolio/) | Vader Shield portfolio scaffold (Path A) |
+| [templates/cms/divi-bridge/](templates/cms/divi-bridge/) | WordPress/Divi 4 bridge with ABSPATH guard |
+| [templates/full-stack/task-manager/](templates/full-stack/task-manager/) | Payload CRM collection stubs |
+
+Scaffold via `npm run msc:template -- apply <category/name> --name="..." --target=../path`. Operator guide: [HOW-TO.md — Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v220).
+
+## v2.2 verification
 
 ```bash
+npm run msc:template -- doctor
+npm run msc:template -- list
 npm run msc:validate-env
 npm run verify:mcp
 npm run msc:lint

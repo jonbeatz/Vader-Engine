@@ -35,6 +35,7 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 | **Auth admin & user lifecycle** | `core/msc-payload-auth-delete-preflight.ts`, `core/msc-auth-admin.ts` | `MSC_RESCUE_*` for lockout stub | `npm run db:rescue-admin` (consumer implementation); hook `preflightDeleteAuthUserRows` on auth collections |
 | **Portfolio / showcase grid** | `core/msc-portfolio-collection.ts`, `ui/msc-portfolio-viewer.tsx`, `ui/msc-portfolio.css` | Register collection in consumer `payload.config.ts` | `.msc-portfolio-wrapper` + `msc-shield-load.css` |
 | **WordPress / Divi integration** | `core/msc-bootstrap.php`, `core/msc-utilities.php`, `core/msc-assets.php`; consumer bridge `core-Divi-Scriptz.js` (master frontend script) | `msc_` PHP prefix, `msc-` CSS scope; enforce **`MSC-Core-`** file naming on media-related theme/plugin assets | Skill: [wordpress-divi-engineering.md](../skills/wordpress-divi-engineering.md) |
+| **Template scaffolding & seeding** | `tools/msc-cli/`, `templates/` | `--target` sibling paths only; seed fallback `.sandbox/` | `npm run msc:template -- list|apply|seed|doctor`; plan: [templates-and-msc-cli.md](../plans/templates-and-msc-cli.md) |
 | **Local dev ports & HTTP health** | `scripts/msc-kill-dev-port.mjs`, `scripts/msc-local-http-smoke.mjs` | `MSC_DEV_PORT` (default **3000**), `MSC_SMOKE_STRICT`, `MSC_SMOKE_PATHS` | `npm run msc:kill`, `npm run verify:local`; skill: [node-runtime-mastery.md](../skills/node-runtime-mastery.md) |
 | **MCP & agent tooling** | `.cursor/mcp.json`, `.cursor/mcp-blueprint.json` | Keys in `.env.local`; `shadcn` / `context7` need no committed secrets | `npm run verify:mcp` (13 servers; dual-pass hydration audit) |
 | **Next.js consumer app bootstrap** | Copy `core/`, `scripts/`, `ui/`, `.cursor/` | Full `.env.local` contract | Guide: [consumer-bootstrap.md](./consumer-bootstrap.md) |
@@ -99,7 +100,7 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 
 **Husky pre-commit:** lint-staged (Biome) → `msc:validate-env` → `verify:mcp`. **Pre-push:** `grade` + `msc:test:root`. Install hooks: `npm install` (runs `prepare`).
 
-### Bootstrap, sandboxes & quality (v2.1.0)
+### Bootstrap, sandboxes & quality (v2.2.0)
 
 | Script | When to invoke | What it does |
 |--------|----------------|--------------|
@@ -134,6 +135,7 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 | :--- | :--- |
 | `npm run msc:template -- list` | Inspects and displays all blueprints within the `templates/` directory registry. |
 | `npm run msc:template -- apply` | Syncs a targeted blueprint out to a `--target` path and executes a deep regex token swap. |
+| `npm run msc:template -- seed` | Writes schema-aligned `seed-payload.json` mock data; requires `--template`; optional `--target` and `--fresh`. |
 | `npm run msc:template -- doctor` | Runs local connectivity diagnostics on core folder architecture bindings. |
 
 **Log usage:** `npm run log -- --type feat --msg "Description"` (`feat` \| `fix` \| `chore`).
@@ -278,4 +280,4 @@ When adding a feature (e.g. `msc-portfolio-collection`), create `ui/msc-[feature
 
 ---
 
-*Maintained as the primary AI routing compass for Boilerplate-v2.1.0 Gold Master. Update when `package.json` scripts or core module paths change.*
+*Maintained as the primary AI routing compass for Boilerplate-v2.2.0. Update when `package.json` scripts or core module paths change.*

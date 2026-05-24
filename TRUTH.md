@@ -2,7 +2,7 @@
 
 If any document conflicts with this file for **technical precedence**, this file wins for boilerplate consumers.
 
-**Version target:** Boilerplate-v2.1.0 Gold Master — lean multi-runtime Node.js ecosystem (20.x LTS + 24.x supported) with dual Next.js sandboxes, 52-point self-grader, and WordPress Shield bridge.
+**Version target:** Boilerplate-v2.2.0 — lean multi-runtime Node.js ecosystem (20.x LTS + 24.x supported) with dual Next.js sandboxes, read-only template blueprints, native scaffolding CLI, 52-point self-grader, and WordPress Shield bridge.
 
 ## 0. v2 guiding principles
 
@@ -10,6 +10,8 @@ If any document conflicts with this file for **technical precedence**, this file
 - **Agent layer:** `.cursor/` — portable MCP via `${workspaceFolder}` in `.cursor/mcp.json`; rules, skills, and docs under `.cursor/docs/`.
 - **Automation layer:** `scripts/` — all entry points import `scripts/lib/msc-load-env.mjs` first; uniform `msc:` npm script prefix.
 - **Examples layer:** `examples/` — living sandboxes: `nextjs-minimal/` on port **3000**, `nextjs-payload/` on port **3001**; dependencies stay scoped to example folders.
+- **Templates layer:** `templates/` — read-only blueprints; never mutated in place. Scaffolding writes only to explicit `--target` sibling paths via `npm run msc:template -- apply`.
+- **Scaffolding layer:** `tools/msc-cli/` — ESM-native CLI (`list`, `apply`, `seed`, `doctor`); seed fallback writes to `.sandbox/` (gitignored).
 - **UI layer:** `ui/` — Studio Dark Shield; token SSoT in `msc-shield.css`; v2 isolation contract in `studio-dark-shield.css`; strict `msc-` CSS prefix.
 - **Zero-leak:** `.env.example` = structural contract only; live keys in `.env.local` (gitignored); pre-commit runs lint-staged, `validate-env`, and `verify:mcp`.
 - **Clone-to-productive:** `npm run msc:onboard` or `npm run bootstrap` → `npm run msc:dev:example` within **≤ 10 minutes** on a fresh clone.
@@ -46,7 +48,7 @@ Reproduce on the operator machine before cloud deploy. Backup SQLite before sche
 
 **Consumer paths:** Path A Shield-only (dashboards/WordPress) · Path B hybrid Tailwind/shadcn — [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) §6 · skill [studio-dark-shield.md](.cursor/skills/studio-dark-shield.md).
 
-**Shield tooling:** `npm run msc:shield:audit`, `msc:new:component`, `msc:ingest`.
+**Shield tooling:** `npm run msc:shield:audit`, `msc:new:component`, `msc:ingest`, `msc:template` (scaffolding CLI).
 
 **Rules:** [studio-dark-ui.mdc](.cursor/rules/studio-dark-ui.mdc), [design-system-rules.mdc](.cursor/rules/design-system-rules.mdc), [tailwind-shadcn-bridge.mdc](.cursor/rules/tailwind-shadcn-bridge.mdc) — index [rules/README.md](.cursor/rules/README.md).
 
