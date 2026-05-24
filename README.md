@@ -1,4 +1,4 @@
-# Boilerplate-v2.2.0 — Gold Master
+# Boilerplate-v2.2.0
 
 [![Grade](https://img.shields.io/badge/grade-52%2F52-brightgreen)](https://github.com/jonbeatz/Boilerplate-v2)
 [![CI](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml)

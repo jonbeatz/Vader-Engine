@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Boilerplate-v2 Gold Master structural grading utility.
+ * Boilerplate-v2.2.0 structural grading utility.
  * Usage: npm run grade
  */
 import './lib/msc-load-env.mjs';
@@ -43,7 +43,7 @@ function pathExists(rel) {
   return existsSync(join(MSC_PROJECT_ROOT, rel));
 }
 
-console.log('--- 📊 Grading Boilerplate-v2 (Gold Master) ---\n');
+console.log('--- 📊 Grading Boilerplate-v2.2.0 ---\n');
 
 if (process.env.MSC_GRADE_MOCK_FAIL === '1') {
   report('mock failure injection test', false);

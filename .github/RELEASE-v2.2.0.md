@@ -1,14 +1,15 @@
 ## v2.2.0 — Template Scaffolding CLI — May 24, 2026
 
-Production-ready scaffolding layer for Boilerplate-v2. **Grade: 52/52 (100%).** Repository: [jonbeatz/Boilerplate-v2](https://github.com/jonbeatz/Boilerplate-v2).
+Production-ready scaffolding layer for **Boilerplate-v2**. **Grade: 52/52 (100%).** Repository: [jonbeatz/Boilerplate-v2](https://github.com/jonbeatz/Boilerplate-v2).
 
 ### Highlights
 
 - **`npm run msc:template`** — ESM-native CLI with `list`, `apply`, `seed`, `doctor`
-- **Three read-only blueprints** — portfolio, divi-bridge, task-manager
+- **Three read-only blueprints** — `frontend/portfolio`, `cms/divi-bridge`, `full-stack/task-manager`
 - **Token injection engine** — `.tsx`/`.jsx` support, `--dry-run`, dynamic port from **3002**
 - **Disk persistence** — `seed-payload.json` to `--target` or `.sandbox/` fallback
-- **Zero API breakages** from v2.1.0 Gold Master
+- **JonBeatz-only commit policy** — Husky strips Cursor co-author trailers
+- **Zero API breakages** from v2.1.0 (prior Gold Master release)
 
 ### Quick commands
 
@@ -20,10 +21,24 @@ npm run msc:template -- doctor
 npm run grade   # expect 52/52
 ```
 
-### Upgrade notes
+### Upgrade notes (from v2.1.0)
 
 - Grader count unchanged (**52 checks**)
 - `templates/**` excluded from Biome (mustache tokens)
 - `.sandbox/` gitignored for local seed output
+- All docs, rules, and `package.json` aligned to **v2.2.0**
 
-Full changelog: [CHANGELOG.md](../CHANGELOG.md)
+### Getting started
+
+- **Quick start:** https://github.com/jonbeatz/Boilerplate-v2#quick-start
+- **Documentation:** https://github.com/jonbeatz/Boilerplate-v2#documentation-map · [DOCS.md](https://github.com/jonbeatz/Boilerplate-v2/blob/main/DOCS.md)
+
+```bash
+git clone https://github.com/jonbeatz/Boilerplate-v2.git my-project
+cd my-project
+npm run msc:onboard
+```
+
+Full changelog: [CHANGELOG.md](https://github.com/jonbeatz/Boilerplate-v2/blob/main/CHANGELOG.md)
+
+Prior release: [v2.1.0 Gold Master](https://github.com/jonbeatz/Boilerplate-v2/releases/tag/v2.1.0)

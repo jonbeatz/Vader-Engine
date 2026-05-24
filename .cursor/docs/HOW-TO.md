@@ -72,7 +72,7 @@ npm run msc:test:all
 npm run test:integration
 ```
 
-### 5. Optional Gold Master certification
+### 5. Optional v2.2.0 release certification
 
 When releasing or forking to a new consumer:
 
@@ -85,7 +85,7 @@ npm run msc:test:all
 npm run msc:e2e:install   # first time only
 npm run msc:e2e
 npm run inventory
-npm run log -- --type chore --msg "Gold Master audit passed"
+npm run log -- --type chore --msg "v2.2.0 release audit passed"
 ```
 
 `grade` must report **52/52 (100%)** before treating the tree as forge-ready.
@@ -175,7 +175,7 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 |------|---------|-------------|
 | Append changelog | `npm run log -- --type feat --msg "Description"` | Types: `feat`, `fix`, `chore` → `.cursor/docs/project-log.md` |
 | Refresh dep/MCP inventory | `npm run inventory` | Writes `.cursor/docs/README-inventory.md` |
-| Gold Master structural grade | `npm run grade` | **52-point** PASS/FAIL audit; exit **1** on failure; **pre-push** |
+| v2.2.0 structural grade | `npm run grade` | **52-point** PASS/FAIL audit; exit **1** on failure; **pre-push** |
 
 ### Git hooks (automatic)
 

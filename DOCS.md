@@ -19,7 +19,7 @@ Single entry point for all **Boilerplate-v2.2.0** documentation. Technical prece
 
 | Document | Purpose |
 |----------|---------|
-| [HOW-TO.md](.cursor/docs/HOW-TO.md) | Command runbook, build ritual, Gold Master certification |
+| [HOW-TO.md](.cursor/docs/HOW-TO.md) | Command runbook, build ritual, v2.2.0 release certification |
 | [Code-Jedi.md](.cursor/docs/Code-Jedi.md) | Module compass, npm script inventory |
 | [system-architecture.md](.cursor/docs/system-architecture.md) | Structural blueprint (4 layers) |
 | [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) | Next.js 15 + Payload consumer install |
