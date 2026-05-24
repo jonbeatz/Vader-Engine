@@ -13,6 +13,16 @@
 
 ## 🪵 Development Changelog
 
+### [2026-05-23] - Phase 4 complete — Full-Stack Sandbox & lean boundary (Session 4)
+
+- **Exit gate (Node 24):** `msc:mock:media` PASS · `npm ci --prefix examples/nextjs-payload` PASS · `npm run build --prefix examples/nextjs-payload` PASS · `npm run grade` **39/39 (100%)**
+- **Sandbox:** SQLite gitignore hardening, `database/.gitkeep`, README + Next.js 15.4.11 pin comment, payload.config production guard + `PAYLOAD_DB_PUSH`
+- **Payload routes:** Added `(payload)/layout.tsx`, `importMap.js`, admin page importMap wiring (build blocker fix)
+- **Scripts:** msc-mock-media, msc-ensure-lockfiles, msc-docker-up/down; docker-compose.yml (msc-postgres)
+- **Docs/CI:** README Stack Support table; `.env.example` Docker keys; ci.yml npm ci + payload build with `PAYLOAD_SECRET`
+- **Lockfiles:** root, nextjs-minimal, nextjs-payload all present
+- **Phase 4 complete — grade 39/39.**
+
 ### [2026-05-23] - Phase 3 complete — Vader Protocol & Shield Layer (Session 3)
 
 - **Exit gate (Node 24):** `msc:shield:audit` PASS · `msc:new:component -- msc-smoke-test nextjs-minimal` PASS · `npm run test --prefix examples/nextjs-minimal` **5/5** · `npm run grade` **39/39 (100%)**

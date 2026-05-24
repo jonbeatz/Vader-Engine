@@ -1,6 +1,9 @@
 node_modules/
 .next/
 database/
+*.db
+*.db-wal
+*.db-shm
 media/
 .env.local
 src/payload-types.ts

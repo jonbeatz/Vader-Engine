@@ -1,6 +1,7 @@
 {
   "name": "msc-example-nextjs-payload",
   "version": "2.0.0",
+  "_comment": "Next.js pinned to 15.4.11 for Payload v3.x peer compatibility",
   "private": true,
   "type": "module",
   "scripts": {

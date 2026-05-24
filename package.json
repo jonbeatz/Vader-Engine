@@ -46,7 +46,9 @@
     "msc:onboard": "node scripts/msc-onboarding.mjs",
     "msc:shield:audit": "node scripts/msc-shield-audit.mjs",
     "msc:ingest": "node scripts/msc-ingest.mjs",
-    "msc:new:component": "node scripts/msc-new-component.mjs"
+    "msc:new:component": "node scripts/msc-new-component.mjs",
+    "msc:mock:media": "node scripts/msc-mock-media.mjs",
+    "msc:ensure-lockfiles": "node scripts/msc-ensure-lockfiles.mjs"
   },
   "lint-staged": {
     "*.{js,mjs,ts,tsx,jsx}": [
