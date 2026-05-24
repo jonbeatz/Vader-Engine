@@ -25,5 +25,13 @@ jobs:
       - name: Validate Next.js Minimal Workspace Sandbox
         run: |
           cd examples/nextjs-minimal
-          npm install
+          npm ci
           npm run test
+
+      - name: Validate Payload Full-Stack Sandbox
+        env:
+          PAYLOAD_SECRET: ci-build-placeholder-secret
+        run: |
+          cd examples/nextjs-payload
+          npm ci
+          npm run build

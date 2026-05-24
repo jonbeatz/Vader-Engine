@@ -6,9 +6,24 @@ import { buildConfig } from 'payload';
 import { MediaVault } from './collections/MediaVault';
 import { Users } from './collections/Users';
 
+if (process.env.NODE_ENV === 'production' && !process.env.PAYLOAD_SECRET) {
+  throw new Error('PAYLOAD_SECRET is required in production');
+}
+
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 const exampleRoot = path.resolve(dirname, '..');
 const dbPath = path.resolve(exampleRoot, 'database/payload.db');
+
+function msc_resolveSandboxSqlitePush(): boolean {
+  if (process.env.PAYLOAD_DB_PUSH === 'false') return false;
+  if (process.env.PAYLOAD_DB_PUSH === 'true') return true;
+  if (process.env.NODE_ENV === 'production') return false;
+  return true;
+}
+
+const payloadSecret =
+  process.env.PAYLOAD_SECRET ||
+  (process.env.NODE_ENV === 'production' ? '' : 'CHANGE_ME_PAYLOAD_SECRET');
 
 export default buildConfig({
   admin: {
@@ -16,11 +31,12 @@ export default buildConfig({
   },
   collections: [Users, MediaVault],
   editor: lexicalEditor(),
-  secret: process.env.PAYLOAD_SECRET || 'CHANGE_ME_PAYLOAD_SECRET',
+  secret: payloadSecret,
   typescript: {
     outputFile: path.resolve(exampleRoot, 'src/payload-types.ts'),
   },
   db: sqliteAdapter({
+    push: msc_resolveSandboxSqlitePush(),
     client: {
       url: process.env.DATABASE_URI || `file:${dbPath}`,
     },

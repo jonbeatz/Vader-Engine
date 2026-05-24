@@ -22,6 +22,16 @@
 
 This **v2.0.0-JEDI** release represents a complete structural evolution from v1—introducing environment portability, automated local platform versioning, self-validation suites, multi-sandbox CI/CD automation pipelines, diagnostic dashboards, and defensive re-branding code utilities. This document is the canonical README for the production baseline hosted at [jonbeatz/Boilerplate-v1](https://github.com/jonbeatz/Boilerplate-v1).
 
+## Stack Support
+
+| Target | Stack | Entry |
+|--------|-------|-------|
+| **Web App** | Next.js 15 + TypeScript | `examples/nextjs-minimal/` |
+| **Full-Stack CMS** | Next.js + Payload CMS v3 | `examples/nextjs-payload/` |
+| **WordPress Shield** | PHP + Divi isolation | `core/msc-bootstrap.php` |
+
+PHP never installs via npm. The WordPress layer provides CSS namespace isolation (`msc-` prefix) to prevent theme and plugin conflicts on Divi-based sites. The Divi consumer bridge is `core/core-Divi-Scriptz.js` (registered as `MSC_DIVI_SCRIPT` in `core/index.mjs`).
+
 ### Documentation Navigation
 
 | Audience | Start here | Then |
