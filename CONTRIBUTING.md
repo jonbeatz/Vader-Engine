@@ -80,3 +80,24 @@ When changing scripts, hooks, or sandboxes, update in the same session:
 - [DOCS.md](DOCS.md) index (if new doc files)
 
 Constitutional changes require [TRUTH.md](TRUTH.md) update first.
+
+## Version sync (release or doc sweep)
+
+**Single source of truth:** root `package.json` → `"version"` field (currently **2.2.0**).
+
+On every semver bump or alignment sweep, update **current-version** strings in the same session — never leave operator docs on an older release:
+
+| Surface | Pattern |
+|---------|---------|
+| `README.md` | Title `# Boilerplate-v2.x.x` · version table · "What's new in v2.x.x" |
+| `TRUTH.md` | `Version target:` line |
+| `DOCS.md`, `ARCHITECTURE.md`, `TROUBLESHOOTING.md`, `CONTRIBUTING.md` | Header / intro version |
+| `START-HERE.md` | Checklist section (`v2.x = checklist`) |
+| `.cursor/docs/HOW-TO.md`, `Code-Jedi.md`, `system-architecture.md` | Title + section headers |
+| `.cursor/rules/README.md`, `.devcontainer/devcontainer.json` | Boilerplate-v2.x.x |
+| `.cursor/docs/project-log.md` | `Current Version:` + ship commit SHA |
+| `.github/RELEASE-v2.x.x.md` | New release note file per tag |
+
+**Preserve as history (do not rewrite):** prior `CHANGELOG.md` sections, `.github/RELEASE-v2.x.x.md` archives, README "What's new in v2.x" for older releases.
+
+After sync: `npm run grade` (52/52) · update [CHANGELOG.md](CHANGELOG.md) · tag `vX.Y.Z` on the alignment commit.

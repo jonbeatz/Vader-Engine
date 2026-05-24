@@ -85,4 +85,10 @@ Target: **52/52 (100%)** on `npm run grade` before forge-ready release.
 
 **CI mirror (GitHub Actions):** validate-env → verify:mcp → lint → grade → msc:test:root → minimal `npm ci` + test → payload `npm ci` + build → Playwright install → `msc:e2e`.
 
+## Version sync contract
+
+**Authority:** root `package.json` `"version"` — all **current-release** docs must match in the same commit as a semver bump.
+
+Operator checklist: [CONTRIBUTING.md — Version sync](CONTRIBUTING.md#version-sync-release-or-doc-sweep). Agent skill: [docs-ops-governance.md](.cursor/skills/docs-ops-governance.md).
+
 *Powered by the MSC Media Engine*

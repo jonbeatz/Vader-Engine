@@ -8,7 +8,7 @@
 
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 
-**Shipped 2026-05-24** — commit `9b2188c` · tag `v2.2.0`
+**Shipped 2026-05-24** — commit `22ed024` · tag `v2.2.0`
 
 ```text
 templates/          → frontend/portfolio, cms/divi-bridge, full-stack/task-manager
@@ -34,7 +34,7 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 
 ## Feature Complete — v2.2.0 Template Scaffolding — 2026-05-24
 
-- **Commit:** `9b2188c` · **Tag:** `v2.2.0`
+- **Commit:** `22ed024` · **Tag:** `v2.2.0`
 - **Added:** `tools/msc-cli/` (list, apply, seed, doctor), `templates/` blueprints, `msc:template` npm script
 - **Verified:** Live apply + token swap · seed disk persistence · `npm run grade` 52/52 · pre-push hooks green
 

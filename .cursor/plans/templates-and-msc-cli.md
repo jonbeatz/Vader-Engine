@@ -1,6 +1,6 @@
 # Next Session Plan — Templates + `msc-cli` Tooling
 
-**Status:** ✅ Shipped — v2.2.0 · tag `v2.2.0` · commit `9b2188c` · 52/52 · CI green  
+**Status:** ✅ Shipped — v2.2.0 · tag `v2.2.0` · commit `22ed024` · 52/52 · CI green  
 **Baseline:** Boilerplate-v2.2.0 · `main` · 52/52 · CI green  
 **Operator intent:** Add user-facing template blueprints + internal CLI for scaffolding/seeding
 

@@ -21,6 +21,7 @@ description: >-
 
 - Keep edits focused on **canonical docs first**; avoid duplicating the same instructions in five files—use pointers.
 - When commands or paths change, update docs in the **same session**.
+- **Version sync:** root `package.json` `"version"` is the only release-number authority. On bump or doc sweep, align all **current-version** headers (README, TRUTH, DOCS, ARCHITECTURE, TROUBLESHOOTING, CONTRIBUTING, START-HERE, HOW-TO, Code-Jedi, system-architecture, `.cursor/rules/README.md`, `.devcontainer/devcontainer.json`, `project-log.md` `Current Version:`) in the **same commit**. Leave prior CHANGELOG sections and archived `RELEASE-v2.x.x.md` files as historical record.
 - Archive redundant docs instead of deleting useful history.
 - Capture incidents as: **symptom → root cause → shortest verified recovery path**.
 
