@@ -13,6 +13,15 @@
 
 ## 🪵 Development Changelog
 
+### [2026-05-23] - Phase 5 complete — 52-point grader expansion (Session 5)
+
+- **Exit gate (Node 24):** `npm run grade` **52/52 (100%)** · `npm run msc:test:all` PASS · `npm run msc:shield:audit` PASS · `npm run msc:test:grader` PASS
+- **Grader:** Expanded to 52 checks (#39–52: packageManager, engines, MIT license, ops docs, biome, pre-push, global.mdc, Divi casing); `MSC_GRADE_MOCK_FAIL` injection; `FAILED CHECK` stderr format
+- **Tests:** `tests/msc-boilerplate-structure.test.ts`, `scripts/__tests__/msc-grade-boilerplate.test.mjs`; vitest includes root + script tests (integration stub excluded)
+- **CI:** validate-env → verify:mcp → lint → grade → msc:test:root → sandbox ci/build
+- **Scripts:** `msc:test:all`, `msc:test:grader`
+- **Phase 5 complete — grade 52/52.**
+
 ### [2026-05-23] - Phase 4 complete — Full-Stack Sandbox & lean boundary (Session 4)
 
 - **Exit gate (Node 24):** `msc:mock:media` PASS · `npm ci --prefix examples/nextjs-payload` PASS · `npm run build --prefix examples/nextjs-payload` PASS · `npm run grade` **39/39 (100%)**

@@ -45,6 +45,10 @@ function pathExists(rel) {
 
 console.log('--- 📊 Grading Boilerplate-v1 (Gold Master) ---\n');
 
+if (process.env.MSC_GRADE_MOCK_FAIL === '1') {
+  report('mock failure injection test', false);
+}
+
 // 1. Documentation SSoT
 report('HOW-TO.md exists', pathExists('.cursor/docs/HOW-TO.md'));
 report('Code-Jedi.md exists', pathExists('.cursor/docs/Code-Jedi.md'));
@@ -150,16 +154,36 @@ try {
     missingScripts.length === 0,
   );
   report('package.json main is not PHP', !/\.php$/.test(pkg.main ?? ''));
+  report('packageManager field present', Boolean(pkg.packageManager));
+  report('engines.node locks to 20.x or 24.x', /20|24/.test(pkg.engines?.node ?? ''));
+  report('license is MIT', pkg.license === 'MIT');
 } catch {
-  report('package.json readable', false);
+  report('package.json expanded checks readable', false);
 }
+
+report('.env.example exists at root', pathExists('.env.example'));
+report('LICENSE exists', pathExists('LICENSE'));
+report('TROUBLESHOOTING.md exists', pathExists('TROUBLESHOOTING.md'));
+report('ARCHITECTURE.md exists', pathExists('ARCHITECTURE.md'));
+report('CHANGELOG.md exists', pathExists('CHANGELOG.md'));
+report('CONTRIBUTING.md exists', pathExists('CONTRIBUTING.md'));
+report('biome.json exists', pathExists('biome.json'));
+report('.husky/pre-push exists', pathExists('.husky/pre-push'));
+report('global.mdc rules migrated', pathExists('.cursor/rules/global.mdc'));
+
+const diviCanonical = 'core/core-Divi-Scriptz.js';
+const diviLegacy = 'core/coreDiviScriptz.js';
+report(
+  'core/core-Divi-Scriptz.js exact casing',
+  pathExists(diviCanonical) && !pathExists(diviLegacy),
+);
 
 const pct = score.total > 0 ? ((score.passed / score.total) * 100).toFixed(0) : '0';
 console.log(`\n--- 🏁 Final Grade: ${score.passed}/${score.total} (${pct}%) ---`);
 if (score.failures.length > 0) {
   console.error('\nFailures:');
   for (const f of score.failures) {
-    console.error(`  - ${f}`);
+    console.error(`  - FAILED CHECK: ${f}`);
   }
 }
 process.exit(score.passed === score.total ? 0 : 1);

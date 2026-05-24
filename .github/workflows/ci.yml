@@ -19,8 +19,17 @@ jobs:
       - name: Run Global Credentials Scan Gate
         run: npm run msc:validate-env
 
+      - name: Verify MCP Registry
+        run: npm run verify:mcp
+
+      - name: Run Biome Lint
+        run: npm run msc:lint
+
       - name: Run Project Integration Self-Grader
         run: npm run grade
+
+      - name: Run Root Structural Tests
+        run: npm run msc:test:root
 
       - name: Validate Next.js Minimal Workspace Sandbox
         run: |
