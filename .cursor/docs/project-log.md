@@ -13,6 +13,17 @@
 
 ## 🪵 Development Changelog
 
+## Chunk B complete — 2026-05-24
+
+- Last step: 40
+- Grade: 52/52 (100%)
+- Steps 21–40: verified against Phases 2–5 deliverables; all validation gates pass
+- Step 35: production build exit 1 without `PAYLOAD_SECRET` (guard confirmed)
+- Step 37: `npm ci --prefix examples/nextjs-payload` exit 0
+- Step 39: Docker not installed on operator host — `docker compose config` skipped (opt-in per runbook)
+- Commits: operator tagged Phase 6a; Chunk B verification-only (no file mutations required)
+- Awaiting human confirmation to proceed to Chunk C
+
 ## Chunk A complete — 2026-05-24
 
 - Last step: 20
