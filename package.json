@@ -43,6 +43,8 @@
     "msc:lint:fix": "biome check --write .",
     "msc:format": "biome format --write .",
     "msc:test:root": "vitest run",
+    "msc:test:all": "vitest run && npm test --prefix examples/nextjs-minimal",
+    "msc:test:grader": "vitest run scripts/__tests__/msc-grade-boilerplate.test.mjs",
     "msc:onboard": "node scripts/msc-onboarding.mjs",
     "msc:shield:audit": "node scripts/msc-shield-audit.mjs",
     "msc:ingest": "node scripts/msc-ingest.mjs",
