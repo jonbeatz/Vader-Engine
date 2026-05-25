@@ -20,7 +20,7 @@ async function msc_main() {
   const flags = msc_parseFlags();
 
   if (command === 'list') {
-    console.log('\n📁 \x1b[36mRegistered Boilerplate-v2 Blueprint Templates:\x1b[0m');
+    console.log('\n📁 \x1b[36mRegistered Boilerplate Blueprint Templates:\x1b[0m');
     const categories = ['frontend', 'cms', 'full-stack'];
     categories.forEach((cat) => {
       if (existsSync(`templates/${cat}`)) {

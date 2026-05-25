@@ -11,7 +11,7 @@ Single source of truth for repository layout, subsystem boundaries, and integrat
 ## Unified Core Layout Tree
 
 ```text
-📁 Boilerplate-v2/  (v2.4.0)
+📁 Boilerplate/  (v2.4.0)
 ├── 📄 START-HERE.md              ◄ [Universal Cold-Start Ignition Runbook]
 ├── 📄 README.md · DOCS.md        ◄ [Overview + documentation index]
 ├── 📄 package.json                ◄ [Command Registry — 60-point grade authority]

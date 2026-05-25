@@ -17,7 +17,7 @@ Introduce a **read-only template library** under `templates/` and an **ESM-nativ
 ## Proposed Directory Layout
 
 ```text
-Boilerplate-v2/
+Boilerplate/
 ├── templates/                      # User-facing blueprints (READ-ONLY in repo)
 │   ├── frontend/
 │   │   └── portfolio/              # Vader Protocol compliant (Path A Shield)

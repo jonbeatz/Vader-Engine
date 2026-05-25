@@ -1,8 +1,8 @@
 # Boilerplate-v2.4.0
 
-[![Grade](https://img.shields.io/badge/grade-60%2F60-brightgreen)](https://github.com/jonbeatz/Boilerplate-v2)
-[![CI](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-2.4.0-red)](https://github.com/jonbeatz/Boilerplate-v2/releases)
+[![Grade](https://img.shields.io/badge/grade-60%2F60-brightgreen)](https://github.com/jonbeatz/Boilerplate)
+[![CI](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml)
+[![Version](https://img.shields.io/badge/version-2.4.0-red)](https://github.com/jonbeatz/Boilerplate/releases)
 [![Live demo](https://img.shields.io/badge/demo-vaderlabz.com-c0392b)](https://vaderlabz.com)
 [![Node](https://img.shields.io/badge/node-20%7C24-339933)](https://nodejs.org/)
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
@@ -21,7 +21,7 @@
 | **Version** | v2.4.0 |
 | **Release date** | May 24, 2026 (60-point grader & ecosystem hardening) |
 | **Ecosystem grade** | 60/60 (100%) — verified baseline |
-| **Repository** | [github.com/jonbeatz/Boilerplate-v2](https://github.com/jonbeatz/Boilerplate-v2) |
+| **Repository** | [github.com/jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) |
 | **Node** | 20.x–24.x (`.nvmrc` pins 20.19.1 · CI uses 20) |
 | **Package manager** | npm ≥ 10 |
 
@@ -29,7 +29,7 @@
 
 ## Overview
 
-**Boilerplate-v2** is a highly disciplined, self-governing starter kit for rapid, production-grade development with [Cursor](https://cursor.sh/). Clone it, run one bootstrap command, and be fully operational in minutes — not hours.
+**Boilerplate** is a highly disciplined, self-governing starter kit for rapid, production-grade development with [Cursor](https://cursor.sh/). Clone it, run one bootstrap command, and be fully operational in minutes — not hours.
 
 Designed as an **empty-folder replacement engine**, it combines deep AI integration (rules, skills, MCP), automated validation, security guardrails, and isolated sandboxes so frameworks never pollute the root workspace.
 
@@ -167,7 +167,7 @@ Full release notes: [CHANGELOG.md](CHANGELOG.md) · current: [docs/releases/RELE
 **Recommended — interactive onboarding:**
 
 ```bash
-git clone https://github.com/jonbeatz/Boilerplate-v2.git my-project
+git clone https://github.com/jonbeatz/Boilerplate.git my-project
 cd my-project
 npm run msc:onboard
 ```
@@ -371,7 +371,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 | **P2** | Opt-in Tailwind/shadcn sandboxing | Planned |
 | **P3** | Playwright E2E multi-sandbox harness | ✅ Shipped in v2.1.0 |
 | **P3** | VS Code / Cursor settings sync | ✅ Shipped (`.cursor/settings.json` + `.vscode/`) |
-| **P3** | Repo rename (`Boilerplate-v2`) | ✅ Shipped |
+| **P3** | Repo rename (`Boilerplate`) | ✅ Shipped |
 
 ---
 

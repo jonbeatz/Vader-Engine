@@ -28,8 +28,8 @@ Cold-start sequence every operator or agent session should follow.
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/jonbeatz/Boilerplate-v2.git
-cd Boilerplate-v2
+git clone https://github.com/jonbeatz/Boilerplate.git my-project
+cd my-project
 npm run msc:check-node
 npm run msc:onboard
 # or: npm install && npm run bootstrap
@@ -336,7 +336,7 @@ Setup details: [mcp-setup.md](./mcp-setup.md). Extended catalog: `.cursor/mcp-bl
 ---
 
 ## 📁 The Template & Scaffolding System (v2.4.0)
-Boilerplate-v2 contains a cross-platform, native scaffolding CLI to generate custom workspaces into sibling directories outside the main repository root.
+Boilerplate contains a cross-platform, native scaffolding CLI to generate custom workspaces into sibling directories outside the main repository root.
 
 ### Available Subcommands
 - **List Blueprints:** `npm run msc:template -- list`

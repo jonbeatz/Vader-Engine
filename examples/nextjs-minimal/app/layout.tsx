@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Boilerplate v2 Example',
-  description: 'Minimal Next.js example for Boilerplate-v2',
+  description: 'Minimal Next.js example for Boilerplate',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

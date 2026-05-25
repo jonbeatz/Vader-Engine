@@ -23,11 +23,11 @@ export type SiteData = {
 export const STATIC_PROJECTS: SiteProject[] = [
   {
     id: 'static-1',
-    title: 'Boilerplate-v2',
+    title: 'Boilerplate',
     description:
       'Cursor-native full-stack boilerplate with a 60-point self-grader, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows.',
     status: 'active',
-    githubUrl: 'https://github.com/jonbeatz/Boilerplate-v2',
+    githubUrl: 'https://github.com/jonbeatz/Boilerplate',
     tags: [
       { label: 'Next.js' },
       { label: 'Payload CMS' },

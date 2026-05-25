@@ -1,6 +1,6 @@
 # Discovered Logic Map (Multi-Agent Synthesis)
 
-Deep scan of pillar repositories vs Boilerplate-v2. Items marked **ported** exist in this repo; **stub** require consumer wiring; **doc-only** are rituals documented but not executable here.
+Deep scan of pillar repositories vs Boilerplate. Items marked **ported** exist in this repo; **stub** require consumer wiring; **doc-only** are rituals documented but not executable here.
 
 | Category | Capability | Source repo / file | Boilerplate status |
 |----------|------------|-------------------|-------------------|
