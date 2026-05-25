@@ -46,14 +46,32 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 ## 🚀 Next Session Queue (Start Project)
 
 - [x] GitHub About + delete head branches — automated via `npm run msc:github:sync` (re-run after future renames)
+- [x] Opt-in Tailwind/shadcn sandbox — `examples/nextjs-tailwind/` · `091469b`
 - [ ] Optional: close stale Dependabot PRs on GitHub UI
+- [ ] Push `091469b` to `origin/main` when ready
 
 ## ⚙️ Core Environment Specs
 - Local Environment URL: `MSC_PUBLIC_ORIGIN` or localhost
 - Primary Database Layer: `DATABASE_URI` / `DATABASE_URL`
-- Port Allocations: Web **3000** (`MSC_DEV_PORT`) · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
+- Port Allocations: Web **3000** (`MSC_DEV_PORT`) · Payload **3001** · Tailwind Path B **3002** · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
+
+## ✅ Completed — Tailwind/shadcn sandbox (v2.5.0 sprint) — 2026-05-25
+
+- **Commit:** `091469b` — `feat(sandbox): add opt-in Tailwind/shadcn sandbox (v2.5.0)`
+- **Added:** `examples/nextjs-tailwind/` (Lean Boundary), `npm run msc:dev:tailwind`, port **3002** on kill-list
+- **Docs:** README roadmap shipped, DOCS, HOW-TO, examples/README, ARCHITECTURE
+- **Verified:** `msc:lint` 0 errors · `grade` 60/60 · sandbox `npm run build` · dev **3002** HTTP 200 on `/`
 
 ## 🪵 Development Changelog
+
+### [2026-05-25] - feat — Tailwind/shadcn Path B sandbox + doc sync
+- **Added:** `examples/nextjs-tailwind/`; `msc:dev:tailwind`; Biome Tailwind CSS override
+- **Modified:** README, DOCS, HOW-TO, examples/README, ARCHITECTURE, `package.json` (script only), kill/lockfile scripts
+- **Commit:** `091469b` on `main`
+- **Verified:** gates **60/60** · **8/8** (pre-push unchanged) · zero-leak `.env.example` in sandbox
+
+### [2026-05-25] - chore — Documentation maintenance sprint (SECURITY.md)
+- **Commit:** `94cb431` — TL;DR, roadmap, SECURITY.md, CHANGELOG collapse (pushed to `origin/main`)
 
 ### [2026-05-25] - Session Closeout — `msc:github:sync` + production audit in test gate
 - **Added:** `msc:github:sync` maintainer command; `npm audit --production` in `msc:test:root`
