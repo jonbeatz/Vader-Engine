@@ -8,7 +8,7 @@ Single operator-facing guide for running, verifying, and extending **Boilerplate
 
 Boilerplate-v2.3.0 is an **unbranded, self-validating engine** — a portable factory layer for Payload/Next.js consumers, WordPress/Divi surfaces, Studio Dark UI, and **sibling-directory scaffolding** via `msc:template`. It ships:
 
-- **52-point** structural grader with CI and pre-push enforcement
+- **60-point** structural grader with CI and pre-push enforcement
 - Env-driven, selectable strategies (no forced production defaults)
 - A **13-server** Cursor MCP registry with pre-commit structural verification
 - Global Shield CSS (Core-to-Satellite) with optional Tailwind/shadcn hybrid path
@@ -92,7 +92,7 @@ npm run msc:test:root
 npm run msc:lint && npm run grade && npm run msc:test:root
 ```
 
-**Targets:** `msc:lint` exit **0** (0 errors; aim for 0 warnings on polish releases) · `grade` **52/52** (or **60/60** after grader expansion) · Vitest root suite all passing.
+**Targets:** `msc:lint` exit **0** (0 errors; aim for 0 warnings on polish releases) · `grade` **60/60** · Vitest root suite all passing.
 
 **CI lesson (2026-05-25):** Biome 2.2.0+ rejects folder ignores with trailing `/**` (use `!templates`, not `!templates/**`). The v2.3.0 tag failed CI until `biome.json` was corrected in commit `9a1a4b6` — always run `npm run msc:lint` locally before pushing tags.
 
@@ -112,7 +112,7 @@ npm run inventory
 npm run log -- --type chore --msg "v2.3.0 release audit passed"
 ```
 
-`grade` must report **52/52 (100%)** before treating the tree as forge-ready.
+`grade` must report **60/60 (100%)** before treating the tree as forge-ready.
 
 ### 6. Session close
 
@@ -154,7 +154,7 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 | Biome lint | `npm run msc:lint` | Full-tree check; **CI gate** |
 | Biome fix | `npm run msc:lint:fix` | Auto-fix lint issues |
 | Biome format | `npm run msc:format` | Format pass |
-| Structural grade | `npm run grade` | **52 checks**; **pre-push gate** |
+| Structural grade | `npm run grade` | **60 checks**; **pre-push gate** |
 | Root tests | `npm run msc:test:root` | Vitest at repo root; **pre-push** |
 | Full test sweep | `npm run msc:test:all` | Root + minimal sandbox |
 | Grader tests | `npm run msc:test:grader` | Grader unit regression |
@@ -199,7 +199,7 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 |------|---------|-------------|
 | Append changelog | `npm run log -- --type feat --msg "Description"` | Types: `feat`, `fix`, `chore` → `.cursor/docs/project-log.md` |
 | Refresh dep/MCP inventory | `npm run inventory` | Writes `.cursor/docs/README-inventory.md` |
-| v2.3.0 structural grade | `npm run grade` | **52-point** PASS/FAIL audit; exit **1** on failure; **pre-push** |
+| v2.4.0 structural grade | `npm run grade` | **60-point** PASS/FAIL audit; exit **1** on failure; **pre-push** |
 
 ### Git hooks (automatic)
 

@@ -14,7 +14,7 @@ Single source of truth for repository layout, subsystem boundaries, and integrat
 📁 Boilerplate-v2/  (v2.3.0)
 ├── 📄 START-HERE.md              ◄ [Universal Cold-Start Ignition Runbook]
 ├── 📄 README.md · DOCS.md        ◄ [Overview + documentation index]
-├── 📄 package.json                ◄ [Command Registry — 52-point grade authority]
+├── 📄 package.json                ◄ [Command Registry — 60-point grade authority]
 ├── 📄 .env.example                ◄ [Strategy Environment Configuration Contract]
 ├── 📂 templates/                  ◄ [Read-only blueprint registry — portfolio, divi-bridge, task-manager]
 ├── 📂 tools/msc-cli/              ◄ [Scaffolding CLI — list, apply, seed, doctor]

@@ -1,8 +1,8 @@
-# Boilerplate-v2.3.0
+# Boilerplate-v2.4.0
 
-[![Grade](https://img.shields.io/badge/grade-52%2F52-brightgreen)](https://github.com/jonbeatz/Boilerplate-v2)
+[![Grade](https://img.shields.io/badge/grade-60%2F60-brightgreen)](https://github.com/jonbeatz/Boilerplate-v2)
 [![CI](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-2.3.1-red)](https://github.com/jonbeatz/Boilerplate-v2/releases)
+[![Version](https://img.shields.io/badge/version-2.4.0-red)](https://github.com/jonbeatz/Boilerplate-v2/releases)
 [![Live demo](https://img.shields.io/badge/demo-vaderlabz.com-c0392b)](https://vaderlabz.com)
 [![Node](https://img.shields.io/badge/node-20%7C24-339933)](https://nodejs.org/)
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
@@ -18,9 +18,9 @@
 
 | Field | Value |
 | --- | --- |
-| **Version** | v2.3.1 |
-| **Release date** | May 25, 2026 (Polish & zero warnings) |
-| **Ecosystem grade** | 52/52 (100%) — verified baseline |
+| **Version** | v2.4.0 |
+| **Release date** | May 24, 2026 (60-point grader & ecosystem hardening) |
+| **Ecosystem grade** | 60/60 (100%) — verified baseline |
 | **Repository** | [github.com/jonbeatz/Boilerplate-v2](https://github.com/jonbeatz/Boilerplate-v2) |
 | **Node** | 20.x LTS (pinned) · 24.x supported via runtime guard |
 | **Package manager** | npm ≥ 10 |
@@ -38,7 +38,7 @@ Designed as an **empty-folder replacement engine**, it combines deep AI integrat
 | Principle | What it means |
 | --- | --- |
 | **Lean Boundary Rule** | Root orchestrates scripts only. Frameworks and data live in isolated `examples/*` sandboxes. Blueprints scaffold to sibling `--target` paths via `msc:template`. |
-| **Self-validating** | 52-point automated integrity grader (`npm run grade`) with hard non-zero exits on failure. |
+| **Self-validating** | 60-point automated integrity grader (`npm run grade`) with hard non-zero exits on failure. |
 | **Vader Protocol Shield** | Strict `msc-` namespace + Studio Dark design tokens for total CSS isolation from themes and Divi. |
 | **Cursor-first** | Modular `.mdc` rules, agent skills, portable MCP config, and operator/agent documentation paths. |
 | **Zero-leak security** | Credentials in untracked `.env.local` only; committed templates use `YOUR_*` / `CHANGE_ME` placeholders. |
@@ -52,6 +52,8 @@ Designed as an **empty-folder replacement engine**, it combines deep AI integrat
 ---
 
 ## Stack support
+
+Sandboxes and template blueprints: [examples/README.md](examples/README.md) · `templates/` (apply via `npm run msc:template`).
 
 | Target | Technology | Entry | Port |
 | --- | --- | --- | --- |
@@ -122,7 +124,7 @@ Prep script: `scripts/prep-hostinger-deploy.sh` (copies scaffold output to `vade
 
 ### Major upgrades (v2.0 → v2.1)
 
-- **52-point self-grader** — expanded from 38 checks; strict CI and pre-push enforcement
+- **60-point self-grader** — v2.4.0 audit (Vader template + Dependabot + contributor templates); strict CI and pre-push enforcement
 - **Biome** — unified linter and formatter (replaces Prettier)
 - **Interactive onboarding** — `npm run msc:onboard` guided first-run wizard
 - **Advanced Shield System** — `msc:shield:audit`, `msc:new:component`, and `msc:ingest` asset parser
@@ -215,7 +217,7 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 
 | Command | Purpose |
 | --- | --- |
-| `npm run grade` | **52-point** structural integrity check (must score 100%) |
+| `npm run grade` | **60-point** structural integrity check (must score 100%) |
 | `npm run msc:lint` | Biome lint + format validation |
 | `npm run msc:lint:fix` | Biome auto-fix |
 | `npm run msc:test:all` | Root Vitest + minimal sandbox tests |
@@ -313,7 +315,7 @@ Expected output when healthy:
 [PASS] Data Sandbox Media Vault Verification (src/collections/MediaVault.ts Specs)
 …
 
---- Final Grade: 52/52 (100%) ---
+--- Final Grade: 60/60 (100%) ---
 
 All checks passed seamlessly. Workspace configuration is certified stable.
 ```

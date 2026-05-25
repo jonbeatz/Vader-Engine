@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Boilerplate-v2.3.0 structural grading utility.
+ * Boilerplate-v2.4.0 structural grading utility (60-point audit).
  * Usage: npm run grade
  */
 import './lib/msc-load-env.mjs';
@@ -43,7 +43,7 @@ function pathExists(rel) {
   return existsSync(join(MSC_PROJECT_ROOT, rel));
 }
 
-console.log('--- 📊 Grading Boilerplate-v2.3.0 ---\n');
+console.log('--- 📊 Grading Boilerplate-v2.4.0 (60-point) ---\n');
 
 if (process.env.MSC_GRADE_MOCK_FAIL === '1') {
   report('mock failure injection test', false);
@@ -177,6 +177,47 @@ report(
   'core/core-Divi-Scriptz.js exact casing',
   pathExists(diviCanonical) && !pathExists(diviLegacy),
 );
+
+// 6. Vader template factory (v2.3+)
+report(
+  'templates/full-stack/vader-site vader.css exists',
+  pathExists('templates/full-stack/vader-site/app/(app)/vader.css'),
+);
+report('vader_protocol_skill.md exists', pathExists('.cursor/skills/vader_protocol_skill.md'));
+report('vader_animations_skill.md exists', pathExists('.cursor/skills/vader_animations_skill.md'));
+let releaseMatchesVersion = false;
+try {
+  const pkgVer = JSON.parse(readFileSync(join(MSC_PROJECT_ROOT, 'package.json'), 'utf8')).version;
+  releaseMatchesVersion = pathExists(`RELEASE_v${pkgVer}.md`);
+} catch {
+  releaseMatchesVersion = false;
+}
+report('RELEASE_v*.md matches package.json version', releaseMatchesVersion);
+report('DEPLOY_TO_HOSTINGER.md exists', pathExists('DEPLOY_TO_HOSTINGER.md'));
+let vaderEnvStaticFirst = false;
+try {
+  const vaderEnv = readFileSync(
+    join(MSC_PROJECT_ROOT, 'templates/full-stack/vader-site/.env.example'),
+    'utf8',
+  );
+  vaderEnvStaticFirst = /ENABLE_PAYLOAD=false/.test(vaderEnv);
+} catch {
+  vaderEnvStaticFirst = false;
+}
+report('vader-site .env.example ENABLE_PAYLOAD=false default', vaderEnvStaticFirst);
+report(
+  'no page.module.css in vader-site template',
+  !pathExists('templates/full-stack/vader-site/app/(app)/page.module.css') &&
+    !pathExists('templates/full-stack/vader-site/app/(app)/BackToTop.module.css'),
+);
+let biomeNoDeprecatedTemplateGlob = false;
+try {
+  const biomeRaw = readFileSync(join(MSC_PROJECT_ROOT, 'biome.json'), 'utf8');
+  biomeNoDeprecatedTemplateGlob = !biomeRaw.includes('!templates/**');
+} catch {
+  biomeNoDeprecatedTemplateGlob = false;
+}
+report('biome.json avoids deprecated !templates/** ignore', biomeNoDeprecatedTemplateGlob);
 
 const pct = score.total > 0 ? ((score.passed / score.total) * 100).toFixed(0) : '0';
 console.log(`\n--- 🏁 Final Grade: ${score.passed}/${score.total} (${pct}%) ---`);

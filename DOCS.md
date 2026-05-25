@@ -101,7 +101,7 @@ npm run msc:e2e:install   # first time only
 npm run msc:e2e
 ```
 
-Target: **52/52 (100%)** on `npm run grade` before forge-ready release.
+Target: **60/60 (100%)** on `npm run grade` before forge-ready release.
 
 **CI mirror (GitHub Actions):** validate-env → verify:mcp → lint → grade → msc:test:root → minimal `npm ci` + test → payload `npm ci` + build → Playwright install → `msc:e2e`.
 

@@ -1,12 +1,19 @@
-# {{PROJECT_NAME}}
+# {{PROJECT_NAME}} — Portfolio Template
 
-Welcome to your custom portfolio application scaffolded natively via the MSC Media Engine.
+> **MSC Boilerplate** · **Template blueprint** · Port **{{PORT}}** · Next.js + Vader Protocol Shield (Path A)
 
-## Tech Stack & Configuration
-- **Framework:** Next.js (Isolated Layout Engine)
-- **Aesthetic Core:** Vader Protocol Dark Shield Configured
-- **Target Port:** `{{PORT}}`
+Scaffolded via `npm run msc:template -- apply frontend/portfolio --name="Your Studio"`. Not a living sandbox — see [examples/nextjs-minimal](../../examples/nextjs-minimal/) for in-repo dev.
 
-## Quick Start
-1. Install dependencies: `npm install`
-2. Launch local dev studio: `npm run dev`
+## Setup
+
+```bash
+npm install
+npm run dev
+```
+
+App serves on port **{{PORT}}** after apply (assigned by template engine).
+
+## Notes
+
+- Uses `{{TOKEN}}` placeholders until apply completes
+- Studio Dark tokens: `ui/msc-shield.css` (Shield Path A)

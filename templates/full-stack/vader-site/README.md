@@ -1,8 +1,10 @@
 # {{PROJECT_NAME}} — VaderLabz Site
 
-Next.js 15 + Payload v3 marketing site with Vader Protocol design system.
+> **MSC Boilerplate** · **Template blueprint** · Port **{{PORT}}** · Next.js 15 + optional Payload v3 · Vader Protocol (`vader.css`)
 
-## Quick start
+Next.js 15 marketing site with Vader Protocol design system. Live reference: [vaderlabz.com](https://vaderlabz.com).
+
+## Setup
 
 ### Static mode (production / Hostinger — default)
 

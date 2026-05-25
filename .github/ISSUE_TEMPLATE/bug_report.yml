@@ -1,0 +1,54 @@
+name: Bug report
+description: Report a defect in Boilerplate, sandboxes, or templates
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    value: |
+      **Vader Protocol workflow** — no secrets in issues. Use placeholders only.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Steps to reproduce and expected vs actual behavior
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Boilerplate version
+      description: Output of `node -p "require('./package.json').version"` from repo root
+      placeholder: "2.3.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Root / scripts
+        - examples/nextjs-minimal
+        - examples/nextjs-payload
+        - templates / msc:template
+        - CI / Husky
+        - Docs
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / gate output
+      description: Paste `npm run msc:lint`, `npm run grade`, or CI failure (redact paths if needed)
+
+  - type: checkboxes
+    id: gates
+    attributes:
+      label: Pre-submit checks
+      options:
+        - label: I ran `npm run msc:validate-env` (no secrets committed)
+          required: true

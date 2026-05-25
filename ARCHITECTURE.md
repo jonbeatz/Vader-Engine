@@ -71,7 +71,7 @@ PHP entry: `core/msc-bootstrap.php`. Divi consumer bridge: `core/core-Divi-Scrip
 | Environment scan | `npm run msc:validate-env` | Pre-commit, CI |
 | MCP structure | `npm run verify:mcp` | Pre-commit, CI |
 | Lint/format | `npm run msc:lint` | CI, local |
-| Structural grader | `npm run grade` | Pre-push, CI — **52 checks** |
+| Structural grader | `npm run grade` | Pre-push, CI — **60 checks** |
 | Root tests | `npm run msc:test:root` | Pre-push, CI |
 | Full test sweep | `npm run msc:test:all` | Release audit |
 | Shield compliance | `npm run msc:shield:audit` | UI work |

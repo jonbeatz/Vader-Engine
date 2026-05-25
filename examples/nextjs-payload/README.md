@@ -1,12 +1,10 @@
 # nextjs-payload — Full-Stack CMS Sandbox
 
-Isolated Payload CMS v3.x + Next.js sandbox. SQLite data files (`*.db`) are gitignored; the `database/` directory is committed via `database/.gitkeep`.
+> **MSC Boilerplate** · **Sandbox** · Port **3001** · Next.js 15.4.11 + Payload CMS v3 + SQLite
 
-## Next.js pin
+Isolated Payload CMS v3.x + Next.js sandbox. Parent index: [examples/README.md](../README.md). SQLite data files (`*.db`) are gitignored; the `database/` directory is committed via `database/.gitkeep`.
 
-**Next.js `15.4.11`** is locked in `package.json` to satisfy Payload v3.x peer-dependency range. Do not bump without verifying Payload compatibility.
-
-## Quick start
+## Setup
 
 ```bash
 cp .env.example .env.local
@@ -16,6 +14,10 @@ npm run dev
 ```
 
 Admin: `http://127.0.0.1:3001/admin` (default `MSC_PUBLIC_ORIGIN`).
+
+## Next.js pin
+
+**Next.js `15.4.11`** is locked in `package.json` to satisfy Payload v3.x peer-dependency range. Do not bump without verifying Payload compatibility.
 
 ## Environment
 

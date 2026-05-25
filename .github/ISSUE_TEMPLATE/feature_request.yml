@@ -1,0 +1,45 @@
+name: Feature request
+description: Propose an enhancement aligned with TRUTH.md and Lean Boundary Rule
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    value: |
+      Read [TRUTH.md](../../TRUTH.md) and [CONTRIBUTING.md](../../CONTRIBUTING.md) before filing.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - Root orchestration / scripts
+        - Template factory (`templates/`)
+        - Vader Protocol UI
+        - Payload / CMS sandbox
+        - Documentation only
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: alignment
+    attributes:
+      label: Alignment
+      options:
+        - label: Stays within `msc-` / Lean Boundary (no framework pollution at root)
+          required: true
+        - label: Includes doc/script updates in same PR if accepted
+          required: false

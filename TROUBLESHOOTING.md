@@ -69,7 +69,7 @@ Note: Markdown is not processed by Biome — pre-commit lint-staged covers JS/TS
 
 ## Grade / CI Drift
 
-- Local grade: `npm run grade` (must show **52/52**).
+- Local grade: `npm run grade` (must show **60/60**).
 - Grader unit tests: `npm run msc:test:grader`
 - Root tests: `npm run msc:test:root`
 - Full sweep: `npm run msc:test:all`

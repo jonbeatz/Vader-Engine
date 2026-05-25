@@ -34,7 +34,7 @@ Welcome to the baseline repository configuration sandbox. This environment is st
 
 - [ ] `npm run msc:test:all` — root Vitest + minimal sandbox tests pass
 
-- [ ] `npm run grade` — **52/52 (100%)** structural audit
+- [ ] `npm run grade` — **60/60 (100%)** structural audit
 
 - [ ] (Optional) `npm run msc:e2e:install` then `npm run msc:e2e` — Playwright smoke (3 tests × chromium + firefox)
 

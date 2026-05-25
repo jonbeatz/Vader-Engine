@@ -1,5 +1,33 @@
 # Changelog
 
+## [Unreleased]
+
+---
+
+## [2.4.0] - 2026-05-24 (60-Point Grader & Ecosystem Hardening)
+
+### Grader
+
+- Expanded structural audit from **52** to **60** checks — Vader template assets, release doc alignment, Hostinger deploy doc, static-first env default, CSS module ban, Biome folder-ignore contract
+- README, DOCS, HOW-TO, TRUTH, and CONTRIBUTING reference **60/60** gate
+
+### Documentation
+
+- [examples/README.md](examples/README.md) — living sandboxes index; standardized README headers across `examples/*` and `templates/*`
+- Root README Stack section links to examples index
+
+### Security & contributor workflow
+
+- [.github/dependabot.yml](.github/dependabot.yml) — weekly npm monitoring (root + both Next.js sandboxes)
+- GitHub issue templates (bug, feature) and pull request template (Vader Protocol checklist)
+- CONTRIBUTING: template factory guide, Dependabot review steps, issue/PR template table
+
+### Grade
+
+- **60/60 (100%)**
+
+---
+
 ## [2.3.1] - 2026-05-25 (Polish & Zero Warnings)
 
 ### Documentation and UX

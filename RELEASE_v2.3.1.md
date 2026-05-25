@@ -20,7 +20,7 @@ Polish release after v2.3.0: README live proof, zero Biome warnings, pre-tag doc
 ## Quality
 
 - `npm run msc:lint` — 0 errors, 0 warnings
-- `npm run grade` — 52/52 (100%)
+- `npm run grade` — 60/60 (100%) after Phase B grader expansion
 - `npm run msc:test:root` — 8/8 tests passing
 
 ## Live proof
