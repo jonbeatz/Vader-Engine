@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 const projects = [
   {
     name: "Boilerplate-v2",
-    description: "Cursor-native full-stack boilerplate with a 52-point self-grader, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows.",
+    description: "Cursor-native full-stack boilerplate with a 60-point self-grader, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows.",
     stack: ["Next.js", "Payload CMS", "WordPress", "Biome", "MCP"],
     url: "https://github.com/jonbeatz/Boilerplate-v2",
     status: "ACTIVE",

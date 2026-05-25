@@ -156,6 +156,14 @@ On every semver bump or alignment sweep, update **current-version** strings in t
 
 After sync: run the [pre-tag gate](#pre-tag-gate-mandatory) · `npm run grade` (60/60) · update [CHANGELOG.md](CHANGELOG.md) · tag `vX.Y.Z` on the alignment commit.
 
+## GitHub repository About (manual)
+
+Set the public **About** description (Cursor cannot edit this):
+
+`Cursor-native boilerplate — 60-point Vader Protocol grader.`
+
+Website: `https://vaderlabz.com` · Documentation link to `START-HERE.md` or repo docs index.
+
 ## Dependabot and security
 
 - Configuration: [.github/dependabot.yml](.github/dependabot.yml) — weekly npm updates for root, `examples/nextjs-minimal`, and `examples/nextjs-payload` (Next.js, Payload, and related stack).

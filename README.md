@@ -67,6 +67,20 @@ Token single source of truth: `ui/msc-shield.css`. The v2 isolation contract is 
 
 ---
 
+## What's new in v2.4.0
+
+### 60-point grader and ecosystem hardening
+
+- **60/60 structural grader** — Vader template checks, `docs/releases/` alignment, Hostinger doc gate
+- **Dependabot** — weekly npm updates (root + both sandboxes)
+- **Contributor workflow** — GitHub issue/PR templates; standardized `examples/` and `templates/` READMEs
+- **Zero-noise hygiene** — `docs/assets/` index; sandbox `.env.example` coverage; release notes under `docs/releases/`
+- **Start Project** — `npm run msc:check-node`, `start-project`, `start-project:gate`
+
+Full notes: [docs/releases/RELEASE_v2.4.0.md](docs/releases/RELEASE_v2.4.0.md) · [CHANGELOG.md](CHANGELOG.md)
+
+---
+
 ## What's new in v2.3.0
 
 ### VaderLabz Template
@@ -82,7 +96,7 @@ npm run msc:template -- apply full-stack/vader-site --name="My Site"
 # default output: ../Dev-Projectz/my-site — dev on port 3003
 ```
 
-Full operator guide: [HOW-TO.md — Template & Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v230) · [DEPLOY_TO_HOSTINGER.md](DEPLOY_TO_HOSTINGER.md)
+Full operator guide: [HOW-TO.md — Template & Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v240) · [DEPLOY_TO_HOSTINGER.md](DEPLOY_TO_HOSTINGER.md)
 
 ---
 

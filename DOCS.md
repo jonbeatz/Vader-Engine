@@ -69,7 +69,7 @@ Single entry point for all **Boilerplate-v2.4.0** documentation. Technical prece
 | [templates/full-stack/task-manager/](templates/full-stack/task-manager/) | Payload CRM collection stubs |
 | [templates/full-stack/vader-site/](templates/full-stack/vader-site/) | Vader Protocol Next.js 15 site (port **3003**) |
 
-Scaffold via `npm run msc:template -- apply <category/name> --name="..."` (default `../Dev-Projectz/<slug>`) or `--target=../Dev-Projectz/custom-path`. Operator guide: [HOW-TO.md — Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v230).
+Scaffold via `npm run msc:template -- apply <category/name> --name="..."` (default `../Dev-Projectz/<slug>`) or `--target=../Dev-Projectz/custom-path`. Operator guide: [HOW-TO.md — Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v240).
 
 ## Scripts reference (vader-site)
 
@@ -88,7 +88,7 @@ Scaffold via `npm run msc:template -- apply <category/name> --name="..."` (defau
 | `.cursor/skills/vader_protocol_skill.md` | "Vader Protocol", "VaderLabz", "dark aesthetic", "keep my design style" |
 | `.cursor/skills/vader_animations_skill.md` | "add animations", "make it feel alive", "vader animations", "micro-interactions" |
 
-## v2.3 verification
+## v2.4 verification
 
 ```bash
 npm run msc:template -- doctor

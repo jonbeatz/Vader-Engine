@@ -199,7 +199,7 @@ export default async function VaderHomePage() {
         <span className="vader-footer-brand">
           <span className="vader-footer-logo">&gt;</span> VADERLABZ
         </span>
-        <span className="vader-footer-meta">{'// VADER_PROTOCOL :: v2.3.0'}</span>
+        <span className="vader-footer-meta">{'// VADER_PROTOCOL :: {{MSC_VERSION}}'}</span>
       </footer>
 
       <BackToTop />

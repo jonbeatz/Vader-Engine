@@ -1,7 +1,9 @@
 # Next Session Plan — Templates + `msc-cli` Tooling
 
-**Status:** ✅ Shipped — v2.2.0 · tag `v2.2.0` · commit `22ed024` · 52/52 · CI green  
-**Baseline:** Boilerplate-v2.2.0 · `main` · 52/52 · CI green  
+**Current baseline (main):** Boilerplate-v2.4.0 · **60/60** grade · tag `v2.4.0`
+
+**Status (historical):** ✅ Shipped — v2.2.0 · tag `v2.2.0` · commit `22ed024` · 52/52 · CI green
+**Baseline (historical):** Boilerplate-v2.2.0 · 52/52 · CI green
 **Operator intent:** Add user-facing template blueprints + internal CLI for scaffolding/seeding
 
 ---
@@ -110,7 +112,7 @@ Boilerplate-v2/
 
 **Verification plan:**
 
-1. `npm run grade` — still 52/52 (or expanded count documented)
+1. `npm run grade` — **60/60** (current); historical target was 52/52 at v2.2.0 ship
 2. `msc-cli list` / `apply --dry-run` smoke
 3. Apply portfolio template into temp dir or `examples/nextjs-minimal` branch path
 4. `npm run msc:e2e` unchanged (no regression)
