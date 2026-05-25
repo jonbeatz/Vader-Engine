@@ -4,13 +4,29 @@ import tailwindcssAnimate from 'tailwindcss-animate';
 /**
  * Path B bridge — token SSoT remains ../../../ui/msc-shield.css (Vader Protocol).
  * Do not hardcode hex here; extend only via var(--msc-*).
+ *
+ * Utility examples: bg-msc-bg-main · bg-msc-surface · text-msc-text-primary ·
+ * bg-msc-accent · hover:bg-msc-accent-hover
  */
+const mscVaderColors = {
+  'msc-bg-main': 'var(--msc-bg-main)',
+  'msc-bg-surface': 'var(--msc-bg-surface)',
+  'msc-bg-surface-hover': 'var(--msc-bg-surface-hover)',
+  'msc-surface': 'var(--msc-bg-surface)',
+  'msc-text-primary': 'var(--msc-text-primary)',
+  'msc-text-secondary': 'var(--msc-text-secondary)',
+  'msc-accent': 'var(--msc-accent)',
+  'msc-accent-hover': 'var(--msc-accent-hover)',
+  'msc-border': 'var(--msc-border-color)',
+} as const;
+
 const config: Config = {
   darkMode: ['class'],
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
+        ...mscVaderColors,
         msc: {
           main: 'var(--msc-bg-main)',
           surface: 'var(--msc-bg-surface)',

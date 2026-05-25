@@ -4,7 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tokens resolve on .msc-viewport-shield (see app/layout.tsx). */
 @layer base {
+  .msc-viewport-shield {
+    @apply bg-msc-bg-main text-msc-text-primary;
+  }
+
   * {
     @apply border-border;
   }

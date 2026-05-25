@@ -20,11 +20,13 @@ const leanBoundaryItems = [
 
 export default function SandboxTestPage() {
   return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center gap-msc-lg p-msc-lg">
-      <MscCard className="msc-sandbox-stress-card border-msc-border bg-msc-surface">
+    <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center gap-msc-lg bg-msc-bg-main p-msc-lg text-msc-text-primary">
+      <MscCard className="msc-sandbox-stress-card border-msc-border bg-msc-surface shadow-md">
         <MscCardHeader>
-          <MscCardTitle>Vader Protocol — Lean Boundary</MscCardTitle>
-          <MscCardDescription>
+          <MscCardTitle className="text-msc-text-primary">
+            Vader Protocol — Lean Boundary
+          </MscCardTitle>
+          <MscCardDescription className="text-msc-text-secondary">
             Component stress-test: shadcn primitives bridged to MSC tokens on port{' '}
             <strong className="text-msc-accent">3002</strong>.
           </MscCardDescription>
