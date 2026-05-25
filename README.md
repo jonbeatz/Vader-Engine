@@ -1,5 +1,7 @@
 # Boilerplate v2.4.0
 
+> **In one line:** Clone it, run `npm run msc:onboard`, and have a production-grade Cursor-native Next.js workspace — with a 60-point self-grader, Payload CMS sandbox, WordPress shield, and zero-leak security — running in minutes.
+
 [![Grade](https://img.shields.io/badge/grade-60%2F60-brightgreen)](https://github.com/jonbeatz/Boilerplate)
 [![CI](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/badge/version-2.4.0-red)](https://github.com/jonbeatz/Boilerplate/releases)
@@ -134,31 +136,7 @@ Prep script: `scripts/prep-hostinger-deploy.sh` (copies scaffold output to `vade
 
 ---
 
-## What's new in v2.1.0 Gold Master
-
-### Major upgrades (v2.0 → v2.1)
-
-- **60-point self-grader** — v2.4.0 audit (Vader template + Dependabot + contributor templates); strict CI and pre-push enforcement
-- **Biome** — unified linter and formatter (replaces Prettier)
-- **Interactive onboarding** — `npm run msc:onboard` guided first-run wizard
-- **Advanced Shield System** — `msc:shield:audit`, `msc:new:component`, and `msc:ingest` asset parser
-- **Enhanced Payload sandbox** — production secret guards, SQLite isolation, mock media pipeline
-- **Node 20–24 support** — runtime guard aligned with `package.json` engines
-- **Docker Compose** — opt-in Postgres/Redis service mirroring for production-like local dev
-- **Documentation suite** — `ARCHITECTURE.md`, `TROUBLESHOOTING.md`, `CONTRIBUTING.md`, modular Cursor rules
-- **Full CI pipeline** — validate-env → verify MCP → lint → grade → root tests → sandbox builds → Playwright E2E
-
-### Foundation (carried forward from v2.0)
-
-- **Portable MCP layer** — `.cursor/mcp.json` uses `${workspaceFolder}` tokens, not hardcoded paths
-- **Defensive environment scan** — `scripts/validate-env.mjs` blocks credential commits
-- **Health dashboard** — `npm run msc:health` probes ports 3000, 3001, 8080; supports `--json`
-- **Safe re-branding** — `npm run msc:forge` with protected namespace regex and `--dry-run`
-- **Git commit gates** — Husky + lint-staged + validate-env on every commit
-- **Codespaces ready** — `.devcontainer/devcontainer.json` auto-bootstraps in cloud shells
-- **Cross-platform scripts** — Windows-safe path handling throughout `scripts/`
-
-Full release notes: [CHANGELOG.md](CHANGELOG.md) · current: [docs/releases/RELEASE_v2.4.0.md](docs/releases/RELEASE_v2.4.0.md) · [all releases](docs/releases/)
+For earlier release notes (v2.1.0 and below), see [CHANGELOG.md](CHANGELOG.md) and [docs/releases/](docs/releases/).
 
 ---
 
@@ -206,6 +184,8 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 ---
 
 ## Commands reference
+
+> **Daily use:** `msc:onboard`, `msc:dev:example`, `msc:dev:payload`, `grade`, `msc:lint`
 
 ### Lifecycle & setup
 
@@ -286,6 +266,8 @@ Architecture diagrams and dependency flow: [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ## Security & compliance
 
+Vulnerability reporting: [SECURITY.md](SECURITY.md) (private GitHub advisories only).
+
 **Zero-leak environment rules**
 
 - Live credentials live only in untracked `.env.local` files (gitignored).
@@ -364,16 +346,16 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 
 ## Roadmap (v2.x)
 
-| Priority | Milestone | Status |
-| --- | --- | --- |
-| **P2** | VaderLabz site template (`full-stack/vader-site`) | ✅ Shipped in v2.3.0 |
-| **P2** | Template scaffolding CLI (`msc:template`) | ✅ Shipped in v2.2.0 |
-| **P2** | Component generation (`msc:new:component`) | ✅ Shipped in v2.1.0 |
-| **P2** | Docker Compose Postgres/Redis mirroring | ✅ Shipped in v2.1.0 |
-| **P2** | Opt-in Tailwind/shadcn sandboxing | Planned |
-| **P3** | Playwright E2E multi-sandbox harness | ✅ Shipped in v2.1.0 |
-| **P3** | VS Code / Cursor settings sync | ✅ Shipped (`.cursor/settings.json` + `.vscode/`) |
-| **P3** | Repo rename (`Boilerplate`) | ✅ Shipped |
+| Milestone | Status |
+| --- | --- |
+| VaderLabz site template (`full-stack/vader-site`) | ✅ Shipped in v2.3.0 |
+| Template scaffolding CLI (`msc:template`) | ✅ Shipped in v2.2.0 |
+| Component generation (`msc:new:component`) | ✅ Shipped in v2.1.0 |
+| Docker Compose Postgres/Redis mirroring | ✅ Shipped in v2.1.0 |
+| Opt-in Tailwind/shadcn sandboxing | Planned — targeting **v2.5.0**; will live in `examples/nextjs-tailwind/` as an isolated sandbox (Lean Boundary Rule). Path B hybrid consumers can bridge `--msc-*` tokens today — see [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) §6 |
+| Playwright E2E multi-sandbox harness | ✅ Shipped in v2.1.0 |
+| VS Code / Cursor settings sync | ✅ Shipped (`.cursor/settings.json` + `.vscode/`) |
+| Repo rename (`Boilerplate`) | ✅ Shipped |
 
 ---
 
