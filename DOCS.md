@@ -13,7 +13,7 @@ Single entry point for all **Boilerplate-v2.5.0** documentation. Technical prece
 | Document | Purpose |
 |----------|---------|
 | [TRUTH.md](TRUTH.md) | Constitution — v2 principles, tokens, zero-leak, MCP portability |
-| [README.md](README.md) | System overview, quick start, full command reference |
+| [README.md](README.md) | System overview, governance, triple-sandbox map, operator controls, commands |
 | [START-HERE.md](START-HERE.md) | Agent/operator cold-start phases and checklists |
 | [DOCS.md](DOCS.md) | This index |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | High-level layout, sandboxes, CI pipeline |

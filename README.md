@@ -1,6 +1,6 @@
 # Boilerplate v2.5.0
 
-> **In one line:** Clone it, run `npm run msc:onboard`, and have a production-grade Cursor-native Next.js workspace — with a 61-point self-grader, Payload CMS sandbox, opt-in Tailwind/shadcn Path B sandbox, WordPress shield, and zero-leak security — running in minutes.
+> **In one line:** Bootstrap a production-hardened, Cursor-native ecosystem in minutes: The v2.5.0 Vader Protocol foundation features an autonomous 61-point integrity grader, triple-sandbox modularity (Payload CMS + Tailwind/shadcn + WordPress shield), and zero-leak security — engineered for absolute environmental consistency.
 
 [![Grade](https://img.shields.io/badge/grade-61%2F61-brightgreen)](https://github.com/jonbeatz/Boilerplate)
 [![CI](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml)
@@ -10,7 +10,7 @@
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**v2.5.0 — Vader Protocol Locked** — Production-ready, self-validating, Cursor-native foundation: 61-point grader, Tailwind/shadcn Path B sandbox, VaderLabz template, Dependabot, and zero-noise hygiene.
+**v2.5.0 — Vader Protocol Locked.** Production-hardened, self-validating, Cursor-native foundation: 61-point Automated Integrity Assurance, triple-sandbox architecture (Payload/Tailwind/WordPress), Dependabot, and zero-leak security.
 
 | Link | Destination |
 | --- | --- |
@@ -45,6 +45,18 @@ Designed as an **empty-folder replacement engine**, it combines deep AI integrat
 | **Cursor-first** | Modular `.mdc` rules, agent skills, portable MCP config, and operator/agent documentation paths. |
 | **Zero-leak security** | Credentials in untracked `.env.local` only; committed templates use `YOUR_*` / `CHANGE_ME` placeholders. |
 
+### Governance & Methodology
+
+| Layer | Authority | Enforcement |
+| --- | --- | --- |
+| **Constitution** | [TRUTH.md](TRUTH.md) | Technical precedence over all operator docs when conflicts arise |
+| **Command truth** | Root `package.json` scripts | Agents never invent npm commands; `scripts/` entry points hydrate via `msc-load-env.mjs` |
+| **Integrity gate** | 61-point grader (`npm run grade`) | Hard exit **1** on failure; pre-push runs grade + `msc:test:root` |
+| **Session open** | [.cursor/prompts/task-planner.md](.cursor/prompts/task-planner.md) | Phase 1–3 matrix + explicit operator confirmation before code edits |
+| **Session close** | [.cursor/prompts/End-Project.md](.cursor/prompts/End-Project.md) | Gates, `project-log.md` check-in, git audit, Handoff Block |
+| **Cold start** | [.cursor/prompts/Start-Project.md](.cursor/prompts/Start-Project.md) | `start-project:gate` → context ingest → operational readiness |
+| **Recovery** | Fix-local-first ([HOW-TO.md](.cursor/docs/HOW-TO.md), [TROUBLESHOOTING.md](TROUBLESHOOTING.md)) | Port kill → HTTP smoke; no secret paste in chat |
+
 ## Live proof
 
 [![Vader Protocol hero](media/readme/vaderlabz-hero-reference.jpg)](https://vaderlabz.com)
@@ -67,6 +79,19 @@ Sandboxes and template blueprints: [examples/README.md](examples/README.md) · `
 PHP never installs via npm. The WordPress layer enforces CSS namespace isolation (`msc-` prefix) to prevent theme and plugin conflicts on Divi-based sites.
 
 Token single source of truth: `ui/msc-shield.css`. The v2 isolation contract is documented in `ui/studio-dark-shield.css`.
+
+### Triple-Sandbox Architecture
+
+Isolated workspaces under `examples/` — dependencies never pollute the root orchestration layer. Blueprints scaffold to sibling `--target` paths via `msc:template`.
+
+| Sandbox | Role | Stack | Port | Dev command | UI path |
+| --- | --- | --- | --- | --- | --- |
+| **Minimal** | Frontend baseline + smoke reference | Next.js 15.5.7 · TypeScript · Vitest | **3000** | `npm run msc:dev:example` | Shield Path A |
+| **Payload** | Full-stack CMS + MediaVault | Next.js 15.4.11 · Payload v3 · SQLite | **3001** | `npm run msc:dev:payload` | Shield Path A (admin) |
+| **Tailwind** | Hybrid Path B (shadcn-style primitives) | Next.js 15.5.7 · Tailwind 3 · `--msc-*` bridge | **3002** | `npm run msc:dev:tailwind` | Path B → `msc-shield.css` tokens |
+| **WordPress Shield** | PHP/Divi isolation bridge | `core/msc-bootstrap.php` · `msc-` namespace | **8080** (reserved) | Host integration | Path A satellites |
+
+Health probes: `npm run msc:health` (ports 3000, 3001, 3002, 8080). Full matrix: [system-architecture.md](.cursor/docs/system-architecture.md).
 
 ---
 
@@ -195,6 +220,26 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 - Runs credential scan to verify zero secret leaks
 - Executes Vitest suites and self-validation frameworks
 - Clears conflicting dev-server ports (3000, 3001, 3002, 8080)
+
+---
+
+## Operator Controls (AI Agent Handoff)
+
+Canonical rituals for Cursor agents — binding per [global.mdc](.cursor/rules/global.mdc) and [agent-workflow.mdc](.cursor/rules/agent-workflow.mdc).
+
+| Ritual | Prompt / command | When |
+| --- | --- | --- |
+| **Cold start** | `@Start-Project.md` or `npm run start-project:gate` | Beginning a session — verify **61/61**, lint, tests |
+| **Plan gate** | `.cursor/prompts/task-planner.md` | Before any write/delete — Phase 1–3 + operator approval |
+| **Session close** | `@End-Project.md` or `npm run end-project` + closeout steps | Pause, handoff, or branch cut — log + Handoff Block |
+| **Agent routing** | [Code-Jedi.md](.cursor/docs/Code-Jedi.md) | Command → script map for autonomous execution |
+| **Incident path** | [incident-response.md](.cursor/prompts/incident-response.md) | Runtime failure — then `End-Project.md` when stabilized |
+
+```bash
+npm run start-project:gate   # validate-env · lint · grade 61/61 · test:root 8/8
+npm run msc:kill-dev-port    # clear 3000, 3001, 3002, 8080
+npm run end-project          # kill :3000 + smoke (then run End-Project closeout)
+```
 
 ---
 
