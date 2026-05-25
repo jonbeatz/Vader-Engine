@@ -188,11 +188,11 @@ report('vader_animations_skill.md exists', pathExists('.cursor/skills/vader_anim
 let releaseMatchesVersion = false;
 try {
   const pkgVer = JSON.parse(readFileSync(join(MSC_PROJECT_ROOT, 'package.json'), 'utf8')).version;
-  releaseMatchesVersion = pathExists(`RELEASE_v${pkgVer}.md`);
+  releaseMatchesVersion = pathExists(`docs/releases/RELEASE_v${pkgVer}.md`);
 } catch {
   releaseMatchesVersion = false;
 }
-report('RELEASE_v*.md matches package.json version', releaseMatchesVersion);
+report('docs/releases/RELEASE_v*.md matches package.json version', releaseMatchesVersion);
 report('DEPLOY_TO_HOSTINGER.md exists', pathExists('DEPLOY_TO_HOSTINGER.md'));
 let vaderEnvStaticFirst = false;
 try {

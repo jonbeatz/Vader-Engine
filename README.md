@@ -144,7 +144,7 @@ Prep script: `scripts/prep-hostinger-deploy.sh` (copies scaffold output to `vade
 - **Codespaces ready** — `.devcontainer/devcontainer.json` auto-bootstraps in cloud shells
 - **Cross-platform scripts** — Windows-safe path handling throughout `scripts/`
 
-Full release notes: [CHANGELOG.md](CHANGELOG.md)
+Full release notes: [CHANGELOG.md](CHANGELOG.md) · current: [docs/releases/RELEASE_v2.4.0.md](docs/releases/RELEASE_v2.4.0.md) · [all releases](docs/releases/)
 
 ---
 
@@ -262,6 +262,7 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 | System debugging | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | [HOW-TO.md](.cursor/docs/HOW-TO.md) |
 | MCP setup | [mcp-setup.md](.cursor/docs/mcp-setup.md) | `.cursor/mcp.json` |
 | Live site | [vaderlabz.com](https://vaderlabz.com) | `templates/full-stack/vader-site` deploy proof |
+| Release notes | [docs/releases/](docs/releases/) | `RELEASE_v*.md` per tagged version |
 
 Architecture diagrams and dependency flow: [ARCHITECTURE.md](ARCHITECTURE.md)
 

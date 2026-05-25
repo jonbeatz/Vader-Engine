@@ -150,7 +150,7 @@ On every semver bump or alignment sweep, update **current-version** strings in t
 | `.cursor/docs/HOW-TO.md`, `Code-Jedi.md`, `system-architecture.md` | Title + section headers |
 | `.cursor/rules/README.md`, `.devcontainer/devcontainer.json` | Boilerplate-v2.x.x |
 | `.cursor/docs/project-log.md` | `Current Version:` + ship commit SHA |
-| `.github/RELEASE-v2.x.x.md` | New release note file per tag |
+| `docs/releases/RELEASE_vX.Y.Z.md` | New release note file per tag |
 
 **Preserve as history (do not rewrite):** prior `CHANGELOG.md` sections, `.github/RELEASE-v2.x.x.md` archives, README "What's new in v2.x" for older releases.
 
