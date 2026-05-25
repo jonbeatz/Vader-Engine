@@ -129,7 +129,7 @@ npm run msc:lint && npm run grade && npm run msc:test:root
 
 - **`msc:lint`** must exit **0** (CI runs this in the `validate` job before grade).
 - **`grade`** must report **60/60**.
-- **`msc:test:root`** must pass (also enforced by `.husky/pre-push`).
+- **`msc:test:root`** must pass (also enforced by `.husky/pre-push`). Runs **`npm audit --production`** then root Vitest — any reported vulnerability fails the gate (exit non-zero).
 
 **CI lesson (2026-05-25):** Do not use deprecated `/**` suffixes on Biome folder ignores (`!templates/**` → `!templates`). The v2.3.0 release push failed CI until `biome.json` was fixed (`9a1a4b6`). Run lint locally before every tag.
 
@@ -157,19 +157,27 @@ On every semver bump or alignment sweep, update **current-version** strings in t
 
 After sync: run the [pre-tag gate](#pre-tag-gate-mandatory) · `npm run grade` (60/60) · update [CHANGELOG.md](CHANGELOG.md) · tag `vX.Y.Z` on the alignment commit.
 
-## GitHub repository About (manual)
+## GitHub repository settings (`msc:github:sync`)
 
-Set the public **About** description (Cursor cannot edit this):
+Maintainers can sync GitHub **About** + **delete head branch on merge** via the GitHub CLI (requires [gh](https://cli.github.com/) installed and `gh auth login` with repo admin):
 
-`Cursor-native boilerplate — 60-point Vader Protocol grader.`
+```bash
+npm run msc:github:sync
+```
 
-- **Repository slug:** `jonbeatz/Boilerplate` (successor to `Boilerplate-v2`; do not rewrite historical release archives)
-- **Website:** `https://vaderlabz.com`
-- **Documentation link:** `START-HERE.md` or [DOCS.md](DOCS.md)
-- **Pull Requests:** enable **Automatically delete head branches** after merge (Settings → General → Pull Requests) — prevents Dependabot branch accumulation
+This runs:
+
+1. `gh --version` (install hint if missing)
+2. `gh repo edit <owner/repo>` — description + homepage from `package.json` repository slug (overridable via `MSC_GITHUB_DESCRIPTION`, `MSC_GITHUB_HOMEPAGE` in `.env.local`)
+3. `gh api repos/<owner/repo> -f delete_branch_on_merge=true`
+
+Run after a **rebrand or repo rename** so the public About box matches [DOCS.md](DOCS.md). Historical `.github/RELEASE-v2.*` archives are not rewritten.
+
+**Manual fallback** (if `gh` is unavailable): Settings → General → set description/homepage and enable **Automatically delete head branches** under Pull Requests.
 
 ## Dependabot and security
 
 - Configuration: [.github/dependabot.yml](.github/dependabot.yml) — weekly npm updates for root, `examples/nextjs-minimal`, and `examples/nextjs-payload` (Next.js, Payload, and related stack).
+- **Pre-merge / pre-push gate:** `msc:test:root` includes `npm audit --production` before Vitest — fix or accept advisories before merging.
 - Review each Dependabot PR: `npm run msc:lint && npm run grade && npm run msc:test:root` — CI must stay green.
 - Optional operator tool: [Snyk](https://snyk.io) or similar — configure locally; never commit Snyk tokens to the repo (use `.env.local` only).

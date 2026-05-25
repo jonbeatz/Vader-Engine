@@ -10,9 +10,14 @@
 - **Remote hygiene (Phase E):** removed 10 stale Dependabot branches; deleted obsolete `phase-*` tags (`phase-2-pass` … `phase-6b-pass`); retained release tags `v2.1.0`–`v2.4.0` only
 - **Operator checklist:** enable GitHub **Automatically delete head branches** (Settings → General → Pull Requests); About description per [CONTRIBUTING.md](CONTRIBUTING.md#github-repository-about-manual)
 
+### Tooling (maintainer automation)
+
+- **`npm run msc:github:sync`** — `gh repo edit` + `delete_branch_on_merge` via GitHub CLI (slug from `package.json`)
+- **`msc:test:root`** — now runs `npm audit --production` before Vitest (pre-push gate)
+
 ### Verified
 
-- `npm run msc:lint` · `npm run grade` **60/60** · `msc:test:root` **8/8**
+- `npm run msc:lint` · `npm run grade` **60/60** · `msc:test:root` **8/8** (audit + tests)
 
 ---
 

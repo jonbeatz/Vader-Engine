@@ -139,6 +139,9 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 | `npm run msc:template -- apply` | Syncs a targeted blueprint out to a `--target` path and executes a deep regex token swap. |
 | `npm run msc:template -- seed` | Writes schema-aligned `seed-payload.json` mock data; requires `--template`; optional `--target` and `--fresh`. |
 | `npm run msc:template -- doctor` | Runs local connectivity diagnostics on core folder architecture bindings. |
+| `npm run msc:github:sync` | Syncs GitHub About + `delete_branch_on_merge` via `gh` (slug from `package.json` `repository.url`). |
+
+**Root test gate:** `npm run msc:test:root` → `npm audit --production` then Vitest (pre-push).
 
 **Log usage:** `npm run log -- --type feat --msg "Description"` (`feat` \| `fix` \| `chore`).
 

@@ -165,7 +165,8 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 | Biome fix | `npm run msc:lint:fix` | Auto-fix lint issues |
 | Biome format | `npm run msc:format` | Format pass |
 | Structural grade | `npm run grade` | **60 checks**; **pre-push gate** |
-| Root tests | `npm run msc:test:root` | Vitest at repo root; **pre-push** |
+| Root tests + audit | `npm run msc:test:root` | `npm audit --production` then Vitest; **pre-push** |
+| GitHub settings sync | `npm run msc:github:sync` | `gh` CLI — About description, homepage, delete branch on merge |
 | Full test sweep | `npm run msc:test:all` | Root + minimal sandbox |
 | Grader tests | `npm run msc:test:grader` | Grader unit regression |
 | Minimal tests only | `npm run msc:test` | Vitest in nextjs-minimal |
@@ -192,6 +193,16 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 | Cold-start smoke detail | `npm run start-project:smoke` | `scripts/msc-start-project-smoke.mjs` |
 | Close session | `npm run end-project` | Kill port **3000** + smoke (template mode exit **0** if idle) |
 
+### GitHub repository (maintainers)
+
+After a **repo rename** or when GitHub About settings drift:
+
+```bash
+npm run msc:github:sync
+```
+
+Requires [GitHub CLI](https://cli.github.com/) (`gh auth login` with admin on the repo). Syncs description, homepage (`https://vaderlabz.com`), and **delete head branch on merge**. Override copy via `MSC_GITHUB_DESCRIPTION` / `MSC_GITHUB_HOMEPAGE` in `.env.local` if needed.
+
 ### Verification & MCP
 
 | Task | Command | Description |
@@ -217,7 +228,7 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 |-----------|----------|
 | `prepare` (npm) | Installs Husky on `npm install` |
 | `.husky/pre-commit` | lint-staged (Biome; skips `package-lock.json`) → `msc:validate-env` → `verify:mcp` |
-| `.husky/pre-push` | `grade` → `msc:test:root` |
+| `.husky/pre-push` | `grade` → `msc:test:root` (`npm audit --production` + Vitest) |
 
 ### Port & runtime recovery
 

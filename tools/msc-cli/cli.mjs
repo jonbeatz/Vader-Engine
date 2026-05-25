@@ -83,7 +83,13 @@ async function msc_main() {
     return;
   }
 
-  console.log('Available commands: list | apply | seed | doctor');
+  if (command === 'github-sync') {
+    const { msc_githubSync } = await import('./scripts/github-sync.mjs');
+    msc_githubSync();
+    return;
+  }
+
+  console.log('Available commands: list | apply | seed | doctor | github-sync');
 }
 
 msc_main().catch((err) => {
