@@ -2,23 +2,36 @@
 
 ## [Unreleased]
 
-### Repository (post–v2.4.0)
+---
 
-- **GitHub canonical slug:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) (renamed from `Boilerplate-v2`; version titles such as **Boilerplate-v2.4.0** unchanged)
+## [2.5.0] - 2026-05-25 (Tailwind Path B Sandbox)
+
+### Added
+
+- **`examples/nextjs-tailwind/`** — isolated Next.js 15.5.7 + Tailwind 3 + shadcn-style components (port **3002**)
+- **`npm run msc:dev:tailwind`** — Path B hybrid dev command
+- **Vader token bridge** — `tailwind.config.ts` maps `msc-bg-main`, `msc-surface`, `msc-text-primary`, `msc-text-secondary`, `msc-accent`, `msc-accent-hover` to `var(--msc-*)`
+- **`/sandbox-test`** — stress-test page for `MscButton` + `MscCard` with Lean Boundary summary
+- **[SECURITY.md](SECURITY.md)** — private GitHub advisory reporting; zero-leak contract
+- **[.github/workflows/release.yml](.github/workflows/release.yml)** — automated published releases on `v*` tags
+
+### Documentation
+
+- README TL;DR, roadmap shipped status, daily-use commands, DOCS testing section
+- [docs/releases/RELEASE_v2.5.0.md](docs/releases/RELEASE_v2.5.0.md)
+- Version sync: `package.json` **2.5.0**, TRUTH, DOCS, HOW-TO, Code-Jedi
+
+### Repository (post–v2.4.0, included in v2.5.0 line)
+
+- **GitHub canonical slug:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) (renamed from `Boilerplate-v2`)
 - **Clone:** `git clone https://github.com/jonbeatz/Boilerplate.git my-project`
-- **Internal URL sweep:** README badges, `package.json` `repository.url`, HOW-TO clone block, templates, and operator docs — historical `CHANGELOG` / `docs/releases/` / `.github/RELEASE-v2.*` entries preserved
-- **Remote hygiene (Phase E):** removed 10 stale Dependabot branches; deleted obsolete `phase-*` tags (`phase-2-pass` … `phase-6b-pass`); retained release tags `v2.1.0`–`v2.4.0` only
-- **Operator checklist:** enable GitHub **Automatically delete head branches** (Settings → General → Pull Requests); About description per [CONTRIBUTING.md](CONTRIBUTING.md#github-repository-about-manual)
-
-### Tooling (maintainer automation)
-
-- **`npm run msc:github:sync`** — `gh repo edit` + `delete_branch_on_merge` via GitHub CLI (slug from `package.json`); commit `a4447ed`
-- **`msc:test:root`** — now runs `npm audit --production` before Vitest (pre-push gate)
-- **Doc sync:** README command table, [DOCS.md](DOCS.md) maintainer tooling, [project-log.md](.cursor/docs/project-log.md)
+- **`npm run msc:github:sync`** — `gh repo edit` + `delete_branch_on_merge`
+- **`msc:test:root`** — `npm audit --production` before Vitest (pre-push)
+- Remote hygiene: Dependabot branches cleared; `phase-*` tags removed; release tags `v2.1.0`–`v2.5.0`
 
 ### Verified
 
-- `npm run msc:lint` · `npm run grade` **60/60** · `msc:test:root` **8/8** (audit + tests)
+- `npm run msc:lint` · `npm run grade` **60/60** · `msc:test:root` **8/8**
 
 ---
 

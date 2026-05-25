@@ -1,12 +1,12 @@
 # Documentation Index (SSoT Router)
 
-Single entry point for all **Boilerplate-v2.4.0** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
+Single entry point for all **Boilerplate-v2.5.0** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
 
 | Field | Value |
 | --- | --- |
 | **Repository** | [github.com/jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) |
 | **Clone** | `git clone https://github.com/jonbeatz/Boilerplate.git my-project` |
-| **Version** | v2.4.0 · tag `v2.4.0` · grade **60/60** |
+| **Version** | v2.5.0 · tag `v2.5.0` · grade **60/60** |
 
 ## Human control panel (root)
 
@@ -20,7 +20,7 @@ Single entry point for all **Boilerplate-v2.4.0** documentation. Technical prece
 | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Operational recovery paths |
 | [SECURITY.md](SECURITY.md) | Private advisory reporting and zero-leak policy |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Fork, forge, hooks, PR gates |
-| [CHANGELOG.md](CHANGELOG.md) | Release history (v2.4.0 · v2.3.1 · v2.3.0 · v2.2.0 · v2.1.0) |
+| [CHANGELOG.md](CHANGELOG.md) | Release history (v2.5.0 · v2.4.0 · v2.3.1 · v2.3.0 · v2.2.0 · v2.1.0) |
 | [DEPLOY_TO_HOSTINGER.md](DEPLOY_TO_HOSTINGER.md) | Hostinger Node.js deploy for VaderLabz template |
 | [docs/releases/](docs/releases/) | Tagged release notes (`RELEASE_v*.md`) |
 | [docs/assets/](docs/assets/) | Asset index — committed media under `media/` |
@@ -115,7 +115,7 @@ Scaffold via `npm run msc:template -- apply <category/name> --name="..."` (defau
 | `.cursor/skills/vader_protocol_skill.md` | "Vader Protocol", "VaderLabz", "dark aesthetic", "keep my design style" |
 | `.cursor/skills/vader_animations_skill.md` | "add animations", "make it feel alive", "vader animations", "micro-interactions" |
 
-## v2.4 verification
+## v2.5 verification
 
 ```bash
 npm run msc:template -- doctor

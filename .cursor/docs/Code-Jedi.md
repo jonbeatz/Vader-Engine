@@ -98,11 +98,11 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 |--------|----------------|--------------|
 | `npm run log` | Session milestone or feature close | `msc-log-event.mjs` → appends `### [YYYY-MM-DD] - [type] - [msg]` to `.cursor/docs/project-log.md` (skips exact duplicate of last entry) |
 | `npm run inventory` | After MCP or dependency changes | `msc-generate-inventory.mjs` → refreshes `.cursor/docs/README-inventory.md` (MCP + npm tables, env health) |
-| `npm run grade` | v2.4.0 / release audit | `msc-grade-boilerplate.mjs` → structural PASS/FAIL vs TRUTH + Code-Jedi layout (exit **1** on any fail; **60/60**) |
+| `npm run grade` | v2.5.0 / release audit | `msc-grade-boilerplate.mjs` → structural PASS/FAIL vs TRUTH + Code-Jedi layout (exit **1** on any fail; **60/60**) |
 
 **Husky pre-commit:** lint-staged (Biome) → `msc:validate-env` → `verify:mcp`. **Pre-push:** `grade` + `msc:test:root`. Install hooks: `npm install` (runs `prepare`).
 
-### Bootstrap, sandboxes & quality (v2.4.0)
+### Bootstrap, sandboxes & quality (v2.5.0)
 
 | Script | When to invoke | What it does |
 |--------|----------------|--------------|
@@ -113,6 +113,7 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 | `npm run msc:kill-dev-port` | All default ports busy | Clears **3000**, **3001**, **8080** |
 | `npm run msc:dev:example` | Frontend sandbox | Next.js minimal on port **3000** |
 | `npm run msc:dev:payload` | Full-stack sandbox | Payload CMS on port **3001** |
+| `npm run msc:dev:tailwind` | Path B hybrid sandbox | Tailwind/shadcn on port **3002** |
 | `npm run msc:health` | Diagnostics | Port/engine dashboard |
 | `npm run msc:health -- --json` | Automation hooks | Machine-readable health |
 | `npm run msc:lint` | Pre-PR / CI mirror | Biome check entire tree |
@@ -285,4 +286,4 @@ When adding a feature (e.g. `msc-portfolio-collection`), create `ui/msc-[feature
 
 ---
 
-*Maintained as the primary AI routing compass for Boilerplate-v2.4.0. Update when `package.json` scripts or core module paths change.*
+*Maintained as the primary AI routing compass for Boilerplate-v2.5.0. Update when `package.json` scripts or core module paths change.*

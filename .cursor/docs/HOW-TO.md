@@ -1,6 +1,6 @@
-# HOW-TO: Boilerplate-v2.4.0 Operational Runbook
+# HOW-TO: Boilerplate-v2.5.0 Operational Runbook
 
-Single operator-facing guide for running, verifying, and extending **Boilerplate-v2.4.0** (`msc-universal-boilerplate`). For agent routing and module maps, use [Code-Jedi.md](./Code-Jedi.md). Constitutional precedence: [TRUTH.md](../../TRUTH.md).
+Single operator-facing guide for running, verifying, and extending **Boilerplate-v2.5.0** (`msc-universal-boilerplate`). For agent routing and module maps, use [Code-Jedi.md](./Code-Jedi.md). Constitutional precedence: [TRUTH.md](../../TRUTH.md).
 
 **Repository:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) · **Clone:** `git clone https://github.com/jonbeatz/Boilerplate.git my-project`
 
@@ -8,13 +8,13 @@ Single operator-facing guide for running, verifying, and extending **Boilerplate
 
 ## Mission
 
-Boilerplate-v2.4.0 is an **unbranded, self-validating engine** — a portable factory layer for Payload/Next.js consumers, WordPress/Divi surfaces, Studio Dark UI, and **sibling-directory scaffolding** via `msc:template`. It ships:
+Boilerplate-v2.5.0 is an **unbranded, self-validating engine** — a portable factory layer for Payload/Next.js consumers, WordPress/Divi surfaces, Studio Dark UI, and **sibling-directory scaffolding** via `msc:template`. It ships:
 
 - **60-point** structural grader with CI and pre-push enforcement
 - Env-driven, selectable strategies (no forced production defaults)
 - A **13-server** Cursor MCP registry with pre-commit structural verification
 - Global Shield CSS (Core-to-Satellite) with optional Tailwind/shadcn hybrid path
-- Dual sandboxes: `examples/nextjs-minimal` (:3000) and `examples/nextjs-payload` (:3001)
+- Triple sandboxes: `examples/nextjs-minimal` (:3000), `examples/nextjs-payload` (:3001), and `examples/nextjs-tailwind` (:3002)
 - Read-only template blueprints under `templates/` with `npm run msc:template` scaffolding CLI
 - Playwright multi-sandbox E2E (`npm run msc:e2e`) — 3 smoke tests × chromium + firefox
 - Terminal automation under `scripts/` with `package.json` as the only command authority
@@ -106,7 +106,7 @@ npm run msc:lint && npm run grade && npm run msc:test:root
 
 **CI lesson (2026-05-25):** Biome 2.2.0+ rejects folder ignores with trailing `/**` (use `!templates`, not `!templates/**`). The v2.3.0 tag failed CI until `biome.json` was corrected in commit `9a1a4b6` — always run `npm run msc:lint` locally before pushing tags.
 
-### 5. Optional v2.4.0 release certification
+### 5. Optional v2.5.0 release certification
 
 When releasing or forking to a new consumer:
 
@@ -119,7 +119,7 @@ npm run msc:test:all
 npm run msc:e2e:install   # first time only
 npm run msc:e2e
 npm run inventory
-npm run log -- --type chore --msg "v2.4.0 release audit passed"
+npm run log -- --type chore --msg "v2.5.0 release audit passed"
 ```
 
 `grade` must report **60/60 (100%)** before treating the tree as forge-ready.
@@ -221,7 +221,7 @@ Requires [GitHub CLI](https://cli.github.com/) (`gh auth login` with admin on th
 |------|---------|-------------|
 | Append changelog | `npm run log -- --type feat --msg "Description"` | Types: `feat`, `fix`, `chore` → `.cursor/docs/project-log.md` |
 | Refresh dep/MCP inventory | `npm run inventory` | Writes `.cursor/docs/README-inventory.md` |
-| v2.4.0 structural grade | `npm run grade` | **60-point** PASS/FAIL audit; exit **1** on failure; **pre-push** |
+| v2.5.0 structural grade | `npm run grade` | **60-point** PASS/FAIL audit; exit **1** on failure; **pre-push** |
 
 ### Git hooks (automatic)
 
@@ -345,7 +345,7 @@ Setup details: [mcp-setup.md](./mcp-setup.md). Extended catalog: `.cursor/mcp-bl
 
 ---
 
-*Operational runbook for Boilerplate-v2.4.0. When scripts or gates change, update `package.json`, Code-Jedi, and this file in the same session.*
+*Operational runbook for Boilerplate-v2.5.0. When scripts or gates change, update `package.json`, Code-Jedi, and this file in the same session.*
 
 ---
 

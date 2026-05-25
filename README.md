@@ -1,16 +1,16 @@
-# Boilerplate v2.4.0
+# Boilerplate v2.5.0
 
-> **In one line:** Clone it, run `npm run msc:onboard`, and have a production-grade Cursor-native Next.js workspace — with a 60-point self-grader, Payload CMS sandbox, WordPress shield, and zero-leak security — running in minutes.
+> **In one line:** Clone it, run `npm run msc:onboard`, and have a production-grade Cursor-native Next.js workspace — with a 60-point self-grader, Payload CMS sandbox, opt-in Tailwind/shadcn Path B sandbox, WordPress shield, and zero-leak security — running in minutes.
 
 [![Grade](https://img.shields.io/badge/grade-60%2F60-brightgreen)](https://github.com/jonbeatz/Boilerplate)
 [![CI](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-2.4.0-red)](https://github.com/jonbeatz/Boilerplate/releases)
+[![Version](https://img.shields.io/badge/version-2.5.0-red)](https://github.com/jonbeatz/Boilerplate/releases)
 [![Live demo](https://img.shields.io/badge/demo-vaderlabz.com-c0392b)](https://vaderlabz.com)
 [![Node](https://img.shields.io/badge/node-20%7C24-339933)](https://nodejs.org/)
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**v2.4.0 — Vader Protocol Locked** — Production-ready, self-validating, Cursor-native foundation: 60-point grader, VaderLabz template, Dependabot, and zero-noise hygiene.
+**v2.5.0 — Vader Protocol Locked** — Production-ready, self-validating, Cursor-native foundation: 60-point grader, Tailwind/shadcn Path B sandbox, VaderLabz template, Dependabot, and zero-noise hygiene.
 
 | Link | Destination |
 | --- | --- |
@@ -20,8 +20,8 @@
 
 | Field | Value |
 | --- | --- |
-| **Version** | v2.4.0 |
-| **Release date** | May 24, 2026 (60-point grader & ecosystem hardening) |
+| **Version** | v2.5.0 |
+| **Release date** | May 25, 2026 (Tailwind/shadcn Path B sandbox) |
 | **Ecosystem grade** | 60/60 (100%) — verified baseline |
 | **Repository** | [github.com/jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) |
 | **Node** | 20.x–24.x (`.nvmrc` pins 20.19.1 · CI uses 20) |
@@ -61,11 +61,25 @@ Sandboxes and template blueprints: [examples/README.md](examples/README.md) · `
 | --- | --- | --- | --- |
 | **Minimal frontend** | Next.js 15.5.7 + TypeScript + Vitest | `examples/nextjs-minimal/` | **3000** |
 | **Full-stack CMS** | Next.js 15.4.11 + Payload CMS v3 + SQLite | `examples/nextjs-payload/` | **3001** |
+| **Tailwind / shadcn (Path B)** | Next.js 15.5.7 + Tailwind 3 + MSC token bridge | `examples/nextjs-tailwind/` | **3002** |
 | **WordPress Shield** | PHP + Divi isolation layer | `core/msc-bootstrap.php` | — |
 
 PHP never installs via npm. The WordPress layer enforces CSS namespace isolation (`msc-` prefix) to prevent theme and plugin conflicts on Divi-based sites.
 
 Token single source of truth: `ui/msc-shield.css`. The v2 isolation contract is documented in `ui/studio-dark-shield.css`.
+
+---
+
+## What's new in v2.5.0
+
+### Tailwind / shadcn Path B sandbox
+
+- **`examples/nextjs-tailwind/`** — isolated hybrid sandbox on port **3002** (Lean Boundary Rule)
+- **`npm run msc:dev:tailwind`** — dev command; tokens from `ui/msc-shield.css` via `tailwind.config.ts`
+- **`/sandbox-test`** — `MscButton` + `MscCard` stress-test route with full Vader color utilities
+- **[SECURITY.md](SECURITY.md)** — private advisory reporting · automated `v*` releases via GitHub Actions
+
+Full notes: [docs/releases/RELEASE_v2.5.0.md](docs/releases/RELEASE_v2.5.0.md) · [CHANGELOG.md](CHANGELOG.md)
 
 ---
 
@@ -161,6 +175,7 @@ npm run bootstrap
 ```bash
 npm run msc:dev:example    # Minimal Next.js frontend → :3000
 npm run msc:dev:payload    # Full-stack Payload CMS   → :3001
+npm run msc:dev:tailwind   # Tailwind/shadcn Path B   → :3002
 ```
 
 **Payload sandbox — first-time env setup:**
@@ -179,13 +194,13 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 - Generates `.env.local` files from structural blueprints
 - Runs credential scan to verify zero secret leaks
 - Executes Vitest suites and self-validation frameworks
-- Clears conflicting dev-server ports (3000, 3001, 8080)
+- Clears conflicting dev-server ports (3000, 3001, 3002, 8080)
 
 ---
 
 ## Commands reference
 
-> **Daily use:** `msc:onboard`, `msc:dev:example`, `msc:dev:payload`, `grade`, `msc:lint`
+> **Daily use:** `msc:onboard`, `msc:dev:example`, `msc:dev:payload`, `msc:dev:tailwind`, `grade`, `msc:lint`
 
 ### Lifecycle & setup
 
@@ -195,7 +210,7 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 | `npm run bootstrap` | Full workspace bootstrap + port cleanup |
 | `npm run msc:quickstart` | Asset copies, credential checks, hydration |
 | `npm run msc:validate-env` | Secret leak and placeholder audit |
-| `npm run msc:kill-dev-port` | Purges ports 3000, 3001, and 8080 |
+| `npm run msc:kill-dev-port` | Purges ports 3000, 3001, 3002, and 8080 |
 
 ### Development
 
@@ -203,6 +218,7 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 | --- | --- |
 | `npm run msc:dev:example` | Start minimal frontend (port **3000**) |
 | `npm run msc:dev:payload` | Start full-stack CMS sandbox (port **3001**) |
+| `npm run msc:dev:tailwind` | Start Tailwind/shadcn Path B sandbox (port **3002**) |
 | `npm run msc:health` | System diagnostics dashboard |
 | `npm run msc:health -- --json` | Machine-readable health output |
 | `npm run dev:recover` | Recover stuck dev server state |
@@ -327,6 +343,7 @@ All checks passed seamlessly. Workspace configuration is certified stable.
 | --- | --- |
 | **3000** | `examples/nextjs-minimal` — core frontend baseline |
 | **3001** | `examples/nextjs-payload` — full-stack CMS sandbox |
+| **3002** | `examples/nextjs-tailwind` — Tailwind/shadcn Path B sandbox |
 | **8080** | Reserved — microservices or Local WordPress Core Shield bridges |
 
 ---
@@ -363,7 +380,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 
 - **Powered by** MSC Media Engine · Vader Protocol — strict namespace isolation certified
 - **Cursor-native** — calibrated for Cursor Agent and Composer execution paths
-- **Release certified:** v2.4.0 · 60/60 grade · 100% pass rate · production ready (`a4447ed` · [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate))
+- **Release certified:** v2.5.0 · 60/60 grade · 100% pass rate · production ready ([jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate))
 
 **Operator docs:** [HOW-TO.md](.cursor/docs/HOW-TO.md) · [START-HERE.md](START-HERE.md) · [DOCS.md](DOCS.md) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
 

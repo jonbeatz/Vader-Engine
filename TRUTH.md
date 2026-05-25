@@ -2,16 +2,16 @@
 
 If any document conflicts with this file for **technical precedence**, this file wins for boilerplate consumers.
 
-**Version target:** Boilerplate-v2.4.0 — lean multi-runtime Node.js ecosystem (Node 20.x–24.x; CI + `.nvmrc` pin 20.x LTS) with dual Next.js sandboxes, read-only template blueprints, native scaffolding CLI, 60-point self-grader, and WordPress Shield bridge.
+**Version target:** Boilerplate-v2.5.0 — lean multi-runtime Node.js ecosystem (Node 20.x–24.x; CI + `.nvmrc` pin 20.x LTS) with triple Next.js sandboxes (minimal, Payload, Tailwind/shadcn Path B), read-only template blueprints, native scaffolding CLI, 60-point self-grader, and WordPress Shield bridge.
 
-**Repository (canonical):** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) — GitHub slug `Boilerplate`; semver product line remains **v2.x** (tags `v2.1.0` … `v2.4.0`).
+**Repository (canonical):** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) — GitHub slug `Boilerplate`; semver product line remains **v2.x** (tags `v2.1.0` … `v2.5.0`).
 
 ## 0. v2 guiding principles
 
 - **Human root layer:** `TRUTH.md`, `README.md`, `START-HERE.md`, `DOCS.md` — operator control panel; no heavy app frameworks at repo root.
 - **Agent layer:** `.cursor/` — portable MCP via `${workspaceFolder}` in `.cursor/mcp.json`; rules, skills, and docs under `.cursor/docs/`.
 - **Automation layer:** `scripts/` — all entry points import `scripts/lib/msc-load-env.mjs` first; uniform `msc:` npm script prefix.
-- **Examples layer:** `examples/` — living sandboxes: `nextjs-minimal/` on port **3000**, `nextjs-payload/` on port **3001**; dependencies stay scoped to example folders.
+- **Examples layer:** `examples/` — living sandboxes: `nextjs-minimal/` on port **3000**, `nextjs-payload/` on port **3001**, `nextjs-tailwind/` on port **3002**; dependencies stay scoped to example folders.
 - **Templates layer:** `templates/` — read-only blueprints; never mutated in place. Scaffolding writes only to explicit `--target` sibling paths via `npm run msc:template -- apply`.
 - **Scaffolding layer:** `tools/msc-cli/` — ESM-native CLI (`list`, `apply`, `seed`, `doctor`); seed fallback writes to `.sandbox/` (gitignored).
 - **UI layer:** `ui/` — Studio Dark Shield; token SSoT in `msc-shield.css`; v2 isolation contract in `studio-dark-shield.css`; strict `msc-` CSS prefix.
@@ -22,7 +22,7 @@ If any document conflicts with this file for **technical precedence**, this file
 
 ## 1. Command authority
 
-- **All default dev ports:** `scripts/msc-kill-all-dev-ports.mjs` via `npm run msc:kill-dev-port` (3000, 3001, 8080).
+- **All default dev ports:** `scripts/msc-kill-all-dev-ports.mjs` via `npm run msc:kill-dev-port` (3000, 3001, 3002, 8080).
 - **Single port kill:** `scripts/msc-kill-dev-port.mjs` via `npm run msc:kill -- <port>` (never ad-hoc `taskkill` without listing listeners).
 - HTTP smoke: `scripts/msc-local-http-smoke.mjs` on `MSC_DEV_PORT` (default **3000**).
 - AI proxy ports: **4000** / **8000** per [local-ai-proxy-setup.md](.cursor/docs/local-ai-proxy-setup.md) — separate from web dev.
