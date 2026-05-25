@@ -1,6 +1,8 @@
 # Environment & secrets (never stage — local hydration only)
 .env
 .env.local
+.env.production
+.env.development
 .env.*.local
 .env.development.local
 .env.test.local
@@ -17,6 +19,9 @@ google-api/
 
 # Runtime / local DB
 .sandbox/
+*.db
+*.db-wal
+*.db-shm
 *.sqlite-wal
 *.sqlite-shm
 vault.db
@@ -30,7 +35,12 @@ vader-site-deploy/
 node_modules/
 .next/
 dist/
+build/
 out/
+
+# Logs
+*.log
+npm-debug.log*
 
 # OS
 .DS_Store

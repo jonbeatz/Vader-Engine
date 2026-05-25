@@ -1,5 +1,50 @@
 # Changelog
 
+## [2.3.0] - 2026-05-24 (VaderLabz Template)
+
+### New Features
+- **Template Factory**: Added `templates/full-stack/vader-site/` — a production-ready Next.js 15 site template with optional Payload CMS integration, seeded with VaderLabz baseline data (3 projects + 16 stack items)
+- **Vader Protocol CSS Architecture**: Introduced `vader.css` as the single source of truth for all component styles — replaces `page.module.css`, eliminates all inline styles, zero CSS module imports in TSX
+- **Animation System**: Implemented full `vader_animations_skill.md` — staggered hero entrance (fadeInUp with 0.15s delays), flicker on hero title (6s), pulse-red on CTAs (3s), card top-border scaleX reveal on hover, nav underline slide-in via ::after, pulse-green status dot
+- **BackToTop Component**: New `'use client'` component with scroll-triggered visibility at 400px, Vader Protocol styling, smooth scroll, positioned above footer
+- **Boot Screen**: Optional `BootScreen.tsx` component for dramatic page load sequence with progress bar
+- **useInView Hook**: Scroll-triggered section entrance animations via Intersection Observer
+- **Cursor Skills**: Two new Cursor-native skill files added to `.cursor/skills/` for permanent design system memory
+
+### Architecture
+- Decoupled Payload/CMS via `ENABLE_PAYLOAD` environment flag — static-first by default, full CMS on demand
+- `scripts/prebuild-static.mjs` — stashes Payload modules for static builds, restores for CMS builds
+- `scripts/deploy-prep.sh` — strips dev artifacts, writes `.env.production`, prepares GitHub-ready deploy package
+- `scripts/dev-fresh.mjs` — fixed ENABLE_PAYLOAD environment mismatch that caused webpack runtime error `a[d] is not a function`
+- `scripts/prep-hostinger-deploy.sh` — copies `vader-site` into `vader-site-deploy/`, validates `next` in dependencies, produces clean GitHub-ready output
+- `scripts/postinstall.mjs` — no-op in static mode, seeds DB in CMS mode
+- `pm2.config.js` — Hostinger PM2 profile (ENABLE_PAYLOAD=false, port 3003, 0.0.0.0 binding)
+
+### Deployment
+- `DEPLOY_TO_HOSTINGER.md` — step-by-step Hostinger Node.js GitHub repo deployment workflow
+- `vader-site-deploy/` artifact strategy — clean deployable folder separate from source, gitignored from Boilerplate
+- Verified end-to-end deployment on Hostinger with GitHub auto-deploy connected to `jonbeatz/VaderLabz`
+- Live proof: https://vaderlabz.com
+
+### Skills & Documentation
+- Added `.cursor/skills/vader_protocol_skill.md` — Vader Protocol design system reference (color tokens, typography, layout rules, component patterns, do's and don'ts)
+- Added `.cursor/skills/vader_animations_skill.md` — full animation system reference (all keyframes, applied animations per element, atmospheric effects, performance rules, quick reference table)
+- Both skills are Cursor-native and auto-referenced in agent workflows via `.cursorrules`
+
+### Fixes
+- Removed scanline legacy code entirely from all templates and live site
+- Fixed `dev-fresh.mjs` ENABLE_PAYLOAD environment mismatch causing webpack runtime errors
+- Fixed footer `> VADERLABZ` color — resolved CSS specificity war between `vader.css` and `layout.css` using `footer.vader-footer span.vader-footer-brand` full selector with `!important`
+- Fixed stale `.next` cache causing ghost CSS to persist in dev — `npm run dev` now always runs `dev-fresh.mjs` first
+- Removed all inline `style={{}}` props across all TSX — zero inline styles policy enforced
+- Fixed `{{PORT}}` template token not being replaced in scaffolded `package.json`
+- Fixed hero layout — `vader-hero-content` uses `max-width: 800px; margin: 0 auto; text-align: left` matching vaderlabz.com exactly
+
+### Grade
+- **Maintained:** **52/52 (100%)**
+
+---
+
 ## [2.2.0] - 2026-05-24 (Template Scaffolding CLI)
 
 ### Major Features

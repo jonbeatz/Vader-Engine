@@ -10,7 +10,7 @@ This guide defines the source-control standards, automated release build scripts
 
 | Branch | Role | Rules |
 |--------|------|--------|
-| **`main`** | Production stable layer | Primary branch — v2.2.0 lives here. Merge via PR recommended. |
+| **`main`** | Production stable layer | Primary branch — v2.3.0 lives here. Merge via PR recommended. |
 | **`dev`** | Integration sandbox (optional) | Staging track for feature consolidation before release. |
 | **`feature/*`** | Isolated functional tracks | Scoped per task (e.g. `feature/msc-auth-bridge`, `feature/ui-shield-tokens`). |
 | **`hotfix/*`** | Urgent production repair | Branch from `main`; merge back to `main` and `dev` after verification. |

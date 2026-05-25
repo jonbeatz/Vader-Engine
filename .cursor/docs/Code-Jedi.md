@@ -100,7 +100,7 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 
 **Husky pre-commit:** lint-staged (Biome) → `msc:validate-env` → `verify:mcp`. **Pre-push:** `grade` + `msc:test:root`. Install hooks: `npm install` (runs `prepare`).
 
-### Bootstrap, sandboxes & quality (v2.2.0)
+### Bootstrap, sandboxes & quality (v2.3.0)
 
 | Script | When to invoke | What it does |
 |--------|----------------|--------------|
@@ -130,7 +130,7 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 | `npm run msc:mock:media` | Payload sandbox media | Seed mock media vault |
 | `npm run msc:ensure-lockfiles` | Lockfile hygiene | Verify root + sandbox lockfiles |
 
-### Scaffolding Engine Routines (v2.2.0)
+### Scaffolding Engine Routines (v2.3.0)
 | Script Command | Engine Payload Responsibility |
 | :--- | :--- |
 | `npm run msc:template -- list` | Inspects and displays all blueprints within the `templates/` directory registry. |
@@ -280,4 +280,4 @@ When adding a feature (e.g. `msc-portfolio-collection`), create `ui/msc-[feature
 
 ---
 
-*Maintained as the primary AI routing compass for Boilerplate-v2.2.0. Update when `package.json` scripts or core module paths change.*
+*Maintained as the primary AI routing compass for Boilerplate-v2.3.0. Update when `package.json` scripts or core module paths change.*

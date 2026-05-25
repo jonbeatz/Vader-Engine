@@ -1,6 +1,6 @@
 # Architecture
 
-High-level layout of the **MSC v2.2.0** boilerplate.
+High-level layout of the **MSC v2.3.0** boilerplate.
 
 ```mermaid
 flowchart TB
@@ -46,7 +46,7 @@ Root `package.json` orchestrates scripts only. Framework dependencies live in `e
 
 Peer-dependency split is intentional — Payload v3.x requires the locked Next pin; workspaces remain fully isolated.
 
-## Template scaffolding layer (v2.2.0)
+## Template scaffolding layer (v2.3.0)
 
 | Path | Role |
 |------|------|

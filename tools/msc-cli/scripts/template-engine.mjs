@@ -32,7 +32,7 @@ export async function msc_generateTemplate(templateType, targetName, options = {
   const variableMap = {
     PROJECT_NAME: targetName,
     PROJECT_SLUG: msc_slugify(targetName),
-    MSC_VERSION: '2.2.0',
+    MSC_VERSION: '2.3.0',
     PORT: assignedPort.toString(),
     VADER_BG: '#121212',
     VADER_SURFACE: '#1c1c1c',

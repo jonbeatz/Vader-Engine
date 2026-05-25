@@ -1,6 +1,6 @@
 # Documentation Index (SSoT Router)
 
-Single entry point for all **Boilerplate-v2.2.0** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
+Single entry point for all **Boilerplate-v2.3.0** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
 
 ## Human control panel (root)
 
@@ -13,13 +13,15 @@ Single entry point for all **Boilerplate-v2.2.0** documentation. Technical prece
 | [ARCHITECTURE.md](ARCHITECTURE.md) | High-level layout, sandboxes, CI pipeline |
 | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Operational recovery paths |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Fork, forge, hooks, PR gates |
-| [CHANGELOG.md](CHANGELOG.md) | Release history (v2.2.0 · v2.1.0 Gold Master) |
+| [CHANGELOG.md](CHANGELOG.md) | Release history (v2.3.0 · v2.2.0 · v2.1.0 Gold Master) |
+| [DEPLOY_TO_HOSTINGER.md](DEPLOY_TO_HOSTINGER.md) | Hostinger Node.js deploy for VaderLabz template |
+| [RELEASE_v2.3.0.md](RELEASE_v2.3.0.md) | v2.3.0 release notes |
 
 ## Operator runbooks (`.cursor/docs/`)
 
 | Document | Purpose |
 |----------|---------|
-| [HOW-TO.md](.cursor/docs/HOW-TO.md) | Command runbook, build ritual, v2.2.0 release certification |
+| [HOW-TO.md](.cursor/docs/HOW-TO.md) | Command runbook, build ritual, release certification |
 | [Code-Jedi.md](.cursor/docs/Code-Jedi.md) | Module compass, npm script inventory |
 | [system-architecture.md](.cursor/docs/system-architecture.md) | Structural blueprint (4 layers) |
 | [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) | Next.js 15 + Payload consumer install |
@@ -64,10 +66,28 @@ Single entry point for all **Boilerplate-v2.2.0** documentation. Technical prece
 | [templates/frontend/portfolio/](templates/frontend/portfolio/) | Vader Shield portfolio scaffold (Path A) |
 | [templates/cms/divi-bridge/](templates/cms/divi-bridge/) | WordPress/Divi 4 bridge with ABSPATH guard |
 | [templates/full-stack/task-manager/](templates/full-stack/task-manager/) | Payload CRM collection stubs |
+| [templates/full-stack/vader-site/](templates/full-stack/vader-site/) | Vader Protocol Next.js 15 site (port **3003**) |
 
-Scaffold via `npm run msc:template -- apply <category/name> --name="..."` (default `../Dev-Projectz/<slug>`) or `--target=../Dev-Projectz/custom-path`. Operator guide: [HOW-TO.md — Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v220).
+Scaffold via `npm run msc:template -- apply <category/name> --name="..."` (default `../Dev-Projectz/<slug>`) or `--target=../Dev-Projectz/custom-path`. Operator guide: [HOW-TO.md — Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v230).
 
-## v2.2 verification
+## Scripts reference (vader-site)
+
+| Script | Purpose |
+|--------|---------|
+| `scripts/prep-hostinger-deploy.sh` | Copies vader-site to `vader-site-deploy/`, validates deps, GitHub-ready |
+| `scripts/deploy-prep.sh` | Strips dev artifacts, writes `.env.production`, full deploy prep |
+| `scripts/prebuild-static.mjs` | Stashes Payload modules for static-only builds |
+| `scripts/dev-fresh.mjs` | Clears `.next` cache before dev start, passes through env unchanged |
+| `scripts/postinstall.mjs` | No-op in static mode, seeds DB in CMS mode |
+
+## Cursor skills (Vader Protocol)
+
+| Skill | Trigger phrases |
+|-------|-----------------|
+| `.cursor/skills/vader_protocol_skill.md` | "Vader Protocol", "VaderLabz", "dark aesthetic", "keep my design style" |
+| `.cursor/skills/vader_animations_skill.md` | "add animations", "make it feel alive", "vader animations", "micro-interactions" |
+
+## v2.3 verification
 
 ```bash
 npm run msc:template -- doctor

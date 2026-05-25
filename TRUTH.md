@@ -2,7 +2,7 @@
 
 If any document conflicts with this file for **technical precedence**, this file wins for boilerplate consumers.
 
-**Version target:** Boilerplate-v2.2.0 — lean multi-runtime Node.js ecosystem (20.x LTS + 24.x supported) with dual Next.js sandboxes, read-only template blueprints, native scaffolding CLI, 52-point self-grader, and WordPress Shield bridge.
+**Version target:** Boilerplate-v2.3.0 — lean multi-runtime Node.js ecosystem (20.x LTS + 24.x supported) with dual Next.js sandboxes, read-only template blueprints, native scaffolding CLI, 52-point self-grader, and WordPress Shield bridge.
 
 ## 0. v2 guiding principles
 

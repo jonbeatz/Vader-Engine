@@ -3,8 +3,8 @@
 ## 📋 General Overview
 - **Project Name:** [Insert Name]
 - **Target Stack:** [e.g., WordPress/Divi, Next.js, Standalone PHP]
-- **Current Version:** 2.2.0
-- **Status:** v2.2.0 Template Scaffolding — shipped (52/52)
+- **Current Version:** 2.3.0
+- **Status:** v2.3.0 VaderLabz Template — promoted (52/52)
 
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 

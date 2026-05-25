@@ -1,4 +1,4 @@
-# Boilerplate-v2.2.0
+# Boilerplate-v2.3.0
 
 [![Grade](https://img.shields.io/badge/grade-52%2F52-brightgreen)](https://github.com/jonbeatz/Boilerplate-v2)
 [![CI](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml)
@@ -6,7 +6,7 @@
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**v2.2.0** — Production-ready, self-validating, Cursor-native development foundation with template scaffolding CLI.
+**v2.3.0 — VaderLabz Template** — Production-ready, self-validating, Cursor-native development foundation with Vader Protocol site template and Hostinger deploy path.
 
 | Link | Destination |
 | --- | --- |
@@ -15,8 +15,8 @@
 
 | Field | Value |
 | --- | --- |
-| **Version** | v2.2.0 |
-| **Release date** | May 24, 2026 (v2.2.0 template scaffolding) |
+| **Version** | v2.3.0 |
+| **Release date** | May 24, 2026 (VaderLabz Template) |
 | **Ecosystem grade** | 52/52 (100%) — verified baseline |
 | **Repository** | [github.com/jonbeatz/Boilerplate-v2](https://github.com/jonbeatz/Boilerplate-v2) |
 | **Node** | 20.x LTS (pinned) · 24.x supported via runtime guard |
@@ -50,31 +50,62 @@ Designed as an **empty-folder replacement engine**, it combines deep AI integrat
 | **Full-stack CMS** | Next.js 15.4.11 + Payload CMS v3 + SQLite | `examples/nextjs-payload/` | **3001** |
 | **WordPress Shield** | PHP + Divi isolation layer | `core/msc-bootstrap.php` | — |
 
-PHP never installs via npm. The WordPress layer enforces CSS namespace isolation (`msc-` prefix) to prevent theme and plugin conflicts on Divi-based sites. The Divi consumer bridge is `core/core-Divi-Scriptz.js` (registered as `MSC_DIVI_SCRIPT` in `core/index.mjs`).
+PHP never installs via npm. The WordPress layer enforces CSS namespace isolation (`msc-` prefix) to prevent theme and plugin conflicts on Divi-based sites.
 
 Token single source of truth: `ui/msc-shield.css`. The v2 isolation contract is documented in `ui/studio-dark-shield.css`.
 
 ---
 
-## What's new in v2.2.0
+## What's new in v2.3.0
 
-### Template Scaffolding CLI
+### VaderLabz Template
 
-- **`npm run msc:template`** — native ESM CLI under `tools/msc-cli/` with `list`, `apply`, `seed`, and `doctor` subcommands
-- **Read-only blueprints** — `templates/frontend/portfolio`, `templates/cms/divi-bridge`, `templates/full-stack/task-manager`
-- **Token injection engine** — deep `{{TOKEN}}` substitution (`.tsx`/`.jsx` supported) with `--dry-run` planning mode
-- **Demo seeding** — writes schema-aligned `seed-payload.json` to `--target` or `.sandbox/` fallback
-- **52/52 grader preserved** — zero new grade rows; full v2.1.0 compatibility
+- **`templates/full-stack/vader-site`** — production Next.js 15 site with optional Payload CMS, static-first by default
+- **`vader.css` architecture** — single component stylesheet; zero CSS modules and zero inline styles in TSX
+- **Vader Protocol skills** — `.cursor/skills/vader_protocol_skill.md` and `vader_animations_skill.md` for on-brand AI builds
+- **Hostinger deploy path** — `DEPLOY_TO_HOSTINGER.md`, `prep-hostinger-deploy.sh`, and `vader-site-deploy/` artifact workflow
+- **Live proof** — https://vaderlabz.com
 
 ```bash
-npm run msc:template -- list
-npm run msc:template -- apply frontend/portfolio --name="My Studio"
-# default output: ../Dev-Projectz/my-studio
-npm run msc:template -- seed --template=full-stack/task-manager --target=../Dev-Projectz/my-studio
-npm run msc:template -- doctor
+npm run msc:template -- apply full-stack/vader-site --name="My Site"
+# default output: ../Dev-Projectz/my-site — dev on port 3003
 ```
 
-Full operator guide: [HOW-TO.md — Template & Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v220)
+Full operator guide: [HOW-TO.md — Template & Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v230) · [DEPLOY_TO_HOSTINGER.md](DEPLOY_TO_HOSTINGER.md)
+
+---
+
+## Vader Protocol Design System
+
+All VaderLabz UI is governed by two Cursor-native skill files in `.cursor/skills/`:
+
+| Skill | Purpose |
+| --- | --- |
+| `vader_protocol_skill.md` | Colors, typography, layout, components |
+| `vader_animations_skill.md` | Keyframes, hover effects, entrance animations, atmospheric effects |
+
+Reference these in any Cursor prompt with: *"follow vader_protocol_skill and vader_animations_skill"*
+
+---
+
+## Deploy to Hostinger
+
+Static-first VaderLabz sites deploy to Hostinger Node.js via a dedicated GitHub repo and PM2 profile. Full click-by-click workflow:
+
+**[DEPLOY_TO_HOSTINGER.md](DEPLOY_TO_HOSTINGER.md)**
+
+Prep script: `scripts/prep-hostinger-deploy.sh` (copies scaffold output to `vader-site-deploy/`, gitignored here).
+
+---
+
+## Template blueprints
+
+| Template | Description | Port |
+| --- | --- | --- |
+| `frontend/portfolio` | Vader Shield portfolio scaffold (Path A) | dynamic |
+| `cms/divi-bridge` | WordPress/Divi 4 bridge | — |
+| `full-stack/task-manager` | Payload CRM collection stubs | dynamic |
+| `full-stack/vader-site` | Vader Protocol Next.js 15 site with optional Payload CMS | **3003** |
 
 ---
 
@@ -306,6 +337,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 
 | Priority | Milestone | Status |
 | --- | --- | --- |
+| **P2** | VaderLabz site template (`full-stack/vader-site`) | ✅ Shipped in v2.3.0 |
 | **P2** | Template scaffolding CLI (`msc:template`) | ✅ Shipped in v2.2.0 |
 | **P2** | Component generation (`msc:new:component`) | ✅ Shipped in v2.1.0 |
 | **P2** | Docker Compose Postgres/Redis mirroring | ✅ Shipped in v2.1.0 |
@@ -320,7 +352,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 
 - **Powered by** MSC Media Engine · Vader Protocol — strict namespace isolation certified
 - **Cursor-native** — calibrated for Cursor Agent and Composer execution paths
-- **Release certified:** v2.2.0 · 52/52 grade · 100% pass rate · production ready
+- **Release certified:** v2.3.0 · 52/52 grade · 100% pass rate · production ready
 
 **Operator docs:** [HOW-TO.md](.cursor/docs/HOW-TO.md) · [START-HERE.md](START-HERE.md) · [DOCS.md](DOCS.md) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
 

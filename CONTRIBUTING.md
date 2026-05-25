@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for improving the MSC boilerplate (**v2.2.0**).
+Thank you for improving the MSC boilerplate (**v2.3.0**).
 
 ## Fork and Rename
 
@@ -83,7 +83,7 @@ Constitutional changes require [TRUTH.md](TRUTH.md) update first.
 
 ## Version sync (release or doc sweep)
 
-**Single source of truth:** root `package.json` → `"version"` field (currently **2.2.0**).
+**Single source of truth:** root `package.json` → `"version"` field (currently **2.3.0**).
 
 On every semver bump or alignment sweep, update **current-version** strings in the same session — never leave operator docs on an older release:
 
