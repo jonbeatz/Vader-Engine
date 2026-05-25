@@ -47,8 +47,8 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 
 - [x] GitHub About + delete head branches — automated via `npm run msc:github:sync` (re-run after future renames)
 - [x] Opt-in Tailwind/shadcn sandbox — `examples/nextjs-tailwind/` · `091469b`
+- [x] v2.5.0-SOVEREIGN zero-drift + 61-point grader sync — `40ab1dc` on `origin/main`
 - [ ] Optional: close stale Dependabot PRs on GitHub UI
-- [ ] Push `091469b` to `origin/main` when ready
 
 ## ⚙️ Core Environment Specs
 - Local Environment URL: `MSC_PUBLIC_ORIGIN` or localhost
@@ -60,9 +60,26 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - **Commit:** `091469b` — `feat(sandbox): add opt-in Tailwind/shadcn sandbox (v2.5.0)`
 - **Added:** `examples/nextjs-tailwind/` (Lean Boundary), `npm run msc:dev:tailwind`, port **3002** on kill-list
 - **Docs:** README roadmap shipped, DOCS, HOW-TO, examples/README, ARCHITECTURE
-- **Verified:** `msc:lint` 0 errors · `grade` 60/60 · sandbox `npm run build` · dev **3002** HTTP 200 on `/`
+- **Verified:** `msc:lint` 0 errors · `grade` 60/60 (at ship; expanded to **61/61** in `40ab1dc`) · sandbox `npm run build` · dev **3002** HTTP 200 on `/`
+
+## ✅ Completed — v2.5.0-SOVEREIGN zero-drift + 61-point branding (2026-05-25)
+
+- **Commit:** `40ab1dc` on `main` — `chore: upgrade grader branding to 61-point for accuracy` (bundled zero-drift alignment)
+- **Version sync:** `MSC_VERSION` **2.5.0** in `core/index.mjs` and `tools/msc-cli/scripts/template-engine.mjs`; current-version headers in SECURITY, CONTRIBUTING, ARCHITECTURE, TROUBLESHOOTING, `.devcontainer/devcontainer.json`, `.cursor/rules/README.md`, `.cursor/docs/system-architecture.md` (port **3002** = Tailwind sandbox)
+- **Observability:** `scripts/health.mjs` socket probes **3000, 3001, 3002, 8080**; `scripts/__tests__/health.test.mjs` updated for 4 ports
+- **Grader:** 61st structural check — `examples/nextjs-tailwind/package.json exists`; banner **61-point**; operational docs/badges **61/61**
+- **Hygiene:** `.cursor/design_references/VaderLabz/app/page.module.css` → `deprecated/` (Vader audit false-positive guard)
+- **Docs:** CHANGELOG `[2.5.0]` Grader subsection; `docs/releases/RELEASE_v2.5.0.md`; README grade badge `61%2F61`; TRUTH, DOCS, HOW-TO, Code-Jedi, CONTRIBUTING, START-HERE, PR template, `package.json` description
+- **Gate:** `npm run msc:lint` 0 errors · `npm run grade` **61/61 (100%)** · `npm run msc:test:root` **8/8** · `npm run msc:shield:audit` PASS
+- **Remote:** pushed `40ab1dc` → `origin/main` (`26fc376..40ab1dc`)
 
 ## 🪵 Development Changelog
+
+### [2026-05-25] - Session Closeout — v2.5.0-SOVEREIGN zero-drift + 61-point grader sync
+- **Added:** Grader check for `examples/nextjs-tailwind/package.json`; CHANGELOG `[2.5.0]` Grader notes; RELEASE_v2.5.0 grader section
+- **Modified:** `MSC_VERSION` constants; version headers across operator docs; `health.mjs` + health test (port **3002**); grader banner **61-point**; README/DOCS/HOW-TO/Code-Jedi/CONTRIBUTING/TRUTH badges and gate text **61/61**; design reference CSS moved to `deprecated/`
+- **Commit:** `40ab1dc` on `main` → `origin/main`
+- **Verified:** `msc:lint` (132 files, 0 errors) · `grade` **61/61** · `msc:test:root` **8/8** · `msc:shield:audit` PASS
 
 ### [2026-05-25] - feat — Tailwind/shadcn Path B sandbox + doc sync
 - **Added:** `examples/nextjs-tailwind/`; `msc:dev:tailwind`; Biome Tailwind CSS override
