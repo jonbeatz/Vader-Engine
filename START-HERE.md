@@ -16,12 +16,25 @@ Welcome to the baseline repository configuration sandbox. This environment is st
 
 **Primary agent compass:** [.cursor/docs/Code-Jedi.md](.cursor/docs/Code-Jedi.md) — tactical intent matrix, full npm script inventory, and documentation SSoT reading order.
 
+Say **Start Project** → [.cursor/prompts/Start-Project.md](.cursor/prompts/Start-Project.md) (task planner + commands below).
 
+## Node runtime (read first)
+
+Scripts require **Node 20.x–24.x** (`package.json` engines). CI and `.nvmrc` pin **20.19.1**; **Cursor’s bundled Node 22** is supported.
+
+```bash
+npm run msc:check-node
+```
+
+| Symptom | Fix |
+| --- | --- |
+| `[msc:node-guard]` / check-node **FAIL** | Install Node 20 or 24 LTS; reopen terminal |
+| Wrong Node on **Windows** | Use integrated terminal profile **Boilerplate Node** (`.vscode/settings.json`) or put `C:\Program Files\nodejs` first in user PATH |
+| Match CI exactly | `nvm use 20.19.1` or `fnm use` in repo root (reads `.nvmrc`) |
 
 ## v2.4 baseline checklist
 
-
-
+- [ ] `npm run msc:check-node` — Node preflight (fail-fast before grade/hooks)
 - [ ] `npm run msc:onboard` or `npm run bootstrap` — ports cleared, deps installed, env validation
 
 - [ ] `npm run msc:validate-env` — no live secrets in committed config
@@ -34,8 +47,8 @@ Welcome to the baseline repository configuration sandbox. This environment is st
 
 - [ ] `npm run msc:test:all` — root Vitest + minimal sandbox tests pass
 
-- [ ] `npm run grade` — **60/60 (100%)** structural audit
-
+- [ ] `npm run start-project` — check-node + MCP verify
+- [ ] `npm run start-project:gate` — validate-env · lint · **60/60** grade · **8/8** tests (one command)
 - [ ] (Optional) `npm run msc:e2e:install` then `npm run msc:e2e` — Playwright smoke (3 tests × chromium + firefox)
 
 - [ ] `npm run msc:dev:example` — minimal frontend on port **3000**
@@ -135,11 +148,11 @@ npm run msc:dev:example
 
 
 ```bash
-
 npm run start-project
+# check-node + MCP verify
 
-# runs start-project:smoke (MCP verify + optional gates)
-
+npm run start-project:gate
+# full cold-start gate (lint · grade · tests)
 ```
 
 

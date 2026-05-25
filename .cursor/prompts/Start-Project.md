@@ -2,10 +2,33 @@
 Routing Protocol: Start Project
 ---
 
-This file is a functional alias. Immediately stop execution and pivot to our master entry gate:
+## 1. Task planner (mandatory before code)
 
-Use `.cursor/prompts/task-planner.md` to establish the 3-Phase verification matrix.
+Open `.cursor/prompts/task-planner.md` — complete Phase 1–3 matrix and get **explicit operator confirmation**. Do not write code until authorized.
 
-**Queued work:** If the operator is continuing template/CLI work, read `.cursor/plans/templates-and-msc-cli.md` first (see `project-log.md` → Next Session Queue).
+## 2. Cold start (operator or agent — run from repo root)
 
-Do not write any code until Phase 1 is authorized.
+```bash
+npm run msc:check-node          # Node 20.x–24.x preflight (fails fast with fix hints)
+npm run msc:onboard             # .env.local + sandbox choice + bootstrap (interactive)
+# — or non-interactive —
+npm run bootstrap
+```
+
+## 3. Start Project verification
+
+```bash
+npm run start-project           # check-node + MCP structure
+npm run start-project:gate      # full baseline: validate-env · lint · grade 60/60 · tests 8/8
+```
+
+## 4. Optional dev
+
+```bash
+npm run msc:dev:example         # port 3000
+npm run msc:dev:payload         # port 3001
+```
+
+**Docs:** [START-HERE.md](../../START-HERE.md) · [HOW-TO.md](../docs/HOW-TO.md) · [Code-Jedi.md](../docs/Code-Jedi.md)
+
+**Node on Windows/Cursor:** If gates fail, see START-HERE → *Node runtime* or run `npm run msc:check-node`.

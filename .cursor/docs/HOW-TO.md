@@ -30,6 +30,7 @@ Cold-start sequence every operator or agent session should follow.
 ```bash
 git clone https://github.com/jonbeatz/Boilerplate-v2.git
 cd Boilerplate-v2
+npm run msc:check-node
 npm run msc:onboard
 # or: npm install && npm run bootstrap
 ```
@@ -50,13 +51,20 @@ All `scripts/*.mjs` entry points import `msc-load-env.mjs` first: **`.env.local`
 
 ```bash
 npm run start-project
+# msc:check-node + MCP verify
+
+npm run start-project:gate
+# validate-env · lint · grade 60/60 · msc:test:root 8/8
 ```
 
-Equivalent to `start-project:smoke` (MCP verify + optional typecheck/migrations when env flags are set).
+`start-project:smoke` also supports optional `MSC_SMOKE_RUN_TYPECHECK` / migrations when env flags are set.
+
+**Windows / Cursor:** Use integrated terminal profile **Boilerplate Node** (`.vscode/settings.json`) or see [START-HERE.md](../../START-HERE.md) → Node runtime.
 
 ### 4. Baseline health checks
 
 ```bash
+npm run msc:check-node
 npm run verify:mcp
 npm run msc:lint
 npm run verify:local

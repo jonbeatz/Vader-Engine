@@ -49,6 +49,7 @@ function upsertEnvLines(filePath, updates) {
 async function main() {
   log('Node guard OK');
   copyIfMissing('.env.local', '.env.example');
+  copyIfMissing('examples/nextjs-minimal/.env.local', 'examples/nextjs-minimal/.env.example');
   copyIfMissing('examples/nextjs-payload/.env.local', 'examples/nextjs-payload/.env.example');
 
   const rl = readline.createInterface({ input, output });

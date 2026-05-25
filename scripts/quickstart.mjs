@@ -32,12 +32,12 @@ function copyEnvTemplate() {
   log('created .env.local from .env.example — assign live values locally');
 }
 
-function copyPayloadEnvTemplate() {
-  const local = path.join(MSC_PROJECT_ROOT, 'examples/nextjs-payload/.env.local');
-  const example = path.join(MSC_PROJECT_ROOT, 'examples/nextjs-payload/.env.example');
+function copySandboxEnvTemplate(relDir) {
+  const local = path.join(MSC_PROJECT_ROOT, relDir, '.env.local');
+  const example = path.join(MSC_PROJECT_ROOT, relDir, '.env.example');
   if (!fs.existsSync(local) && fs.existsSync(example)) {
     fs.copyFileSync(example, local);
-    log('created examples/nextjs-payload/.env.local from template');
+    log(`created ${relDir}/.env.local from template`);
   }
 }
 
@@ -65,7 +65,8 @@ function installExampleWorkspace(relDir) {
 
 console.log(`${BANNER} starting boilerplate quickstart`);
 copyEnvTemplate();
-copyPayloadEnvTemplate();
+copySandboxEnvTemplate('examples/nextjs-minimal');
+copySandboxEnvTemplate('examples/nextjs-payload');
 runInstall();
 installExampleWorkspace('examples/nextjs-minimal');
 installExampleWorkspace('examples/nextjs-payload');

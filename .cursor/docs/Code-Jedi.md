@@ -16,7 +16,7 @@
 |------|--------|
 | 1 | Read [HOW-TO.md](./HOW-TO.md) (operator runbook) + this file (agent module map) |
 | 2 | Follow [START-HERE.md](../../START-HERE.md) cold-start phases |
-| 3 | Run `npm run start-project` |
+| 3 | Run `npm run msc:check-node` then `npm run start-project` |
 | 4 | Route deep work via [skills index](../skills/README.md) + SSoT chain below |
 | 5 | Close with `npm run end-project` + [session-handoff](../prompts/session-handoff.md) |
 
@@ -53,8 +53,10 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 
 | Script | When to invoke | What it does |
 |--------|----------------|--------------|
-| `npm run start-project` | **Every session open** (after task-planner approval) | Alias → `start-project:smoke` |
-| `npm run start-project:smoke` | Cold-start health chain | MCP structure verify + optional `MSC_SMOKE_RUN_TYPECHECK` / migrations |
+| `npm run msc:check-node` | **First command** on cold start / before grade | Node 20.x–24.x preflight with Windows/Cursor fix hints |
+| `npm run start-project` | **Every session open** (after task-planner approval) | `msc:check-node` + `start-project:smoke` |
+| `npm run start-project:gate` | Full baseline verification | validate-env · lint · grade · root tests |
+| `npm run start-project:smoke` | MCP-only smoke | Node preflight + MCP verify + optional typecheck/migrations |
 | `npm run verify:local` | Dev server should respond on web port | HTTP smoke on `MSC_DEV_PORT` (default **3000**) |
 | `npm run msc:smoke` | Same as `verify:local` (canonical name in gate docs) | Paths from `MSC_SMOKE_PATHS`; template bypass if port idle |
 | `npm run end-project` | **Session close** | Kill port **3000** + smoke (exit **0** in template-only mode) |

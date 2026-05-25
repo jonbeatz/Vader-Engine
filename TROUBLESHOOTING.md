@@ -2,9 +2,20 @@
 
 Operational recovery paths for the **MSC v2.4.0** workspace.
 
+## Node version / Cursor terminal
+
+```bash
+npm run msc:check-node
+```
+
+- Supported: **20.x–24.x** (see `package.json` engines). Unsupported: Node **25+** or **&lt;20**.
+- **Cursor on Windows** may use a bundled Node under `...\cursor\...\node.exe` — that is OK if version is 20–24.
+- For **CI parity** with Node 20: use `.nvmrc` (`20.19.1`) via nvm/fnm, or VS Code profile **Boilerplate Node** (prepends `C:\Program Files\nodejs` to PATH).
+- If `grade` or hooks fail with `[msc:node-guard]`, run `msc:check-node` first — do not debug grade until Node passes.
+
 ## Bootstrap Failures
 
-- Run `npm run msc:onboard` (recommended) or `npm run bootstrap` from repo root with Node **20.x–24.x**.
+- Run `npm run msc:check-node`, then `npm run msc:onboard` (recommended) or `npm run bootstrap` from repo root.
 - Ensure `.env.local` exists (copied from `.env.example` on first quickstart).
 - Run `npm run msc:validate-env` — fix any live secret patterns in committed files.
 - Run `npm run msc:ensure-lockfiles` if sandbox installs fail due to missing lockfiles.

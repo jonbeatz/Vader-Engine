@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Pluggable start-project health checks (template-safe).
- * Always: structural MCP verify. Optional: MSC_SMOKE_RUN_TYPECHECK=1, MSC_SMOKE_RUN_MIGRATIONS=path
+ * Always: Node preflight + structural MCP verify.
+ * Optional: MSC_SMOKE_RUN_TYPECHECK=1, MSC_SMOKE_RUN_MIGRATIONS=path
  */
 import './lib/msc-load-env.mjs';
 
@@ -22,6 +23,7 @@ function run(label, cmd, args, opts = {}) {
   if (r.status !== 0) failed = true;
 }
 
+run('node preflight', process.execPath, [path.join(scriptsDir, 'msc-check-node.mjs')]);
 run('verify:mcp structure', process.execPath, [path.join(scriptsDir, 'msc-verify-mcp.mjs')]);
 
 const root = process.env.MSC_PROJECT_ROOT?.trim() || MSC_PROJECT_ROOT;
