@@ -52,7 +52,7 @@ function loadMcp() {
   return JSON.parse(raw);
 }
 
-function collectPlaceholders(obj, path = '') {
+function _collectPlaceholders(obj, path = '') {
   const hits = [];
   if (obj && typeof obj === 'object') {
     for (const [k, v] of Object.entries(obj)) {
@@ -60,7 +60,7 @@ function collectPlaceholders(obj, path = '') {
       if (typeof v === 'string' && /YOUR_|REPLACE_WITH/i.test(v)) {
         hits.push({ path: p, value: v, envKey: k === 'env' ? null : k });
       } else if (v && typeof v === 'object') {
-        const nested = collectPlaceholders(v, p);
+        const nested = _collectPlaceholders(v, p);
         for (const hit of nested) {
           if (p.endsWith('.env') && typeof hit.value === 'string') {
             hit.envKey = Object.keys(obj).find((key) => obj[key] === hit.value) || hit.envKey;

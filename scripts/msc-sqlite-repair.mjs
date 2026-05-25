@@ -10,7 +10,6 @@ import './lib/msc-load-env.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
-import { fileURLToPath } from 'node:url';
 import { msc_resolveSqliteDatabaseFilePath } from './lib/msc-sqlite-path.mjs';
 
 const BANNER = '[msc:sqlite-repair]';

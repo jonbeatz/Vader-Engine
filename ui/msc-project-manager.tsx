@@ -7,7 +7,6 @@
 
 import { useCallback, useState } from 'react';
 import type {
-  MscCreateProjectInput,
   MscProjectMember,
   MscProjectPersistenceAdapter,
   MscProjectRecord,

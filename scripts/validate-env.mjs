@@ -31,7 +31,7 @@ const SUSPECT_PATTERNS = [
 
 const SCAN_FILES = ['.env.example', '.cursor/mcp.json'];
 
-const SCAN_DIRS = ['.cursor'];
+const _SCAN_DIRS = ['.cursor'];
 
 function isPlaceholder(value) {
   if (!value || typeof value !== 'string') return true;

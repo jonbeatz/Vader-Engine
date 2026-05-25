@@ -66,7 +66,7 @@ function main() {
     console.error('[msc:log-event] --type must be one of: feat, fix, chore');
     process.exit(1);
   }
-  if (!msg || !msg.trim()) {
+  if (!msg?.trim()) {
     console.error('[msc:log-event] --msg is required');
     process.exit(1);
   }
