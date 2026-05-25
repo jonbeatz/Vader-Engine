@@ -10,7 +10,7 @@
     "start": "next start -p 3001"
   },
   "dependencies": {
-    "next": "15.4.11",
+    "next": "16.2.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "payload": "^3.0.0",
