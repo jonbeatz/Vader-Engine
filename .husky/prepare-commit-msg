@@ -1,3 +1,1 @@
-#!/usr/bin/env sh
-. "$(dirname "$0")/_/husky.sh"
 node scripts/msc-strip-commit-coauthor.mjs "$1"
