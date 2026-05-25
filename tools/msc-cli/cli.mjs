@@ -1,5 +1,7 @@
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { msc_generateTemplate } from './scripts/template-engine.mjs';
+import { MSC_DEFAULT_OUTPUT_REL, msc_resolveScaffoldTarget } from './scripts/utils.mjs';
 
 const args = process.argv.slice(2);
 const command = args[0];
@@ -33,11 +35,25 @@ async function msc_main() {
 
   if (command === 'apply') {
     const templateType = args[1];
-    if (!templateType || !flags.name || (!flags.target && !flags.dryRun)) {
+    if (!templateType || !flags.name) {
       console.error(
-        '\x1b[31m✕ Error: Command requires syntax: npm run msc:template -- apply <category/type> --name=my-app --target=../path\x1b[0m',
+        '\x1b[31m✕ Error: Command requires syntax: npm run msc:template -- apply <category/type> --name=my-app [--target=../Dev-Projectz/my-app]\x1b[0m',
+      );
+      console.error(
+        `\x1b[33m  Default target when --target is omitted: ${MSC_DEFAULT_OUTPUT_REL}/<slugified-name>\x1b[0m`,
       );
       process.exit(1);
+    }
+
+    if (!flags.target) {
+      flags.target = msc_resolveScaffoldTarget(flags.name, flags.target);
+    }
+
+    if (!flags.dryRun) {
+      const outputRoot = resolve(MSC_DEFAULT_OUTPUT_REL);
+      if (!existsSync(outputRoot)) {
+        mkdirSync(outputRoot, { recursive: true });
+      }
     }
 
     await msc_generateTemplate(templateType, flags.name, flags);

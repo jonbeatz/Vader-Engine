@@ -1,5 +1,9 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createServer } from 'node:net';
+import { join } from 'node:path';
+
+/** Default sibling output root for `msc:template apply` (repo-relative). */
+export const MSC_DEFAULT_OUTPUT_REL = '../Dev-Projectz';
 
 /**
  * msc_findFreePort: Dynamically checks for available system ports starting from a baseline
@@ -32,6 +36,14 @@ export function msc_slugify(text) {
     .replace(/[^\w\s-]/g, '')
     .replace(/[\s_-]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Resolves scaffold target: explicit --target or ../Dev-Projectz/<slugified-name>.
+ */
+export function msc_resolveScaffoldTarget(projectName, explicitTarget) {
+  if (explicitTarget) return explicitTarget;
+  return join(MSC_DEFAULT_OUTPUT_REL, msc_slugify(projectName));
 }
 
 /**

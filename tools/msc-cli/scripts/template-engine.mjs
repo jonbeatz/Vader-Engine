@@ -46,7 +46,10 @@ export async function msc_generateTemplate(templateType, targetName, options = {
         if (!file.includes('node_modules') && !file.includes('.git')) {
           walkAndInject(fullPath);
         }
-      } else if (/\.(ts|js|mjs|tsx|jsx|json|md|yml|yaml|css|env|php)$/i.test(file)) {
+      } else if (
+        /\.(ts|js|mjs|tsx|jsx|json|md|yml|yaml|css|env|php)$/i.test(file) ||
+        file.startsWith('.env')
+      ) {
         msc_injectVariables(fullPath, variableMap);
       }
     }

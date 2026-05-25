@@ -107,16 +107,17 @@ If `/admin` returns 500 in CI or locally:
 
 - List blueprints: `npm run msc:template -- list`
 - Health check: `npm run msc:template -- doctor`
-- Apply requires `--name` and `--target` (or `--dry-run` without target write):
+- Apply requires `--name`; `--target` is optional (defaults to `../Dev-Projectz/<slugified-name>`):
 
 ```powershell
-npm run msc:template -- apply frontend/portfolio --name="My App" --target=../my-app --dry-run
+npm run msc:template -- apply frontend/portfolio --name="My App" --dry-run
+npm run msc:template -- apply frontend/portfolio --name="My App"
 ```
 
 - **`{{TOKEN}}` literals in output:** ensure file extension is covered by `template-engine.mjs` (includes `.tsx`/`.jsx`).
 - **Seed writes nowhere:** pass `--template=<blueprint>`; optional `--target=../path`; fallback is `.sandbox/` at repo root.
 - **Biome fails on template CSS:** expected — `templates/**` is excluded from Biome; do not remove the ignore without changing token syntax.
-- **Never apply into repo root or `examples/*`** unless explicitly testing — use sibling paths like `../my-project`.
+- **Never apply into repo root or `examples/*`** unless explicitly testing — use `../Dev-Projectz/` (default) or another sibling path via `--target`.
 
 ## Shield / UI Namespace
 

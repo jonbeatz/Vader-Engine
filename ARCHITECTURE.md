@@ -35,7 +35,7 @@ flowchart TB
 
 Root `package.json` orchestrates scripts only. Framework dependencies live in `examples/*` sandboxes. No Payload databases or Next.js runtime at repo root.
 
-**Template rule:** `templates/` is read-only in Git. The scaffolding CLI (`npm run msc:template -- apply`) writes only to explicit `--target` sibling directories or `.sandbox/` for seed fallback — never mutates blueprints in place.
+**Template rule:** `templates/` is read-only in Git. The scaffolding CLI (`npm run msc:template -- apply`) writes to `../Dev-Projectz/<slug>` by default, an explicit `--target` sibling path, or `.sandbox/` for seed fallback — never mutates blueprints in place.
 
 ## Sandboxes
 

@@ -65,7 +65,7 @@ Single entry point for all **Boilerplate-v2.2.0** documentation. Technical prece
 | [templates/cms/divi-bridge/](templates/cms/divi-bridge/) | WordPress/Divi 4 bridge with ABSPATH guard |
 | [templates/full-stack/task-manager/](templates/full-stack/task-manager/) | Payload CRM collection stubs |
 
-Scaffold via `npm run msc:template -- apply <category/name> --name="..." --target=../path`. Operator guide: [HOW-TO.md — Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v220).
+Scaffold via `npm run msc:template -- apply <category/name> --name="..."` (default `../Dev-Projectz/<slug>`) or `--target=../Dev-Projectz/custom-path`. Operator guide: [HOW-TO.md — Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v220).
 
 ## v2.2 verification
 

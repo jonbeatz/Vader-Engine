@@ -68,8 +68,9 @@ Token single source of truth: `ui/msc-shield.css`. The v2 isolation contract is 
 
 ```bash
 npm run msc:template -- list
-npm run msc:template -- apply frontend/portfolio --name="My Studio" --target=../my-studio
-npm run msc:template -- seed --template=full-stack/task-manager --target=../my-studio
+npm run msc:template -- apply frontend/portfolio --name="My Studio"
+# default output: ../Dev-Projectz/my-studio
+npm run msc:template -- seed --template=full-stack/task-manager --target=../Dev-Projectz/my-studio
 npm run msc:template -- doctor
 ```
 

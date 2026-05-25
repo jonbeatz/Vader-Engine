@@ -1,0 +1,7 @@
+node_modules/
+.next/
+payload-types.ts
+database/*.db
+database/*.db-*
+.env.local
+.env

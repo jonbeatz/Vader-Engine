@@ -2,8 +2,29 @@
  * Task & Client Vault Collection Schema Definitions
  * Project: {{PROJECT_NAME}}
  */
+import type { CollectionConfig } from 'payload';
 
-export const MscClients = {
+export const MscUsers: CollectionConfig = {
+  slug: 'users',
+  auth: true,
+  admin: { useAsTitle: 'email' },
+  access: {
+    read: ({ req }) => Boolean(req.user),
+    create: ({ req }) => Boolean(req.user),
+    update: ({ req }) => Boolean(req.user),
+    delete: ({ req }) => Boolean(req.user),
+  },
+  fields: [
+    {
+      name: 'email',
+      type: 'email',
+      required: true,
+      unique: true,
+    },
+  ],
+};
+
+export const MscClients: CollectionConfig = {
   slug: 'msc-clients',
   admin: {
     useAsTitle: 'studioName',
@@ -11,11 +32,11 @@ export const MscClients = {
   fields: [
     { name: 'studioName', type: 'text', required: true },
     { name: 'contactEmail', type: 'email', required: true },
-    { name: 'vaderAccentColor', type: 'text', defaultValue: '#00ffcc' }
+    { name: 'vaderAccentColor', type: 'text', defaultValue: '#00ffcc' },
   ],
 };
 
-export const MscTasks = {
+export const MscTasks: CollectionConfig = {
   slug: 'msc-tasks',
   admin: {
     useAsTitle: 'taskTitle',
@@ -31,8 +52,13 @@ export const MscTasks = {
     {
       name: 'status',
       type: 'select',
-      options: ['backlog', 'in-progress', 'review', 'completed'],
+      options: [
+        { label: 'Backlog', value: 'backlog' },
+        { label: 'In progress', value: 'in-progress' },
+        { label: 'Review', value: 'review' },
+        { label: 'Completed', value: 'completed' },
+      ],
       defaultValue: 'backlog',
-    }
+    },
   ],
 };

@@ -308,7 +308,7 @@ Boilerplate-v2 contains a cross-platform, native scaffolding CLI to generate cus
 
 ### Available Subcommands
 - **List Blueprints:** `npm run msc:template -- list`
-- **Scaffold New Instance:** `npm run msc:template -- apply <category/blueprint-name> --name="My Project" --target=../my-project-path`
+- **Scaffold New Instance:** `npm run msc:template -- apply <category/blueprint-name> --name="My Project"` (default target: `../Dev-Projectz/<slugified-name>`) or pass `--target=../Dev-Projectz/custom-path`
 - **Dry-Run Analysis:** Append `--dry-run` to the apply command to analyze structural configurations without writing files to disk.
 - **Seed Mock Data:** `npm run msc:template -- seed --template=<blueprint> [--target=../path] [--fresh]`
 - **Engine Doctor:** `npm run msc:template -- doctor`
@@ -318,17 +318,19 @@ Boilerplate-v2 contains a cross-platform, native scaffolding CLI to generate cus
 |-----------|------|-------|
 | Portfolio | `frontend/portfolio` | Vader Shield Path A · tokenized Next.js scaffold |
 | Divi Bridge | `cms/divi-bridge` | WordPress `ABSPATH` guard · `core-Divi-Scriptz.js` |
-| Task Manager | `full-stack/task-manager` | Payload collection stubs · seed writes `seed-payload.json` |
+| Task Manager | `full-stack/task-manager` | Payload task/client vault · postinstall SQLite seed |
+| Vader Site | `full-stack/vader-site` | VaderLabz marketing site · Payload projects + stack · Vader Protocol UI |
 
 ### Lean Boundary rules
 - `templates/` is **read-only** in Git — never edit applied copies back into the registry.
-- `--target` must be **outside** the repo root (sibling directory pattern).
+- `--target` must be **outside** the repo root (default sibling root: `../Dev-Projectz/`).
 - Seed fallback without `--target` writes to `.sandbox/` (gitignored).
 - Scaffolded ports start at **3002** via dynamic free-port probe.
 
 ### Example workflow
 ```bash
-npm run msc:template -- apply frontend/portfolio --name="My Studio" --target=../my-studio --dry-run
-npm run msc:template -- apply frontend/portfolio --name="My Studio" --target=../my-studio
-npm run msc:template -- seed --template=full-stack/task-manager --target=../my-studio --fresh
+npm run msc:template -- apply frontend/portfolio --name="My Studio" --dry-run
+npm run msc:template -- apply frontend/portfolio --name="My Studio"
+# writes to ../Dev-Projectz/my-studio by default
+npm run msc:template -- seed --template=full-stack/task-manager --target=../Dev-Projectz/my-studio --fresh
 ```

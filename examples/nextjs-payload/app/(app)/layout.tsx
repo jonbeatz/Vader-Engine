@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="msc-shield-root">
         <div
           className="msc-dashboard-container"

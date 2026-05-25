@@ -23,6 +23,9 @@ vault.db
 data/
 payload.sqlite
 
+# Generated Hostinger deploy artifact (push from vader-site-deploy/ to its own GitHub repo)
+vader-site-deploy/
+
 # Consumer app artifacts (when copied into Next/Payload project)
 node_modules/
 .next/

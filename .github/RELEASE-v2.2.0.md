@@ -15,8 +15,8 @@ Production-ready scaffolding layer for **Boilerplate-v2**. **Grade: 52/52 (100%)
 
 ```bash
 npm run msc:template -- list
-npm run msc:template -- apply frontend/portfolio --name="My Studio" --target=../my-studio
-npm run msc:template -- seed --template=full-stack/task-manager --target=../my-studio
+npm run msc:template -- apply frontend/portfolio --name="My Studio"
+npm run msc:template -- seed --template=full-stack/task-manager --target=../Dev-Projectz/my-studio
 npm run msc:template -- doctor
 npm run grade   # expect 52/52
 ```
