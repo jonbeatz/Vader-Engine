@@ -22,7 +22,7 @@
 | **Release date** | May 24, 2026 (60-point grader & ecosystem hardening) |
 | **Ecosystem grade** | 60/60 (100%) — verified baseline |
 | **Repository** | [github.com/jonbeatz/Boilerplate-v2](https://github.com/jonbeatz/Boilerplate-v2) |
-| **Node** | 20.x LTS (pinned) · 24.x supported via runtime guard |
+| **Node** | 20.x–24.x (`.nvmrc` pins 20.19.1 · CI uses 20) |
 | **Package manager** | npm ≥ 10 |
 
 ---
@@ -129,7 +129,7 @@ Prep script: `scripts/prep-hostinger-deploy.sh` (copies scaffold output to `vade
 - **Interactive onboarding** — `npm run msc:onboard` guided first-run wizard
 - **Advanced Shield System** — `msc:shield:audit`, `msc:new:component`, and `msc:ingest` asset parser
 - **Enhanced Payload sandbox** — production secret guards, SQLite isolation, mock media pipeline
-- **Node 20 & 24 support** — runtime guard in `scripts/lib/msc-node-version-guard.mjs`
+- **Node 20–24 support** — runtime guard aligned with `package.json` engines
 - **Docker Compose** — opt-in Postgres/Redis service mirroring for production-like local dev
 - **Documentation suite** — `ARCHITECTURE.md`, `TROUBLESHOOTING.md`, `CONTRIBUTING.md`, modular Cursor rules
 - **Full CI pipeline** — validate-env → verify MCP → lint → grade → root tests → sandbox builds → Playwright E2E

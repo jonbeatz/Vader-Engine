@@ -155,7 +155,10 @@ try {
   );
   report('package.json main is not PHP', !/\.php$/.test(pkg.main ?? ''));
   report('packageManager field present', Boolean(pkg.packageManager));
-  report('engines.node locks to 20.x or 24.x', /20|24/.test(pkg.engines?.node ?? ''));
+  report(
+    'engines.node locks to 20.x–24.x range',
+    />=20/.test(pkg.engines?.node ?? '') && /<25/.test(pkg.engines?.node ?? ''),
+  );
   report('license is MIT', pkg.license === 'MIT');
 } catch {
   report('package.json expanded checks readable', false);

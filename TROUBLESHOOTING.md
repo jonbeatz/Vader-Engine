@@ -4,7 +4,7 @@ Operational recovery paths for the **MSC v2.4.0** workspace.
 
 ## Bootstrap Failures
 
-- Run `npm run msc:onboard` (recommended) or `npm run bootstrap` from repo root with Node **20.x or 24.x**.
+- Run `npm run msc:onboard` (recommended) or `npm run bootstrap` from repo root with Node **20.x–24.x**.
 - Ensure `.env.local` exists (copied from `.env.example` on first quickstart).
 - Run `npm run msc:validate-env` — fix any live secret patterns in committed files.
 - Run `npm run msc:ensure-lockfiles` if sandbox installs fail due to missing lockfiles.

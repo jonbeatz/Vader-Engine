@@ -38,6 +38,11 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 
 ## 🪵 Development Changelog
 
+### [2026-05-24] - Session Closeout — v2.4.0 production lock (Phases A–D complete)
+- **Added:** 60-point grader checks; Dependabot; GitHub issue/PR templates; `docs/releases/`; `docs/assets/`; `examples/nextjs-minimal/.env.example`; example/template README standardization
+- **Modified:** Release notes path + grader; root hygiene `.gitignore`; `validate-env` scans sandbox `.env.example`; current-version doc headers → v2.4.0 (`d20c8bf`)
+- **Verified:** `npm run msc:lint` (116 files, 0 errors) · `npm run grade` **60/60** · `msc:test:root` **8/8** · `msc:validate-env` PASS · `main` synced with `origin/main` · no `.env.local` staged · no secret leaks in committed files
+
 ## Incident lesson — Biome folder ignore + pre-tag ritual (2026-05-25)
 
 - **Symptom:** CI `validate` failed on v2.3.0 push (`lint/suspicious/useBiomeIgnoreFolder` on `!templates/**`).
@@ -145,7 +150,7 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - **Baseline:** Next.js pins verified (minimal 15.5.7, payload 15.4.11). Pre-upgrade grade **38/38 (100%)**; post-Phase-1 grade **39/39 (100%)** (added `package.json main is not PHP` check).
 - **Audits:** Root lean OK · Lean boundary OK · Divi canonical path created · Inventory run (`npm run inventory`).
 - **1.4 namespace drift (documented, not mutated):** `package.json` name `msc-universal-boilerplate`, version `1.0.0` — target alignment deferred to Phase 6 Step 57 / operator choice on repo rename.
-- **Node guard note:** Scripts require Node **20.x or 24.x**. Cursor bundled Node (v22.x) fails the guard — use system Node 24 (`C:\Program Files\nodejs\node.exe`) or `nvm use 20.19.1` for `npm run grade` / hooks.
+- **Node guard:** Scripts accept **20.x–24.x** (matches `package.json` engines). CI pins Node **20**; local `.nvmrc` → **20.19.1**.
 - **Exit gate (Node 24):** `msc:validate-env` PASS · `verify:mcp` PASS · `grade` **39/39 (100%)**.
 - **Phase 1 complete — grade 39/39.**
 
