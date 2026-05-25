@@ -1,16 +1,22 @@
 # Changelog
 
-## [Unreleased] — v2.3.1 polish (in progress)
+## [2.3.1] - 2026-05-25 (Polish & Zero Warnings)
 
-### Documentation and process
+### Documentation and UX
 
-- **Phase 0 complete (2026-05-25):** Baseline verified — CI `validate` green on `main` after biome fix; local `grade` 52/52; root tests 8/8.
-- **Pre-tag ritual** documented in [HOW-TO.md](.cursor/docs/HOW-TO.md) and [CONTRIBUTING.md](CONTRIBUTING.md): `msc:lint` → `grade` → `msc:test:root` before any git tag (full gate includes `msc:validate-env` and `verify:mcp`).
-- **CI lesson recorded:** Biome 2.2.0+ rejects trailing `/**` on folder ignore patterns in `biome.json` (`!templates/**` is invalid; use `!templates`). The initial v2.3.0 push failed CI; fixed in commit `9a1a4b6`.
+- README **Live proof** hero image (`media/readme/vaderlabz-hero-reference.jpg`), **Version** and **Live demo** badges, documentation map links to [vaderlabz.com](https://vaderlabz.com)
+- **Pre-tag ritual** in [HOW-TO.md](.cursor/docs/HOW-TO.md) and [CONTRIBUTING.md](CONTRIBUTING.md) — `msc:lint` → `grade` → `msc:test:root` before tags
+- Root `.env.example` PORT nudge and pointer to `templates/full-stack/vader-site` default port **3003**
+- GitHub About: website `https://vaderlabz.com`, docs link in description
 
-### Fixes (already on `main`)
+### Quality
 
-- `biome.json`: deprecated `!templates/**` → `!templates`; related ignores for design references, deploy artifacts, and `lineEnding: auto` for cross-platform CI.
+- **Biome:** zero warnings across repo (reviewed `--unsafe` fixes in scripts + UI)
+- **CI lesson:** Biome 2.2.0+ folder ignores must not use trailing `/**` (`!templates` not `!templates/**`)
+
+### Grade
+
+- **Maintained:** **52/52 (100%)**
 
 ---
 

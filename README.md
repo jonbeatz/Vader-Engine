@@ -18,8 +18,8 @@
 
 | Field | Value |
 | --- | --- |
-| **Version** | v2.3.0 |
-| **Release date** | May 24, 2026 (VaderLabz Template) |
+| **Version** | v2.3.1 |
+| **Release date** | May 25, 2026 (Polish & zero warnings) |
 | **Ecosystem grade** | 52/52 (100%) — verified baseline |
 | **Repository** | [github.com/jonbeatz/Boilerplate-v2](https://github.com/jonbeatz/Boilerplate-v2) |
 | **Node** | 20.x LTS (pinned) · 24.x supported via runtime guard |
