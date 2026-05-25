@@ -2,7 +2,7 @@
 
 If any document conflicts with this file for **technical precedence**, this file wins for boilerplate consumers.
 
-**Version target:** Boilerplate-v2.5.0 — lean multi-runtime Node.js ecosystem (Node 20.x–24.x; CI + `.nvmrc` pin 20.x LTS) with triple Next.js sandboxes (minimal, Payload, Tailwind/shadcn Path B), read-only template blueprints, native scaffolding CLI, 60-point self-grader, and WordPress Shield bridge.
+**Version target:** Boilerplate-v2.5.0 — lean multi-runtime Node.js ecosystem (Node 20.x–24.x; CI + `.nvmrc` pin 20.x LTS) with triple Next.js sandboxes (minimal, Payload, Tailwind/shadcn Path B), read-only template blueprints, native scaffolding CLI, 61-point self-grader, and WordPress Shield bridge.
 
 **Repository (canonical):** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) — GitHub slug `Boilerplate`; semver product line remains **v2.x** (tags `v2.1.0` … `v2.5.0`).
 

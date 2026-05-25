@@ -14,7 +14,7 @@
 - [ ] No secrets in diff (`.env.local`, tokens, PATs)
 - [ ] `npm run msc:validate-env` — PASS
 - [ ] `npm run msc:lint` — 0 errors, 0 warnings
-- [ ] `npm run grade` — **60/60**
+- [ ] `npm run grade` — **61/61**
 - [ ] `npm run msc:test:root` — all passing
 - [ ] [CHANGELOG.md](../CHANGELOG.md) updated (user-visible changes)
 - [ ] [HOW-TO.md](../.cursor/docs/HOW-TO.md) / [Code-Jedi.md](../.cursor/docs/Code-Jedi.md) if scripts changed

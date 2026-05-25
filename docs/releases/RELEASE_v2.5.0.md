@@ -26,6 +26,11 @@ Opt-in **Path B** hybrid sandbox: Tailwind 3 + shadcn-style components bridged t
 - README / DOCS / HOW-TO / Code-Jedi sync for v2.5.0
 - [DOCS.md](../../DOCS.md) — **Testing the Tailwind Sandbox** section
 
+### Grader (61-point)
+
+- Expanded structural audit from **60** to **61** checks — `examples/nextjs-tailwind/package.json` detection
+- Banner and docs branding synced to **61-point** / **61/61**
+
 ### CI / release automation
 
 - [.github/workflows/release.yml](../../.github/workflows/release.yml) — tag `v*` → published GitHub Release with generated notes
@@ -37,7 +42,7 @@ npm run msc:lint && npm run grade && npm run msc:test:root
 ```
 
 - `msc:lint` — 0 errors
-- `grade` — **60/60 (100%)**
+- `grade` — **61/61 (100%)**
 - `msc:test:root` — 8/8 passing · production audit 0 vulnerabilities
 
 ## Verify locally

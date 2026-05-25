@@ -6,7 +6,7 @@ Single entry point for all **Boilerplate-v2.5.0** documentation. Technical prece
 | --- | --- |
 | **Repository** | [github.com/jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) |
 | **Clone** | `git clone https://github.com/jonbeatz/Boilerplate.git my-project` |
-| **Version** | v2.5.0 · tag `v2.5.0` · grade **60/60** |
+| **Version** | v2.5.0 · tag `v2.5.0` · grade **61/61** |
 
 ## Human control panel (root)
 
@@ -129,7 +129,7 @@ npm run msc:e2e:install   # first time only
 npm run msc:e2e
 ```
 
-Target: **60/60 (100%)** on `npm run grade` before forge-ready release.
+Target: **61/61 (100%)** on `npm run grade` before forge-ready release.
 
 **CI mirror (GitHub Actions):** validate-env → verify:mcp → lint → grade → msc:test:root → minimal `npm ci` + test → payload `npm ci` + build → Playwright install → `msc:e2e`.
 

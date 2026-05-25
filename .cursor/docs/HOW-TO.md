@@ -10,7 +10,7 @@ Single operator-facing guide for running, verifying, and extending **Boilerplate
 
 Boilerplate-v2.5.0 is an **unbranded, self-validating engine** — a portable factory layer for Payload/Next.js consumers, WordPress/Divi surfaces, Studio Dark UI, and **sibling-directory scaffolding** via `msc:template`. It ships:
 
-- **60-point** structural grader with CI and pre-push enforcement
+- **61-point** structural grader with CI and pre-push enforcement
 - Env-driven, selectable strategies (no forced production defaults)
 - A **13-server** Cursor MCP registry with pre-commit structural verification
 - Global Shield CSS (Core-to-Satellite) with optional Tailwind/shadcn hybrid path
@@ -56,7 +56,7 @@ npm run start-project
 # msc:check-node + MCP verify
 
 npm run start-project:gate
-# validate-env · lint · grade 60/60 · msc:test:root 8/8
+# validate-env · lint · grade 61/61 · msc:test:root 8/8
 ```
 
 `start-project:smoke` also supports optional `MSC_SMOKE_RUN_TYPECHECK` / migrations when env flags are set.
@@ -102,7 +102,7 @@ npm run msc:test:root
 npm run msc:lint && npm run grade && npm run msc:test:root
 ```
 
-**Targets:** `msc:lint` exit **0** (0 errors; aim for 0 warnings on polish releases) · `grade` **60/60** · Vitest root suite all passing.
+**Targets:** `msc:lint` exit **0** (0 errors; aim for 0 warnings on polish releases) · `grade` **61/61** · Vitest root suite all passing.
 
 **CI lesson (2026-05-25):** Biome 2.2.0+ rejects folder ignores with trailing `/**` (use `!templates`, not `!templates/**`). The v2.3.0 tag failed CI until `biome.json` was corrected in commit `9a1a4b6` — always run `npm run msc:lint` locally before pushing tags.
 
@@ -122,7 +122,7 @@ npm run inventory
 npm run log -- --type chore --msg "v2.5.0 release audit passed"
 ```
 
-`grade` must report **60/60 (100%)** before treating the tree as forge-ready.
+`grade` must report **61/61 (100%)** before treating the tree as forge-ready.
 
 ### 6. Session close
 
@@ -221,7 +221,7 @@ Requires [GitHub CLI](https://cli.github.com/) (`gh auth login` with admin on th
 |------|---------|-------------|
 | Append changelog | `npm run log -- --type feat --msg "Description"` | Types: `feat`, `fix`, `chore` → `.cursor/docs/project-log.md` |
 | Refresh dep/MCP inventory | `npm run inventory` | Writes `.cursor/docs/README-inventory.md` |
-| v2.5.0 structural grade | `npm run grade` | **60-point** PASS/FAIL audit; exit **1** on failure; **pre-push** |
+| v2.5.0 structural grade | `npm run grade` | **61-point** PASS/FAIL audit; exit **1** on failure; **pre-push** |
 
 ### Git hooks (automatic)
 

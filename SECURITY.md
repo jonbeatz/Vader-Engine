@@ -1,6 +1,6 @@
 # Security
 
-Boilerplate-v2.4.0 enforces a **zero-leak** environment contract: live credentials never belong in committed files or public issues.
+Boilerplate-v2.5.0 enforces a **zero-leak** environment contract: live credentials never belong in committed files or public issues.
 
 ## Reporting a vulnerability
 

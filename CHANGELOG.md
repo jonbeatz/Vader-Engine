@@ -15,6 +15,11 @@
 - **[SECURITY.md](SECURITY.md)** — private GitHub advisory reporting; zero-leak contract
 - **[.github/workflows/release.yml](.github/workflows/release.yml)** — automated published releases on `v*` tags
 
+### Grader
+
+- Expanded structural audit from **60** to **61** checks — `examples/nextjs-tailwind/package.json` detection
+- Branding sync: **61-point** grader across README, docs, and `npm run grade` banner/output
+
 ### Documentation
 
 - README TL;DR, roadmap shipped status, daily-use commands, DOCS testing section
@@ -31,7 +36,7 @@
 
 ### Verified
 
-- `npm run msc:lint` · `npm run grade` **60/60** · `msc:test:root` **8/8**
+- `npm run msc:lint` · `npm run grade` **61/61** · `msc:test:root` **8/8**
 
 ---
 

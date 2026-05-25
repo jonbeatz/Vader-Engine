@@ -12,7 +12,7 @@ const MSC_REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..
 
 const MSC_GITHUB_DESCRIPTION =
   process.env.MSC_GITHUB_DESCRIPTION ??
-  'Cursor-native boilerplate — 60-point grader, Vader Protocol templates, Next.js/Payload sandboxes, MCP-ready. Documentation: https://github.com/jonbeatz/Boilerplate#documentation-map';
+  'Cursor-native boilerplate — 61-point grader, Vader Protocol templates, Next.js/Payload sandboxes, MCP-ready. Documentation: https://github.com/jonbeatz/Boilerplate#documentation-map';
 
 const MSC_GITHUB_HOMEPAGE = process.env.MSC_GITHUB_HOMEPAGE ?? 'https://vaderlabz.com';
 

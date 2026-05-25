@@ -98,7 +98,7 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 |--------|----------------|--------------|
 | `npm run log` | Session milestone or feature close | `msc-log-event.mjs` → appends `### [YYYY-MM-DD] - [type] - [msg]` to `.cursor/docs/project-log.md` (skips exact duplicate of last entry) |
 | `npm run inventory` | After MCP or dependency changes | `msc-generate-inventory.mjs` → refreshes `.cursor/docs/README-inventory.md` (MCP + npm tables, env health) |
-| `npm run grade` | v2.5.0 / release audit | `msc-grade-boilerplate.mjs` → structural PASS/FAIL vs TRUTH + Code-Jedi layout (exit **1** on any fail; **60/60**) |
+| `npm run grade` | v2.5.0 / release audit | `msc-grade-boilerplate.mjs` → structural PASS/FAIL vs TRUTH + Code-Jedi layout (exit **1** on any fail; **61/61**) |
 
 **Husky pre-commit:** lint-staged (Biome) → `msc:validate-env` → `verify:mcp`. **Pre-push:** `grade` + `msc:test:root`. Install hooks: `npm install` (runs `prepare`).
 

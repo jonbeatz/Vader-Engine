@@ -1,8 +1,8 @@
 # Boilerplate v2.5.0
 
-> **In one line:** Clone it, run `npm run msc:onboard`, and have a production-grade Cursor-native Next.js workspace — with a 60-point self-grader, Payload CMS sandbox, opt-in Tailwind/shadcn Path B sandbox, WordPress shield, and zero-leak security — running in minutes.
+> **In one line:** Clone it, run `npm run msc:onboard`, and have a production-grade Cursor-native Next.js workspace — with a 61-point self-grader, Payload CMS sandbox, opt-in Tailwind/shadcn Path B sandbox, WordPress shield, and zero-leak security — running in minutes.
 
-[![Grade](https://img.shields.io/badge/grade-60%2F60-brightgreen)](https://github.com/jonbeatz/Boilerplate)
+[![Grade](https://img.shields.io/badge/grade-61%2F61-brightgreen)](https://github.com/jonbeatz/Boilerplate)
 [![CI](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/badge/version-2.5.0-red)](https://github.com/jonbeatz/Boilerplate/releases)
 [![Live demo](https://img.shields.io/badge/demo-vaderlabz.com-c0392b)](https://vaderlabz.com)
@@ -10,7 +10,7 @@
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**v2.5.0 — Vader Protocol Locked** — Production-ready, self-validating, Cursor-native foundation: 60-point grader, Tailwind/shadcn Path B sandbox, VaderLabz template, Dependabot, and zero-noise hygiene.
+**v2.5.0 — Vader Protocol Locked** — Production-ready, self-validating, Cursor-native foundation: 61-point grader, Tailwind/shadcn Path B sandbox, VaderLabz template, Dependabot, and zero-noise hygiene.
 
 | Link | Destination |
 | --- | --- |
@@ -22,7 +22,7 @@
 | --- | --- |
 | **Version** | v2.5.0 |
 | **Release date** | May 25, 2026 (Tailwind/shadcn Path B sandbox) |
-| **Ecosystem grade** | 60/60 (100%) — verified baseline |
+| **Ecosystem grade** | 61/61 (100%) — verified baseline |
 | **Repository** | [github.com/jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) |
 | **Node** | 20.x–24.x (`.nvmrc` pins 20.19.1 · CI uses 20) |
 | **Package manager** | npm ≥ 10 |
@@ -40,7 +40,7 @@ Designed as an **empty-folder replacement engine**, it combines deep AI integrat
 | Principle | What it means |
 | --- | --- |
 | **Lean Boundary Rule** | Root orchestrates scripts only. Frameworks and data live in isolated `examples/*` sandboxes. Blueprints scaffold to sibling `--target` paths via `msc:template`. |
-| **Self-validating** | 60-point automated integrity grader (`npm run grade`) with hard non-zero exits on failure. |
+| **Self-validating** | 61-point automated integrity grader (`npm run grade`) with hard non-zero exits on failure. |
 | **Vader Protocol Shield** | Strict `msc-` namespace + Studio Dark design tokens for total CSS isolation from themes and Divi. |
 | **Cursor-first** | Modular `.mdc` rules, agent skills, portable MCP config, and operator/agent documentation paths. |
 | **Zero-leak security** | Credentials in untracked `.env.local` only; committed templates use `YOUR_*` / `CHANGE_ME` placeholders. |
@@ -85,9 +85,9 @@ Full notes: [docs/releases/RELEASE_v2.5.0.md](docs/releases/RELEASE_v2.5.0.md) �
 
 ## What's new in v2.4.0
 
-### 60-point grader and ecosystem hardening
+### 61-point grader and ecosystem hardening
 
-- **60/60 structural grader** — Vader template checks, `docs/releases/` alignment, Hostinger doc gate
+- **61/61 structural grader** — Vader template checks, `docs/releases/` alignment, Hostinger doc gate
 - **Dependabot** — weekly npm updates (root + both sandboxes)
 - **Contributor workflow** — GitHub issue/PR templates; standardized `examples/` and `templates/` READMEs
 - **Zero-noise hygiene** — `docs/assets/` index; sandbox `.env.example` coverage; release notes under `docs/releases/`
@@ -227,7 +227,7 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 
 | Command | Purpose |
 | --- | --- |
-| `npm run grade` | **60-point** structural integrity check (must score 100%) |
+| `npm run grade` | **61-point** structural integrity check (must score 100%) |
 | `npm run msc:lint` | Biome lint + format validation |
 | `npm run msc:lint:fix` | Biome auto-fix |
 | `npm run msc:test:root` | `npm audit --production` + root Vitest (**pre-push**) |
@@ -330,7 +330,7 @@ Expected output when healthy:
 [PASS] Data Sandbox Media Vault Verification (src/collections/MediaVault.ts Specs)
 …
 
---- Final Grade: 60/60 (100%) ---
+--- Final Grade: 61/61 (100%) ---
 
 All checks passed seamlessly. Workspace configuration is certified stable.
 ```
@@ -380,7 +380,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 
 - **Powered by** MSC Media Engine · Vader Protocol — strict namespace isolation certified
 - **Cursor-native** — calibrated for Cursor Agent and Composer execution paths
-- **Release certified:** v2.5.0 · 60/60 grade · 100% pass rate · production ready ([jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate))
+- **Release certified:** v2.5.0 · 61/61 grade · 100% pass rate · production ready ([jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate))
 
 **Operator docs:** [HOW-TO.md](.cursor/docs/HOW-TO.md) · [START-HERE.md](START-HERE.md) · [DOCS.md](DOCS.md) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
 

@@ -30,7 +30,7 @@ When cutting a release from a verified build:
 ### Pre-release gates (local)
 
 1. Align **`package.json` `version`** with the target release (semver).
-2. Run **`npm run grade`** (must show **60/60**) and **`npm run msc:test:all`**.
+2. Run **`npm run grade`** (must show **61/61**) and **`npm run msc:test:all`**.
 3. Run **`npm run msc:e2e`** after `npm run msc:e2e:install` (CI parity).
 4. Clear stuck dev ports when needed:
 

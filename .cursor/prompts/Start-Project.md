@@ -19,7 +19,7 @@ npm run bootstrap
 
 ```bash
 npm run start-project           # check-node + MCP structure
-npm run start-project:gate      # full baseline: validate-env · lint · grade 60/60 · tests 8/8
+npm run start-project:gate      # full baseline: validate-env · lint · grade 61/61 · tests 8/8
 ```
 
 ## 4. Optional dev

@@ -23,7 +23,7 @@ const MOCK_PROJECTS = [
   {
     title: 'Boilerplate',
     description:
-      'Cursor-native full-stack boilerplate with a 60-point self-grader, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows.',
+      'Cursor-native full-stack boilerplate with a 61-point self-grader, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows.',
     status: 'active',
     githubUrl: 'https://github.com/jonbeatz/Boilerplate',
     tags: [

@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for improving the MSC boilerplate (**v2.4.0**).
+Thank you for improving the MSC boilerplate (**v2.5.0**).
 
 ## Fork and Rename
 
@@ -69,7 +69,7 @@ Husky runs (in order):
 
 ## Pre-Push Gates
 
-1. **`npm run grade`** — 60-point structural audit (must be 100%)
+1. **`npm run grade`** — 61-point structural audit (must be 100%)
 2. **`npm run msc:test:root`** — root Vitest suite
 
 Do not bypass hooks with `--no-verify` unless the operator explicitly accepts drift risk.
@@ -90,7 +90,7 @@ npm run msc:e2e           # optional local parity with CI
 ## Pull Requests
 
 - Target branch: **`main`** (single production branch)
-- Keep grade at **60/60** before push
+- Keep grade at **61/61** before push
 - Do not commit `.env.local`, sandbox `.env.local`, or live MCP tokens
 - Update [CHANGELOG.md](CHANGELOG.md) for user-visible changes
 - CI must pass: validate-env → verify:mcp → lint → grade → root tests → sandbox builds → Playwright E2E
@@ -128,7 +128,7 @@ npm run msc:lint && npm run grade && npm run msc:test:root
 ```
 
 - **`msc:lint`** must exit **0** (CI runs this in the `validate` job before grade).
-- **`grade`** must report **60/60**.
+- **`grade`** must report **61/61**.
 - **`msc:test:root`** must pass (also enforced by `.husky/pre-push`). Runs **`npm audit --production`** then root Vitest — any reported vulnerability fails the gate (exit non-zero).
 
 **CI lesson (2026-05-25):** Do not use deprecated `/**` suffixes on Biome folder ignores (`!templates/**` → `!templates`). The v2.3.0 release push failed CI until `biome.json` was fixed (`9a1a4b6`). Run lint locally before every tag.
@@ -137,7 +137,7 @@ See also [HOW-TO.md — Pre-release gate](.cursor/docs/HOW-TO.md#pre-release-gat
 
 ## Version sync (release or doc sweep)
 
-**Single source of truth:** root `package.json` → `"version"` field (currently **2.4.0**).
+**Single source of truth:** root `package.json` → `"version"` field (currently **2.5.0**).
 
 On every semver bump or alignment sweep, update **current-version** strings in the same session — never leave operator docs on an older release:
 
@@ -155,7 +155,7 @@ On every semver bump or alignment sweep, update **current-version** strings in t
 
 **Preserve as history (do not rewrite):** prior `CHANGELOG.md` sections, `.github/RELEASE-v2.x.x.md` archives, README "What's new in v2.x" for older releases.
 
-After sync: run the [pre-tag gate](#pre-tag-gate-mandatory) · `npm run grade` (60/60) · update [CHANGELOG.md](CHANGELOG.md) · tag `vX.Y.Z` on the alignment commit.
+After sync: run the [pre-tag gate](#pre-tag-gate-mandatory) · `npm run grade` (61/61) · update [CHANGELOG.md](CHANGELOG.md) · tag `vX.Y.Z` on the alignment commit.
 
 ## GitHub repository settings (`msc:github:sync`)
 

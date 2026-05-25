@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * MSC Jedi-Health — JSON-hookable console diagnostic engine (Roadmap §3.3)
- * Socket probes: 3000, 3001, 8080 · .env.local · .nvmrc
+ * Socket probes: 3000, 3001, 3002, 8080 · .env.local · .nvmrc
  * Powered by the MSC Media Engine
  */
 import './lib/msc-load-env.mjs';
@@ -12,7 +12,7 @@ import net from 'node:net';
 import path from 'node:path';
 import { MSC_PROJECT_ROOT } from './lib/msc-load-env.mjs';
 
-const targetPorts = [3000, 3001, 8080];
+const targetPorts = [3000, 3001, 3002, 8080];
 const isJsonOutput = process.argv.includes('--json');
 
 function probeSocket(port) {

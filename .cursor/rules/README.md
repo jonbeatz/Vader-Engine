@@ -1,6 +1,6 @@
 # Cursor Rules Index
 
-Always-on and scoped rules for **Boilerplate-v2.4.0**. Precedence: [TRUTH.md](../../TRUTH.md) → [global.mdc](./global.mdc) → this folder.
+Always-on and scoped rules for **Boilerplate-v2.5.0**. Precedence: [TRUTH.md](../../TRUTH.md) → [global.mdc](./global.mdc) → this folder.
 
 | Rule | Scope | When it applies |
 |------|--------|-----------------|

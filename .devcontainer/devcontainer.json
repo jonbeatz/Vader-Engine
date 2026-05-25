@@ -1,5 +1,5 @@
 {
-  "name": "Boilerplate-v2.4.0",
+  "name": "Boilerplate-v2.5.0",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
   "postCreateCommand": "npm run bootstrap",
   "forwardPorts": [3000, 3001, 8080]

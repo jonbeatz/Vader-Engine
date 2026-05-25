@@ -48,7 +48,7 @@ npm run msc:check-node
 - [ ] `npm run msc:test:all` — root Vitest + minimal sandbox tests pass
 
 - [ ] `npm run start-project` — check-node + MCP verify
-- [ ] `npm run start-project:gate` — validate-env · lint · **60/60** grade · **8/8** tests (one command)
+- [ ] `npm run start-project:gate` — validate-env · lint · **61/61** grade · **8/8** tests (one command)
 - [ ] (Optional) `npm run msc:e2e:install` then `npm run msc:e2e` — Playwright smoke (3 tests × chromium + firefox)
 
 - [ ] `npm run msc:dev:example` — minimal frontend on port **3000**
