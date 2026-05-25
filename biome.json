@@ -12,7 +12,8 @@
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 100
+    "lineWidth": 100,
+    "lineEnding": "auto"
   },
   "javascript": {
     "formatter": { "quoteStyle": "single" }
@@ -29,10 +30,22 @@
       "!**/test-results",
       "!**/playwright-report",
       "!**/package-lock.json",
-      "!templates/**"
+      "!templates",
+      "!**/.cursor/design_references",
+      "!vader-site-deploy",
+      "!.sandbox",
+      "!examples/nextjs-payload/src/payload-types.ts"
     ]
   },
   "overrides": [
+    {
+      "includes": ["examples/nextjs-payload/src/payload-types.ts"],
+      "linter": {
+        "rules": {
+          "complexity": { "noBannedTypes": "off" }
+        }
+      }
+    },
     {
       "includes": ["ui/msc-hero-slider.css"],
       "linter": {
