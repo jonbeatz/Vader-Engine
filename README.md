@@ -1,4 +1,4 @@
-# Boilerplate-v2.4.0
+# Boilerplate v2.4.0
 
 [![Grade](https://img.shields.io/badge/grade-60%2F60-brightgreen)](https://github.com/jonbeatz/Boilerplate)
 [![CI](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml)
