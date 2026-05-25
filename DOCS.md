@@ -66,6 +66,9 @@ Single entry point for all **Boilerplate-v2.4.0** documentation. Technical prece
 |------|-------|------|
 | [examples/nextjs-minimal/](examples/nextjs-minimal/) | Next.js 15.5.7 + TypeScript + Vitest | **3000** |
 | [examples/nextjs-payload/](examples/nextjs-payload/) | Next.js 15.4.11 + Payload CMS v3 + SQLite | **3001** |
+| [examples/nextjs-tailwind/](examples/nextjs-tailwind/) | Next.js 15.5.7 + Tailwind 3 + shadcn (Path B hybrid) | **3002** |
+
+From repo root: `npm run msc:dev:tailwind` → http://127.0.0.1:3002. Lean Boundary — deps only in the sandbox `package.json`.
 
 ## Template blueprints (read-only registry)
 

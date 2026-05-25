@@ -43,6 +43,7 @@ Root `package.json` orchestrates scripts only. Framework dependencies live in `e
 |---------|---------|---------|------|
 | `examples/nextjs-minimal` | ^15.5.7 | Frontend baseline + Vitest | **3000** |
 | `examples/nextjs-payload` | 15.4.11 (locked) | Payload CMS v3 + SQLite | **3001** |
+| `examples/nextjs-tailwind` | ^15.5.7 | Tailwind 3 + shadcn (Path B bridge) | **3002** |
 
 Peer-dependency split is intentional — Payload v3.x requires the locked Next pin; workspaces remain fully isolated.
 
@@ -103,7 +104,8 @@ On push/PR to `main`:
 |------|--------|
 | **3000** | Minimal frontend sandbox |
 | **3001** | Payload full-stack sandbox |
-| **3002+** | Scaffolded projects (dynamic via `msc_findFreePort`) |
+| **3002** | Tailwind/shadcn Path B sandbox |
+| **3003+** | Scaffolded projects (dynamic via `msc_findFreePort`; vader-site uses **3003**) |
 | **8080** | Reserved (WordPress / microservices) |
 | **4000** / **8000** | LiteLLM AI proxy (optional) |
 

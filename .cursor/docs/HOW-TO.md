@@ -146,7 +146,7 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 | Full bootstrap | `npm run bootstrap` | Kill dev ports + quickstart hydration |
 | Re-hydrate | `npm run msc:quickstart` | Env checks + workspace install |
 | Env validation | `npm run msc:validate-env` | Secret leak scan; **pre-commit gate** |
-| Kill all dev ports | `npm run msc:kill-dev-port` | Clears 3000, 3001, 8080 |
+| Kill all dev ports | `npm run msc:kill-dev-port` | Clears 3000, 3001, 3002, 8080 |
 
 ### Development sandboxes
 
@@ -154,6 +154,7 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 |------|---------|-------------|
 | Minimal frontend | `npm run msc:dev:example` | Next.js on port **3000** |
 | Payload CMS | `npm run msc:dev:payload` | Full-stack on port **3001** |
+| Tailwind / shadcn (Path B) | `npm run msc:dev:tailwind` | Hybrid sandbox on port **3002** |
 | Health dashboard | `npm run msc:health` | Ports, engines, locks |
 | Health JSON | `npm run msc:health:json` | Machine-readable output |
 

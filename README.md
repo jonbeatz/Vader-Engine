@@ -352,7 +352,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 | Template scaffolding CLI (`msc:template`) | ✅ Shipped in v2.2.0 |
 | Component generation (`msc:new:component`) | ✅ Shipped in v2.1.0 |
 | Docker Compose Postgres/Redis mirroring | ✅ Shipped in v2.1.0 |
-| Opt-in Tailwind/shadcn sandboxing | Planned — targeting **v2.5.0**; will live in `examples/nextjs-tailwind/` as an isolated sandbox (Lean Boundary Rule). Path B hybrid consumers can bridge `--msc-*` tokens today — see [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) §6 |
+| Opt-in Tailwind/shadcn sandboxing (`examples/nextjs-tailwind/`) | ✅ Shipped in **v2.5.0** — port **3002**, `npm run msc:dev:tailwind`. Path B bridge to `ui/msc-shield.css`; see [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) §6 |
 | Playwright E2E multi-sandbox harness | ✅ Shipped in v2.1.0 |
 | VS Code / Cursor settings sync | ✅ Shipped (`.cursor/settings.json` + `.vscode/`) |
 | Repo rename (`Boilerplate`) | ✅ Shipped |

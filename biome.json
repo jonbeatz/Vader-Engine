@@ -55,6 +55,21 @@
           }
         }
       }
+    },
+    {
+      "includes": ["examples/nextjs-tailwind/**/*.css"],
+      "css": {
+        "parser": {
+          "tailwindDirectives": true
+        }
+      },
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noUnknownAtRules": "off"
+          }
+        }
+      }
     }
   ]
 }
