@@ -28,5 +28,5 @@ Use this ledger to document any breaking runtime faults, locked ports, or deploy
 - **Scope:** Remote-only cleanup on [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate)
 - **Actions:** Deleted 10 Dependabot branches; removed `phase-2-pass` … `phase-6b-pass`; retained `v2.1.0`–`v2.4.0`
 - **Verification:** `git fetch -p` · `git branch -r` → `origin/main` · `npm run start-project:gate` **60/60** · **8/8**
-- **Prevention:** Enable GitHub **Automatically delete head branches** — see [CONTRIBUTING.md](../../CONTRIBUTING.md#github-repository-about-manual)
+- **Prevention:** `npm run msc:github:sync` or enable **Automatically delete head branches** — see [CONTRIBUTING.md](../../CONTRIBUTING.md#github-repository-settings-mscgithubsync)
 

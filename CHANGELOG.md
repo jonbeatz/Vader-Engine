@@ -12,8 +12,9 @@
 
 ### Tooling (maintainer automation)
 
-- **`npm run msc:github:sync`** — `gh repo edit` + `delete_branch_on_merge` via GitHub CLI (slug from `package.json`)
+- **`npm run msc:github:sync`** — `gh repo edit` + `delete_branch_on_merge` via GitHub CLI (slug from `package.json`); commit `a4447ed`
 - **`msc:test:root`** — now runs `npm audit --production` before Vitest (pre-push gate)
+- **Doc sync:** README command table, [DOCS.md](DOCS.md) maintainer tooling, [project-log.md](.cursor/docs/project-log.md)
 
 ### Verified
 

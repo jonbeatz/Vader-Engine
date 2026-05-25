@@ -234,6 +234,7 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 | `npm run grade` | **60-point** structural integrity check (must score 100%) |
 | `npm run msc:lint` | Biome lint + format validation |
 | `npm run msc:lint:fix` | Biome auto-fix |
+| `npm run msc:test:root` | `npm audit --production` + root Vitest (**pre-push**) |
 | `npm run msc:test:all` | Root Vitest + minimal sandbox tests |
 | `npm run msc:test:grader` | Grader unit test suite |
 | `npm run verify:mcp` | MCP config structure validation |
@@ -256,6 +257,7 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 
 | Command | Purpose |
 | --- | --- |
+| `npm run msc:github:sync` | Sync GitHub About + auto-delete merged PR branches (`gh` CLI) |
 | `npm run msc:update` | Scan and bump package versions across workspaces |
 | `npm run msc:ensure-lockfiles` | Verify lockfile hygiene in root + sandboxes |
 | `npm run msc:e2e` | Playwright multi-sandbox smoke (ports 3000 + 3001) |
@@ -379,7 +381,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 
 - **Powered by** MSC Media Engine · Vader Protocol — strict namespace isolation certified
 - **Cursor-native** — calibrated for Cursor Agent and Composer execution paths
-- **Release certified:** v2.4.0 · 60/60 grade · 100% pass rate · production ready (`1e6c7d8` · [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate))
+- **Release certified:** v2.4.0 · 60/60 grade · 100% pass rate · production ready (`a4447ed` · [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate))
 
 **Operator docs:** [HOW-TO.md](.cursor/docs/HOW-TO.md) · [START-HERE.md](START-HERE.md) · [DOCS.md](DOCS.md) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
 

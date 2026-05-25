@@ -5,7 +5,7 @@
 - **Repository:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) — renamed from `Boilerplate-v2` (May 2026); prior slug `Boilerplate-v1` / `Boilerplate-v2` preserved in historical changelog entries only
 - **Target Stack:** Next.js sandboxes · Payload CMS · WordPress Shield · Cursor MCP
 - **Current Version:** 2.4.0
-- **Status:** Vader Protocol locked — production baseline (`1e6c7d8`) · **60/60** grade · main-only remote · release tags `v2.1.0`–`v2.4.0`
+- **Status:** Vader Protocol locked — production baseline (`a4447ed`) · **60/60** grade · main-only remote · release tags `v2.1.0`–`v2.4.0`
 
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 
@@ -35,11 +35,18 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - **Phase E:** deleted 10 Dependabot remote branches; removed 7 obsolete `phase-*` tags; `main` + `v2.*` tags only
 - **Gate:** `msc:lint` · `grade` 60/60 · `msc:test:root` 8/8
 
+## ✅ Completed — GitHub automation + security audit gate (2026-05-25)
+
+- **Commit:** `a4447ed` — `feat(cli): add msc:github:sync and production audit in msc:test:root`
+- **Added:** `npm run msc:github:sync` (`gh repo edit` + `delete_branch_on_merge`); `tools/msc-cli/scripts/github-sync.mjs`
+- **Modified:** `msc:test:root` → `npm audit --production && vitest run` (pre-push)
+- **Docs:** CHANGELOG `[Unreleased]`, CONTRIBUTING, HOW-TO, Code-Jedi, `.env.example`
+- **Verified:** `msc:github:sync` 2/2 steps OK on `jonbeatz/Boilerplate` · audit 0 vulnerabilities · Vitest **8/8**
+
 ## 🚀 Next Session Queue (Start Project)
 
-- [ ] GitHub Settings → enable **Automatically delete head branches** (if not already)
-- [ ] Confirm GitHub **About** box matches [CONTRIBUTING.md](../CONTRIBUTING.md#github-repository-about-manual)
-- [ ] Optional: close stale Dependabot PRs on GitHub UI after branch cleanup
+- [x] GitHub About + delete head branches — automated via `npm run msc:github:sync` (re-run after future renames)
+- [ ] Optional: close stale Dependabot PRs on GitHub UI
 
 ## ⚙️ Core Environment Specs
 - Local Environment URL: `MSC_PUBLIC_ORIGIN` or localhost
@@ -47,6 +54,11 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - Port Allocations: Web **3000** (`MSC_DEV_PORT`) · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
 
 ## 🪵 Development Changelog
+
+### [2026-05-25] - Session Closeout — `msc:github:sync` + production audit in test gate
+- **Added:** `msc:github:sync` maintainer command; `npm audit --production` in `msc:test:root`
+- **Pushed:** `a4447ed` on `main` → `origin/main`
+- **Verified:** `msc:github:sync` · `msc:test:root` (audit + **8/8**)
 
 ### [2026-05-25] - Session Closeout — Rebrand + Phase E repository sanitization
 - **Added:** [CHANGELOG.md](../../CHANGELOG.md) `[Unreleased]` notes for rebrand, clone URL, and remote hygiene

@@ -6,6 +6,8 @@ This guide defines the source-control standards, automated release build scripts
 
 **Remote hygiene (2026-05-25):** `main` is the only long-lived branch; release tags use `v2.*` semver only. Obsolete `phase-*` tags and stale Dependabot branches were removed — do not recreate `phase-*` tags; use annotated `v2.x.y` tags per section 2 below.
 
+**Settings automation:** `npm run msc:github:sync` — syncs repository description, homepage, and **delete branch on merge** (requires `gh auth login`). Re-run after a repo rename.
+
 ---
 
 ## 🌿 1. Branching Governance Matrix
