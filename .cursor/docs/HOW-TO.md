@@ -130,7 +130,7 @@ npm run log -- --type chore --msg "v2.5.0 release audit passed"
 npm run end-project
 ```
 
-Then follow [session-handoff.md](../prompts/session-handoff.md) and update [project-log.md](./project-log.md) (or use `npm run log`).
+Then follow [End-Project.md](../prompts/End-Project.md) and update [project-log.md](./project-log.md) (or use `npm run log`).
 
 ---
 

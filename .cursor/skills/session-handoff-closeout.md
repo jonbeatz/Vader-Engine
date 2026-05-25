@@ -11,7 +11,7 @@ description: >-
 
 ## When to use
 
-- Ending a work block — execute the binding prompt **`.cursor/prompts/session-handoff.md`** (this skill is the competency sheet; the prompt is the ritual).
+- Ending a work block — execute the binding prompt **`.cursor/prompts/End-Project.md`** (this skill is the competency sheet; the prompt is the ritual).
 - Preparing operator handoff
 - Creating a rollback checkpoint after a milestone
 

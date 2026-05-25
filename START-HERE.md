@@ -243,7 +243,7 @@ npm run msc:smoke -- 3000
 
 
 
-When pausing or handing off work, say **End Project** or open `.cursor/prompts/End-Project.md` (alias → `session-handoff.md`), then:
+When pausing or handing off work, say **End Project** or open `.cursor/prompts/End-Project.md` (v2.5.0-SOVEREIGN session closeout), then:
 
 
 

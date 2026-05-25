@@ -1,6 +1,6 @@
 # Incident Response & Recovery Protocol
 
-Execute this blueprint when localhost fails, databases lock, deploys regress, or ports collide. **Additive** to session rituals — use **after** triage; close sessions with `session-handoff.md` when work pauses.
+Execute this blueprint when localhost fails, databases lock, deploys regress, or ports collide. **Additive** to session rituals — use **after** triage; close sessions with `End-Project.md` when work pauses.
 
 Does not replace **Node 2** (`node-runtime-mastery.md`) or **Node 6** (AI proxy doc) — run their **Local Script Gate Sequence** first when ports are in scope.
 
@@ -111,5 +111,5 @@ Append to **`.cursor/docs/incident-log.md`**:
 
 ## 6. Handoff
 
-After stabilization, run **`.cursor/prompts/session-handoff.md`** — include validation exit codes and active blockers in the Handoff Block.
+After stabilization, run **`.cursor/prompts/End-Project.md`** — include validation exit codes and active blockers in the Handoff Block.
 

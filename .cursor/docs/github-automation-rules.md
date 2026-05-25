@@ -135,6 +135,6 @@ Replace `gh` flows with UI equivalents when CLI is unavailable.
 ## 📚 Related docs
 
 - **`.cursor/docs/spaceship-node-deployment.md`** — production FTP/cPanel deploy (separate from GitHub Releases)
-- **`.cursor/prompts/session-handoff.md`** — branch + log check-in at session end
+- **`.cursor/prompts/End-Project.md`** — branch + log check-in at session end
 - **`.env.example`** — variable contract for CI secrets mapping
 

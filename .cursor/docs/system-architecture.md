@@ -24,7 +24,7 @@ Single source of truth for repository layout, subsystem boundaries, and integrat
 ├── 📂 e2e/                         ◄ [Playwright multi-sandbox smoke · CI gate]
 ├── 📂 .cursor/
 │   ├── 📄 mcp.json                ◄ [Project-Scoped AI Agent Context Connectors]
-│   ├── 📂 prompts/                ◄ [Operational Gates: task-planner, session-handoff]
+│   ├── 📂 prompts/                ◄ [Operational Gates: task-planner, End-Project]
 │   ├── 📂 rules/                  ◄ [Env compliance, Studio Dark, design-system, Tailwind bridge]
 │   └── 📂 skills/                 ◄ [The 8-Node Architectural Competency Index]
 ├── 📂 core/                       ◄ [PHP Engine Bootstrappers & Headless TS Contracts]
@@ -48,7 +48,7 @@ Cold-start ignition routes operators through environment copy, MCP verification,
 | Asset | Function |
 |-------|----------|
 | `START-HERE.md` | Ordered runbook: env → gates → dev lifecycle |
-| `.cursor/prompts/` | **task-planner** (session open), **session-handoff** (close), incident/refactor protocols |
+| `.cursor/prompts/` | **task-planner** (session open), **End-Project** (close), incident/refactor protocols |
 | `.cursor/skills/README.md` | Eight-node competency router (incl. Studio Dark Shield) |
 | `.cursor/rules/README.md` | Always-on and scoped agent rules index |
 | `.cursor/mcp.json` | Project MCP (13 servers); placeholders in Git; live keys in `.env.local` only |

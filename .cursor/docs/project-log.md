@@ -76,6 +76,11 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 
 ## 🪵 Development Changelog
 
+### [2026-05-25] - Session Closeout
+- **Added/Modified:** `.cursor/prompts/End-Project.md` — v2.5.0-SOVEREIGN closeout protocol; removed `.cursor/prompts/session-handoff.md`; cross-links in `DOCS.md`, `START-HERE.md`, `Code-Jedi.md`, `HOW-TO.md`, `global.mdc`, `agent-workflow.mdc`, `system-architecture.md`, skills README, refactor/incident prompts
+- **Verified:** `start-project:gate` PASS (**61/61**, lint 0 errors, **8/8** tests)
+- **Ports cleared:** 3000, 3001, 3002, 8080
+
 ### [2026-05-25] - Session Handoff — v2.5.0-SOVEREIGN stabilization & cold-start prompt
 - **Session:** 2026-05-25 · extended stabilization session (zero-drift → 61-point branding → log sync → cold-start gate)
 - **Summary:** `MSC_VERSION` 2.5.0 alignment; health probes port **3002**; 61st grader check (Tailwind sandbox); operator docs/badges synced to **61-point** / **61/61**; cold-start verification; `Start-Project.md` v2.5.0-SOVEREIGN protocol shipped

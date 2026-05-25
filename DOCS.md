@@ -58,7 +58,7 @@ Single entry point for all **Boilerplate-v2.5.0** documentation. Technical prece
 | [.cursor/rules/README.md](.cursor/rules/README.md) | Conditional rules index |
 | [.cursor/rules/global.mdc](.cursor/rules/global.mdc) | Always-on session bindings |
 | [.cursor/prompts/task-planner.md](.cursor/prompts/task-planner.md) | Start Project gate |
-| [.cursor/prompts/session-handoff.md](.cursor/prompts/session-handoff.md) | End Project gate |
+| [.cursor/prompts/End-Project.md](.cursor/prompts/End-Project.md) | End Project / session closeout gate |
 
 ## Examples (sandboxes)
 

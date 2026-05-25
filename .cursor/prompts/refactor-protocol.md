@@ -108,5 +108,5 @@ Stop and ask the operator if:
 
 ## 7. Session close
 
-Run **`.cursor/prompts/session-handoff.md`** with refactor summary in the Handoff Block (files touched, verify exit codes, next agent first step).
+Run **`.cursor/prompts/End-Project.md`** with refactor summary in the Handoff Block (files touched, verify exit codes, next agent first step).
 

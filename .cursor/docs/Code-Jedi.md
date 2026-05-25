@@ -18,7 +18,7 @@
 | 2 | Follow [START-HERE.md](../../START-HERE.md) cold-start phases |
 | 3 | Run `npm run msc:check-node` then `npm run start-project` |
 | 4 | Route deep work via [skills index](../skills/README.md) + SSoT chain below |
-| 5 | Close with `npm run end-project` + [session-handoff](../prompts/session-handoff.md) |
+| 5 | Close with `npm run end-project` + [End-Project](../prompts/End-Project.md) |
 
 ---
 
@@ -39,7 +39,7 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 | **Local dev ports & HTTP health** | `scripts/msc-kill-dev-port.mjs`, `scripts/msc-local-http-smoke.mjs` | `MSC_DEV_PORT` (default **3000**), `MSC_SMOKE_STRICT`, `MSC_SMOKE_PATHS` | `npm run msc:kill`, `npm run verify:local`; skill: [node-runtime-mastery.md](../skills/node-runtime-mastery.md) |
 | **MCP & agent tooling** | `.cursor/mcp.json`, `.cursor/mcp-blueprint.json` | Keys in `.env.local`; `shadcn` / `context7` need no committed secrets | `npm run verify:mcp` (13 servers; dual-pass hydration audit) |
 | **Next.js consumer app bootstrap** | Copy `core/`, `scripts/`, `ui/`, `.cursor/` | Full `.env.local` contract | Guide: [consumer-bootstrap.md](./consumer-bootstrap.md) |
-| **Session governance & handoff** | `.cursor/prompts/task-planner.md`, `session-handoff.md` | [TRUTH.md](../../TRUTH.md) precedence | `npm run end-project`; log: [project-log.md](./project-log.md) |
+| **Session governance & handoff** | `.cursor/prompts/task-planner.md`, `End-Project.md` | [TRUTH.md](../../TRUTH.md) precedence | `npm run end-project`; log: [project-log.md](./project-log.md) |
 | **Deploy / hosting (Node)** | — | `SPACESHIP_*` env keys | [spaceship-node-deployment.md](./spaceship-node-deployment.md) |
 | **AI proxy (LiteLLM)** | `config/litellm_config.yaml` | `MSC_LITELLM_PORT` **4000** / **8000** | [local-ai-proxy-setup.md](./local-ai-proxy-setup.md) |
 
@@ -221,7 +221,7 @@ Read in this order when depth is required. Do not skip upward links when docs co
 | Event | File |
 |-------|------|
 | Open implementation | [task-planner.md](../prompts/task-planner.md) |
-| Close session | [session-handoff.md](../prompts/session-handoff.md) |
+| Close session | [End-Project.md](../prompts/End-Project.md) |
 | Runtime failure | [incident-response.md](../prompts/incident-response.md) |
 
 ---
