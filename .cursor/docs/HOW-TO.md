@@ -165,7 +165,7 @@ Then follow [session-handoff.md](../prompts/session-handoff.md) and update [proj
 | Biome lint | `npm run msc:lint` | Full-tree check; **CI gate** |
 | Biome fix | `npm run msc:lint:fix` | Auto-fix lint issues |
 | Biome format | `npm run msc:format` | Format pass |
-| Structural grade | `npm run grade` | **60 checks**; **pre-push gate** |
+| Structural grade | `npm run grade` | **61 checks**; **pre-push gate** |
 | Root tests + audit | `npm run msc:test:root` | `npm audit --production` then Vitest; **pre-push** |
 | GitHub settings sync | `npm run msc:github:sync` | `gh` CLI — About description, homepage, delete branch on merge |
 | Full test sweep | `npm run msc:test:all` | Root + minimal sandbox |

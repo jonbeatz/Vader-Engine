@@ -19,6 +19,7 @@
 
 - Expanded structural audit from **60** to **61** checks — `examples/nextjs-tailwind/package.json` detection
 - Branding sync: **61-point** grader across README, docs, and `npm run grade` banner/output
+- Constitution sync: `TRUTH.md`, `ARCHITECTURE.md`, `HOW-TO.md` — **61 checks** (was stale **60**)
 
 ### Documentation
 

@@ -48,7 +48,8 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - [x] GitHub About + delete head branches — automated via `npm run msc:github:sync` (re-run after future renames)
 - [x] Opt-in Tailwind/shadcn sandbox — `examples/nextjs-tailwind/` · `091469b`
 - [x] v2.5.0-SOVEREIGN zero-drift + 61-point grader sync — `40ab1dc` on `origin/main`
-- [ ] Optional: close stale Dependabot PRs on GitHub UI
+- [x] Cold-start prompt — `.cursor/prompts/Start-Project.md` · `99dd3d0`
+- [ ] Optional: close stale Dependabot PRs on GitHub UI (none open as of 2026-05-25)
 
 ## ⚙️ Core Environment Specs
 - Local Environment URL: `MSC_PUBLIC_ORIGIN` or localhost
@@ -74,6 +75,13 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - **Remote:** pushed `40ab1dc` → `origin/main` (`26fc376..40ab1dc`)
 
 ## 🪵 Development Changelog
+
+### [2026-05-25] - Session Handoff — v2.5.0-SOVEREIGN stabilization & cold-start prompt
+- **Session:** 2026-05-25 · extended stabilization session (zero-drift → 61-point branding → log sync → cold-start gate)
+- **Summary:** `MSC_VERSION` 2.5.0 alignment; health probes port **3002**; 61st grader check (Tailwind sandbox); operator docs/badges synced to **61-point** / **61/61**; cold-start verification; `Start-Project.md` v2.5.0-SOVEREIGN protocol shipped
+- **Files touched:** `core/index.mjs`, `tools/msc-cli/scripts/template-engine.mjs`, `scripts/health.mjs`, `scripts/__tests__/health.test.mjs`, `scripts/msc-grade-boilerplate.mjs`, `README.md`, `DOCS.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, `TRUTH.md`, `SECURITY.md`, `TROUBLESHOOTING.md`, `ARCHITECTURE.md`, `.cursor/docs/*`, `.cursor/rules/README.md`, `.devcontainer/devcontainer.json`, `docs/releases/RELEASE_v2.5.0.md`, `.cursor/prompts/Start-Project.md`, `.cursor/design_references/deprecated/`
+- **Commits:** `40ab1dc` · `293a7fc` · `99dd3d0` — **HEAD:** `99dd3d0`
+- **Verified:** `npm run msc:kill-dev-port` (3000–3002, 8080 clear) · `start-project:gate` **61/61** · **8/8** · `msc:lint:fix` 0 changes
 
 ### [2026-05-25] - Session Closeout — v2.5.0-SOVEREIGN zero-drift + 61-point grader sync
 - **Added:** Grader check for `examples/nextjs-tailwind/package.json`; CHANGELOG `[2.5.0]` Grader notes; RELEASE_v2.5.0 grader section
