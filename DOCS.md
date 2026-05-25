@@ -70,6 +70,15 @@ Single entry point for all **Boilerplate-v2.4.0** documentation. Technical prece
 
 From repo root: `npm run msc:dev:tailwind` → http://127.0.0.1:3002. Lean Boundary — deps only in the sandbox `package.json`.
 
+## Testing the Tailwind Sandbox
+
+After running `npm run msc:dev:tailwind`, visit:
+
+- http://localhost:3002 — Main demo page
+- http://localhost:3002/sandbox-test — Component stress-test page
+
+Both pages should render with Vader Protocol styling (dark background, accent colors). Root `npm run build` does not compile this sandbox — only `examples/nextjs-minimal` (Lean Boundary intact). Env contract: copy `examples/nextjs-tailwind/.env.example` → `.env.local`; never commit live secrets.
+
 ## Template blueprints (read-only registry)
 
 | Path | Purpose |
