@@ -2,6 +2,8 @@
 
 [![Grade](https://img.shields.io/badge/grade-52%2F52-brightgreen)](https://github.com/jonbeatz/Boilerplate-v2)
 [![CI](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate-v2/actions/workflows/ci.yml)
+[![Version](https://img.shields.io/badge/version-2.3.1-red)](https://github.com/jonbeatz/Boilerplate-v2/releases)
+[![Live demo](https://img.shields.io/badge/demo-vaderlabz.com-c0392b)](https://vaderlabz.com)
 [![Node](https://img.shields.io/badge/node-20%7C24-339933)](https://nodejs.org/)
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -12,6 +14,7 @@
 | --- | --- |
 | **Quick start** | [#quick-start](#quick-start) |
 | **Documentation** | [#documentation-map](#documentation-map) · [DOCS.md](DOCS.md) · [START-HERE.md](START-HERE.md) |
+| **Live site** | [vaderlabz.com](https://vaderlabz.com) |
 
 | Field | Value |
 | --- | --- |
@@ -39,6 +42,12 @@ Designed as an **empty-folder replacement engine**, it combines deep AI integrat
 | **Vader Protocol Shield** | Strict `msc-` namespace + Studio Dark design tokens for total CSS isolation from themes and Divi. |
 | **Cursor-first** | Modular `.mdc` rules, agent skills, portable MCP config, and operator/agent documentation paths. |
 | **Zero-leak security** | Credentials in untracked `.env.local` only; committed templates use `YOUR_*` / `CHANGE_ME` placeholders. |
+
+## Live proof
+
+[![Vader Protocol hero](media/readme/vaderlabz-hero-reference.jpg)](https://vaderlabz.com)
+
+**Live site:** [vaderlabz.com](https://vaderlabz.com) — built from `templates/full-stack/vader-site`.
 
 ---
 
@@ -250,6 +259,7 @@ See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) if bootstrap or ports fail.
 | Contributors | [CONTRIBUTING.md](CONTRIBUTING.md) | [ARCHITECTURE.md](ARCHITECTURE.md) |
 | System debugging | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | [HOW-TO.md](.cursor/docs/HOW-TO.md) |
 | MCP setup | [mcp-setup.md](.cursor/docs/mcp-setup.md) | `.cursor/mcp.json` |
+| Live site | [vaderlabz.com](https://vaderlabz.com) | `templates/full-stack/vader-site` deploy proof |
 
 Architecture diagrams and dependency flow: [ARCHITECTURE.md](ARCHITECTURE.md)
 
