@@ -11,7 +11,7 @@ Minimal App Router baseline for Shield UI and frontend smoke tests. Parent index
 npm run msc:dev:example
 
 # Or inside this folder
-cp ../.env.example .env.local   # optional — use root .env.local for MSC_DEV_PORT
+cp .env.example .env.local      # optional — or use root .env.local for MSC_DEV_PORT
 npm ci
 npm run dev
 ```

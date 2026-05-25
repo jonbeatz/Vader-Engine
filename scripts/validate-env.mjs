@@ -29,7 +29,12 @@ const SUSPECT_PATTERNS = [
   /\bBearer\s+[a-zA-Z0-9._-]{20,}\b/i,
 ];
 
-const SCAN_FILES = ['.env.example', '.cursor/mcp.json'];
+const SCAN_FILES = [
+  '.env.example',
+  '.cursor/mcp.json',
+  'examples/nextjs-minimal/.env.example',
+  'examples/nextjs-payload/.env.example',
+];
 
 const _SCAN_DIRS = ['.cursor'];
 

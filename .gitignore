@@ -54,3 +54,10 @@ playwright/.cache/
 # Local-only operator docs (not published to GitHub)
 .cursor/docs/BOILERPLATE-IMPROVEMENT/
 .cursor/docs/README/
+
+# Local-only design captures (committed brand media → media/ or docs/assets/README.md)
+.cursor/design_references/*.jpg
+.cursor/design_references/*.jpeg
+.cursor/design_references/*.png
+.cursor/design_references/*.webp
+.cursor/design_references/*.gif

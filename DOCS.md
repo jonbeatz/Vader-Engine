@@ -1,6 +1,6 @@
 # Documentation Index (SSoT Router)
 
-Single entry point for all **Boilerplate-v2.3.0** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
+Single entry point for all **Boilerplate-v2.4.0** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
 
 ## Human control panel (root)
 
@@ -16,6 +16,7 @@ Single entry point for all **Boilerplate-v2.3.0** documentation. Technical prece
 | [CHANGELOG.md](CHANGELOG.md) | Release history (v2.3.0 · v2.2.0 · v2.1.0 Gold Master) |
 | [DEPLOY_TO_HOSTINGER.md](DEPLOY_TO_HOSTINGER.md) | Hostinger Node.js deploy for VaderLabz template |
 | [docs/releases/](docs/releases/) | Tagged release notes (`RELEASE_v*.md`) |
+| [docs/assets/](docs/assets/) | Asset index — committed media under `media/` |
 
 ## Operator runbooks (`.cursor/docs/`)
 
