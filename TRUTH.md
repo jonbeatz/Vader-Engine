@@ -4,6 +4,8 @@ If any document conflicts with this file for **technical precedence**, this file
 
 **Version target:** Boilerplate-v2.4.0 — lean multi-runtime Node.js ecosystem (Node 20.x–24.x; CI + `.nvmrc` pin 20.x LTS) with dual Next.js sandboxes, read-only template blueprints, native scaffolding CLI, 60-point self-grader, and WordPress Shield bridge.
 
+**Repository (canonical):** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) — GitHub slug `Boilerplate`; semver product line remains **v2.x** (tags `v2.1.0` … `v2.4.0`).
+
 ## 0. v2 guiding principles
 
 - **Human root layer:** `TRUTH.md`, `README.md`, `START-HERE.md`, `DOCS.md` — operator control panel; no heavy app frameworks at repo root.

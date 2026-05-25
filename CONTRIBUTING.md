@@ -143,7 +143,8 @@ On every semver bump or alignment sweep, update **current-version** strings in t
 
 | Surface | Pattern |
 |---------|---------|
-| `README.md` | Title `# Boilerplate-v2.x.x` · version table · "What's new in v2.x.x" |
+| `package.json` | `"version"` and `repository.url` → `https://github.com/jonbeatz/Boilerplate.git` |
+| `README.md` | Title `# Boilerplate-v2.x.x` · version table · "What's new in v2.x.x" · GitHub badges → `jonbeatz/Boilerplate` |
 | `TRUTH.md` | `Version target:` line |
 | `DOCS.md`, `ARCHITECTURE.md`, `TROUBLESHOOTING.md`, `CONTRIBUTING.md` | Header / intro version |
 | `START-HERE.md` | Checklist section (`v2.x = checklist`) |
@@ -162,7 +163,10 @@ Set the public **About** description (Cursor cannot edit this):
 
 `Cursor-native boilerplate — 60-point Vader Protocol grader.`
 
-Website: `https://vaderlabz.com` · Documentation link to `START-HERE.md` or repo docs index.
+- **Repository slug:** `jonbeatz/Boilerplate` (successor to `Boilerplate-v2`; do not rewrite historical release archives)
+- **Website:** `https://vaderlabz.com`
+- **Documentation link:** `START-HERE.md` or [DOCS.md](DOCS.md)
+- **Pull Requests:** enable **Automatically delete head branches** after merge (Settings → General → Pull Requests) — prevents Dependabot branch accumulation
 
 ## Dependabot and security
 

@@ -42,3 +42,11 @@ npm run msc:lint && npm run grade && npm run msc:test:root
 ## Live proof
 
 https://vaderlabz.com — built from `templates/full-stack/vader-site`.
+
+---
+
+## Maintainer notes (2026-05-25, post-tag)
+
+- GitHub repository renamed to **[jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate)** (internal doc URL sweep; this file’s release body unchanged)
+- Remote hygiene: Dependabot branches cleared; obsolete `phase-*` tags removed; semver tags `v2.1.0`–`v2.4.0` retained
+- Details: [CHANGELOG.md](../../CHANGELOG.md) `[Unreleased]` · [project-log.md](../../.cursor/docs/project-log.md)

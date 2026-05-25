@@ -2,6 +2,8 @@
 
 Single operator-facing guide for running, verifying, and extending **Boilerplate-v2.4.0** (`msc-universal-boilerplate`). For agent routing and module maps, use [Code-Jedi.md](./Code-Jedi.md). Constitutional precedence: [TRUTH.md](../../TRUTH.md).
 
+**Repository:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) · **Clone:** `git clone https://github.com/jonbeatz/Boilerplate.git my-project`
+
 ---
 
 ## Mission

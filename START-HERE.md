@@ -8,7 +8,7 @@ Welcome to the baseline repository configuration sandbox. This environment is st
 
 **Constitution:** [TRUTH.md](TRUTH.md) — technical precedence when docs conflict.
 
-
+**Repository:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) · `git clone https://github.com/jonbeatz/Boilerplate.git my-project`
 
 **Operator runbook:** [HOW-TO.md](.cursor/docs/HOW-TO.md) — commands, build ritual, commit gates, Path A/B UI.
 

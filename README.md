@@ -379,7 +379,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 
 - **Powered by** MSC Media Engine · Vader Protocol — strict namespace isolation certified
 - **Cursor-native** — calibrated for Cursor Agent and Composer execution paths
-- **Release certified:** v2.4.0 · 60/60 grade · 100% pass rate · production ready (`9272f8b`)
+- **Release certified:** v2.4.0 · 60/60 grade · 100% pass rate · production ready (`1e6c7d8` · [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate))
 
 **Operator docs:** [HOW-TO.md](.cursor/docs/HOW-TO.md) · [START-HERE.md](START-HERE.md) · [DOCS.md](DOCS.md) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
 

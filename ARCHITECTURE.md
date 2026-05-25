@@ -1,6 +1,6 @@
 # Architecture
 
-High-level layout of the **MSC v2.4.0** boilerplate.
+High-level layout of the **MSC v2.4.0** boilerplate ([jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate)).
 
 ```mermaid
 flowchart TB

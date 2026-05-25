@@ -2,6 +2,12 @@
 
 Single entry point for all **Boilerplate-v2.4.0** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
 
+| Field | Value |
+| --- | --- |
+| **Repository** | [github.com/jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) |
+| **Clone** | `git clone https://github.com/jonbeatz/Boilerplate.git my-project` |
+| **Version** | v2.4.0 · tag `v2.4.0` · grade **60/60** |
+
 ## Human control panel (root)
 
 | Document | Purpose |

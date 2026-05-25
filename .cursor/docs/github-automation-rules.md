@@ -2,7 +2,9 @@
 
 This guide defines the source-control standards, automated release build scripts, and tag-management rules for decoupled repositories using this boilerplate.
 
+**Canonical repository:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) · clone: `git clone https://github.com/jonbeatz/Boilerplate.git my-project`
 
+**Remote hygiene (2026-05-25):** `main` is the only long-lived branch; release tags use `v2.*` semver only. Obsolete `phase-*` tags and stale Dependabot branches were removed — do not recreate `phase-*` tags; use annotated `v2.x.y` tags per section 2 below.
 
 ---
 

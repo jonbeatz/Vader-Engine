@@ -1,5 +1,7 @@
 # Project assets
 
+Repository: [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) · v2.4.0
+
 Committed brand and README media live under [media/](../../media/) (for example `media/readme/vaderlabz-hero-reference.jpg`).
 
 | Location | Purpose |

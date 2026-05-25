@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+### Repository (post–v2.4.0)
+
+- **GitHub canonical slug:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) (renamed from `Boilerplate-v2`; version titles such as **Boilerplate-v2.4.0** unchanged)
+- **Clone:** `git clone https://github.com/jonbeatz/Boilerplate.git my-project`
+- **Internal URL sweep:** README badges, `package.json` `repository.url`, HOW-TO clone block, templates, and operator docs — historical `CHANGELOG` / `docs/releases/` / `.github/RELEASE-v2.*` entries preserved
+- **Remote hygiene (Phase E):** removed 10 stale Dependabot branches; deleted obsolete `phase-*` tags (`phase-2-pass` … `phase-6b-pass`); retained release tags `v2.1.0`–`v2.4.0` only
+- **Operator checklist:** enable GitHub **Automatically delete head branches** (Settings → General → Pull Requests); About description per [CONTRIBUTING.md](CONTRIBUTING.md#github-repository-about-manual)
+
+### Verified
+
+- `npm run msc:lint` · `npm run grade` **60/60** · `msc:test:root` **8/8**
+
 ---
 
 ## [2.4.0] - 2026-05-24 (60-Point Grader & Ecosystem Hardening)

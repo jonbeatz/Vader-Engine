@@ -1,10 +1,11 @@
 # Project Log & Source of Truth
 
 ## 📋 General Overview
-- **Project Name:** [Insert Name]
-- **Target Stack:** [e.g., WordPress/Divi, Next.js, Standalone PHP]
+- **Project Name:** MSC Universal Boilerplate (Vader Protocol)
+- **Repository:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) — renamed from `Boilerplate-v2` (May 2026); prior slug `Boilerplate-v1` / `Boilerplate-v2` preserved in historical changelog entries only
+- **Target Stack:** Next.js sandboxes · Payload CMS · WordPress Shield · Cursor MCP
 - **Current Version:** 2.4.0
-- **Status:** Vader Protocol locked — production baseline (`9272f8b`) · **60/60** grade · zero-noise hygiene
+- **Status:** Vader Protocol locked — production baseline (`1e6c7d8`) · **60/60** grade · main-only remote · release tags `v2.1.0`–`v2.4.0`
 
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 
@@ -27,9 +28,18 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - **Gate:** `msc:lint` (116 files) · `grade` 60/60 · `msc:test:root` 8/8 · `msc:validate-env` PASS
 - **Docs sync:** current-version headers aligned to v2.4.0 (post-audit)
 
+## ✅ Completed — Repository rebrand & Phase E hygiene (2026-05-25)
+
+- **Commits:** `1e6c7d8` (and `aea409d`) — `System(Rebrand): Establish 'Boilerplate' as VaderLabz engine protocol`
+- **Rebrand:** `Boilerplate-v2` → `Boilerplate` on GitHub; internal docs/URLs updated; version titles (`Boilerplate-v2.4.0`) unchanged
+- **Phase E:** deleted 10 Dependabot remote branches; removed 7 obsolete `phase-*` tags; `main` + `v2.*` tags only
+- **Gate:** `msc:lint` · `grade` 60/60 · `msc:test:root` 8/8
+
 ## 🚀 Next Session Queue (Start Project)
 
-*(No queued scaffolding work — pick next milestone from roadmap or operator backlog.)*
+- [ ] GitHub Settings → enable **Automatically delete head branches** (if not already)
+- [ ] Confirm GitHub **About** box matches [CONTRIBUTING.md](../CONTRIBUTING.md#github-repository-about-manual)
+- [ ] Optional: close stale Dependabot PRs on GitHub UI after branch cleanup
 
 ## ⚙️ Core Environment Specs
 - Local Environment URL: `MSC_PUBLIC_ORIGIN` or localhost
@@ -37,6 +47,12 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - Port Allocations: Web **3000** (`MSC_DEV_PORT`) · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
 
 ## 🪵 Development Changelog
+
+### [2026-05-25] - Session Closeout — Rebrand + Phase E repository sanitization
+- **Added:** [CHANGELOG.md](../../CHANGELOG.md) `[Unreleased]` notes for rebrand, clone URL, and remote hygiene
+- **Modified:** README, `package.json` repository URL, HOW-TO clone block, templates/static data, operator doc sync (`1e6c7d8`)
+- **Remote:** Dependabot branches removed; `phase-*` tags deleted; `v2.1.0`–`v2.4.0` retained
+- **Verified:** `git branch -r` → `origin/main` only · `git tag -l` → five `v2.*` tags · `main` == `origin/main` · gates **60/60** · **8/8**
 
 ### [2026-05-24] - Session Closeout — v2.4.0 production lock (Phases A–D complete)
 - **Added:** 60-point grader checks; Dependabot; GitHub issue/PR templates; `docs/releases/`; `docs/assets/`; `examples/nextjs-minimal/.env.example`; example/template README standardization

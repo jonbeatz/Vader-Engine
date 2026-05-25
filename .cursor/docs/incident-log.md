@@ -15,3 +15,18 @@ Use this ledger to document any breaking runtime faults, locked ports, or deploy
 2. Applied safe code fallback logic.
 3. `node scripts/msc-local-http-smoke.mjs <port>` — web gate on **3000** after dev server restart
 
+## ✅ [INCIDENT-002] Biome folder ignore — CI validate failure (2026-05-25)
+
+- **Symptoms:** CI `validate` failed on tag push — `lint/suspicious/useBiomeIgnoreFolder` on `!templates/**`
+- **Root cause:** Biome 2.2.0+ rejects trailing `/**` on folder ignore patterns
+- **Fix:** `biome.json` — `!templates/**` → `!templates` (commit `9a1a4b6`)
+- **Recovery:** `npm run msc:lint` before every tag; full gate = `msc:lint && grade && msc:test:root`
+- **Doc sync:** [CHANGELOG.md](../../CHANGELOG.md) · [project-log.md](./project-log.md) · [CONTRIBUTING.md](../../CONTRIBUTING.md)
+
+## 📋 [MAINT-001] Repository sanitization — Phase E (2026-05-25)
+
+- **Scope:** Remote-only cleanup on [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate)
+- **Actions:** Deleted 10 Dependabot branches; removed `phase-2-pass` … `phase-6b-pass`; retained `v2.1.0`–`v2.4.0`
+- **Verification:** `git fetch -p` · `git branch -r` → `origin/main` · `npm run start-project:gate` **60/60** · **8/8**
+- **Prevention:** Enable GitHub **Automatically delete head branches** — see [CONTRIBUTING.md](../../CONTRIBUTING.md#github-repository-about-manual)
+
