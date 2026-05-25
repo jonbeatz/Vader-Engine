@@ -1,2 +1,3 @@
+# Pre-tag ritual: lint locally before tag push (see HOW-TO.md Pre-release gate)
 npm run grade
 npm run msc:test:root

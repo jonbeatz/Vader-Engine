@@ -18,7 +18,7 @@ The forge shield blocks mutations on protected `msc-` namespaces and paths under
 - First import: `import './lib/msc-load-env.mjs'` (and node guard where applicable).
 - Register new commands in root `package.json` only.
 - Update [Code-Jedi.md](.cursor/docs/Code-Jedi.md) and [HOW-TO.md](.cursor/docs/HOW-TO.md) when adding scripts.
-- Template blueprints under `templates/` use `{{TOKEN}}` placeholders — excluded from Biome (`biome.json` → `!templates/**`). Do not run forge against protected paths.
+- Template blueprints under `templates/` use `{{TOKEN}}` placeholders — excluded from Biome (`biome.json` → `!templates`). Do not run forge against protected paths.
 
 ## Scaffolding contributions
 
@@ -81,6 +81,34 @@ When changing scripts, hooks, or sandboxes, update in the same session:
 
 Constitutional changes require [TRUTH.md](TRUTH.md) update first.
 
+## Release and versioning
+
+### Pre-tag gate (mandatory)
+
+Before `git tag` or `git push --tags`, run from repo root:
+
+```bash
+npm run msc:validate-env
+npm run verify:mcp
+npm run msc:lint
+npm run grade
+npm run msc:test:root
+```
+
+**Minimum before tag:**
+
+```bash
+npm run msc:lint && npm run grade && npm run msc:test:root
+```
+
+- **`msc:lint`** must exit **0** (CI runs this in the `validate` job before grade).
+- **`grade`** must report **52/52** (or **60/60** after grader expansion).
+- **`msc:test:root`** must pass (also enforced by `.husky/pre-push`).
+
+**CI lesson (2026-05-25):** Do not use deprecated `/**` suffixes on Biome folder ignores (`!templates/**` → `!templates`). The v2.3.0 release push failed CI until `biome.json` was fixed (`9a1a4b6`). Run lint locally before every tag.
+
+See also [HOW-TO.md — Pre-release gate](.cursor/docs/HOW-TO.md#pre-release-gate-mandatory-before-any-git-tag).
+
 ## Version sync (release or doc sweep)
 
 **Single source of truth:** root `package.json` → `"version"` field (currently **2.3.0**).
@@ -100,4 +128,4 @@ On every semver bump or alignment sweep, update **current-version** strings in t
 
 **Preserve as history (do not rewrite):** prior `CHANGELOG.md` sections, `.github/RELEASE-v2.x.x.md` archives, README "What's new in v2.x" for older releases.
 
-After sync: `npm run grade` (52/52) · update [CHANGELOG.md](CHANGELOG.md) · tag `vX.Y.Z` on the alignment commit.
+After sync: run the [pre-tag gate](#pre-tag-gate-mandatory) · `npm run grade` (52/52) · update [CHANGELOG.md](CHANGELOG.md) · tag `vX.Y.Z` on the alignment commit.

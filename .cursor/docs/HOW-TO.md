@@ -72,6 +72,30 @@ npm run msc:test:all
 npm run test:integration
 ```
 
+### Pre-release gate (mandatory before any git tag)
+
+Run from repo root **before** `git tag` or `git push --tags`. Aligns with CI `validate` (lint first) and `.husky/pre-push` (grade + root tests).
+
+**Full gate:**
+
+```bash
+npm run msc:validate-env
+npm run verify:mcp
+npm run msc:lint
+npm run grade
+npm run msc:test:root
+```
+
+**Minimum one-liner (required before tag):**
+
+```bash
+npm run msc:lint && npm run grade && npm run msc:test:root
+```
+
+**Targets:** `msc:lint` exit **0** (0 errors; aim for 0 warnings on polish releases) · `grade` **52/52** (or **60/60** after grader expansion) · Vitest root suite all passing.
+
+**CI lesson (2026-05-25):** Biome 2.2.0+ rejects folder ignores with trailing `/**` (use `!templates`, not `!templates/**`). The v2.3.0 tag failed CI until `biome.json` was corrected in commit `9a1a4b6` — always run `npm run msc:lint` locally before pushing tags.
+
 ### 5. Optional v2.3.0 release certification
 
 When releasing or forking to a new consumer:

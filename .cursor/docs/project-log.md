@@ -32,6 +32,14 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 
 ## 🪵 Development Changelog
 
+## Incident lesson — Biome folder ignore + pre-tag ritual (2026-05-25)
+
+- **Symptom:** CI `validate` failed on v2.3.0 push (`lint/suspicious/useBiomeIgnoreFolder` on `!templates/**`).
+- **Root cause:** Biome 2.2.0+ rejects trailing `/**` on folder ignore patterns in `biome.json`.
+- **Fix:** `!templates/**` → `!templates` (commit `9a1a4b6`); CI green on follow-up push.
+- **Recovery path:** Always run `npm run msc:lint` before tag push; full gate = `msc:lint && grade && msc:test:root`.
+- **Executor:** FEEDBACK-REVISED-FINAL Phase 0 verified 2026-05-25 — 52/52, 8/8 tests, 5 Biome warnings deferred to Phase A2.
+
 ## Feature Complete — v2.2.0 Template Scaffolding — 2026-05-24
 
 - **Commit:** `22ed024` · **Tag:** `v2.2.0`
