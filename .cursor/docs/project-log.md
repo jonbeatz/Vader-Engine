@@ -3,8 +3,8 @@
 ## 📋 General Overview
 - **Project Name:** [Insert Name]
 - **Target Stack:** [e.g., WordPress/Divi, Next.js, Standalone PHP]
-- **Current Version:** 2.3.0
-- **Status:** v2.3.0 VaderLabz Template — promoted (52/52)
+- **Current Version:** 2.4.0
+- **Status:** Vader Protocol locked — production baseline (`9272f8b`) · **60/60** grade · zero-noise hygiene
 
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 
@@ -20,6 +20,12 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - Seed persistence: `seed-payload.json` to `--target` or `.sandbox/` fallback
 - Docs synced: HOW-TO.md, Code-Jedi.md, README, CHANGELOG, ARCHITECTURE, TRUTH, DOCS
 - Grader: **52/52 unchanged**
+
+## ✅ Completed — v2.4.0 Production lock (Phases A–D) — 2026-05-24
+
+- **Commit:** `9272f8b` on `main` — zero-noise hygiene, `docs/releases/`, 60/60 grader
+- **Gate:** `msc:lint` (116 files) · `grade` 60/60 · `msc:test:root` 8/8 · `msc:validate-env` PASS
+- **Docs sync:** current-version headers aligned to v2.4.0 (post-audit)
 
 ## 🚀 Next Session Queue (Start Project)
 

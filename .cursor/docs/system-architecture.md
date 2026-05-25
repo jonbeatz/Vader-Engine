@@ -1,6 +1,6 @@
 # System Architecture Map
 
-Single source of truth for repository layout, subsystem boundaries, and integration contracts. Aligns with [README.md](../../README.md) (v2.3.0). Agent routing compass: [Code-Jedi.md](./Code-Jedi.md). Technical precedence: [TRUTH.md](../../TRUTH.md).
+Single source of truth for repository layout, subsystem boundaries, and integration contracts. Aligns with [README.md](../../README.md) (v2.4.0). Agent routing compass: [Code-Jedi.md](./Code-Jedi.md). Technical precedence: [TRUTH.md](../../TRUTH.md).
 
 > **Namespace Protocol:** All custom modules and CSS utilize the `msc-` or `MSC_` prefix to ensure cross-project portability and prevent integration conflicts. These are treated as structural namespaces for collision prevention, not branding. When cloning this boilerplate for a new project, these can be globally replaced if a different namespace anchor is required.
 
@@ -11,7 +11,7 @@ Single source of truth for repository layout, subsystem boundaries, and integrat
 ## Unified Core Layout Tree
 
 ```text
-📁 Boilerplate-v2/  (v2.3.0)
+📁 Boilerplate-v2/  (v2.4.0)
 ├── 📄 START-HERE.md              ◄ [Universal Cold-Start Ignition Runbook]
 ├── 📄 README.md · DOCS.md        ◄ [Overview + documentation index]
 ├── 📄 package.json                ◄ [Command Registry — 60-point grade authority]

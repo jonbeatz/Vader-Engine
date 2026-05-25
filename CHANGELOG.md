@@ -22,6 +22,12 @@
 - GitHub issue templates (bug, feature) and pull request template (Vader Protocol checklist)
 - CONTRIBUTING: template factory guide, Dependabot review steps, issue/PR template table
 
+### Repository hygiene (Phases C–D)
+
+- Release notes relocated to `docs/releases/`; grader path updated
+- `docs/assets/` index; example `.env.example` coverage; `validate-env` scans sandbox templates
+- Local design captures gitignored under `.cursor/design_references/*.jpg` (etc.)
+
 ### Grade
 
 - **60/60 (100%)**

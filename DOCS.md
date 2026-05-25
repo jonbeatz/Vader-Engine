@@ -13,7 +13,7 @@ Single entry point for all **Boilerplate-v2.4.0** documentation. Technical prece
 | [ARCHITECTURE.md](ARCHITECTURE.md) | High-level layout, sandboxes, CI pipeline |
 | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Operational recovery paths |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Fork, forge, hooks, PR gates |
-| [CHANGELOG.md](CHANGELOG.md) | Release history (v2.3.0 · v2.2.0 · v2.1.0 Gold Master) |
+| [CHANGELOG.md](CHANGELOG.md) | Release history (v2.4.0 · v2.3.1 · v2.3.0 · v2.2.0 · v2.1.0) |
 | [DEPLOY_TO_HOSTINGER.md](DEPLOY_TO_HOSTINGER.md) | Hostinger Node.js deploy for VaderLabz template |
 | [docs/releases/](docs/releases/) | Tagged release notes (`RELEASE_v*.md`) |
 | [docs/assets/](docs/assets/) | Asset index — committed media under `media/` |

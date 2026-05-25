@@ -8,7 +8,7 @@
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**v2.3.0 — VaderLabz Template** — Production-ready, self-validating, Cursor-native development foundation with Vader Protocol site template and Hostinger deploy path.
+**v2.4.0 — Vader Protocol Locked** — Production-ready, self-validating, Cursor-native foundation: 60-point grader, VaderLabz template, Dependabot, and zero-noise hygiene.
 
 | Link | Destination |
 | --- | --- |
@@ -365,7 +365,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 
 - **Powered by** MSC Media Engine · Vader Protocol — strict namespace isolation certified
 - **Cursor-native** — calibrated for Cursor Agent and Composer execution paths
-- **Release certified:** v2.3.0 · 52/52 grade · 100% pass rate · production ready
+- **Release certified:** v2.4.0 · 60/60 grade · 100% pass rate · production ready (`9272f8b`)
 
 **Operator docs:** [HOW-TO.md](.cursor/docs/HOW-TO.md) · [START-HERE.md](START-HERE.md) · [DOCS.md](DOCS.md) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
 

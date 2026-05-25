@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Operational recovery paths for the **MSC v2.3.0** workspace.
+Operational recovery paths for the **MSC v2.4.0** workspace.
 
 ## Bootstrap Failures
 

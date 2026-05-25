@@ -18,7 +18,7 @@ Welcome to the baseline repository configuration sandbox. This environment is st
 
 
 
-## v2.2 checklist
+## v2.4 baseline checklist
 
 
 
