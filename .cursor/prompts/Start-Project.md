@@ -19,7 +19,7 @@ Run `npm run start-project:gate` to verify 61/61 grade, lint, and tests.
 
 ## 4. Objective Setting
 
-- Check `.cursor/plans/task-planner.md` for active Phase 1–3 goals
+- Check `.cursor/prompts/task-planner.md` for active Phase 1–3 goals
 - Report: `System Ready. [Current Status] [Active Task].`
 
 **I am ready for high-velocity development. Acknowledge and proceed.**
