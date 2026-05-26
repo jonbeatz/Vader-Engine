@@ -77,6 +77,11 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 ## 🪵 Development Changelog
 
 ### [2026-05-25] - Session Closeout
+- **Added/Modified:** `README.md` — professional branding, Governance & Methodology, Triple-Sandbox Architecture, Operator Controls; `End-Project.md` task-planner sync; `Start-Project.md` planner path fix; `DOCS.md` / `CHANGELOG.md` index sync — **HEAD:** `ba24e77`
+- **Verified:** `start-project:gate` PASS (**61/61**, lint 0 errors, **8/8** tests)
+- **Ports cleared:** 3000, 3001, 3002, 8080
+
+### [2026-05-25] - Session Closeout (prompt consolidation)
 - **Added/Modified:** `.cursor/prompts/End-Project.md` — v2.5.0-SOVEREIGN closeout protocol; removed `.cursor/prompts/session-handoff.md`; cross-links in `DOCS.md`, `START-HERE.md`, `Code-Jedi.md`, `HOW-TO.md`, `global.mdc`, `agent-workflow.mdc`, `system-architecture.md`, skills README, refactor/incident prompts
 - **Verified:** `start-project:gate` PASS (**61/61**, lint 0 errors, **8/8** tests)
 - **Ports cleared:** 3000, 3001, 3002, 8080
