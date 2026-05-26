@@ -1,10 +1,10 @@
-# Boilerplate Studio — Master Product & Engineering Blueprint (Final)
+# Vader Protocol — Master Product & Engineering Blueprint (Final)
 
 **Document ID:** `v0-Designz-Final.md`  
-**Role:** Single **Master Product Blueprint** for Boilerplate Studio (v0.dev, P0 engineering, operator UX)  
-**Baseline:** Boilerplate **v2.5.0-SOVEREIGN** · [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate)  
+**Role:** Single **absolute Master Product Blueprint** for **Vader Protocol** (interface product · v0.dev · P0 engineering · operator UX)  
+**Baseline:** MSC Universal Boilerplate **v2.5.0-SOVEREIGN** · [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate)  
 **Branch context:** `Boilerplate-FrontEnd-v1`  
-**Status:** Final merged specification — conflict-free, implementation-ready
+**Status:** Final — conflict-free, implementation-ready · **no superseding design doc**
 
 ---
 
@@ -14,7 +14,7 @@
 | --- | --- | --- |
 | Accent / brand color | Neon `#00ffcc` · indigo SaaS · `#e02b20` | **`--msc-accent` (`#e02b20`)** — `ui/msc-shield.css` + Path B `tailwind.config.ts` |
 | Visual tone | Cyberpunk · generic admin | **Premium dev-tool** (Linear + Vercel + Railway). No neon overload |
-| Product naming | Control Plane · Master Dashboard | **Boilerplate Studio** (product) · **Vader Protocol Control Plane** (codename) |
+| Product naming | Boilerplate Studio · Control Plane · Master Dashboard | **Vader Protocol** — canonical interface product name (UI, nav, v0 prompt, chrome copy) |
 | Home layout | Bento · Mission Control | **Bento grid** inside **Mission Control** shell (sidebar + header + log drawer) |
 | Navigation IA | Tools/System split · flat sandboxes | **Dashboard → Projects → Templates → Sandboxes → Integrity → Operations → Protocols → Settings** |
 | Grader score | Stale 52/52 | **61/61** — current grader contract |
@@ -33,7 +33,7 @@
 
 ### 1.1 Product definition
 
-**Boilerplate Studio** is the visual command center for the MSC Universal Boilerplate ecosystem. The CLI (`msc:*` npm scripts) remains the **execution engine**; the dashboard is the **primary operator face** for humans and Cursor agents who should not memorize sixty-plus commands.
+**Vader Protocol** is the visual command center (interface product) for the MSC Universal Boilerplate ecosystem. The CLI (`msc:*` npm scripts) remains the **execution engine**; the **`ui/dashboard`** app on port **3010** is the **primary operator face** for humans and Cursor agents who should not memorize sixty-plus commands.
 
 **One-line positioning (canonical):**
 
@@ -47,7 +47,7 @@
 | --- | --- |
 | **Mood** | Industrial terminal meets premium developer product — disciplined, authoritative, fast |
 | **References** | Linear (density, keyboard-first) · Vercel Dashboard (restraint) · Railway (sandbox cards) · Raycast (command palette) |
-| **Theme modes** | **`dark`** (Studio Dark, default) · **`oled`** (true black surfaces) — toggle in Settings; **no light mode in P0** |
+| **Theme modes** | **`dark`** (Vader Protocol dark / `msc-shield` tokens, default) · **`oled`** (true black surfaces) — toggle in Settings; **no light mode in P0** |
 | **Density** | High information density; **~30% less decorative noise** than generic admin templates — operational clarity over ornament |
 | **Motion** | 150–200ms transitions · subtle green pulse for **running** sandboxes · skeleton shimmer for async blocks |
 | **Signature** | Header: `// VADER_PROTOCOL :: CONTROL_PLANE` · grade badge **61/61** always visible in chrome |
@@ -92,7 +92,7 @@ When health reports a port conflict, show inline error: `Port 3000 occupied — 
 - Body: `Port 3000 is occupied by PID 12345. Kill process?`
 - Actions: **`Kill & Restart`** (accent destructive) · **`Cancel`**
 
-Same pattern for **3010**, **3001**, **3002**, and **kill all** (with stronger copy: “This stops all dev servers and Boilerplate Studio.”).
+Same pattern for **3010**, **3001**, **3002**, and **kill all** (with stronger copy: “This stops all dev servers and Vader Protocol.”).
 
 ### 1.4 Design tokens (mandatory — Vader bridge)
 
@@ -140,13 +140,15 @@ Install and compose from **shadcn/ui** (Path B). No CSS modules · no inline `st
 | `QuickActionsGrid` | `Button` outline + `Tooltip` | Lifecycle · Quality · Maintenance |
 | `ActivityLog` | `ScrollArea` + monospace `pre` | Last N command results |
 
-### 2.3 Projects (recent work)
+### 2.3 Projects (scaffold management)
+
+Management dashboard for recent scaffolds (**persistence:** `localStorage`).
 
 | Component | shadcn | Notes |
 | --- | --- | --- |
-| `ProjectList` | `Table` or `Card` list | Recent scaffolds from `localStorage` |
-| `ProjectRow` | `Card` | Name · path · template id · last opened · Open folder CTA |
-| `EmptyProjects` | `Card` centered | “Scaffold from Templates” CTA |
+| `ProjectList` | `Table` (preferred) or dense list | Columns: **Name** · **Template Type** (`Badge`) · **Local Path** (mono) · **Last Opened** (relative timestamp) |
+| `ProjectRowActions` | `Button` default (accent) | **Open Folder** primary action per row |
+| `EmptyProjects` | `Card` centered | Copy: **No projects yet.** CTA button: **Scaffold from Templates →** navigates to `/templates` |
 
 ### 2.4 Integrity Center
 
@@ -219,10 +221,10 @@ Install and compose from **shadcn/ui** (Path B). No CSS modules · no inline `st
 ### 3.1 Architecture principle
 
 ```
-┌──────────────┐     API Routes (App Router)      ┌─────────────────┐
-│  React UI    │ ──► child_process spawn ──────►│  msc:* scripts  │
-│  (Studio)    │ ◄── SSE stdout / JSON ─────────│  (repo root)    │
-└──────────────┘     POST /api/run-script          └─────────────────┘
+┌──────────────────┐     API Routes (App Router)      ┌─────────────────┐
+│  React UI        │ ──► child_process spawn ───────►│  msc:* scripts  │
+│  (Vader Protocol)│ ◄── SSE stdout / JSON ─────────│  (repo root)    │
+└──────────────────┘     POST /api/run-script         └─────────────────┘
 ```
 
 - **Do not reimplement** grader, health, or template logic in the dashboard.
@@ -293,7 +295,7 @@ Install and compose from **shadcn/ui** (Path B). No CSS modules · no inline `st
 | Rule | Implementation |
 | --- | --- |
 | **Location** | `ui/dashboard/` — own `package.json` |
-| **Port** | **3010** — Boilerplate Studio (not a sandbox) |
+| **Port** | **3010** — Vader Protocol control plane (not a sandbox) |
 | **Kill-list (P0)** | **3010** in `scripts/msc-kill-all-dev-ports.mjs` with 3000, 3001, 3002, 8080 |
 | **Root deps** | Forbidden — only new root script: `"msc:dev:dashboard": "cd ui/dashboard && npm run dev"` |
 | **Styling** | `../../ui/msc-shield.css` in `globals.css` · Tailwind `msc-*` utilities |
@@ -316,7 +318,7 @@ Install and compose from **shadcn/ui** (Path B). No CSS modules · no inline `st
 ### 5.1 Must ship (P0)
 
 1. **Dashboard (Bento)** — metrics · triple sandbox · rituals · quick actions · activity  
-2. **Projects** — recent scaffolds list (localStorage) · empty state → Templates  
+2. **Projects** — scaffold management dashboard (`localStorage`): Name · Template Type badge · Local Path · Last Opened · **Open Folder** per row; empty state **No projects yet. Scaffold from Templates →**  
 3. **Template Gallery + Scaffold dialog** — list · apply · seed · terminal via SSE  
 4. **Sandbox Manager** — grid + detail · START/STOP/Open · **`AlertDialog`** on STOP  
 5. **Integrity Center** — 61/61 hero · run grader · accordion (incremental parser)  
@@ -387,7 +389,7 @@ Documentation center · deployment center · MCP status · optional AI builder
 | # | Area | Route | Priority | Notes |
 | --- | --- | --- | --- | --- |
 | 1 | **Dashboard** | `/` | P0 | Bento home |
-| 2 | **Projects** | `/projects` | P0 | Recent scaffolds |
+| 2 | **Projects** | `/projects` | P0 | Scaffold management (table + Open Folder) |
 | 3 | **Templates** | `/templates` | P0 | Scaffold engine |
 | 4 | **Sandboxes** | `/sandboxes` | P0 | Hub; children optional |
 | 4a | └ Minimal | `/sandboxes/minimal` | P0 | :3000 |
@@ -458,11 +460,11 @@ All controls map 1:1 to `package.json` scripts — no invented commands.
 Copy the fenced block into [v0.dev](https://v0.dev) for the **P0 MVP** UI.
 
 ````markdown
-You are an expert frontend architect. Build **Boilerplate Studio v2.5.0 — Vader Protocol Control Plane**, a production-grade Next.js 15 dashboard (App Router, TypeScript, Tailwind CSS 3, shadcn/ui).
+You are an expert frontend architect. Build **Vader Protocol v2.5.0**, the production-grade visual command center for MSC Universal Boilerplate (Next.js 15 App Router, TypeScript, Tailwind CSS 3, shadcn/ui).
 
 ## Brand
 
-- Product: Boilerplate Studio v2.5.0
+- Product name (use everywhere in UI): **Vader Protocol** v2.5.0
 - Tagline: Production-hardened Cursor-native ecosystem with 61-point integrity grader and triple-sandbox modularity
 - Reference: https://vaderlabz.com
 - Header signature (11px mono): `// VADER_PROTOCOL :: CONTROL_PLANE`
@@ -500,7 +502,7 @@ Row 4: Recent Activity monospace log with [PASS]/[OK] lines
 
 ## Page 2 — Projects
 
-Table/cards of recent scaffolds (sample data); empty state CTA to Templates
+**Projects Page:** A management dashboard for recent scaffolds (persistence via localStorage). Implementation: A clean list/table view showing project Name, Template Type (badge), Local Path, and "Last Opened" timestamp. Each row must include an "Open Folder" primary action button. Empty state: A clear, actionable "No projects yet. Scaffold from Templates →" call-to-action button that navigates directly to the Templates page.
 
 ## Page 3 — Templates
 
@@ -520,7 +522,7 @@ Searchable script list + terminal panel sample msc:lint output
 
 ## Page 7 — Operations / Ports
 
-Table: port, service, status, PID — include 3010 Boilerplate Studio; Kill buttons open AlertDialog
+Table: port, service, status, PID — include 3010 Vader Protocol; Kill buttons open AlertDialog
 
 ## Page 8 — Protocols + Settings
 
@@ -572,7 +574,7 @@ After first generation:
 - [ ] **`AlertDialog`** on all destructive actions (§1.3, §2.9)
 - [ ] **Skeleton** loading on async UI blocks
 - [ ] Sidebar IA per §7 (Dashboard → … → Settings)
-- [ ] Projects page + `localStorage` recent scaffolds
+- [ ] Projects page (§2.3 table spec) + `localStorage` recent scaffolds
 - [ ] Wire sandbox START/STOP with confirm dialog
 - [ ] Parser for `grade` stdout → accordion (incremental)
 - [ ] Add **3010** to `scripts/msc-kill-all-dev-ports.mjs` + `system-architecture.md` + health tests
@@ -600,4 +602,4 @@ After first generation:
 
 ---
 
-*Final merge 2026-05-25 · Boilerplate-FrontEnd-v1 · **`v0-Designz-Final.md` is the sole Master Product Blueprint.***
+*Final merge 2026-05-25 · Boilerplate-FrontEnd-v1 · **Product: Vader Protocol · Nav: Dashboard → Projects → Templates → Sandboxes → Integrity → Operations → Protocols → Settings · `v0-Designz-Final.md` is the absolute, sole Master Product Blueprint.***
