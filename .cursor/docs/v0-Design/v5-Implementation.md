@@ -3,7 +3,7 @@
 **Module:** `v5-Implementation.md`  
 **Product:** Vader Protocol · **`ui/dashboard/`** · Port **3010**
 
-**Blueprint modules:** [v1 Overview](v1-Overview.md) · [v2 Layout & Components](v2-Layout-Components.md) · [v3 State & Data](v3-State-Data.md) · [v4 Operations](v4-Operations.md) · [v5 Implementation](v5-Implementation.md) · [v6 Master Prompt](v6-Master-Prompt.md)
+**Blueprint modules:** [v1-Overview.md](v1-Overview.md) · [v2-Layout-Components.md](v2-Layout-Components.md) · [v3-State-Data.md](v3-State-Data.md) · [v4-Operations.md](v4-Operations.md) · [v5-Implementation.md](v5-Implementation.md) · [v6-Master-Prompt.md](v6-Master-Prompt.md)
 
 **Role:** Lean Boundary, phased roadmap, engineering checklist, repository references.  
 **v0 generation:** [v6-Master-Prompt.md](v6-Master-Prompt.md)
@@ -104,6 +104,7 @@ Documentation center · deployment center · MCP status · optional AI builder
 | Path B rules | `.cursor/rules/tailwind-shadcn-bridge.mdc` |
 | Port contract | `.cursor/docs/system-architecture.md` |
 | Studio Dark skill | `.cursor/skills/studio-dark-shield.md` |
+| Modular blueprint index | `.cursor/docs/v0-Design/README.md` |
 
 ---
 

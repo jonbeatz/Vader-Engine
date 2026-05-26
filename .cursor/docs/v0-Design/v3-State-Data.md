@@ -3,7 +3,7 @@
 **Module:** `v3-State-Data.md`  
 **Product:** Vader Protocol · API: `/api/health` · `/api/grade` · `/api/run-script`
 
-**Blueprint modules:** [v1 Overview](v1-Overview.md) · [v2 Layout & Components](v2-Layout-Components.md) · [v3 State & Data](v3-State-Data.md) · [v4 Operations](v4-Operations.md) · [v5 Implementation](v5-Implementation.md) · [v6 Master Prompt](v6-Master-Prompt.md)
+**Blueprint modules:** [v1-Overview.md](v1-Overview.md) · [v2-Layout-Components.md](v2-Layout-Components.md) · [v3-State-Data.md](v3-State-Data.md) · [v4-Operations.md](v4-Operations.md) · [v5-Implementation.md](v5-Implementation.md) · [v6-Master-Prompt.md](v6-Master-Prompt.md)
 
 **Role:** TanStack Query, Zustand, persistence, SSE logs, error/loading UX.  
 **Scripts:** [v4-Operations.md](v4-Operations.md) §8 · **Boundary:** [v5-Implementation.md](v5-Implementation.md) §4
@@ -22,7 +22,7 @@
 ```
 
 - **Do not reimplement** grader, health, or template logic in the dashboard.
-- Spawn with `cwd` = repo root · env from hydrated `process.env` (`.env.local` via loader pattern).
+- Spawn with `cwd` = repo root; env from hydrated `process.env` (`.env.local` via loader pattern).
 
 ### 3.2 TanStack Query (server state)
 
@@ -37,10 +37,10 @@
 
 **Mutations** (invalidate `health` / `grade` on success):
 
-- `startSandbox` → `msc:dev:*`
-- `killPorts` → `msc:kill-dev-port` (after `AlertDialog`)
-- `runScript` → `npm run …` via POST `/api/run-script`
-- `scaffold` → `msc:template apply` (+ optional seed)
+- `startSandbox` → `msc:dev:*`.
+- `killPorts` → `msc:kill-dev-port` (after `AlertDialog`).
+- `runScript` → `npm run …` via POST `/api/run-script`.
+- `scaffold` → `msc:template apply` (+ optional seed).
 
 ### 3.3 Zustand (UI state)
 
@@ -68,8 +68,8 @@
 ### 3.5 Real-time logs
 
 - **P0:** Server-Sent Events (SSE) from API route streaming `child_process` stdout/stderr.
-- **Command input:** **POST** `/api/run-script` — spawn script, optional stdin for interactive tools (P1: `rs` restart hints).
-- P0 line-prefix coloring: `[PASS]` · `[OK]` · `[FAIL]`; full ANSI P1.
+- **Command input:** **POST** `/api/run-script` — spawns script; optional stdin for interactive tools (P1: `rs` restart hints).
+- **P0 coloring:** Line-prefix `[PASS]` · `[OK]` · `[FAIL]`; full ANSI in P1.
 
 ### 3.6 Error & loading UX (P0 required)
 

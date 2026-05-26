@@ -4,7 +4,7 @@
 **Product:** Vader Protocol · MSC Universal Boilerplate **v2.5.0-SOVEREIGN**  
 **Branch:** `Boilerplate-FrontEnd-v1`
 
-**Blueprint modules:** [v1 Overview](v1-Overview.md) · [v2 Layout & Components](v2-Layout-Components.md) · [v3 State & Data](v3-State-Data.md) · [v4 Operations](v4-Operations.md) · [v5 Implementation](v5-Implementation.md) · [v6 Master Prompt](v6-Master-Prompt.md)
+**Blueprint modules:** [v1-Overview.md](v1-Overview.md) · [v2-Layout-Components.md](v2-Layout-Components.md) · [v3-State-Data.md](v3-State-Data.md) · [v4-Operations.md](v4-Operations.md) · [v5-Implementation.md](v5-Implementation.md) · [v6-Master-Prompt.md](v6-Master-Prompt.md)
 
 **Role:** Canonical synthesis, product definition, look/feel, and `--msc-*` token contract.  
 **Baseline:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) · **Status:** Modular master blueprint (module 1 of 6)

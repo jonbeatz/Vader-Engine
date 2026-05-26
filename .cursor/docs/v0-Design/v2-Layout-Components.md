@@ -3,7 +3,7 @@
 **Module:** `v2-Layout-Components.md`  
 **Product:** Vader Protocol · Port **3010** · `ui/dashboard/`
 
-**Blueprint modules:** [v1 Overview](v1-Overview.md) · [v2 Layout & Components](v2-Layout-Components.md) · [v3 State & Data](v3-State-Data.md) · [v4 Operations](v4-Operations.md) · [v5 Implementation](v5-Implementation.md) · [v6 Master Prompt](v6-Master-Prompt.md)
+**Blueprint modules:** [v1-Overview.md](v1-Overview.md) · [v2-Layout-Components.md](v2-Layout-Components.md) · [v3-State-Data.md](v3-State-Data.md) · [v4-Operations.md](v4-Operations.md) · [v5-Implementation.md](v5-Implementation.md) · [v6-Master-Prompt.md](v6-Master-Prompt.md)
 
 **Role:** Bento dashboard layout, port-conflict UX, and shadcn/ui component hierarchy.  
 **Tokens:** See [v1-Overview.md](v1-Overview.md) §1.4 · **Nav order:** See [v4-Operations.md](v4-Operations.md) §7
@@ -30,7 +30,7 @@
 
 - One concern per card (ports together, rituals together, grade alone).
 - Expandable cards for secondary detail (accordion inside card).
-- Error copy is **actionable** (e.g. “Port 3000 occupied — Kill process” not “Error”).
+- Error copy is **actionable** (e.g. “Port 3000 occupied — Kill process”, not “Error”).
 - Primary CTAs use **`--msc-accent`**; success uses `--msc-success` (`#1D9E75`).
 
 **Port conflict handling (mandatory):**
@@ -47,7 +47,7 @@ Same pattern for **3010**, **3001**, **3002**, and **kill all** (with stronger c
 
 ## 2. Component Hierarchy (shadcn/ui)
 
-Install and compose from **shadcn/ui** (Path B). No CSS modules · no inline `style={{}}` on product components.
+Install and compose from **shadcn/ui** (Path B). No CSS modules. No inline `style={{}}` on product components.
 
 ### 2.1 Layout shell
 
@@ -84,7 +84,7 @@ Management dashboard for recent scaffolds (**persistence:** `localStorage`).
 | Component | shadcn | Notes |
 | --- | --- | --- |
 | `GradeHero` | `Progress` + `Skeleton` | **61/61** — skeleton during grade mutation |
-| `RunGraderButton` | `Button` (accent) + loading | `npm run grade` |
+| `RunGraderButton` | `Button` (accent) + loading | `npm run grade` · `data-testid="run-grader-button"` |
 | `CheckAccordion` | `Accordion` | Categories pass/fail |
 | `FailurePanel` | `Alert` destructive | When grade &lt; 100% |
 

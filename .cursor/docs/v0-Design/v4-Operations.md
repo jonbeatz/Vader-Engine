@@ -1,9 +1,9 @@
 # Vader Protocol — Operations, Scope & Navigation
 
 **Module:** `v4-Operations.md`  
-**Product:** Vader Protocol · **Nav:** Dashboard → Projects → Templates → Sandboxes → Integrity → Operations → Protocols → Settings
+**Product:** Vader Protocol · **Baseline:** v2.5.0-SOVEREIGN · **Nav:** Dashboard → Projects → Templates → Sandboxes → Integrity → Operations → Protocols → Settings
 
-**Blueprint modules:** [v1 Overview](v1-Overview.md) · [v2 Layout & Components](v2-Layout-Components.md) · [v3 State & Data](v3-State-Data.md) · [v4 Operations](v4-Operations.md) · [v5 Implementation](v5-Implementation.md) · [v6 Master Prompt](v6-Master-Prompt.md)
+**Blueprint modules:** [v1-Overview.md](v1-Overview.md) · [v2-Layout-Components.md](v2-Layout-Components.md) · [v3-State-Data.md](v3-State-Data.md) · [v4-Operations.md](v4-Operations.md) · [v5-Implementation.md](v5-Implementation.md) · [v6-Master-Prompt.md](v6-Master-Prompt.md)
 
 **Role:** P0/P1 feature scope, sidebar IA, canonical npm script surface.  
 **Components:** [v2-Layout-Components.md](v2-Layout-Components.md) · **Roadmap:** [v5-Implementation.md](v5-Implementation.md) §6
