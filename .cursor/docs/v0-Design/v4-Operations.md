@@ -1,7 +1,7 @@
 # Vader Protocol — Operations, Scope & Navigation
 
 **Module:** `v4-Operations.md`  
-**Product:** Vader Protocol · **Baseline:** v2.5.0-SOVEREIGN · **Nav:** Dashboard → Projects → Templates → Sandboxes → Integrity → Operations → Protocols → Settings
+**Product:** Vader Protocol · **Baseline:** v2.5.0-Engine · **Nav:** Dashboard → Projects → Templates → Sandboxes → Integrity → Operations → Protocols → Settings
 
 **Blueprint modules:** [v1-Overview.md](v1-Overview.md) · [v2-Layout-Components.md](v2-Layout-Components.md) · [v3-State-Data.md](v3-State-Data.md) · [v4-Operations.md](v4-Operations.md) · [v5-Implementation.md](v5-Implementation.md) · [v6-Master-Prompt.md](v6-Master-Prompt.md)
 

@@ -1,7 +1,7 @@
 # Vader Protocol — Overview & Design Tokens
 
 **Module:** `v1-Overview.md`  
-**Product:** Vader Protocol · MSC Universal Boilerplate **v2.5.0-SOVEREIGN**  
+**Product:** Vader Protocol · MSC Universal Boilerplate **v2.5.0-Engine**  
 **Branch:** `Boilerplate-FrontEnd-v1`
 
 **Blueprint modules:** [v1-Overview.md](v1-Overview.md) · [v2-Layout-Components.md](v2-Layout-Components.md) · [v3-State-Data.md](v3-State-Data.md) · [v4-Operations.md](v4-Operations.md) · [v5-Implementation.md](v5-Implementation.md) · [v6-Master-Prompt.md](v6-Master-Prompt.md)
@@ -13,7 +13,7 @@
 
 ## 0. Synthesis Notes (Conflict Resolution)
 
-| Topic | Prior variants | **Resolved decision (SOVEREIGN)** |
+| Topic | Prior variants | **Resolved decision (Engine)** |
 | --- | --- | --- |
 | Accent / brand color | Neon `#00ffcc` · indigo SaaS · `#e02b20` | **`--msc-accent` (`#e02b20`)** — `ui/msc-shield.css` + Path B `tailwind.config.ts` |
 | Visual tone | Cyberpunk · generic admin | **Premium dev-tool** (Linear + Vercel + Railway). No neon overload |

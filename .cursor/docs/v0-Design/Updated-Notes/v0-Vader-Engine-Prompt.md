@@ -1,49 +1,5 @@
 # Vader Protocol — Master v0.dev Prompt
 
-**Module:** `v6-Master-Prompt.md`  
-**Product:** Vader Protocol v2.5.0-Engine · Copy-paste into [v0.dev](https://v0.dev)
-
-**Blueprint modules:** [v1-Overview.md](v1-Overview.md) · [v2-Layout-Components.md](v2-Layout-Components.md) · [v3-State-Data.md](v3-State-Data.md) · [v4-Operations.md](v4-Operations.md) · [v5-Implementation.md](v5-Implementation.md) · [v6-Master-Prompt.md](v6-Master-Prompt.md)
-
-**Role:** Actionable v0 generation prompt and post-generation follow-ups.  
-**Synthesized from:** [Updated-Notes/v6-updatez.md](Updated-Notes/v6-updatez.md) · assets in `.cursor/design_references/v0-Design-Refrences/`
-
-**Branding hierarchy (v0 prompt):**
-
-| Layer | Name | Scope |
-| --- | --- | --- |
-| Product | **Vader Protocol** | System, rules, aesthetic baseline |
-| UI / design workspace | **Vader Construct** | Dashboard shell, Bento UI, v0 generation |
-| Core / backend engine | **Vader Engine** | `msc:*` scripts, API routes, `child_process` wiring |
-| Version | **v2.5.0-Engine** | Locked baseline tag |
-
----
-
-## Visual Reference Images (attach to v0.dev)
-
-Attach these **6 images** from `.cursor/design_references/v0-Design-Refrences/` when prompting v0:
-
-| Image | What it shows | Use for |
-| --- | --- | --- |
-| `MSC-CRM_Mock_v1.jpg` | Sidebar density, project steps (1–5), task list, activity pulse stub | **Sidebar layout, card hierarchy, step indicators** |
-| `MSC-CRM_Mock_v2.jpg` | Activity feed, asset storage cards, support tickets, **footer (`Powered by MSC Media Engine`)** + **command bar (`Type / for commands`)** | **Activity strip, storage/ticket cards, footer placement, command palette position** |
-| `MSC-CRM_Mock_v3.jpg` | Empty state + "New Client" / "New Project" CTAs | **Empty state design, primary CTAs** |
-| `MSC-CRM_Mock_v4.jpg` | Client profile view — communication feed, financials, secure vault | **Detail page layout, tabs (Communication / Financials / Vault)** |
-| `MSC-CRM_Mock_v9.jpg` | Settings page — tabs (Profile, Branding, Preferences, Activity), theme toggle (Dark / Light / System), notification toggles | **Settings page structure, form controls, save / cancel buttons** |
-| `MSC-Media-Pro-VideoTutorialz-Main.jpg` | Card design, category pills, progress indicator (3/9), search / filter bar | **Card styling, category filters, progress metrics** |
-
-**Critical directives from these images:**
-
-- **Footer:** Must include `Powered by MSC Media Engine` (see `MSC-CRM_Mock_v2.jpg` bottom)
-- **Command Palette trigger:** `Type / for commands` (see `MSC-CRM_Mock_v2.jpg` bottom-left) — opens same palette as ⌘K
-- **Activity pulse:** Real-time feed with relative timestamps (`2m ago`, `15m ago`, `45m ago`, `2h ago`)
-- **Asset storage:** Progress bars (e.g. `2.4GB / 5GB`)
-- **Support tickets:** Status badges (`Open`, `Pending`)
-- **Empty state:** "No projects" + CTA buttons (see `MSC-CRM_Mock_v3.jpg`)
-- **Surfaces:** Page `#121212`, cards `#1c1c1c`, green-pulse indicators for active services, monospace for ports / PIDs / grades
-
----
-
 ## 9. Actionable v0.dev Prompt (copy-paste)
 
 Copy the block below into [v0.dev](https://v0.dev). **Attach the 6 images listed above.**
@@ -112,5 +68,3 @@ Map colors to tailwind.config via var(--msc-*). Confirm Port Registry includes 3
 ````
 
 ---
-
-*Module 6 of 6 · Synthesis and tokens → [v1-Overview.md](v1-Overview.md) · Post-v0 handoff → [v5-Implementation.md](v5-Implementation.md) §12–§14*

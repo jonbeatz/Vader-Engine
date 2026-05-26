@@ -1,6 +1,6 @@
 # Vader Protocol — Design Blueprint (Modular)
 
-**Product:** Vader Protocol · **Baseline:** Boilerplate v2.5.0-SOVEREIGN  
+**Product:** Vader Protocol · **Baseline:** Boilerplate v2.5.0-Engine  
 **Interface:** `ui/dashboard/` · Port **3010**  
 **Last updated:** 2026-05-26
 

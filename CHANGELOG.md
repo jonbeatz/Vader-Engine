@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **Branding:** Vader Protocol baseline tag renamed from `v2.5.0-SOVEREIGN` to **v2.5.0-Engine** across docs, prompts, and grader banner (semver **2.5.0** unchanged)
+
 ---
 
 ## [2.5.0] - 2026-05-25 (Tailwind Path B Sandbox)

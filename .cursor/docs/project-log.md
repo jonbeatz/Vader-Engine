@@ -5,7 +5,7 @@
 - **Repository:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) — renamed from `Boilerplate-v2` (May 2026); prior slug `Boilerplate-v1` / `Boilerplate-v2` preserved in historical changelog entries only
 - **Target Stack:** Next.js sandboxes · Payload CMS · WordPress Shield · Cursor MCP
 - **Current Version:** 2.5.0
-- **Status:** Vader Protocol locked — v2.5.0-SOVEREIGN baseline · **61/61** grade · main-only remote · release tags `v2.1.0`–`v2.5.0`
+- **Status:** Vader Protocol locked — v2.5.0-Engine baseline · **61/61** grade · main-only remote · release tags `v2.1.0`–`v2.5.0`
 
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 

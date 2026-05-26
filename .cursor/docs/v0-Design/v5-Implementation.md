@@ -186,7 +186,7 @@ Final product/repo naming is **not locked**. Preserve for future branding decisi
 
 **Workspace split (recommended pair):** **Vader Protocol** (core engine) + **Vader Construct** (UI workbench) — see [v6-Master-Prompt.md](v6-Master-Prompt.md) branding table.
 
-**Alternates under consideration:** Vertex, Daemon, Apex, Jedi, Master, Source, Syntax, Vault, Imperial, Shadowz, Fortress, Dark Side — and repo names such as Vader Labz, Vader Studioz, Vader Vault, Sith Vault, MSC Studioz Engine. Tag **SOVEREIGN** may be revised.
+**Alternates under consideration:** Vertex, Daemon, Apex, Jedi, Master, Source, Syntax, Vault, Imperial, Shadowz, Fortress, Dark Side — and repo names such as Vader Labz, Vader Studioz, Vader Vault, Sith Vault, MSC Studioz Engine. **Baseline tag:** v2.5.0-Engine (locked).
 
 ---
 

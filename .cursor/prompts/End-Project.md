@@ -1,4 +1,4 @@
-**Act as a Lead Systems Architect. We are performing a 'Session Closeout' for the v2.5.0-SOVEREIGN project.**
+**Act as a Lead Systems Architect. We are performing a 'Session Closeout' for the v2.5.0-Engine project.**
 
 ## 1. Environment Cleanup & Verification
 
@@ -40,7 +40,7 @@ Print:
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║  ✅ Session Closeout — v2.5.0-SOVEREIGN                       ║
+║  ✅ Session Closeout — v2.5.0-Engine                       ║
 ║  📦 Ports cleared | 🎯 Grade: 61/61                           ║
 ║  📝 Git: [clean / changes staged / unstaged]                  ║
 ║  📝 Current State: [Summary]                                  ║
