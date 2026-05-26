@@ -1,7 +1,7 @@
 # Boilerplate Studio — Master Product & Engineering Blueprint
 
 **Document ID:** `v0-Designz.md`  
-**Synthesized from:** `v0-1.md` · `v0-2.md` · `v0-3.md` · `v0-4.md` · `v0-5.md` · `v0-6.md`  
+**Source:** Six v0 design briefs (consolidated; **`v0-Designz.md` is the canonical SSoT**)  
 **Baseline:** Boilerplate **v2.5.0-SOVEREIGN** · [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate)  
 **Branch context:** `Boilerplate-FrontEnd-v1`  
 **Status:** Definitive synthesis for v0.dev MVP generation and P0 implementation
