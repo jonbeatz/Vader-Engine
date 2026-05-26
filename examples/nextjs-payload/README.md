@@ -1,6 +1,6 @@
 # nextjs-payload — Full-Stack CMS Sandbox
 
-> **MSC Boilerplate** · **Sandbox** · Port **3001** · Next.js 15.4.11 + Payload CMS v3 + SQLite
+> **Vader Engine** · **Sandbox** · Port **3001** · Next.js 15.4.11 + Payload CMS v3 + SQLite
 
 Isolated Payload CMS v3.x + Next.js sandbox. Parent index: [examples/README.md](../README.md). SQLite data files (`*.db`) are gitignored; the `database/` directory is committed via `database/.gitkeep`.
 

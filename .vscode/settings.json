@@ -1,6 +1,6 @@
 {
   "terminal.integrated.profiles.windows": {
-    "Boilerplate Node": {
+    "Vader Engine Node": {
       "path": "powershell.exe",
       "args": ["-NoLogo"],
       "env": {
@@ -8,7 +8,7 @@
       }
     }
   },
-  "terminal.integrated.defaultProfile.windows": "Boilerplate Node",
+  "terminal.integrated.defaultProfile.windows": "Vader Engine Node",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "biomejs.biome",
   "editor.codeActionsOnSave": {

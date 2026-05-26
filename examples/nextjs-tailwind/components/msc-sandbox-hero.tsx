@@ -32,7 +32,7 @@ export function MscSandboxHero() {
         </MscCardContent>
       </MscCard>
       <footer className="text-center text-xs text-msc-text-secondary">
-        Powered by the MSC Media Engine · Boilerplate v2.5.0 sprint
+        Powered by the MSC Media Engine · Vader Engine v2.5.0 sprint
       </footer>
     </main>
   );

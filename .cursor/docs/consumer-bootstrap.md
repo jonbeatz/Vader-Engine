@@ -11,7 +11,7 @@ git clone https://github.com/your-org/your-app.git
 cd your-app
 ```
 
-Copy (or submodule) these paths from Boilerplate into the consumer repo root:
+Copy (or submodule) these paths from Vader Engine into the consumer repo root:
 
 | Source | Destination |
 |--------|-------------|

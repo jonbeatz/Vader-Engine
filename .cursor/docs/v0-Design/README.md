@@ -1,6 +1,6 @@
 # Vader Protocol — Design Blueprint (Modular)
 
-**Product:** Vader Protocol · **Baseline:** Boilerplate v2.5.0-Engine  
+**Product:** Vader Protocol · **Baseline:** Vader Engine v2.5.0-Engine  
 **Interface:** `ui/dashboard/` · Port **3010**  
 **Last updated:** 2026-05-26
 
@@ -11,7 +11,7 @@
 | **`main`** | Stable **v2.5.0-Engine** baseline — merge via PR only |
 | **`feat/vader-construct-dashboard`** | v0 UI generation → `ui/dashboard/` (port **3010**) — **start here for frontend build** |
 
-Obsolete `Boilerplate-FrontEnd-v1` was merged into `main` and removed (design blueprint + reference assets only).
+Obsolete `Vader Engine-FrontEnd-v1` was merged into `main` and removed (design blueprint + reference assets only).
 
 ## Developer Portal
 

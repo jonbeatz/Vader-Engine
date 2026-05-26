@@ -1,8 +1,8 @@
 # Discovered Logic Map (Multi-Agent Synthesis)
 
-Deep scan of pillar repositories vs Boilerplate. Items marked **ported** exist in this repo; **stub** require consumer wiring; **doc-only** are rituals documented but not executable here.
+Deep scan of pillar repositories vs Vader Engine. Items marked **ported** exist in this repo; **stub** require consumer wiring; **doc-only** are rituals documented but not executable here.
 
-| Category | Capability | Source repo / file | Boilerplate status |
+| Category | Capability | Source repo / file | Vader Engine status |
 |----------|------------|-------------------|-------------------|
 | **Data** | Dual `DATABASE_URI` + `DATABASE_URL` resolver | MSC-Projectz `lib/msc_payload_sqlite_push.ts` | **ported** → `core/msc-sqlite-path.ts`, `scripts/lib/msc-sqlite-path.mjs` |
 | **Data** | Smart SQLite Drizzle push gating | MSC-Projectz `msc_payload_sqlite_push.ts` | **ported** → `core/msc-payload-sqlite-push.ts` |

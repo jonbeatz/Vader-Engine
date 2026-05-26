@@ -19,11 +19,11 @@ npm run dev
 Verify that the UI loads on http://localhost:3010 (or the port v0 used – change later to 3010).
 
 3. Let Cursor take over – integration prompt
-**Role:** You are a Lead Systems Architect integrating a v0-generated UI into the existing Boilerplate ecosystem.
+**Role:** You are a Lead Systems Architect integrating a v0-generated UI into the existing Vader Engine ecosystem.
 
 **Context:**
 - The v0-generated dashboard UI is located in `ui/dashboard/`.
-- Your boilerplate root contains all `msc:*` scripts (e.g., `npm run grade`, `msc:health --json`, `msc:template list`, etc.).
+- Your Vader Engine root contains all `msc:*` scripts (e.g., `npm run grade`, `msc:health --json`, `msc:template list`, etc.).
 - The dashboard must call real backend API routes that spawn `child_process` to execute those scripts.
 
 **Tasks:**

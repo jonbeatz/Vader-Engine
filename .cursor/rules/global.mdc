@@ -4,7 +4,7 @@ globs: "*"
 alwaysApply: true
 ---
 
-# Universal Boilerplate Blueprint & Context Rules
+# Universal Vader Engine Blueprint & Context Rules
 
 ## 🌌 Universal Adaptability Guardrails (STRICT)
 - **Zero Hardcoding:** All paths, URLs, database prefixes, and domain targets must be abstracted. Use environment configurations, constants, or hook-driven systems.

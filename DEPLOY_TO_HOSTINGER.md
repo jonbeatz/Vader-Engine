@@ -9,7 +9,7 @@ This guide deploys the **static** VaderLabz Next.js site from `Dev-Projectz/vade
 | Item | Requirement |
 |------|-------------|
 | **Source app** | `../Dev-Projectz/vader-site` (built with `ENABLE_PAYLOAD=false` for production) |
-| **Boilerplate repo** | This repository (`Boilerplate`) |
+| **Vader Engine repo** | This repository (`Vader Engine`) |
 | **Shell** | Git Bash or WSL on Windows; bash on macOS/Linux |
 | **Node on Hostinger** | **20.x** or **24.x** (match `.nvmrc` policy) |
 | **New GitHub repo** | Empty repo for deploy only (e.g. `vader-site-hostinger`) |
@@ -18,7 +18,7 @@ This guide deploys the **static** VaderLabz Next.js site from `Dev-Projectz/vade
 
 ## Step 1 — Generate the deploy folder locally
 
-From the **Boilerplate** repository root:
+From the **Vader Engine** repository root:
 
 ```bash
 bash scripts/prep-hostinger-deploy.sh
@@ -114,7 +114,7 @@ After the build succeeds:
 When you update `Dev-Projectz/vader-site`:
 
 ```bash
-# From Boilerplate root
+# From Vader Engine root
 bash scripts/prep-hostinger-deploy.sh
 cd vader-site-deploy
 git add .

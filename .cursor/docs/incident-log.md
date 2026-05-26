@@ -25,7 +25,7 @@ Use this ledger to document any breaking runtime faults, locked ports, or deploy
 
 ## 📋 [MAINT-001] Repository sanitization — Phase E (2026-05-25)
 
-- **Scope:** Remote-only cleanup on [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate)
+- **Scope:** Remote-only cleanup on [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine)
 - **Actions:** Deleted 10 Dependabot branches; removed `phase-2-pass` … `phase-6b-pass`; retained `v2.1.0`–`v2.4.0`
 - **Verification:** `git fetch -p` · `git branch -r` → `origin/main` · `npm run start-project:gate` **61/61** · **8/8**
 - **Prevention:** `npm run msc:github:sync` or enable **Automatically delete head branches** — see [CONTRIBUTING.md](../../CONTRIBUTING.md#github-repository-settings-mscgithubsync)

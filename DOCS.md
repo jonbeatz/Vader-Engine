@@ -1,11 +1,11 @@
 # Documentation Index (SSoT Router)
 
-Single entry point for all **Boilerplate v2.5.0-Engine** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
+Single entry point for all **Vader Engine v2.5.0-Engine** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
 
 | Field | Value |
 | --- | --- |
-| **Repository** | [github.com/jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) |
-| **Clone** | `git clone https://github.com/jonbeatz/Boilerplate.git my-project` |
+| **Repository** | [github.com/jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) |
+| **Clone** | `git clone https://github.com/jonbeatz/Vader-Engine.git my-project` |
 | **Version** | v2.5.0-Engine · semver `2.5.0` · grade **61/61** |
 
 ## Human control panel (root)

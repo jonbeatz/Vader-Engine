@@ -7,7 +7,7 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SRC="${MSC_VADER_SITE_SRC:-$REPO_ROOT/../Dev-Projectz/vader-site}"
 DEST="$REPO_ROOT/vader-site-deploy"
 
-echo "[prep-hostinger] Boilerplate root: $REPO_ROOT"
+echo "[prep-hostinger] Vader Engine root: $REPO_ROOT"
 echo "[prep-hostinger] Source:          $SRC"
 echo "[prep-hostinger] Output:          $DEST"
 

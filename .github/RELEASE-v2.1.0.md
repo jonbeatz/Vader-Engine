@@ -1,6 +1,6 @@
 ## v2.1.0 Gold Master — May 24, 2026
 
-Production-ready, self-validating, Cursor-native development foundation. **Grade: 52/52 (100%).** Repository: [jonbeatz/Boilerplate-v2](https://github.com/jonbeatz/Boilerplate-v2).
+Production-ready, self-validating, Cursor-native development foundation. **Grade: 52/52 (100%).** Repository: [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine).
 
 ### Major Features & Improvements
 
@@ -53,19 +53,19 @@ Production-ready, self-validating, Cursor-native development foundation. **Grade
 ### P3 polish (100/100)
 - Playwright E2E multi-sandbox harness (`npm run msc:e2e`) in CI
 - `.cursor/settings.json` — AI rules, default model, terminal preferences
-- Repository renamed to **Boilerplate-v2**
+- Repository renamed to **Vader Engine v2**
 
 ---
 
 ### Getting started
 
-- **Quick start:** https://github.com/jonbeatz/Boilerplate-v2#quick-start
-- **Documentation:** https://github.com/jonbeatz/Boilerplate-v2#documentation-map · [DOCS.md](https://github.com/jonbeatz/Boilerplate-v2/blob/main/DOCS.md)
+- **Quick start:** https://github.com/jonbeatz/Vader-Engine#quick-start
+- **Documentation:** https://github.com/jonbeatz/Vader-Engine#documentation-map · [DOCS.md](https://github.com/jonbeatz/Vader-Engine/blob/main/DOCS.md)
 
 ```bash
-git clone https://github.com/jonbeatz/Boilerplate-v2.git my-project
+git clone https://github.com/jonbeatz/Vader-Engine.git my-project
 cd my-project
 npm run msc:onboard
 ```
 
-Full changelog: [CHANGELOG.md](https://github.com/jonbeatz/Boilerplate-v2/blob/main/CHANGELOG.md)
+Full changelog: [CHANGELOG.md](https://github.com/jonbeatz/Vader-Engine/blob/main/CHANGELOG.md)

@@ -1,6 +1,6 @@
 # Project assets
 
-Repository: [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) · v2.5.0
+Repository: [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) · v2.5.0
 
 Committed brand and README media live under [media/](../../media/) (for example `media/readme/vaderlabz-hero-reference.jpg`).
 

@@ -5,7 +5,7 @@
 Copy the block below into [v0.dev](https://v0.dev). **Attach the 6 images listed above.**
 
 ````markdown
-Build **Vader Protocol v2.5.0-Engine** — production visual command center for MSC Boilerplate (Next.js 15 App Router, TypeScript, Tailwind CSS 3, shadcn/ui).
+Build **Vader Protocol v2.5.0-Engine** — production visual command center for Vader Engine (Next.js 15 App Router, TypeScript, Tailwind CSS 3, shadcn/ui).
 
 **Brand:** Product **Vader Protocol** · UI workspace **Vader Construct** · backend **Vader Engine**. Header: `// VADER_CONSTRUCT :: CONTROL_PLANE`. Dark theme only; Settings toggles OLED (`#000000` / `#0a0a0a`). Tokens via `var(--msc-*)`: accent `#e02b20`, success `#1D9E75`, warning `#BA7517`. Typography: Geist/Inter UI, Geist Mono for logs/ports/values.
 

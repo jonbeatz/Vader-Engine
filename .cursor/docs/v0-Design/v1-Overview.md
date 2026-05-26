@@ -1,13 +1,13 @@
 # Vader Protocol — Overview & Design Tokens
 
 **Module:** `v1-Overview.md`  
-**Product:** Vader Protocol · MSC Universal Boilerplate **v2.5.0-Engine**  
+**Product:** Vader Protocol · Vader Engine **v2.5.0-Engine**  
 **Branch:** `main` (stable) · active implementation: `feat/vader-construct-dashboard`
 
 **Blueprint modules:** [v1-Overview.md](v1-Overview.md) · [v2-Layout-Components.md](v2-Layout-Components.md) · [v3-State-Data.md](v3-State-Data.md) · [v4-Operations.md](v4-Operations.md) · [v5-Implementation.md](v5-Implementation.md) · [v6-Master-Prompt.md](v6-Master-Prompt.md)
 
 **Role:** Canonical synthesis, product definition, look/feel, and `--msc-*` token contract.  
-**Baseline:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) · **Status:** Modular master blueprint (module 1 of 6)
+**Baseline:** [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) · **Status:** Modular master blueprint (module 1 of 6)
 
 ---
 
@@ -17,7 +17,7 @@
 | --- | --- | --- |
 | Accent / brand color | Neon `#00ffcc` · indigo SaaS · `#e02b20` | **`--msc-accent` (`#e02b20`)** — `ui/msc-shield.css` + Path B `tailwind.config.ts` |
 | Visual tone | Cyberpunk · generic admin | **Premium dev-tool** (Linear + Vercel + Railway). No neon overload |
-| Product naming | Boilerplate Studio · Control Plane · Master Dashboard | **Vader Protocol** — canonical interface product name (UI, nav, v0 prompt, chrome copy) |
+| Product naming | Vader Engine Studio · Control Plane · Master Dashboard | **Vader Protocol** — canonical interface product name (UI, nav, v0 prompt, chrome copy) |
 | Home layout | Bento · Mission Control | **Bento grid** inside **Mission Control** shell (sidebar + header + log drawer) |
 | Navigation IA | Tools/System split · flat sandboxes | **Dashboard → Projects → Templates → Sandboxes → Integrity → Operations → Protocols → Settings** |
 | Grader score | Stale 52/52 | **61/61** — current grader contract |
@@ -36,13 +36,13 @@
 
 ### 1.1 Product definition
 
-**Vader Protocol** is the visual command center (interface product) for the MSC Universal Boilerplate ecosystem. The CLI (`msc:*` npm scripts) remains the **execution engine**; the **`ui/dashboard`** app on port **3010** is the **primary operator face** for humans and Cursor agents who should not memorize sixty-plus commands.
+**Vader Protocol** is the visual command center (interface product) for the Vader Engine ecosystem. The CLI (`msc:*` npm scripts) remains the **execution engine**; the **`ui/dashboard`** app on port **3010** is the **primary operator face** for humans and Cursor agents who should not memorize sixty-plus commands.
 
 **One-line positioning (canonical):**
 
 > Bootstrap a production-hardened, Cursor-native ecosystem in minutes: the v2.5.0 Vader Protocol foundation features an autonomous **61-point** integrity grader, **triple-sandbox** modularity (Payload CMS + Tailwind/shadcn + WordPress shield), and **zero-leak** security — engineered for absolute environmental consistency.
 
-**Brand references:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) · design tone [vaderlabz.com](https://vaderlabz.com/) — disciplined industrial dark, not decorative sci-fi.
+**Brand references:** [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) · design tone [vaderlabz.com](https://vaderlabz.com/) — disciplined industrial dark, not decorative sci-fi.
 
 ### 1.2 Look and feel
 

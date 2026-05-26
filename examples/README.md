@@ -1,6 +1,6 @@
 # Examples — Living Sandboxes
 
-> **MSC Boilerplate** · **Sandbox** (not scaffold output) · Runs inside this repo under `examples/`
+> **Vader Engine** · **Sandbox** (not scaffold output) · Runs inside this repo under `examples/`
 
 Isolated Next.js workspaces for development and CI. They are **not** copied by `msc:template apply` — use **`templates/`** blueprints to scaffold new projects to a sibling directory (default `../Dev-Projectz/<slug>`).
 

@@ -3,7 +3,7 @@
 export default function Home() {
   return (
     <main className="msc-home-main">
-      <h1 className="msc-title">✅ Boilerplate v2 Works!</h1>
+      <h1 className="msc-title">✅ Vader Engine v2 Works!</h1>
       <p className="msc-text msc-home-sub">
         Your development environment is ready. The MCP servers are active.
       </p>

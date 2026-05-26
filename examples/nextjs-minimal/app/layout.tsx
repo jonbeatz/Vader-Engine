@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Boilerplate v2 Example',
-  description: 'Minimal Next.js example for Boilerplate',
+  title: 'Vader Engine v2 Example',
+  description: 'Minimal Next.js example for Vader Engine',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Boilerplate-v2.5.0-Engine structural grading utility (61-point audit).
+ * Vader Engine v2.5.0-Engine structural grading utility (61-point audit).
  * Usage: npm run grade
  */
 import './lib/msc-load-env.mjs';
@@ -43,7 +43,7 @@ function pathExists(rel) {
   return existsSync(join(MSC_PROJECT_ROOT, rel));
 }
 
-console.log('--- 📊 Grading Boilerplate-v2.5.0-Engine (61-point) ---\n');
+console.log('--- 📊 Grading Vader Engine v2.5.0-Engine (61-point) ---\n');
 
 if (process.env.MSC_GRADE_MOCK_FAIL === '1') {
   report('mock failure injection test', false);

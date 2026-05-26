@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Operational recovery paths for the **MSC v2.5.0** workspace ([jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate)).
+Operational recovery paths for the **MSC v2.5.0** workspace ([jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine)).
 
 ## Node version / Cursor terminal
 
@@ -10,7 +10,7 @@ npm run msc:check-node
 
 - Supported: **20.x–24.x** (see `package.json` engines). Unsupported: Node **25+** or **&lt;20**.
 - **Cursor on Windows** may use a bundled Node under `...\cursor\...\node.exe` — that is OK if version is 20–24.
-- For **CI parity** with Node 20: use `.nvmrc` (`20.19.1`) via nvm/fnm, or VS Code profile **Boilerplate Node** (prepends `C:\Program Files\nodejs` to PATH).
+- For **CI parity** with Node 20: use `.nvmrc` (`20.19.1`) via nvm/fnm, or VS Code profile **Vader Engine Node** (prepends `C:\Program Files\nodejs` to PATH).
 - If `grade` or hooks fail with `[msc:node-guard]`, run `msc:check-node` first — do not debug grade until Node passes.
 
 ## Bootstrap Failures

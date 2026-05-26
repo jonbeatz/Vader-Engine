@@ -1,7 +1,7 @@
 {
-  "name": "msc-universal-boilerplate",
+  "name": "vader-engine",
   "version": "2.5.0",
-  "description": "Vader Protocol v2.5.0-Engine — Cursor-native full-stack boilerplate with a 61-point self-grader, template scaffolding CLI, isolated Next.js / Payload / Tailwind-shadcn / WordPress sandboxes, Studio Dark UI shield, Biome linting, and MCP-ready agent workflows",
+  "description": "Vader Protocol v2.5.0-Engine — Cursor-native full-stack Vader Engine with a 61-point self-grader, template scaffolding CLI, isolated Next.js / Payload / Tailwind-shadcn / WordPress sandboxes, Studio Dark UI shield, Biome linting, and MCP-ready agent workflows",
   "type": "module",
   "main": "core/index.mjs",
   "scripts": {
@@ -74,7 +74,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jonbeatz/Boilerplate.git"
+    "url": "https://github.com/jonbeatz/Vader-Engine.git"
   },
   "packageManager": "npm@10.9.2",
   "engines": {

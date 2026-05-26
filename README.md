@@ -1,10 +1,10 @@
-# Boilerplate v2.5.0
+# Vader Engine v2.5.0
 
 > **In one line:** Bootstrap a production-hardened, Cursor-native ecosystem in minutes: The v2.5.0 Vader Protocol foundation features an autonomous 61-point integrity grader, triple-sandbox modularity (Payload CMS + Tailwind/shadcn + WordPress shield), and zero-leak security — engineered for absolute environmental consistency.
 
-[![Grade](https://img.shields.io/badge/grade-61%2F61-brightgreen)](https://github.com/jonbeatz/Boilerplate)
-[![CI](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Boilerplate/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-2.5.0-red)](https://github.com/jonbeatz/Boilerplate/releases)
+[![Grade](https://img.shields.io/badge/grade-61%2F61-brightgreen)](https://github.com/jonbeatz/Vader-Engine)
+[![CI](https://github.com/jonbeatz/Vader-Engine/actions/workflows/ci.yml/badge.svg)](https://github.com/jonbeatz/Vader-Engine/actions/workflows/ci.yml)
+[![Version](https://img.shields.io/badge/version-2.5.0-red)](https://github.com/jonbeatz/Vader-Engine/releases)
 [![Live demo](https://img.shields.io/badge/demo-vaderlabz.com-c0392b)](https://vaderlabz.com)
 [![Node](https://img.shields.io/badge/node-20%7C24-339933)](https://nodejs.org/)
 [![Cursor](https://img.shields.io/badge/Cursor-optimized-blueviolet)](https://cursor.sh/)
@@ -23,7 +23,7 @@
 | **Version** | v2.5.0 |
 | **Release date** | May 25, 2026 (Tailwind/shadcn Path B sandbox) |
 | **Ecosystem grade** | 61/61 (100%) — verified baseline |
-| **Repository** | [github.com/jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) |
+| **Repository** | [github.com/jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) |
 | **Node** | 20.x–24.x (`.nvmrc` pins 20.19.1 · CI uses 20) |
 | **Package manager** | npm ≥ 10 |
 
@@ -31,7 +31,7 @@
 
 ## Overview
 
-**Boilerplate** is a highly disciplined, self-governing starter kit for rapid, production-grade development with [Cursor](https://cursor.sh/). Clone it, run one bootstrap command, and be fully operational in minutes — not hours.
+**Vader Engine** is a highly disciplined, self-governing starter kit for rapid, production-grade development with [Cursor](https://cursor.sh/). Clone it, run one bootstrap command, and be fully operational in minutes — not hours.
 
 Designed as an **empty-folder replacement engine**, it combines deep AI integration (rules, skills, MCP), automated validation, security guardrails, and isolated sandboxes so frameworks never pollute the root workspace.
 
@@ -184,7 +184,7 @@ For earlier release notes (v2.1.0 and below), see [CHANGELOG.md](CHANGELOG.md) a
 **Recommended — interactive onboarding:**
 
 ```bash
-git clone https://github.com/jonbeatz/Boilerplate.git my-project
+git clone https://github.com/jonbeatz/Vader-Engine.git my-project
 cd my-project
 npm run msc:onboard
 ```
@@ -417,7 +417,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 | Opt-in Tailwind/shadcn sandboxing (`examples/nextjs-tailwind/`) | ✅ Shipped in **v2.5.0** — port **3002**, `npm run msc:dev:tailwind`. Path B bridge to `ui/msc-shield.css`; see [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) §6 |
 | Playwright E2E multi-sandbox harness | ✅ Shipped in v2.1.0 |
 | VS Code / Cursor settings sync | ✅ Shipped (`.cursor/settings.json` + `.vscode/`) |
-| Repo rename (`Boilerplate`) | ✅ Shipped |
+| Repo rename (`Vader Engine`) | ✅ Shipped |
 
 ---
 
@@ -425,7 +425,7 @@ Workspaces are fully sandboxed — backend version shifts do not affect the core
 
 - **Powered by** MSC Media Engine · Vader Protocol — strict namespace isolation certified
 - **Cursor-native** — calibrated for Cursor Agent and Composer execution paths
-- **Release certified:** v2.5.0 · 61/61 grade · 100% pass rate · production ready ([jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate))
+- **Release certified:** v2.5.0 · 61/61 grade · 100% pass rate · production ready ([jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine))
 
 **Operator docs:** [HOW-TO.md](.cursor/docs/HOW-TO.md) · [START-HERE.md](START-HERE.md) · [DOCS.md](DOCS.md) · [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
 
