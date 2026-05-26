@@ -76,6 +76,11 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 
 ## 🪵 Development Changelog
 
+### [2026-05-26] - Session Closeout — Vader Protocol design blueprint (FrontEnd-v1)
+- **Added/Modified:** `.cursor/docs/v0-Design/` — modular blueprint (`README.md`, `v1-Overview.md` … `v6-Master-Prompt.md`); product name **Vader Protocol**; removed monolithic `v0-Designz-Final.md` / `v0-Designz.md`; v6 tightened v0 prompt + `data-testid` E2E hints; nav IA Dashboard → Projects → Templates → Sandboxes → Integrity → Operations → Protocols → Settings — **HEAD:** `a9aa39c` on `Boilerplate-FrontEnd-v1`
+- **Verified:** `start-project:gate` PASS (**61/61**, lint 0 errors, **8/8** tests)
+- **Ports cleared:** 3000, 3001, 3002, 8080
+
 ### [2026-05-25] - Session Closeout
 - **Added/Modified:** `README.md` — professional branding, Governance & Methodology, Triple-Sandbox Architecture, Operator Controls; `End-Project.md` task-planner sync; `Start-Project.md` planner path fix; `DOCS.md` / `CHANGELOG.md` index sync — **HEAD:** `ba24e77`
 - **Verified:** `start-project:gate` PASS (**61/61**, lint 0 errors, **8/8** tests)
