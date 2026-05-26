@@ -183,7 +183,7 @@ Install and compose from **shadcn/ui** (Path B). No CSS modules · no inline `st
 
 | Query key | Source | Poll interval | Purpose |
 | --- | --- | --- | --- |
-| `health` | `npm run msc:health -- --json` | 5s | Ports 3000–3002, 8080 |
+| `health` | `npm run msc:health -- --json` | 5s | Ports 3000–3002, **3010**, 8080 (3010 after P0.7) |
 | `grade` | parse `npm run grade` output | on-demand + after mutations | 61/61 score |
 | `grade-detail` | extended parse (P1) | on-demand | Per-check list |
 | `templates` | `msc:template -- list` | 5m | Template gallery |
@@ -229,12 +229,20 @@ Install and compose from **shadcn/ui** (Path B). No CSS modules · no inline `st
 | Rule | Implementation |
 | --- | --- |
 | **Location** | `ui/dashboard/` — own `package.json` |
-| **Port** | **3010** (documented in port registry; add to kill-list in P0 code) |
+| **Port** | **3010** — Boilerplate Studio dev server (dedicated; not a sandbox) |
+| **Kill-list (P0)** | **3010** must be in `scripts/msc-kill-all-dev-ports.mjs` alongside 3000, 3001, 3002, 8080 — do not rely on P0.7 alone |
 | **Root deps** | Forbidden — only new root script: `"msc:dev:dashboard": "cd ui/dashboard && npm run dev"` |
 | **Styling** | Import `../../ui/msc-shield.css` in `globals.css` · extend `tailwind.config.ts` with `msc-*` utilities |
 | **Path** | Path B hybrid (Tailwind + shadcn) — not Path A Shield-only satellites |
 
 **Alternative (lower isolation):** extend `examples/nextjs-tailwind/` — rejected for Studio scale; dedicated `ui/dashboard/` keeps boilerplate example sandbox pristine.
+
+**Port 3010 — kill-list (explicit, do not miss):**
+
+- [ ] Add **3010** to `scripts/msc-kill-all-dev-ports.mjs` (same array/loop as 3000–3002, 8080)
+- [ ] Document **3010** in `.cursor/docs/system-architecture.md` port registry table
+- [ ] Extend `scripts/health.mjs` (and `scripts/__tests__/health.test.mjs`) to probe **3010** when dashboard exists
+- [ ] P0.7 milestone verification — kill + health both recognize Studio port
 
 ---
 
@@ -467,9 +475,22 @@ Dashboard port for this app: 3010.
 Generate a cohesive multi-page UI prototype with navigation between all pages. Dark theme only. Should feel shippable — the face of a professional boilerplate project.
 ````
 
-**Post-v0 follow-up prompt (run after first generation):**
+### 9.1 First Run (v0 follow-up — run after first generation)
 
-> Map all colors to `tailwind.config.ts` using `var(--msc-*)` and add a comment that production will wire API routes via `child_process` to repo-root npm scripts. Add port **3010** to the Port Registry page.
+After v0 ships the UI prototype, paste this **second prompt** in the same v0 chat (or a new one with the generated code attached):
+
+> Replace all mock data with real API calls. Use `fetch` to `/api/health`, `/api/grade`, and `/api/run-script`. The production API routes will use `child_process` to execute repo-root npm scripts.
+
+**Optional third prompt (tokens + registry):**
+
+> Map all colors to `tailwind.config.ts` using `var(--msc-*)`. Add port **3010** (Boilerplate Studio) to the Port Registry page with kill action wired to the same pattern as 3000–3002.
+
+### 9.2 Optional UX polish (v0 may skip — implement in P0 if missing)
+
+| Item | Why it matters | P0 guidance |
+| --- | --- | --- |
+| **Error states** | v0 often omits failure UX | Port conflicts (EADDRINUSE), script non-zero exit, grader timeout — use `Alert` destructive + actionable CTA (“Kill port 3000”, “Retry grade”) |
+| **Loading states** | Health polling and grade runs feel broken without feedback | Skeleton cards on Dashboard metrics; `Button` loading on RUN GRADER; pulse on sandbox cards while `health` query is `isFetching` |
 
 ---
 
