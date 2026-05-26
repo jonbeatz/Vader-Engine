@@ -61,14 +61,6 @@
     "msc:e2e:install": "playwright install --with-deps chromium firefox",
     "msc:e2e": "playwright test --config e2e/playwright.config.ts"
   },
-  "lint-staged": {
-    "*.{js,mjs,ts,tsx,jsx}": [
-      "biome check --write"
-    ],
-    "!(package-lock)*.{json,css}": [
-      "biome format --write"
-    ]
-  },
   "keywords": [],
   "author": "",
   "license": "MIT",

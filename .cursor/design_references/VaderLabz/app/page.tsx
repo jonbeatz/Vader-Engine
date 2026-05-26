@@ -2,10 +2,10 @@ import styles from "./page.module.css";
 
 const projects = [
   {
-    name: "Boilerplate",
-    description: "Cursor-native full-stack boilerplate with a 60-point self-grader, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows.",
+    name: "Vader Engine",
+    description: "Cursor-native full-stack Vader Engine with a 60-point self-grader, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows.",
     stack: ["Next.js", "Payload CMS", "WordPress", "Biome", "MCP"],
-    url: "https://github.com/jonbeatz/Boilerplate",
+    url: "https://github.com/jonbeatz/Vader-Engine",
     status: "ACTIVE",
   },
   {

@@ -5,7 +5,7 @@
 - **Repository:** [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) — renamed from `Boilerplate` / `jonbeatz/Boilerplate` (May 2026); prior slugs `Boilerplate-v1` / `Boilerplate-v2` preserved in `CHANGELOG.md` only
 - **Target Stack:** Next.js sandboxes · Payload CMS · WordPress Shield · Cursor MCP
 - **Current Version:** 2.5.0
-- **Status:** Vader Protocol locked — v2.5.0-Engine baseline · **61/61** grade · main-only remote · release tags `v2.1.0`–`v2.5.0`
+- **Status:** Vader Engine rebrand complete — v2.5.0-Engine baseline · **61/61** grade · release tags `v2.1.0`–`v2.5.0`
 
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 
@@ -81,13 +81,15 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 
 ## 🪵 Development Changelog
 
-### [2026-05-26] - chore: rebrand Boilerplate → Vader Engine (product + npm package)
+## [2026-05-26] Rebrand Complete: Boilerplate → Vader Engine
 
-- **Scope:** Surgical replace across docs, examples, templates, v0-Design, grader banner, GitHub URLs (`jonbeatz/Vader-Engine`), npm name `vader-engine`
-- **Unchanged:** `MSC_VERSION` **2.5.0** · `msc-*` prefix · `scripts/msc-grade-boilerplate.mjs` filename · `CHANGELOG.md` historical entries
-- **Examples:** minimal sandbox heading `Vader Engine v2 Works!` · e2e/smoke tests aligned
-- **Verified:** `start-project:gate` **61/61** · lint 0 · **8/8** · `git grep Boilerplate` clean outside `CHANGELOG.md`
-- **Branch:** `feat/vader-construct-dashboard`
+- **Scope:** Full project rename from Boilerplate to Vader Engine
+- **Changes:** 88 files updated (docs, package.json, README, grader banner, examples, v0 prompts)
+- **Preserved:** `msc-*` prefix, `MSC_VERSION = '2.5.0'`, internal script names
+- **Verification:** `git grep` clean (except CHANGELOG), grade 61/61, lint 0 errors, tests 8/8
+- **Status:** Rebrand complete; operational gates validated. Baseline tag: `v2.5.0-Engine`
+- **Next:** v0 dashboard generation on `feat/vader-construct-dashboard`
+- **Commits:** `b567546` (bulk rebrand) · follow-up includes design ref + lint-staged filter
 
 ### [2026-05-26] - Session — Engine rebrand, doc sync, branch hygiene
 
