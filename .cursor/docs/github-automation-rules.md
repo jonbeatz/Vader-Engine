@@ -16,7 +16,7 @@ This guide defines the source-control standards, automated release build scripts
 |--------|------|--------|
 | **`main`** | Production stable layer | Primary branch — v2.5.0-Engine baseline lives here. Merge via PR recommended. |
 | **`dev`** | Integration sandbox (optional) | Staging track for feature consolidation before release. |
-| **`feature/*`** | Isolated functional tracks | Scoped per task (e.g. `feature/msc-auth-bridge`, `feature/ui-shield-tokens`). |
+| **`feature/*`** / **`feat/*`** | Isolated functional tracks | e.g. `feat/vader-construct-dashboard` (v0 → `ui/dashboard/`), `feature/msc-auth-bridge`. |
 | **`hotfix/*`** | Urgent production repair | Branch from `main`; merge back to `main` and `dev` after verification. |
 
 **Anti-conflict:** One feature per branch; avoid long-lived divergent forks without periodic `dev` merges.

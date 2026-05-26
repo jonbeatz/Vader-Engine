@@ -4,6 +4,15 @@
 **Interface:** `ui/dashboard/` · Port **3010**  
 **Last updated:** 2026-05-26
 
+## Git workflow (Vader Construct)
+
+| Branch | Purpose |
+| --- | --- |
+| **`main`** | Stable **v2.5.0-Engine** baseline — merge via PR only |
+| **`feat/vader-construct-dashboard`** | v0 UI generation → `ui/dashboard/` (port **3010**) — **start here for frontend build** |
+
+Obsolete `Boilerplate-FrontEnd-v1` was merged into `main` and removed (design blueprint + reference assets only).
+
 ## Developer Portal
 
 This directory contains the engineering specification for the Vader Protocol. Read `v1-Overview.md` first to understand the architecture, then consult specific modules for implementation tasks.

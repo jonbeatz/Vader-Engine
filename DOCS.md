@@ -1,12 +1,12 @@
 # Documentation Index (SSoT Router)
 
-Single entry point for all **Boilerplate-v2.5.0** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
+Single entry point for all **Boilerplate v2.5.0-Engine** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
 
 | Field | Value |
 | --- | --- |
 | **Repository** | [github.com/jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) |
 | **Clone** | `git clone https://github.com/jonbeatz/Boilerplate.git my-project` |
-| **Version** | v2.5.0 · tag `v2.5.0` · grade **61/61** |
+| **Version** | v2.5.0-Engine · semver `2.5.0` · grade **61/61** |
 
 ## Human control panel (root)
 
@@ -46,6 +46,17 @@ Single entry point for all **Boilerplate-v2.5.0** documentation. Technical prece
 | [github-automation-rules.md](.cursor/docs/github-automation-rules.md) | Releases and branching |
 | [sqlite-repair-manifest.md](.cursor/docs/sqlite-repair-manifest.md) | SQLite repair contract |
 | [README-inventory.md](.cursor/docs/README-inventory.md) | Auto-generated MCP + npm inventory (`npm run inventory`) |
+
+## Vader Protocol design blueprint (`.cursor/docs/v0-Design/`)
+
+| Document | Purpose |
+| --- | --- |
+| [v0-Design/README.md](.cursor/docs/v0-Design/README.md) | Module index · reading order · Git branches |
+| [v6-Master-Prompt.md](.cursor/docs/v0-Design/v6-Master-Prompt.md) | Copy-paste [v0.dev](https://v0.dev) prompt + 6 reference images |
+| [v5-Implementation.md](.cursor/docs/v0-Design/v5-Implementation.md) | `ui/dashboard/` Lean Boundary · §12–§14 post-v0 handoff |
+| Visual refs | `.cursor/design_references/v0-Design-Refrences/` |
+
+Active feature branch for dashboard work: **`feat/vader-construct-dashboard`** (branch from `main`).
 
 **Local-only (gitignored, not on GitHub):** `.cursor/docs/BOILERPLATE-IMPROVEMENT/`, `.cursor/docs/README/` — upgrade runbooks and README drafts.
 

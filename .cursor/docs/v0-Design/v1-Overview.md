@@ -2,7 +2,7 @@
 
 **Module:** `v1-Overview.md`  
 **Product:** Vader Protocol · MSC Universal Boilerplate **v2.5.0-Engine**  
-**Branch:** `Boilerplate-FrontEnd-v1`
+**Branch:** `main` (stable) · active implementation: `feat/vader-construct-dashboard`
 
 **Blueprint modules:** [v1-Overview.md](v1-Overview.md) · [v2-Layout-Components.md](v2-Layout-Components.md) · [v3-State-Data.md](v3-State-Data.md) · [v4-Operations.md](v4-Operations.md) · [v5-Implementation.md](v5-Implementation.md) · [v6-Master-Prompt.md](v6-Master-Prompt.md)
 

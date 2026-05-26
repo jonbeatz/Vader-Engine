@@ -5,6 +5,8 @@
 ### Changed
 
 - **Branding:** Vader Protocol baseline tag renamed from `v2.5.0-SOVEREIGN` to **v2.5.0-Engine** across docs, prompts, and grader banner (semver **2.5.0** unchanged)
+- **Docs:** `DOCS.md` v0-Design index; blueprint README Git workflow; retired `Boilerplate-FrontEnd-v1` after merge to `main`
+- **Branching:** Active dashboard work moves to `feat/vader-construct-dashboard`
 
 ---
 

@@ -47,8 +47,12 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 
 - [x] GitHub About + delete head branches — automated via `npm run msc:github:sync` (re-run after future renames)
 - [x] Opt-in Tailwind/shadcn sandbox — `examples/nextjs-tailwind/` · `091469b`
-- [x] v2.5.0-SOVEREIGN zero-drift + 61-point grader sync — `40ab1dc` on `origin/main`
+- [x] v2.5.0 zero-drift + 61-point grader sync — `40ab1dc` on `origin/main` (tag was SOVEREIGN; now **Engine**)
 - [x] Cold-start prompt — `.cursor/prompts/Start-Project.md` · `99dd3d0`
+- [x] Vader Protocol modular blueprint — `.cursor/docs/v0-Design/` merged to `main`
+- [x] Rebrand baseline tag — **v2.5.0-Engine** (grader banner, prompts, blueprint)
+- [x] Retire `Boilerplate-FrontEnd-v1` — merged; branch deleted
+- [ ] **Active:** v0.dev generation + `ui/dashboard/` on **`feat/vader-construct-dashboard`** — see [v6-Master-Prompt.md](v0-Design/v6-Master-Prompt.md)
 - [ ] Optional: close stale Dependabot PRs on GitHub UI (none open as of 2026-05-25)
 
 ## ⚙️ Core Environment Specs
@@ -75,6 +79,15 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - **Remote:** pushed `40ab1dc` → `origin/main` (`26fc376..40ab1dc`)
 
 ## 🪵 Development Changelog
+
+### [2026-05-26] - Session — Engine rebrand, doc sync, branch hygiene
+
+- **Rebrand:** `v2.5.0-SOVEREIGN` → **v2.5.0-Engine** across prompts, v0 blueprint, grader banner, `package.json` description
+- **Merged:** `Boilerplate-FrontEnd-v1` → `main` (design refs, v0-Design v1–v6, Updated-Notes)
+- **Removed:** `Boilerplate-FrontEnd-v1` (local + remote) — superseded by `main`
+- **Next branch:** `feat/vader-construct-dashboard` for v0 → `ui/dashboard/` (port **3010**)
+- **Verified:** `npm run grade` **61/61** · `msc:lint` 0 errors · `msc:test:root` **8/8**
+- **HEAD:** `main` → feature branch cut after this closeout
 
 ### [2026-05-26] - Session Closeout — Vader Protocol design blueprint (FrontEnd-v1)
 - **Added/Modified:** `.cursor/docs/v0-Design/` — modular blueprint (`README.md`, `v1-Overview.md` … `v6-Master-Prompt.md`); product name **Vader Protocol**; removed monolithic `v0-Designz-Final.md` / `v0-Designz.md`; v6 tightened v0 prompt + `data-testid` E2E hints; nav IA Dashboard → Projects → Templates → Sandboxes → Integrity → Operations → Protocols → Settings — **HEAD:** `a9aa39c` on `Boilerplate-FrontEnd-v1`
