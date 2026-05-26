@@ -13,7 +13,7 @@ This directory contains the engineering specification for the Vader Protocol. Re
 | Folder | Role |
 | --- | --- |
 | [Updated-Notes/](Updated-Notes/) | Supplemental brainstorming — post-v0 workflow, tooling tables, integration prompts (`v0-Notez1.md`, `v0-Notez2.md`). Not required for first read; synthesize into v5/v6 when stable. |
-| `.cursor/design_references/v0-Design-Refrences/` | Visual style inspiration for v0 prompts — MSC-CRM mocks, MSC-Media-Pro dashboard PDF, Settings, VideoTutorialz, Instructionz. Attach to [v6-Master-Prompt.md](v6-Master-Prompt.md) in v0.dev. |
+| `.cursor/design_references/v0-Design-Refrences/` | Visual style inspiration for v0 prompts — attach images from this folder (filenames may change; do not hardcode paths). See [v6-Master-Prompt.md](v6-Master-Prompt.md). |
 
 ## Reading Order (for agents and humans)
 

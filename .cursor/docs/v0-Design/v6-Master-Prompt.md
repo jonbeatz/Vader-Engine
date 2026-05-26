@@ -16,20 +16,20 @@
 | Core / backend engine | **Vader Engine** | `msc:*` scripts, API routes, `child_process` wiring |
 | Version | **v2.5.0-SOVEREIGN** | Locked baseline tag (product line; naming under review) |
 
-**Visual references (repo):** `.cursor/design_references/v0-Design-Refrences/` — MSC-CRM mocks, MSC-Media-Pro dashboard PDF, Settings, VideoTutorialz, Instructionz. Attach key images when prompting v0.
+**Visual references (repo):** `.cursor/design_references/v0-Design-Refrences/` — attach images from this folder when prompting v0 (folder-only reference; individual filenames may change).
 
 ---
 
 ## 9. Actionable v0.dev Prompt (copy-paste)
 
-Copy the block below into [v0.dev](https://v0.dev). Attach MSC-CRM / MSC-Media-Pro reference images from `.cursor/design_references/v0-Design-Refrences/` when available.
+Copy the block below into [v0.dev](https://v0.dev). Attach reference images from `.cursor/design_references/v0-Design-Refrences/` when available.
 
 ````markdown
 Build **Vader Protocol v2.5.0-SOVEREIGN** — production visual command center for MSC Boilerplate (Next.js 15 App Router, TypeScript, Tailwind CSS 3, shadcn/ui).
 
 **Brand:** Product **Vader Protocol** · UI workspace **Vader Construct** · backend **Vader Engine**. Header: `// VADER_CONSTRUCT :: CONTROL_PLANE`. Dark theme only; Settings toggles OLED (`#000000` / `#0a0a0a`). Tokens via `var(--msc-*)`: accent `#e02b20`, success `#1D9E75`, warning `#BA7517`. Typography: Geist/Inter UI, Geist Mono for logs/ports/values.
 
-**Visual references attached.** Adopt the dark-surface (`#121212` page, `#1c1c1c` cards), card-depth, Bento spacing, and green-pulse indicator logic shown in these images (MSC-CRM mock, MSC-Media-Pro control center). Use monospace for ports, PIDs, grades, and log lines. Metric cards: top-row velocity/status pattern from CRM mock; sandbox tiles: Media-Pro tutorial-grid density.
+**Visual references attached.** Adopt the dark-surface (`#121212` page, `#1c1c1c` cards), card-depth, Bento spacing, and green-pulse indicator logic shown in the attached reference images. Use monospace for ports, PIDs, grades, and log lines. Metric cards: top-row velocity/status pattern; sandbox tiles: tutorial-grid density.
 
 **Layout:** Sidebar 220px → Dashboard → Projects → Templates → Sandboxes → Integrity → Operations (Scripts/Ports/Env) → Protocols → Settings. Header: signature, health pulse, version, 61/61 badge, log toggle, ⌘K. Global log drawer and Command Palette live in root `layout.tsx` AppShell — they must not reset on route change.
 
