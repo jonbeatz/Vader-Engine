@@ -2,6 +2,7 @@ import { ENABLE_PAYLOAD } from '@/lib/enable-payload';
 import { loadSiteData, type SiteProject, type SiteStackItem } from '@/lib/load-site-data';
 import Link from 'next/link';
 import BackToTop from './components/BackToTop';
+import DashboardButton from './components/DashboardButton';
 
 type ProjectStatus = 'active' | 'building' | 'coming-soon';
 
@@ -84,9 +85,7 @@ export default async function VaderHomePage() {
             </a>
           </div>
           <div className="vader-hero-cta-launch">
-            <a href="http://localhost:3010" className="vader-btn-secondary">
-              LAUNCH VADER CONSTRUCT DASHBOARD
-            </a>
+            <DashboardButton />
           </div>
           <div className="vader-hero-status">
             <span className="vader-status-dot" />
