@@ -34,3 +34,4 @@ build/
 !components/ui/input.tsx
 !components/dashboard/
 !components/dashboard/activity-feed.tsx
+!components/dashboard/support-tickets.tsx

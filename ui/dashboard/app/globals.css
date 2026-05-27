@@ -1,4 +1,5 @@
 @import "../../../ui/msc-shield.css";
+@import "../../../ui/msc-dashboard.css";
 
 @tailwind base;
 @tailwind components;
