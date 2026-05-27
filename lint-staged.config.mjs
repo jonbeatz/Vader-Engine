@@ -2,9 +2,13 @@
  * lint-staged — excludes paths ignored by biome.json (e.g. design_references).
  */
 const DESIGN_REF = '.cursor/design_references';
+const TEMPLATES = 'templates/';
 
 function filterBiomePaths(filenames) {
-  return filenames.filter((f) => !f.replace(/\\/g, '/').includes(DESIGN_REF));
+  return filenames.filter((f) => {
+    const normalized = f.replace(/\\/g, '/');
+    return !normalized.includes(DESIGN_REF) && !normalized.includes(TEMPLATES);
+  });
 }
 
 export default {
