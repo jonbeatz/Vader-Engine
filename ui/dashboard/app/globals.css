@@ -184,7 +184,7 @@ button[data-variant="outline"]:hover {
 /* 5. Header Glass effect */
 .header-glass {
   backdrop-filter: blur(8px);
-  background: rgba(18, 18, 18, 0.8) !important;
+  background: rgba(18, 18, 18, 0.8);
 }
 
 /* 6. Border Glow effect - subtle light grey, outer edge only, NO scale, NO red */
@@ -195,7 +195,7 @@ button[data-variant="outline"]:hover {
 }
 
 .card-glass-gleam:hover {
-  border-color: #3a3a3a !important;
+  border-color: #3a3a3a;
   box-shadow:
     0 4px 12px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(255, 255, 255, 0.06);
@@ -204,7 +204,7 @@ button[data-variant="outline"]:hover {
 /* Override ALL card hover states to use grey, not red */
 [data-slot="card"]:hover,
 .card-hover:hover {
-  border-color: #3a3a3a !important;
+  border-color: #3a3a3a;
   box-shadow:
     0 4px 12px rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(255, 255, 255, 0.06);
@@ -212,7 +212,7 @@ button[data-variant="outline"]:hover {
 
 /* Override focus ring to be grey instead of red */
 *:focus-visible {
-  outline: 2px solid #3a3a3a !important;
+  outline: 2px solid #3a3a3a;
   outline-offset: 2px;
 }
 
@@ -220,13 +220,13 @@ button[data-variant="outline"]:hover {
 .card-hover,
 [data-slot="card"],
 .card-glass-gleam {
-  transform: none !important;
+  transform: none;
 }
 
 .card-hover:hover,
 [data-slot="card"]:hover,
 .card-glass-gleam:hover {
-  transform: none !important;
+  transform: none;
 }
 
 /* 7. Typography - ensure Geist fonts are applied */
@@ -235,7 +235,7 @@ code,
 pre,
 .tabular-nums,
 [data-mono="true"] {
-  font-family: var(--font-geist-mono), "Geist Mono", monospace !important;
+  font-family: var(--font-geist-mono), "Geist Mono", monospace;
 }
 
 /* Subtle glow effect for primary elements */
@@ -245,42 +245,42 @@ pre,
 
 /* Force dark theme on Sonner toasts */
 [data-sonner-toaster] [data-sonner-toast] {
-  background: #1c1c1c !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-  color: #f0f0f0 !important;
+  background: #1c1c1c;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #f0f0f0;
 }
 
 [data-sonner-toaster] [data-sonner-toast] [data-title] {
-  color: #f0f0f0 !important;
+  color: #f0f0f0;
 }
 
 [data-sonner-toaster] [data-sonner-toast] [data-description] {
-  color: #a0a0a0 !important;
+  color: #a0a0a0;
 }
 
 [data-sonner-toaster] [data-sonner-toast] [data-icon] {
-  color: #1d9e75 !important;
+  color: #1d9e75;
 }
 
 [data-sonner-toaster] [data-sonner-toast] [data-icon] svg {
-  color: #1d9e75 !important;
-  fill: #1d9e75 !important;
+  color: #1d9e75;
+  fill: #1d9e75;
 }
 
 [data-sonner-toaster] [data-sonner-toast][data-type="success"] {
-  background: #1c1c1c !important;
-  border-color: rgba(29, 158, 117, 0.3) !important;
+  background: #1c1c1c;
+  border-color: rgba(29, 158, 117, 0.3);
 }
 
 [data-sonner-toaster] [data-sonner-toast][data-type="error"] {
-  background: #1c1c1c !important;
-  border-color: rgba(224, 43, 32, 0.3) !important;
+  background: #1c1c1c;
+  border-color: rgba(224, 43, 32, 0.3);
 }
 
 [data-sonner-toaster] [data-sonner-toast][data-type="warning"] {
-  background: #1c1c1c !important;
-  border-color: rgba(186, 117, 23, 0.3) !important;
+  background: #1c1c1c;
+  border-color: rgba(186, 117, 23, 0.3);
 }
 
 /* Command palette styling */

@@ -1,5 +1,5 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 /** Repo root (…/Vader-Engine); allows `@import` of `ui/msc-shield.css` while silencing wrong-root lockfile warnings. */
