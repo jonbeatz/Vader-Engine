@@ -32,3 +32,5 @@ build/
 !components/ui/command.tsx
 !components/ui/dialog.tsx
 !components/ui/input.tsx
+!components/dashboard/
+!components/dashboard/activity-feed.tsx
