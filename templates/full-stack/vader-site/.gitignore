@@ -1,6 +1,8 @@
 node_modules/
 .deploy-stash/
 .next/
+next-env.d.ts
+package-lock.json
 payload-types.ts
 database/*.db
 database/*.db-*
