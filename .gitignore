@@ -66,3 +66,4 @@ playwright/.cache/
 .cursor/design_references/*.png
 .cursor/design_references/*.webp
 .cursor/design_references/*.gif
+.cursor/design_references/vader-ops-dashboard.zip
