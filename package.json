@@ -30,6 +30,8 @@
     "msc:kill": "node scripts/msc-kill-dev-port.mjs",
     "msc:smoke": "node scripts/msc-local-http-smoke.mjs",
     "msc:check-node": "node scripts/msc-check-node.mjs",
+    "msc:check-deps": "node scripts/msc-check-deps.mjs",
+    "msc:log-session": "node scripts/msc-log-session.mjs",
     "start-project:smoke": "node scripts/msc-start-project-smoke.mjs",
     "start-project:gate": "npm run msc:check-node && npm run msc:validate-env && npm run msc:lint && npm run grade && npm run msc:test:root",
     "start-project": "npm run msc:check-node && npm run start-project:smoke",
@@ -76,7 +78,7 @@
     "npm": ">=10.0.0"
   },
   "dependencies": {
-    "dotenv": "^16.4.7"
+    "dotenv": "^17.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.15",
