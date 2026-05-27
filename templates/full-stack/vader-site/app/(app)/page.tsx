@@ -83,18 +83,15 @@ export default async function VaderHomePage() {
               GITHUB ↗
             </a>
           </div>
-          <Link
-            href="http://localhost:3010"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="vader-btn-secondary mt-8"
-          >
-            Launch Vader Construct Dashboard
-          </Link>
-          <p className="vader-hero-status">
+          <div className="vader-hero-cta-launch">
+            <a href="http://localhost:3010" className="vader-btn-secondary">
+              LAUNCH VADER CONSTRUCT DASHBOARD
+            </a>
+          </div>
+          <div className="vader-hero-status">
             <span className="vader-status-dot" />
             SYSTEM ONLINE — vaderlabz.com
-          </p>
+          </div>
         </div>
       </section>
 

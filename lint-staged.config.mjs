@@ -16,5 +16,8 @@ export default {
     const files = filterBiomePaths(filenames);
     return files.length > 0 ? [`biome check --write ${files.join(' ')}`] : [];
   },
-  '!(package-lock)*.{json,css}': ['biome format --write'],
+  '!(package-lock)*.{json,css}': (filenames) => {
+    const files = filterBiomePaths(filenames);
+    return files.length > 0 ? [`biome format --write ${files.join(' ')}`] : [];
+  },
 };
