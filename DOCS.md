@@ -13,6 +13,7 @@ Single entry point for all **Vader Engine v2.5.0-Engine** documentation. Technic
 | Document | Purpose |
 |----------|---------|
 | [TRUTH.md](TRUTH.md) | Constitution — v2 principles, tokens, zero-leak, MCP portability |
+| [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) | Agent onboarding map — structure, ports, components, cleanup status (derived; TRUTH wins on conflict) |
 | [README.md](README.md) | System overview, governance, triple-sandbox map, operator controls, commands |
 | [START-HERE.md](START-HERE.md) | Agent/operator cold-start phases and checklists |
 | [DOCS.md](DOCS.md) | This index |
@@ -46,6 +47,7 @@ Single entry point for all **Vader Engine v2.5.0-Engine** documentation. Technic
 | [github-automation-rules.md](.cursor/docs/github-automation-rules.md) | Releases and branching |
 | [sqlite-repair-manifest.md](.cursor/docs/sqlite-repair-manifest.md) | SQLite repair contract |
 | [README-inventory.md](.cursor/docs/README-inventory.md) | Auto-generated MCP + npm inventory (`npm run inventory`) |
+| [audit/VADER_ENGINE_AUDIT_2026-05-27.md](.cursor/docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md) | Comprehensive cleanup audit (Option C — archive list for manual review) |
 
 ## Vader Protocol design blueprint (`.cursor/docs/v0-Design/`)
 
