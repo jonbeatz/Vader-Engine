@@ -74,6 +74,7 @@ Sandboxes and template blueprints: [examples/README.md](examples/README.md) · `
 | **Minimal frontend** | Next.js 15.5.7 + TypeScript + Vitest | `examples/nextjs-minimal/` | **3000** |
 | **Full-stack CMS** | Next.js 15.4.11 + Payload CMS v3 + SQLite | `examples/nextjs-payload/` | **3001** |
 | **Tailwind / shadcn (Path B)** | Next.js 15.5.7 + Tailwind 3 + MSC token bridge | `examples/nextjs-tailwind/` | **3002** |
+| **Vader Construct dashboard** | Next.js 16.2.6 + Tailwind 3 + MSC Shield bridge | `ui/dashboard/` | **3010** |
 | **WordPress Shield** | PHP + Divi isolation layer | `core/msc-bootstrap.php` | — |
 
 PHP never installs via npm. The WordPress layer enforces CSS namespace isolation (`msc-` prefix) to prevent theme and plugin conflicts on Divi-based sites.
@@ -89,9 +90,10 @@ Isolated workspaces under `examples/` — dependencies never pollute the root or
 | **Minimal** | Frontend baseline + smoke reference | Next.js 15.5.7 · TypeScript · Vitest | **3000** | `npm run msc:dev:example` | Shield Path A |
 | **Payload** | Full-stack CMS + MediaVault | Next.js 15.4.11 · Payload v3 · SQLite | **3001** | `npm run msc:dev:payload` | Shield Path A (admin) |
 | **Tailwind** | Hybrid Path B (shadcn-style primitives) | Next.js 15.5.7 · Tailwind 3 · `--msc-*` bridge | **3002** | `npm run msc:dev:tailwind` | Path B → `msc-shield.css` tokens |
+| **Dashboard** | Vader Construct control plane | Next.js 16.2.6 · Tailwind 3 · `--msc-*` bridge | **3010** | `npm run msc:dev:dashboard` | Path B → `msc-shield.css` tokens |
 | **WordPress Shield** | PHP/Divi isolation bridge | `core/msc-bootstrap.php` · `msc-` namespace | **8080** (reserved) | Host integration | Path A satellites |
 
-Health probes: `npm run msc:health` (ports 3000, 3001, 3002, 8080). Full matrix: [system-architecture.md](.cursor/docs/system-architecture.md).
+Health probes: `npm run msc:health` (ports 3000, 3001, 3002, 3010, 8080). Full matrix: [system-architecture.md](.cursor/docs/system-architecture.md).
 
 ---
 
@@ -201,6 +203,7 @@ npm run bootstrap
 npm run msc:dev:example    # Minimal Next.js frontend → :3000
 npm run msc:dev:payload    # Full-stack Payload CMS   → :3001
 npm run msc:dev:tailwind   # Tailwind/shadcn Path B   → :3002
+npm run msc:dev:dashboard  # Vader Construct dashboard  → :3010
 ```
 
 **Payload sandbox — first-time env setup:**

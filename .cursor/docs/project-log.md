@@ -62,6 +62,13 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - Primary Database Layer: `DATABASE_URI` / `DATABASE_URL`
 - Port Allocations: Web **3000** (`MSC_DEV_PORT`) · Payload **3001** · Tailwind Path B **3002** · Vader Construct **3010** (`MSC_DASHBOARD_PORT`) · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
 
+## ✅ Completed — Vader Construct Tailwind v3 compatibility (2026-05-27)
+
+- **Scope:** `ui/dashboard/` downgraded from Tailwind v4 syntax/deps to Tailwind v3-compatible stack for clean coexistence with `ui/msc-shield.css`.
+- **Dependencies:** removed `@tailwindcss/postcss` + Tailwind v4 usage, pinned `tailwindcss@^3.4.0`, `postcss@^8.4.31`, `autoprefixer@^10.4.20`, and switched to `tailwindcss-animate`.
+- **Config:** replaced PostCSS plugin chain with `tailwindcss` + `autoprefixer`; added explicit `tailwind.config.ts`; set `components.json` Tailwind config path.
+- **Theme bridge:** `app/globals.css` now imports `ui/msc-shield.css` first and preserves Studio Dark token values (`#121212`, `#1c1c1c`, `#e02b20`) through CSS variables used by Tailwind utilities.
+- **Runtime verification:** `npm run build` passes in `ui/dashboard`; `npm run dev -- -p 3010` serves `/` with HTTP 200.
 ## ✅ Completed — Tailwind/shadcn sandbox (v2.5.0 sprint) — 2026-05-25
 
 - **Commit:** `091469b` — `feat(sandbox): add opt-in Tailwind/shadcn sandbox (v2.5.0)`
