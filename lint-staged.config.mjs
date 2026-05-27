@@ -3,11 +3,16 @@
  */
 const DESIGN_REF = '.cursor/design_references';
 const TEMPLATES = 'templates/';
+const ARCHIVE = '_archive/';
 
 function filterBiomePaths(filenames) {
   return filenames.filter((f) => {
     const normalized = f.replace(/\\/g, '/');
-    return !normalized.includes(DESIGN_REF) && !normalized.includes(TEMPLATES);
+    return (
+      !normalized.includes(DESIGN_REF) &&
+      !normalized.includes(TEMPLATES) &&
+      !normalized.includes(ARCHIVE)
+    );
   });
 }
 

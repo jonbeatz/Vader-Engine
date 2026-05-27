@@ -33,6 +33,7 @@
       "!templates",
       "!**/.cursor/design_references",
       "!vader-site-deploy",
+      "!_archive/**",
       "!.sandbox",
       "!examples/nextjs-payload/src/payload-types.ts"
     ]
