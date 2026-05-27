@@ -67,6 +67,16 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - **Fixed:** `ui/dashboard/next.config.mjs` — `allowedDevOrigins: ['127.0.0.1', 'localhost']` so Playwright/smoke client bundles hydrate (command palette `/` shortcut)
 - **Fixed:** `CommandDialog` — move `DialogHeader` inside `DialogContent` for proper Radix dialog semantics
 
+## 2026-05-27 - New Branch: feat/v0-core-integration-v1
+
+**Purpose:** Integrate v0 design assets into working dashboard code
+
+**Starting point:** main branch (post-merge of feat/vader-construct-dashboard-v2)
+
+**Current state:** 61/61 integrity, all E2E tests passing, dependencies clean
+
+**Next phase:** Wire up v0 design components to live API data
+
 ### [2026-05-27] - fix(scripts): `health.mjs --json` pure stdout (no dotenv logs)
 
 - **Fixed:** set `DOTENV_CONFIG_QUIET` before `msc-load-env` when `--json`; dynamic import order; `process.stdout.write` for JSON payload
