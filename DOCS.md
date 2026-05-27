@@ -1,11 +1,11 @@
 # Documentation Index (SSoT Router)
 
-Single entry point for all **Boilerplate v2.5.0-Engine** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
+Single entry point for all **Vader Engine v2.5.0-Engine** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
 
 | Field | Value |
 | --- | --- |
-| **Repository** | [github.com/jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) |
-| **Clone** | `git clone https://github.com/jonbeatz/Boilerplate.git my-project` |
+| **Repository** | [github.com/jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) |
+| **Clone** | `git clone https://github.com/jonbeatz/Vader-Engine.git my-project` |
 | **Version** | v2.5.0-Engine · semver `2.5.0` · grade **61/61** |
 
 ## Human control panel (root)
@@ -54,6 +54,8 @@ Single entry point for all **Boilerplate v2.5.0-Engine** documentation. Technica
 | [v0-Design/README.md](.cursor/docs/v0-Design/README.md) | Module index · reading order · Git branches |
 | [v6-Master-Prompt.md](.cursor/docs/v0-Design/v6-Master-Prompt.md) | Copy-paste [v0.dev](https://v0.dev) prompt + 6 reference images |
 | [v5-Implementation.md](.cursor/docs/v0-Design/v5-Implementation.md) | `ui/dashboard/` Lean Boundary · §12–§14 post-v0 handoff |
+| [v0-Run-Sheet.md](.cursor/docs/v0-Design/v0-Run-Sheet.md) | One-page v0 Stage 1–3 operator checklist |
+| [ENGINE_ROADMAP.md](.cursor/plans/ENGINE_ROADMAP.md) | **Master integration roadmap** — Phases 1–3, API wiring, terminal plan |
 | Visual refs | `.cursor/design_references/v0-Design-Refrences/` |
 
 Active feature branch for dashboard work: **`feat/vader-construct-dashboard`** (branch from `main`).
@@ -78,6 +80,7 @@ Active feature branch for dashboard work: **`feat/vader-construct-dashboard`** (
 | [examples/nextjs-minimal/](examples/nextjs-minimal/) | Next.js 15.5.7 + TypeScript + Vitest | **3000** |
 | [examples/nextjs-payload/](examples/nextjs-payload/) | Next.js 15.4.11 + Payload CMS v3 + SQLite | **3001** |
 | [examples/nextjs-tailwind/](examples/nextjs-tailwind/) | Next.js 15.5.7 + Tailwind 3 + shadcn (Path B hybrid) | **3002** |
+| [ui/dashboard/](ui/dashboard/) | Vader Construct dashboard (v0 export hardened to Tailwind 3) | **3010** |
 
 From repo root: `npm run msc:dev:tailwind` → http://127.0.0.1:3002. Lean Boundary — deps only in the sandbox `package.json`.
 

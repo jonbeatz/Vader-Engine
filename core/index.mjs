@@ -1,5 +1,5 @@
 /**
- * MSC Boilerplate core JS barrel — Powered by the MSC Media Engine
+ * Vader Engine core JS barrel — Powered by the MSC Media Engine
  */
 export const MSC_VERSION = '2.5.0';
 export const MSC_LEAN_BOUNDARY = 'examples-isolated';

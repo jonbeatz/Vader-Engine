@@ -1,6 +1,6 @@
 # nextjs-tailwind — Path B Sandbox
 
-> **MSC Boilerplate** · **Sandbox** · Port **3002** · Next.js 15.5.7 + Tailwind 3 + shadcn-style components
+> **Vader Engine** · **Sandbox** · Port **3002** · Next.js 15.5.7 + Tailwind 3 + shadcn-style components
 
 Hybrid **Path B** reference: Tailwind utilities and shadcn primitives bridged to Vader Protocol tokens in `ui/msc-shield.css`. Parent index: [examples/README.md](../README.md).
 

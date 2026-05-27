@@ -1,0 +1,297 @@
+@import "../../../ui/msc-shield.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark-only theme — Studio Dark tokens (#121212, #1c1c1c, #e02b20) */
+:root {
+  --background: #121212;
+  --foreground: #ffffff;
+  --card: #1c1c1c;
+  --card-foreground: #ffffff;
+  --popover: #1c1c1c;
+  --popover-foreground: #ffffff;
+  --primary: #e02b20;
+  --primary-foreground: #ffffff;
+  --secondary: #252525;
+  --secondary-foreground: #ffffff;
+  --muted: #252525;
+  --muted-foreground: #b3b3b3;
+  --accent: #e02b20;
+  --accent-foreground: #ffffff;
+  --destructive: #e02b20;
+  --destructive-foreground: #ffffff;
+  --success: #1d9e75;
+  --success-foreground: #ffffff;
+  --warning: #ba7517;
+  --warning-foreground: #ffffff;
+  --border: #2d2d2d;
+  --input: #252525;
+  --ring: #e02b20;
+  --chart-1: #e02b20;
+  --chart-2: #1d9e75;
+  --chart-3: #ba7517;
+  --chart-4: #3b82f6;
+  --chart-5: #a855f7;
+  --radius: 0.625rem;
+  --sidebar: #0f0f0f;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #e02b20;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1c1c1c;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #2d2d2d;
+  --sidebar-ring: #e02b20;
+}
+
+.dark {
+  --background: #121212;
+  --foreground: #ffffff;
+  --card: #1c1c1c;
+  --card-foreground: #ffffff;
+  --popover: #1c1c1c;
+  --popover-foreground: #ffffff;
+  --primary: #e02b20;
+  --primary-foreground: #ffffff;
+  --secondary: #252525;
+  --secondary-foreground: #ffffff;
+  --muted: #252525;
+  --muted-foreground: #b3b3b3;
+  --accent: #e02b20;
+  --accent-foreground: #ffffff;
+  --destructive: #e02b20;
+  --destructive-foreground: #ffffff;
+  --success: #1d9e75;
+  --success-foreground: #ffffff;
+  --warning: #ba7517;
+  --warning-foreground: #ffffff;
+  --border: #2d2d2d;
+  --input: #252525;
+  --ring: #e02b20;
+  --chart-1: #e02b20;
+  --chart-2: #1d9e75;
+  --chart-3: #ba7517;
+  --chart-4: #3b82f6;
+  --chart-5: #a855f7;
+  --sidebar: #0f0f0f;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #e02b20;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1c1c1c;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #2d2d2d;
+  --sidebar-ring: #e02b20;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1c1c1c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d2d2d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3d3d3d;
+}
+
+/* ============================================
+   MASTER JEDI POLISH - Version 10
+   ============================================ */
+
+/* 1. Card Definition - subtle border and shadow */
+.card-definition {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Apply to all Card components */
+[data-slot="card"],
+.card-hover {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Animations - smooth transitions */
+button,
+[role="button"],
+.card-hover,
+[data-slot="card"],
+[data-slot="button"] {
+  transition: all 0.2s ease;
+}
+
+/* 3. Interactive Glow - subtle on buttons, minimal glow */
+button:hover,
+[role="button"]:hover,
+[data-slot="button"]:hover {
+  /* Minimal glow on buttons */
+}
+
+button:active,
+[role="button"]:active,
+[data-slot="button"]:active {
+  /* Slight press feedback */
+}
+
+/* Exclude ghost/outline buttons from glow */
+button[data-variant="ghost"]:hover,
+button[data-variant="outline"]:hover {
+  /* No glow */
+}
+
+/* 4. Status Indicators - green glow on success dots */
+.status-dot-success,
+.bg-success {
+  box-shadow: 0 0 6px rgba(29, 158, 117, 0.5);
+}
+
+/* Pulsing animation for active status */
+@keyframes status-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 6px rgba(29, 158, 117, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(29, 158, 117, 0.8);
+  }
+}
+
+.status-dot-pulse {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+/* 5. Header Glass effect */
+.header-glass {
+  backdrop-filter: blur(8px);
+  background: rgba(18, 18, 18, 0.8);
+}
+
+/* 6. Border Glow effect - subtle light grey, outer edge only, NO scale, NO red */
+.card-glass-gleam {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card-glass-gleam:hover {
+  border-color: #3a3a3a;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Override ALL card hover states to use grey, not red */
+[data-slot="card"]:hover,
+.card-hover:hover {
+  border-color: #3a3a3a;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Override focus ring to be grey instead of red */
+*:focus-visible {
+  outline: 2px solid #3a3a3a;
+  outline-offset: 2px;
+}
+
+/* Remove ALL scale/transform from cards */
+.card-hover,
+[data-slot="card"],
+.card-glass-gleam {
+  transform: none;
+}
+
+.card-hover:hover,
+[data-slot="card"]:hover,
+.card-glass-gleam:hover {
+  transform: none;
+}
+
+/* 7. Typography - ensure Geist fonts are applied */
+.font-mono,
+code,
+pre,
+.tabular-nums,
+[data-mono="true"] {
+  font-family: var(--font-geist-mono), "Geist Mono", monospace;
+}
+
+/* Subtle glow effect for primary elements */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(224, 43, 32, 0.15);
+}
+
+/* Force dark theme on Sonner toasts */
+[data-sonner-toaster] [data-sonner-toast] {
+  background: #1c1c1c;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #f0f0f0;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-title] {
+  color: #f0f0f0;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-description] {
+  color: #a0a0a0;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-icon] {
+  color: #1d9e75;
+}
+
+[data-sonner-toaster] [data-sonner-toast] [data-icon] svg {
+  color: #1d9e75;
+  fill: #1d9e75;
+}
+
+[data-sonner-toaster] [data-sonner-toast][data-type="success"] {
+  background: #1c1c1c;
+  border-color: rgba(29, 158, 117, 0.3);
+}
+
+[data-sonner-toaster] [data-sonner-toast][data-type="error"] {
+  background: #1c1c1c;
+  border-color: rgba(224, 43, 32, 0.3);
+}
+
+[data-sonner-toaster] [data-sonner-toast][data-type="warning"] {
+  background: #1c1c1c;
+  border-color: rgba(186, 117, 23, 0.3);
+}
+
+/* Command palette styling */
+[data-slot="command"] {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Dialog/AlertDialog styling */
+[data-slot="dialog-content"],
+[data-slot="alert-dialog-content"] {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}

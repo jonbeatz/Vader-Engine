@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MSC kill-all-dev-ports — wrapper for 3000, 3001, 3002, 8080
+ * MSC kill-all-dev-ports — wrapper for 3000, 3001, 3002, 3010, 8080
  * Powered by the MSC Media Engine
  */
 import './lib/msc-load-env.mjs';
@@ -11,7 +11,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const BANNER = '[msc:kill-all-dev-ports]';
-const PORTS = [3000, 3001, 3002, 8080];
+const PORTS = [3000, 3001, 3002, 3010, 8080];
 const killScript = join(dirname(fileURLToPath(import.meta.url)), 'msc-kill-dev-port.mjs');
 
 console.log(`${BANNER} clearing ports: ${PORTS.join(', ')}`);

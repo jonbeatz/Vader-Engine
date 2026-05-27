@@ -1,8 +1,8 @@
 
-> msc-universal-boilerplate@1.0.0 grade
+> vader-engine@1.0.0 grade
 > node scripts/msc-grade-boilerplate.mjs
 
---- 📊 Grading Boilerplate (Gold Master) ---
+--- 📊 Grading Vader Engine (Gold Master) ---
 
 Γ£à [PASS] HOW-TO.md exists
 Γ£à [PASS] Code-Jedi.md exists

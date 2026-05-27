@@ -1,7 +1,7 @@
 {
-  "name": "msc-universal-boilerplate",
+  "name": "vader-engine",
   "version": "2.5.0",
-  "description": "Vader Protocol v2.5.0-Engine — Cursor-native full-stack boilerplate with a 61-point self-grader, template scaffolding CLI, isolated Next.js / Payload / Tailwind-shadcn / WordPress sandboxes, Studio Dark UI shield, Biome linting, and MCP-ready agent workflows",
+  "description": "Vader Protocol v2.5.0-Engine — Cursor-native full-stack Vader Engine with a 61-point self-grader, template scaffolding CLI, isolated Next.js / Payload / Tailwind-shadcn / WordPress sandboxes, Studio Dark UI shield, Biome linting, and MCP-ready agent workflows",
   "type": "module",
   "main": "core/index.mjs",
   "scripts": {
@@ -21,6 +21,7 @@
     "msc:dev:example": "cd examples/nextjs-minimal && npm run dev",
     "msc:dev:payload": "cd examples/nextjs-payload && npm run dev",
     "msc:dev:tailwind": "cd examples/nextjs-tailwind && npm run dev",
+    "msc:dev:dashboard": "cd ui/dashboard && npm run dev -- -p 3010",
     "verify:mcp": "node scripts/msc-verify-mcp.mjs",
     "verify:mcp:probe": "node scripts/msc-verify-mcp.mjs --probe",
     "verify:local": "node scripts/msc-local-http-smoke.mjs",
@@ -61,20 +62,12 @@
     "msc:e2e:install": "playwright install --with-deps chromium firefox",
     "msc:e2e": "playwright test --config e2e/playwright.config.ts"
   },
-  "lint-staged": {
-    "*.{js,mjs,ts,tsx,jsx}": [
-      "biome check --write"
-    ],
-    "!(package-lock)*.{json,css}": [
-      "biome format --write"
-    ]
-  },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jonbeatz/Boilerplate.git"
+    "url": "https://github.com/jonbeatz/Vader-Engine.git"
   },
   "packageManager": "npm@10.9.2",
   "engines": {

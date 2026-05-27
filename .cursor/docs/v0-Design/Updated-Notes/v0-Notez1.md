@@ -116,7 +116,7 @@ Since your project is rooted in the Vader Protocol and your naming conventions a
 
 **Rebranded:** baseline tag is v2.5.0-Engine (replaced SOVEREIGN). Other names considered: Vertex / Daemon / Apex / Jedi / Master / Construct / Source / Syntax / Protocol/ Vault /Imperial / Shadowz / Fortress/ Dark Side / 
 
-Project name ideas instead of Boilerplate...
+Project name ideas instead of Vader Engine...
 Vader Labz / Vader Studioz / Vader Protocol Kit / Vader Vault / Imperial Core / VaderLabz Core / Vader Engine Studioz / Vader Engin e/Vader Core / MSC Studioz Engine / Jedi Studio Engine / Apex Studioz / Dark Side Labz / Sith Vault /
 
 1. The "Top Tier" Candidates (Professional & Modular)

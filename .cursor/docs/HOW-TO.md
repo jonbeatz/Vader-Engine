@@ -1,14 +1,14 @@
-# HOW-TO: Boilerplate-v2.5.0 Operational Runbook
+# HOW-TO: Vader Engine v2.5.0 Operational Runbook
 
-Single operator-facing guide for running, verifying, and extending **Boilerplate-v2.5.0** (`msc-universal-boilerplate`). For agent routing and module maps, use [Code-Jedi.md](./Code-Jedi.md). Constitutional precedence: [TRUTH.md](../../TRUTH.md).
+Single operator-facing guide for running, verifying, and extending **Vader Engine v2.5.0** (`vader-engine`). For agent routing and module maps, use [Code-Jedi.md](./Code-Jedi.md). Constitutional precedence: [TRUTH.md](../../TRUTH.md).
 
-**Repository:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) · **Clone:** `git clone https://github.com/jonbeatz/Boilerplate.git my-project`
+**Repository:** [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) · **Clone:** `git clone https://github.com/jonbeatz/Vader-Engine.git my-project`
 
 ---
 
 ## Mission
 
-Boilerplate-v2.5.0 is an **unbranded, self-validating engine** — a portable factory layer for Payload/Next.js consumers, WordPress/Divi surfaces, Studio Dark UI, and **sibling-directory scaffolding** via `msc:template`. It ships:
+Vader Engine v2.5.0 is an **unbranded, self-validating engine** — a portable factory layer for Payload/Next.js consumers, WordPress/Divi surfaces, Studio Dark UI, and **sibling-directory scaffolding** via `msc:template`. It ships:
 
 - **61-point** structural grader with CI and pre-push enforcement
 - Env-driven, selectable strategies (no forced production defaults)
@@ -30,7 +30,7 @@ Cold-start sequence every operator or agent session should follow.
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/jonbeatz/Boilerplate.git my-project
+git clone https://github.com/jonbeatz/Vader-Engine.git my-project
 cd my-project
 npm run msc:check-node
 npm run msc:onboard
@@ -61,7 +61,7 @@ npm run start-project:gate
 
 `start-project:smoke` also supports optional `MSC_SMOKE_RUN_TYPECHECK` / migrations when env flags are set.
 
-**Windows / Cursor:** Use integrated terminal profile **Boilerplate Node** (`.vscode/settings.json`) or see [START-HERE.md](../../START-HERE.md) → Node runtime.
+**Windows / Cursor:** Use integrated terminal profile **Vader Engine Node** (`.vscode/settings.json`) or see [START-HERE.md](../../START-HERE.md) → Node runtime.
 
 ### 4. Baseline health checks
 
@@ -345,12 +345,12 @@ Setup details: [mcp-setup.md](./mcp-setup.md). Extended catalog: `.cursor/mcp-bl
 
 ---
 
-*Operational runbook for Boilerplate-v2.5.0. When scripts or gates change, update `package.json`, Code-Jedi, and this file in the same session.*
+*Operational runbook for Vader Engine v2.5.0. When scripts or gates change, update `package.json`, Code-Jedi, and this file in the same session.*
 
 ---
 
 ## 📁 The Template & Scaffolding System (v2.4.0)
-Boilerplate contains a cross-platform, native scaffolding CLI to generate custom workspaces into sibling directories outside the main repository root.
+Vader Engine contains a cross-platform, native scaffolding CLI to generate custom workspaces into sibling directories outside the main repository root.
 
 ### Available Subcommands
 - **List Blueprints:** `npm run msc:template -- list`

@@ -1,4 +1,4 @@
-# MCP Setup — Boilerplate Project Layer
+# MCP Setup — Vader Engine Project Layer
 
 How Model Context Protocol servers are split between **this repo** (`.cursor/mcp.json`) and your **global** Cursor config (`~/.cursor/mcp.json` on Windows: `%USERPROFILE%\.cursor\mcp.json`).
 

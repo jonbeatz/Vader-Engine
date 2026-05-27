@@ -31,6 +31,11 @@ payload.sqlite
 # Generated Hostinger deploy artifact (push from vader-site-deploy/ to its own GitHub repo)
 vader-site-deploy/
 
+# Vader Construct dashboard (ui/dashboard — Lean Boundary)
+ui/dashboard/node_modules/
+ui/dashboard/.next/
+ui/dashboard/.env.local
+
 # Consumer app artifacts (when copied into Next/Payload project)
 node_modules/
 .next/
@@ -61,3 +66,4 @@ playwright/.cache/
 .cursor/design_references/*.png
 .cursor/design_references/*.webp
 .cursor/design_references/*.gif
+.cursor/design_references/vader-ops-dashboard.zip

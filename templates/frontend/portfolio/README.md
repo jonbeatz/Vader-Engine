@@ -1,6 +1,6 @@
 # {{PROJECT_NAME}} — Portfolio Template
 
-> **MSC Boilerplate** · **Template blueprint** · Port **{{PORT}}** · Next.js + Vader Protocol Shield (Path A)
+> **Vader Engine** · **Template blueprint** · Port **{{PORT}}** · Next.js + Vader Protocol Shield (Path A)
 
 Scaffolded via `npm run msc:template -- apply frontend/portfolio --name="Your Studio"`. Not a living sandbox — see [examples/nextjs-minimal](../../examples/nextjs-minimal/) for in-repo dev.
 

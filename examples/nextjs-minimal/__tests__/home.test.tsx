@@ -5,7 +5,7 @@ import Home from '../app/page';
 describe('Home Page', () => {
   it('renders the success heading', () => {
     render(<Home />);
-    expect(screen.getByText(/Boilerplate v2 Works!/i)).toBeDefined();
+    expect(screen.getByText(/Vader Engine v2 Works!/i)).toBeDefined();
   });
 
   it('renders the test button', () => {

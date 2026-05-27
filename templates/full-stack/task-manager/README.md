@@ -1,6 +1,6 @@
 # {{PROJECT_NAME}} — Task Manager Template
 
-> **MSC Boilerplate** · **Template blueprint** · Port **{{PORT}}** · Payload v3 + Next.js (clients + tasks CRM stubs)
+> **Vader Engine** · **Template blueprint** · Port **{{PORT}}** · Payload v3 + Next.js (clients + tasks CRM stubs)
 
 ## Setup
 

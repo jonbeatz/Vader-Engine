@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for improving the MSC boilerplate (**v2.5.0**).
+Thank you for improving Vader Engine (**v2.5.0**).
 
 ## Fork and Rename
 
@@ -143,13 +143,13 @@ On every semver bump or alignment sweep, update **current-version** strings in t
 
 | Surface | Pattern |
 |---------|---------|
-| `package.json` | `"version"` and `repository.url` → `https://github.com/jonbeatz/Boilerplate.git` |
-| `README.md` | Title `# Boilerplate-v2.x.x` · version table · "What's new in v2.x.x" · GitHub badges → `jonbeatz/Boilerplate` |
+| `package.json` | `"version"` and `repository.url` → `https://github.com/jonbeatz/Vader-Engine.git` |
+| `README.md` | Title `# Vader Engine v2.x.x` · version table · "What's new in v2.x.x" · GitHub badges → `jonbeatz/Vader-Engine` |
 | `TRUTH.md` | `Version target:` line |
 | `DOCS.md`, `ARCHITECTURE.md`, `TROUBLESHOOTING.md`, `CONTRIBUTING.md` | Header / intro version |
 | `START-HERE.md` | Checklist section (`v2.x = checklist`) |
 | `.cursor/docs/HOW-TO.md`, `Code-Jedi.md`, `system-architecture.md` | Title + section headers |
-| `.cursor/rules/README.md`, `.devcontainer/devcontainer.json` | Boilerplate-v2.x.x |
+| `.cursor/rules/README.md`, `.devcontainer/devcontainer.json` | Vader Engine v2.x.x |
 | `.cursor/docs/project-log.md` | `Current Version:` + ship commit SHA |
 | `docs/releases/RELEASE_vX.Y.Z.md` | New release note file per tag |
 

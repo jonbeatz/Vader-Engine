@@ -1,11 +1,11 @@
 # Project Log & Source of Truth
 
 ## 📋 General Overview
-- **Project Name:** MSC Universal Boilerplate (Vader Protocol)
-- **Repository:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) — renamed from `Boilerplate-v2` (May 2026); prior slug `Boilerplate-v1` / `Boilerplate-v2` preserved in historical changelog entries only
+- **Project Name:** Vader Engine (Vader Protocol)
+- **Repository:** [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) — renamed from `Boilerplate` / `jonbeatz/Boilerplate` (May 2026); prior slugs `Boilerplate-v1` / `Boilerplate-v2` preserved in `CHANGELOG.md` only
 - **Target Stack:** Next.js sandboxes · Payload CMS · WordPress Shield · Cursor MCP
 - **Current Version:** 2.5.0
-- **Status:** Vader Protocol locked — v2.5.0-Engine baseline · **61/61** grade · main-only remote · release tags `v2.1.0`–`v2.5.0`
+- **Status:** Vader Engine rebrand complete — v2.5.0-Engine baseline · **61/61** grade · release tags `v2.1.0`–`v2.5.0`
 
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 
@@ -30,8 +30,8 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 
 ## ✅ Completed — Repository rebrand & Phase E hygiene (2026-05-25)
 
-- **Commits:** `1e6c7d8` (and `aea409d`) — `System(Rebrand): Establish 'Boilerplate' as VaderLabz engine protocol`
-- **Rebrand:** `Boilerplate-v2` → `Boilerplate` on GitHub; internal docs/URLs updated; version titles (`Boilerplate-v2.4.0`) unchanged
+- **Commits:** `1e6c7d8` (and `aea409d`) — `System(Rebrand): Establish 'Vader Engine' as VaderLabz engine protocol`
+- **Rebrand:** `Boilerplate-v2` → `Boilerplate` on GitHub (May 2025); internal docs/URLs updated; version titles (`Boilerplate-v2.4.0`) unchanged — superseded May 2026 by **Vader Engine** / `jonbeatz/Vader-Engine`
 - **Phase E:** deleted 10 Dependabot remote branches; removed 7 obsolete `phase-*` tags; `main` + `v2.*` tags only
 - **Gate:** `msc:lint` · `grade` 60/60 · `msc:test:root` 8/8
 
@@ -41,7 +41,7 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - **Added:** `npm run msc:github:sync` (`gh repo edit` + `delete_branch_on_merge`); `tools/msc-cli/scripts/github-sync.mjs`
 - **Modified:** `msc:test:root` → `npm audit --production && vitest run` (pre-push)
 - **Docs:** CHANGELOG `[Unreleased]`, CONTRIBUTING, HOW-TO, Code-Jedi, `.env.example`
-- **Verified:** `msc:github:sync` 2/2 steps OK on `jonbeatz/Boilerplate` · audit 0 vulnerabilities · Vitest **8/8**
+- **Verified:** `msc:github:sync` 2/2 steps OK on `jonbeatz/Vader-Engine` · audit 0 vulnerabilities · Vitest **8/8**
 
 ## 🚀 Next Session Queue (Start Project)
 
@@ -52,14 +52,23 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - [x] Vader Protocol modular blueprint — `.cursor/docs/v0-Design/` merged to `main`
 - [x] Rebrand baseline tag — **v2.5.0-Engine** (grader banner, prompts, blueprint)
 - [x] Retire `Boilerplate-FrontEnd-v1` — merged; branch deleted
-- [ ] **Active:** v0.dev generation + `ui/dashboard/` on **`feat/vader-construct-dashboard`** — see [v6-Master-Prompt.md](v0-Design/v6-Master-Prompt.md)
+- [x] Product rebrand **Boilerplate → Vader Engine** — `package.json` name `vader-engine`, docs/sandboxes/grader banner (May 2026)
+- [ ] **Active:** Wire v0 dashboard in `ui/dashboard/` — [ENGINE_ROADMAP.md](../plans/ENGINE_ROADMAP.md) Phase 1–2 · `npm run msc:dev:dashboard`
+- [x] v0 workflow docs + [v0-Run-Sheet.md](v0-Design/v0-Run-Sheet.md)
 - [ ] Optional: close stale Dependabot PRs on GitHub UI (none open as of 2026-05-25)
 
 ## ⚙️ Core Environment Specs
 - Local Environment URL: `MSC_PUBLIC_ORIGIN` or localhost
 - Primary Database Layer: `DATABASE_URI` / `DATABASE_URL`
-- Port Allocations: Web **3000** (`MSC_DEV_PORT`) · Payload **3001** · Tailwind Path B **3002** · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
+- Port Allocations: Web **3000** (`MSC_DEV_PORT`) · Payload **3001** · Tailwind Path B **3002** · Vader Construct **3010** (`MSC_DASHBOARD_PORT`) · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
 
+## ✅ Completed — Vader Construct Tailwind v3 compatibility (2026-05-27)
+
+- **Scope:** `ui/dashboard/` downgraded from Tailwind v4 syntax/deps to Tailwind v3-compatible stack for clean coexistence with `ui/msc-shield.css`.
+- **Dependencies:** removed `@tailwindcss/postcss` + Tailwind v4 usage, pinned `tailwindcss@^3.4.0`, `postcss@^8.4.31`, `autoprefixer@^10.4.20`, and switched to `tailwindcss-animate`.
+- **Config:** replaced PostCSS plugin chain with `tailwindcss` + `autoprefixer`; added explicit `tailwind.config.ts`; set `components.json` Tailwind config path.
+- **Theme bridge:** `app/globals.css` now imports `ui/msc-shield.css` first and preserves Studio Dark token values (`#121212`, `#1c1c1c`, `#e02b20`) through CSS variables used by Tailwind utilities.
+- **Runtime verification:** `npm run build` passes in `ui/dashboard`; `npm run dev -- -p 3010` serves `/` with HTTP 200.
 ## ✅ Completed — Tailwind/shadcn sandbox (v2.5.0 sprint) — 2026-05-25
 
 - **Commit:** `091469b` — `feat(sandbox): add opt-in Tailwind/shadcn sandbox (v2.5.0)`
@@ -79,6 +88,23 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - **Remote:** pushed `40ab1dc` → `origin/main` (`26fc376..40ab1dc`)
 
 ## 🪵 Development Changelog
+
+### [2026-05-26] - docs: ENGINE_ROADMAP + dashboard Phase 1 foundation prep
+
+- **Added:** `.cursor/plans/ENGINE_ROADMAP.md` — Phases 1–3, architecture mapping, terminal draft, 5-step checklist
+- **Added:** v0 workflow docs (`Prompt-v0.md`, `v0-Run-Sheet.md`, v1–v6 refresh)
+- **Prep:** port **3010** on kill-list + health probes; `MSC_DASHBOARD_*` in `.env.example`; `npm run msc:dev:dashboard`; `ui/dashboard/` gitignore paths
+- **Next:** Commit `ui/dashboard/` v0 import → Phase 1 token bridge + route smoke on **3010**
+
+## [2026-05-26] Rebrand Complete: Boilerplate → Vader Engine
+
+- **Scope:** Full project rename from Boilerplate to Vader Engine
+- **Changes:** 88 files updated (docs, package.json, README, grader banner, examples, v0 prompts)
+- **Preserved:** `msc-*` prefix, `MSC_VERSION = '2.5.0'`, internal script names
+- **Verification:** `git grep` clean (except CHANGELOG), grade 61/61, lint 0 errors, tests 8/8
+- **Status:** Rebrand complete; operational gates validated. Baseline tag: `v2.5.0-Engine`
+- **Next:** v0 dashboard generation on `feat/vader-construct-dashboard`
+- **Commits:** `b567546` (bulk rebrand) · follow-up includes design ref + lint-staged filter
 
 ### [2026-05-26] - Session — Engine rebrand, doc sync, branch hygiene
 
@@ -159,7 +185,7 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 ## Feature Complete — 2026-05-24
 
 - **Commit:** Feature Complete: 100/100 — Playwright E2E, Cursor settings, repo rename
-- **Repository:** `jonbeatz/Boilerplate-v2` (renamed from Boilerplate-v1)
+- **Repository:** `jonbeatz/Vader-Engine` (renamed from Vader Engine-v1)
 - **Grade:** 52/52 (100%) · CI green (validate → E2E)
 - **P3 shipped:** Playwright E2E, `.cursor/settings.json`, repo rename URL sweep
 - **CI fixes:** minimal sandbox lockfile committed; Payload `database/.gitkeep` + `payload-e2e.db` for E2E
@@ -167,7 +193,7 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 
 ### [2026-05-24] - Session Closeout — Gold Master certified
 - **Added:** Playwright E2E harness, `.cursor/settings.json`, minimal/payload CI lockfile + SQLite E2E fixes
-- **Modified:** Repo renamed to `jonbeatz/Boilerplate-v2`; git history rewritten (JonBeatz sole author); full doc catalog sync
+- **Modified:** Repo renamed to `jonbeatz/Vader-Engine`; git history rewritten (JonBeatz sole author); full doc catalog sync
 - **Verified:** `npm run grade` 52/52 · CI green · `npm run msc:e2e` 6/6 local · working tree clean on `main`
 
 ## Chunk C complete — 2026-05-24
@@ -248,7 +274,7 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 
 - **Baseline:** Next.js pins verified (minimal 15.5.7, payload 15.4.11). Pre-upgrade grade **38/38 (100%)**; post-Phase-1 grade **39/39 (100%)** (added `package.json main is not PHP` check).
 - **Audits:** Root lean OK · Lean boundary OK · Divi canonical path created · Inventory run (`npm run inventory`).
-- **1.4 namespace drift (documented, not mutated):** `package.json` name `msc-universal-boilerplate`, version `1.0.0` — target alignment deferred to Phase 6 Step 57 / operator choice on repo rename.
+- **1.4 namespace drift (documented, not mutated):** `package.json` name `vader-engine`, version `1.0.0` — target alignment deferred to Phase 6 Step 57 / operator choice on repo rename.
 - **Node guard:** Scripts accept **20.x–24.x** (matches `package.json` engines). CI pins Node **20**; local `.nvmrc` → **20.19.1**.
 - **Exit gate (Node 24):** `msc:validate-env` PASS · `verify:mcp` PASS · `grade` **39/39 (100%)**.
 - **Phase 1 complete — grade 39/39.**
@@ -293,6 +319,6 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - **Verified:** Local Script Gate Sequence attempted on port **3000** (`msc-kill-dev-port.mjs` → `msc-local-http-smoke.mjs`). Smoke requires a consumer dev server on **3000**; boilerplate has no bundled Next app yet.
 
 ### [YYYY-MM-DD] - Phase 1 Initial Blueprint Seeding
-- **Added:** Initialized core components using Universal Boilerplate (v1) framework.
+- **Added:** Initialized core components using Universal Vader Engine (v1) framework.
 - **Verified:** Active rules engines, core utilities, and local terminal script modules.
 

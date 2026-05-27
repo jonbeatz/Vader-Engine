@@ -1,6 +1,6 @@
 # nextjs-minimal — Frontend Sandbox
 
-> **MSC Boilerplate** · **Sandbox** · Port **3000** · Next.js 15.5.7 + TypeScript + Vitest
+> **Vader Engine** · **Sandbox** · Port **3000** · Next.js 15.5.7 + TypeScript + Vitest
 
 Minimal App Router baseline for Shield UI and frontend smoke tests. Parent index: [examples/README.md](../README.md).
 

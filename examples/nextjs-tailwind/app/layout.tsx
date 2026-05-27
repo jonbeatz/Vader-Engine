@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Boilerplate — Tailwind / shadcn Sandbox',
+  title: 'Vader Engine — Tailwind / shadcn Sandbox',
   description: 'Path B hybrid sandbox (MSC Shield tokens + Tailwind utilities)',
 };
 

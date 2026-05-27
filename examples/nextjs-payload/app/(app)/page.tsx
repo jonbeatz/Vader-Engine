@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <section className="msc-card-panel">
       <h2 className="msc-title" style={{ fontSize: '1.25rem' }}>
-        Boilerplate v2 — Payload data layer
+        Vader Engine v2 — Payload data layer
       </h2>
       <p className="msc-text" style={{ marginTop: '0.75rem' }}>
         Admin UI and API run on port <strong>3001</strong>. Database file:{' '}

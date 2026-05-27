@@ -1,6 +1,6 @@
 # {{PROJECT_NAME}} — Divi Bridge Template
 
-> **MSC Boilerplate** · **Template blueprint** · WordPress / Divi 4 · PHP + `msc-` namespace isolation
+> **Vader Engine** · **Template blueprint** · WordPress / Divi 4 · PHP + `msc-` namespace isolation
 
 WordPress/Divi consumer bridge with `ABSPATH` guards. Deploy to your WP host — not an npm dev server port in this blueprint.
 

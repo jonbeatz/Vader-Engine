@@ -1,12 +1,12 @@
 # Security
 
-Boilerplate-v2.5.0 enforces a **zero-leak** environment contract: live credentials never belong in committed files or public issues.
+Vader Engine v2.5.0 enforces a **zero-leak** environment contract: live credentials never belong in committed files or public issues.
 
 ## Reporting a vulnerability
 
 **Do not** open a public GitHub issue for security vulnerabilities.
 
-Use a **[private security advisory](https://github.com/jonbeatz/Boilerplate/security/advisories/new)** on this repository. That channel keeps details confidential until a fix is ready.
+Use a **[private security advisory](https://github.com/jonbeatz/Vader-Engine/security/advisories/new)** on this repository. That channel keeps details confidential until a fix is ready.
 
 We will acknowledge receipt and work on remediation. Please allow reasonable time before public disclosure.
 
@@ -24,7 +24,7 @@ Agents and operators must reference **variable names** only in chat and logs —
 
 ## Supported versions
 
-Security fixes are applied on the current **v2.x** line on `main`. Tagged releases: [releases](https://github.com/jonbeatz/Boilerplate/releases).
+Security fixes are applied on the current **v2.x** line on `main`. Tagged releases: [releases](https://github.com/jonbeatz/Vader-Engine/releases).
 
 ## Further reading
 

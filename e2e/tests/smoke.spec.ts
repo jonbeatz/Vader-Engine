@@ -6,7 +6,7 @@ const PAYLOAD_ADMIN_URL = 'http://127.0.0.1:3001/admin';
 test('minimal sandbox homepage loads', async ({ page }) => {
   const response = await page.goto(MINIMAL_URL);
   expect(response?.ok()).toBeTruthy();
-  await expect(page.getByRole('heading', { name: /Boilerplate v2 Works/i })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /Vader Engine v2 Works/i })).toBeVisible();
 });
 
 test('Studio Dark shield theme is applied on minimal sandbox', async ({ page }) => {

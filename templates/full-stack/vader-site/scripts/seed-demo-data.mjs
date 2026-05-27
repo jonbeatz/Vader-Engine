@@ -21,11 +21,11 @@ const isSkip = process.argv.includes('--skip') || process.env.MSC_SKIP_SEED === 
 
 const MOCK_PROJECTS = [
   {
-    title: 'Boilerplate',
+    title: 'Vader Engine',
     description:
-      'Cursor-native full-stack boilerplate with a 61-point self-grader, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows.',
+      'Cursor-native full-stack Vader Engine with a 61-point self-grader, isolated Next.js / Payload / WordPress sandboxes, Vader Protocol UI shield, Biome linting, and MCP-ready agent workflows.',
     status: 'active',
-    githubUrl: 'https://github.com/jonbeatz/Boilerplate',
+    githubUrl: 'https://github.com/jonbeatz/Vader-Engine',
     tags: [
       { label: 'Next.js' },
       { label: 'Payload CMS' },

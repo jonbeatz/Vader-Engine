@@ -286,4 +286,4 @@ When adding a feature (e.g. `msc-portfolio-collection`), create `ui/msc-[feature
 
 ---
 
-*Maintained as the primary AI routing compass for Boilerplate-v2.5.0. Update when `package.json` scripts or core module paths change.*
+*Maintained as the primary AI routing compass for Vader Engine v2.5.0. Update when `package.json` scripts or core module paths change.*

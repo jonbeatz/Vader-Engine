@@ -10,7 +10,7 @@
 
 v2.3.0 marks the shift from a developer scaffolding tool to a **production-proven, animation-rich, static-first deployment protocol**.
 
-The VaderLabz template is the first full proof-of-concept for the Boilerplate's end-to-end capability:
+The VaderLabz template is the first full proof-of-concept for the Vader Engine's end-to-end capability:
 
 - Template factory → scaffold → local dev → deploy in one workflow
 - Cursor-native skills as living design system documentation
@@ -41,7 +41,7 @@ Two permanent `.cursor/skills/` files ensure every future AI-assisted build stay
 
 ## Upgrade from v2.2.0
 
-No breaking changes to the Boilerplate core.
+No breaking changes to the Vader Engine core.
 
 To scaffold the new template:
 

@@ -1,9 +1,9 @@
 # Next Session Plan — Templates + `msc-cli` Tooling
 
-**Current baseline (main):** Boilerplate-v2.4.0 · **60/60** grade · tag `v2.4.0`
+**Current baseline (main):** Vader Engine v2.4.0 · **60/60** grade · tag `v2.4.0`
 
 **Status (historical):** ✅ Shipped — v2.2.0 · tag `v2.2.0` · commit `22ed024` · 52/52 · CI green
-**Baseline (historical):** Boilerplate-v2.2.0 · 52/52 · CI green
+**Baseline (historical):** Vader Engine v2.2.0 · 52/52 · CI green
 **Operator intent:** Add user-facing template blueprints + internal CLI for scaffolding/seeding
 
 ---
@@ -17,7 +17,7 @@ Introduce a **read-only template library** under `templates/` and an **ESM-nativ
 ## Proposed Directory Layout
 
 ```text
-Boilerplate/
+Vader-Engine/
 ├── templates/                      # User-facing blueprints (READ-ONLY in repo)
 │   ├── frontend/
 │   │   └── portfolio/              # Vader Protocol compliant (Path A Shield)

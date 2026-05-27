@@ -11,7 +11,7 @@ Single source of truth for repository layout, subsystem boundaries, and integrat
 ## Unified Core Layout Tree
 
 ```text
-📁 Boilerplate/  (v2.5.0)
+📁 Vader-Engine/  (v2.5.0)
 ├── 📄 START-HERE.md              ◄ [Universal Cold-Start Ignition Runbook]
 ├── 📄 README.md · DOCS.md        ◄ [Overview + documentation index]
 ├── 📄 package.json                ◄ [Command Registry — 61-point grade authority]
@@ -135,6 +135,7 @@ Consumer `package.json` scripts are appended from `config/npm-scripts-appendix.j
 | **3000** | Minimal frontend sandbox + HTTP smoke (`MSC_DEV_PORT`) |
 | **3001** | Payload full-stack CMS sandbox |
 | **3002** | Tailwind/shadcn Path B sandbox (`examples/nextjs-tailwind`) |
+| **3010** | Vader Construct control plane (`ui/dashboard` · `MSC_DASHBOARD_PORT`) |
 | **3003+** | Scaffolded sibling projects (dynamic via `msc_findFreePort`; vader-site uses **3003**) |
 | **8080** | Reserved — WordPress / microservices |
 | **4000** / **8000** | Local AI proxy (`MSC_LITELLM_PORT`) |

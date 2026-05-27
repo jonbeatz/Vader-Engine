@@ -8,7 +8,7 @@ Welcome to the baseline repository configuration sandbox. This environment is st
 
 **Constitution:** [TRUTH.md](TRUTH.md) — technical precedence when docs conflict.
 
-**Repository:** [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate) · `git clone https://github.com/jonbeatz/Boilerplate.git my-project`
+**Repository:** [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) · `git clone https://github.com/jonbeatz/Vader-Engine.git my-project`
 
 **Operator runbook:** [HOW-TO.md](.cursor/docs/HOW-TO.md) — commands, build ritual, commit gates, Path A/B UI.
 
@@ -29,7 +29,7 @@ npm run msc:check-node
 | Symptom | Fix |
 | --- | --- |
 | `[msc:node-guard]` / check-node **FAIL** | Install Node 20 or 24 LTS; reopen terminal |
-| Wrong Node on **Windows** | Use integrated terminal profile **Boilerplate Node** (`.vscode/settings.json`) or put `C:\Program Files\nodejs` first in user PATH |
+| Wrong Node on **Windows** | Use integrated terminal profile **Vader Engine Node** (`.vscode/settings.json`) or put `C:\Program Files\nodejs` first in user PATH |
 | Match CI exactly | `nvm use 20.19.1` or `fnm use` in repo root (reads `.nvmrc`) |
 
 ## v2.4 baseline checklist

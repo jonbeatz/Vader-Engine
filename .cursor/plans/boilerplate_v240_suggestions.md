@@ -1,6 +1,6 @@
-# Boilerplate v2.4.0 — Review Suggestions
+# Vader Engine v2.4.0 — Review Suggestions
 
-> External review · May 25, 2026 · Based on live repo audit of [jonbeatz/Boilerplate](https://github.com/jonbeatz/Boilerplate)
+> External review · May 25, 2026 · Based on live repo audit of [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine)
 
 ---
 
@@ -85,7 +85,7 @@ The `vaderlabz.com` hero image proves the end result, but there's nothing showin
 
 ### 6. Update the repo description for better search visibility
 
-The current description — *"Cursor-native boilerplate — 60-point grader, Vader Protocol templates, Next.js/Payload sandboxes, MCP-ready"* — is accurate but front-loads the internal branding. It could better serve search by naming the actual stack.
+The current description — *"Cursor-native Vader Engine — 60-point grader, Vader Protocol templates, Next.js/Payload sandboxes, MCP-ready"* — is accurate but front-loads the internal branding. It could better serve search by naming the actual stack.
 
 **Suggested description:**
 ```
@@ -164,7 +164,7 @@ Given the zero-leak security positioning, a formal `SECURITY.md` would reinforce
 ## Reporting a vulnerability
 
 Please do not open a public issue for security vulnerabilities.
-Email [your contact] or open a [private security advisory](https://github.com/jonbeatz/Boilerplate/security/advisories/new).
+Email [your contact] or open a [private security advisory](https://github.com/jonbeatz/Vader-Engine/security/advisories/new).
 
 ## Environment security
 
@@ -195,4 +195,4 @@ See [README — Security & compliance](./README.md#security--compliance) for ful
 
 ---
 
-*Generated from external repo review · jonbeatz/Boilerplate v2.4.0*
+*Generated from external repo review · jonbeatz/Vader-Engine v2.4.0*
