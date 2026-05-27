@@ -67,3 +67,6 @@ playwright/.cache/
 .cursor/design_references/*.webp
 .cursor/design_references/*.gif
 .cursor/design_references/vader-ops-dashboard.zip
+
+# MCP / agent screenshots (local verification only — not repo media)
+assets/
