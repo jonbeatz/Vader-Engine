@@ -4,6 +4,7 @@ import { Circle, Clock } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { cn } from '@/lib/utils';
 
 interface ActivityItem {
   id: string;
@@ -44,60 +45,67 @@ function MscRelativeTime({ date }: { date: Date }) {
 
   if (!mounted) {
     return (
-      <span className="msc-activity-feed__time msc-activity-feed__time--placeholder" aria-hidden>
+      <span className="inline-block min-w-[3.5ch] text-muted-foreground/50" aria-hidden>
         …
       </span>
     );
   }
 
-  return <span className="msc-activity-feed__time">{msc_formatShortTime(date)}</span>;
+  return (
+    <span className="inline-block min-w-[3.5ch] text-muted-foreground">
+      {msc_formatShortTime(date)}
+    </span>
+  );
 }
 
-const MSC_ACTIVITY_DOT_CLASS: Record<ActivityItem['type'], string> = {
-  deploy: 'msc-activity-feed__dot--deploy',
-  build: 'msc-activity-feed__dot--build',
-  error: 'msc-activity-feed__dot--error',
-  info: 'msc-activity-feed__dot--info',
+const activityDotStyles: Record<ActivityItem['type'], string> = {
+  deploy: 'text-success drop-shadow-[0_0_6px_rgba(29,158,117,0.5)]',
+  build: 'text-chart-4',
+  error: 'text-destructive',
+  info: 'text-muted-foreground',
 };
 
 export function ActivityFeed({ activities }: ActivityFeedProps) {
   return (
-    <Card className="msc-activity-feed" data-testid="activity-feed">
-      <CardHeader className="msc-activity-feed__header">
-        <div className="msc-activity-feed__icon-wrap">
-          <Clock className="msc-activity-feed__icon" aria-hidden />
+    <Card className="card-glass-gleam h-full border-border/60" data-testid="activity-feed">
+      <CardHeader className="flex flex-row items-center gap-2 pb-3">
+        <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-muted/50">
+          <Clock className="h-3.5 w-3.5 text-muted-foreground" aria-hidden />
         </div>
-        <h2 className="msc-activity-feed__title">Activity Pulse</h2>
+        <h2 className="text-sm font-semibold">Activity Pulse</h2>
       </CardHeader>
-      <CardContent className="msc-activity-feed__body">
-        <ScrollArea className="msc-activity-feed__scroll">
-          <div className="msc-activity-feed__list">
+      <CardContent className="p-0">
+        <ScrollArea className="h-[220px] px-4 pb-4 sm:h-[260px]">
+          <div className="flex flex-col gap-1">
             {activities.map((activity, index) => (
               <div
                 key={activity.id}
-                className={
-                  index !== activities.length - 1
-                    ? 'msc-activity-feed__item msc-activity-feed__item--bordered'
-                    : 'msc-activity-feed__item'
-                }
+                className={cn(
+                  'relative flex items-start gap-3 rounded-lg p-3 transition-colors hover:bg-muted/50',
+                  index !== activities.length - 1 && 'border-b border-border/60',
+                )}
               >
-                <div className="msc-activity-feed__rail">
+                <div className="relative flex flex-col items-center">
                   <Circle
-                    className={`msc-activity-feed__dot ${MSC_ACTIVITY_DOT_CLASS[activity.type]}`}
+                    className={cn('h-2.5 w-2.5 fill-current', activityDotStyles[activity.type])}
                     aria-hidden
                   />
                   {index !== activities.length - 1 && (
-                    <div className="msc-activity-feed__line" aria-hidden />
+                    <div className="absolute top-3 h-full w-px bg-border/60" aria-hidden />
                   )}
                 </div>
 
-                <div className="msc-activity-feed__content">
-                  <p className="msc-activity-feed__message">{activity.message}</p>
-                  <div className="msc-activity-feed__meta">
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-medium leading-tight text-foreground">
+                    {activity.message}
+                  </p>
+                  <div className="mt-1 flex flex-wrap items-center gap-2 text-[11px] text-muted-foreground">
                     {activity.project && (
                       <>
-                        <span className="msc-activity-feed__project">{activity.project}</span>
-                        <span className="msc-activity-feed__sep" aria-hidden>
+                        <span className="font-mono text-muted-foreground/85">
+                          {activity.project}
+                        </span>
+                        <span className="text-muted-foreground/40" aria-hidden>
                           •
                         </span>
                       </>

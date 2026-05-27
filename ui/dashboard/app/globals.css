@@ -211,8 +211,30 @@ button[data-variant="outline"]:hover {
     0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
-/* Override focus ring to be grey instead of red */
-*:focus-visible {
+/* Remove purple glow from all interactive elements */
+button:focus,
+button:focus-visible,
+a:focus,
+a:focus-visible,
+[role="button"]:focus,
+[role="button"]:focus-visible,
+[data-slot="button"]:focus,
+[data-slot="button"]:focus-visible {
+  outline: none;
+  box-shadow: none;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-ring-offset-shadow: 0 0 #0000;
+}
+
+button:focus-visible,
+[role="button"]:focus-visible,
+[data-slot="button"]:focus-visible {
+  outline: 2px solid var(--border);
+  outline-offset: 2px;
+}
+
+/* Grey focus for other focusables */
+*:focus-visible:not(button):not([role="button"]):not(a):not([data-slot="button"]) {
   outline: 2px solid #3a3a3a;
   outline-offset: 2px;
 }
@@ -284,10 +306,31 @@ pre,
   border-color: rgba(186, 117, 23, 0.3);
 }
 
-/* Command palette styling */
-[data-slot="command"] {
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+/* Make command palette stand out */
+[data-slot="dialog-content"] [data-slot="command"] {
+  border: 1px solid rgba(224, 43, 32, 0.3);
+  box-shadow: 0 0 20px rgba(224, 43, 32, 0.15);
+}
+
+/* Ensure command palette dialog is centered */
+[data-slot="dialog-content"][data-slot="dialog-content"] {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important;
+}
+
+/* Remove border and focus stroke from command input */
+[data-slot="command-input-wrapper"] {
+  border-bottom: none !important;
+}
+
+[data-slot="command-input"]:focus,
+[data-slot="command-input"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-ring-offset-shadow: 0 0 #0000;
 }
 
 /* Dialog/AlertDialog styling */

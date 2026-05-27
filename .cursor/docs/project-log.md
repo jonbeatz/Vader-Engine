@@ -62,6 +62,12 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - Primary Database Layer: `DATABASE_URI` / `DATABASE_URL`
 - Port Allocations: Web **3000** (`MSC_DEV_PORT`) · Payload **3001** · Tailwind Path B **3002** · Vader Construct **3010** (`MSC_DASHBOARD_PORT`) · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
 
+### [2026-05-27] - Session Closeout — Vader Construct dashboard UI polish
+- **Added/Modified:** `ui/dashboard/app/globals.css` (command palette dialog centering, accent glow, command-input focus overrides); `ui/dashboard/components/ui/dialog.tsx` (darker overlay `bg-black/80`, centered `max-w-md` modal); `ui/dashboard/components/ui/command.tsx` (input focus ring cleanup); `ui/dashboard/components/dashboard/activity-feed.tsx` (Tailwind restore); `ui/msc-dashboard.css` (removed bulk duplicate dashboard BEM — project-manager modal styles retained)
+- **Verified:** `start-project:gate` PASS (**61/61**, lint warnings only on intentional `!important` in dashboard globals, `msc:test:root` **8/8**); `msc:lint:fix` applied; ports **3000**, **3001**, **3002**, **3010**, **8080** cleared via `msc:kill-dev-port`
+- **Notes:** Command palette mounts once in `app-shell.tsx` via `CommandDialog`; scrollbar layout-shift experiments reverted — default Radix scroll-lock behavior retained per operator preference
+- **Branch:** `feat/vader-construct-dashboard-v2` · dev: `npm run msc:dev:dashboard` → **3010**
+
 ## ✅ Completed — Vader Construct Tailwind v3 compatibility (2026-05-27)
 
 - **Scope:** `ui/dashboard/` downgraded from Tailwind v4 syntax/deps to Tailwind v3-compatible stack for clean coexistence with `ui/msc-shield.css`.
