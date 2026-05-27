@@ -67,6 +67,12 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - **Fixed:** `ui/dashboard/next.config.mjs` — `allowedDevOrigins: ['127.0.0.1', 'localhost']` so Playwright/smoke client bundles hydrate (command palette `/` shortcut)
 - **Fixed:** `CommandDialog` — move `DialogHeader` inside `DialogContent` for proper Radix dialog semantics
 
+### [2026-05-27] - fix(scripts): `health.mjs --json` pure stdout (no dotenv logs)
+
+- **Fixed:** set `DOTENV_CONFIG_QUIET` before `msc-load-env` when `--json`; dynamic import order; `process.stdout.write` for JSON payload
+- **Updated:** `msc-load-env.mjs` — honor `DOTENV_CONFIG_QUIET` / `DOTENV_QUIET` via `quiet: true` on `dotenv.config`
+- **Verified:** `node scripts/health.mjs --json` parses cleanly; `msc:test:root` green
+
 ### [2026-05-27] - verify: E2E green after `ui/dashboard` production dep bumps
 
 - **`ui/dashboard` `test:e2e`:** **4/4 passed** (~3.9s) — home, nav, command palette `/`, metric cards

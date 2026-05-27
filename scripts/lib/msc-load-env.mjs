@@ -16,12 +16,20 @@ const ROOT = path.resolve(__dirname, '../..');
 const localPath = path.resolve(ROOT, '.env.local');
 const examplePath = path.resolve(ROOT, '.env.example');
 
+const quiet =
+  process.env.DOTENV_CONFIG_QUIET === 'true' ||
+  process.env.DOTENV_CONFIG_QUIET === '1' ||
+  process.env.DOTENV_QUIET === 'true' ||
+  process.env.DOTENV_QUIET === '1';
+
+const dotenvOpts = quiet ? { quiet: true } : {};
+
 if (fs.existsSync(localPath)) {
-  dotenv.config({ path: localPath });
+  dotenv.config({ path: localPath, ...dotenvOpts });
 }
 
 if (fs.existsSync(examplePath)) {
-  dotenv.config({ path: examplePath, override: false });
+  dotenv.config({ path: examplePath, override: false, ...dotenvOpts });
 }
 
 export const MSC_PROJECT_ROOT = ROOT;

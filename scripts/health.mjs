@@ -4,16 +4,20 @@
  * Socket probes: 3000, 3001, 3002, 3010, 8080 · .env.local · .nvmrc
  * Powered by the MSC Media Engine
  */
-import './lib/msc-load-env.mjs';
-import './lib/msc-node-version-guard.mjs';
-
 import fs from 'node:fs';
 import net from 'node:net';
 import path from 'node:path';
-import { MSC_PROJECT_ROOT } from './lib/msc-load-env.mjs';
+
+const isJsonOutput = process.argv.includes('--json');
+
+if (isJsonOutput) {
+  process.env.DOTENV_CONFIG_QUIET = 'true';
+}
+
+const { MSC_PROJECT_ROOT } = await import('./lib/msc-load-env.mjs');
+await import('./lib/msc-node-version-guard.mjs');
 
 const targetPorts = [3000, 3001, 3002, 3010, 8080];
-const isJsonOutput = process.argv.includes('--json');
 
 function probeSocket(port) {
   return new Promise((resolve) => {
@@ -69,7 +73,7 @@ async function runSystemDiagnostics() {
   };
 
   if (isJsonOutput) {
-    console.log(JSON.stringify({ status: 'SUCCESS', diagnostics }, null, 2));
+    process.stdout.write(`${JSON.stringify({ status: 'SUCCESS', diagnostics }, null, 2)}\n`);
   } else {
     console.log('\x1b[35m=== MSC MEDIA PRO JEDI-HEALTH LOG ===\x1b[0m');
     console.table(diagnostics);
@@ -77,6 +81,10 @@ async function runSystemDiagnostics() {
 }
 
 runSystemDiagnostics().catch((err) => {
-  console.error('[msc:health] diagnostic failure:', err.message);
+  if (isJsonOutput) {
+    process.stdout.write(`${JSON.stringify({ status: 'ERROR', error: err.message }, null, 2)}\n`);
+  } else {
+    console.error('[msc:health] diagnostic failure:', err.message);
+  }
   process.exit(1);
 });
