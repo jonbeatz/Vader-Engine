@@ -34,6 +34,8 @@
       "!**/.cursor/design_references",
       "!vader-site-deploy",
       "!_archive",
+      "!logs",
+      "!ui/dashboard/next-env.d.ts",
       "!.sandbox",
       "!examples/nextjs-payload/src/payload-types.ts"
     ]
