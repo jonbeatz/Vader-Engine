@@ -114,6 +114,7 @@ export function DashboardHome() {
 
   return (
     <div className="mx-auto max-w-[1400px] space-y-6 p-6">
+      <h1 className="text-lg font-semibold tracking-tight text-foreground">Dashboard</h1>
       <div className="grid gap-4 md:grid-cols-3">
         <MetricCard title="Vader Velocity" value={velocity} hint="+trend from last gate run" />
         <MetricCard title="Engine Capacity" value={capacity} hint="Socket probes · health API" />

@@ -7,6 +7,8 @@ const repoRoot = path.join(__dirname, '..', '..');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  /** Playwright and smoke scripts use 127.0.0.1; required for dev client bundles + HMR. */
+  allowedDevOrigins: ['127.0.0.1', 'localhost'],
   turbopack: {
     root: repoRoot,
   },

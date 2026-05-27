@@ -62,6 +62,64 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - Primary Database Layer: `DATABASE_URI` / `DATABASE_URL`
 - Port Allocations: Web **3000** (`MSC_DEV_PORT`) · Payload **3001** · Tailwind Path B **3002** · Vader Construct **3010** (`MSC_DASHBOARD_PORT`) · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
 
+### [2026-05-27] - fix(dashboard): `allowedDevOrigins` for 127.0.0.1 E2E hydration
+
+- **Fixed:** `ui/dashboard/next.config.mjs` — `allowedDevOrigins: ['127.0.0.1', 'localhost']` so Playwright/smoke client bundles hydrate (command palette `/` shortcut)
+- **Fixed:** `CommandDialog` — move `DialogHeader` inside `DialogContent` for proper Radix dialog semantics
+
+### [2026-05-27] - verify: E2E green after `ui/dashboard` production dep bumps
+
+- **`ui/dashboard` `test:e2e`:** **4/4 passed** (~3.9s) — home, nav, command palette `/`, metric cards
+- **Repo `msc:e2e`:** **12/12 passed** (~25.3s) — dashboard (Chromium + Firefox) + minimal/Payload smoke
+- **Context:** post `@hookform/resolvers` 5, `@vercel/analytics` 2, `react-day-picker` 10, `react-resizable-panels` 4
+
+### [2026-05-27] - chore(deps): upgrade remaining `ui/dashboard` production outliers
+
+- **Updated:** `@hookform/resolvers` 5.4.0, `@vercel/analytics` 2.0.1, `react-day-picker` 10.0.1, `react-resizable-panels` 4.11.2
+- **Verified:** `npm install` in `ui/dashboard` + `msc:check-deps` — dashboard production surface clean
+
+### [2026-05-27] - feat(e2e): dashboard-local Playwright (`ui/dashboard`)
+
+- **Added:** `ui/dashboard/playwright.config.ts` — `baseURL` `http://localhost:3010`, `webServer` `npm run dev -- -p 3010`
+- **Added:** `ui/dashboard/e2e/dashboard.spec.ts` — home, nav links, `/` command palette, metric cards
+- **Added:** `ui/dashboard` script `test:e2e` + devDependency `@playwright/test`
+- **Note:** repo-wide suite remains `npm run msc:e2e` (`e2e/dashboard.spec.ts` + sandbox smoke)
+
+### [2026-05-27] - feat(e2e): Playwright dashboard flows on :3010
+
+- **Added:** `e2e/dashboard.spec.ts` — home/metrics, sidebar nav (Projects → Settings), command palette `/` shortcut
+- **Updated:** `e2e/playwright.config.ts` — `testDir` `e2e/`, dashboard `webServer` via `msc:dev:dashboard`
+- **Updated:** `command-palette.tsx` — `/` opens palette (matches command bar copy); `dashboard-home.tsx` — visible `h1` Dashboard
+
+### [2026-05-27] - verify: dashboard post-deps smoke + browser console (Zod 4 / Recharts 3 / Sonner 2 / Lucide 1.x)
+
+- **Smoke:** `msc:dashboard:smoke` — **12/12** routes HTTP 200 on `:3010` after major dep bumps
+- **Telemetry:** `msc:log-session` — integrity **61/61**, dashboard smoke PASS, ports **3010** / **3003** up
+- **Browser (DevTools via MCP):** no hydration, Zod validation, or React runtime errors on `/`, `/integrity`, `/settings`
+- **Console noise (non-blocking):** repeated `WebSocket … _next/webpack-hmr` `ERR_INVALID_HTTP_RESPONSE` in automated browser session — dev HMR handshake quirk; does not affect route smoke or page render
+- **Note:** `zod` / `recharts` are declared in `ui/dashboard/package.json` but not yet imported in wired dashboard source; `sonner` + `lucide-react` are active and passed smoke
+
+### [2026-05-27] - chore(deps): upgrade `ui/dashboard` production dependencies
+
+- **Updated:** `zod` 4.4.3, `recharts` 3.8.1, `lucide-react` 1.16.0, `date-fns` 4.3.0, `sonner` 2.0.7, `react`/`react-dom` 19.2.6, `tailwind-merge` 3.6.0 (`next` already 16.2.6)
+- **Verified:** `npm install` in `ui/dashboard` + `msc:check-deps` for dashboard surface
+
+### [2026-05-27] - chore(deps): upgrade root `dotenv` 16 → 17
+
+- **Changed:** root `package.json` — `dotenv` `^16.4.7` → `^17.0.0`; `npm install` + `msc:check-deps` verify root production deps clean
+
+### [2026-05-27] - feat(scripts): session telemetry logging (`msc:log-session`)
+
+- **Added:** `scripts/msc-log-session.mjs` — snapshots git branch/commit, `npm run grade --silent` integrity score, `msc:dashboard:smoke`, and port probes **3010** (dashboard) / **3003** (vader-site)
+- **Added:** `logs/` directory (gitignored) — JSON files `logs/session-YYYY-MM-DD-HHmmss.json`
+- **Added:** `npm run msc:log-session` in root `package.json`
+
+### [2026-05-27] - feat(scripts): add msc:check-deps dependency freshness gate
+
+- **Added:** `scripts/msc-check-deps.mjs` — runs `npm outdated --json` on root, `ui/dashboard`, `examples/*`, `templates/full-stack/vader-site`
+- **Added:** `npm run msc:check-deps` in root `package.json`
+- **Policy:** exit **1** on outdated production `dependencies`; devDependencies informational only; `next` / `react` / `react-dom` exempt from fail (cross-sandbox pins)
+
 ### [2026-05-27] - biome.json: fix `_archive` ignore pattern
 
 - **Changed:** `files.includes` entry `!_archive/**` → `!_archive` (line 36) to clear Biome ignore-pattern warning

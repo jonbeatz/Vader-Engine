@@ -8,7 +8,7 @@ const payloadSecret = process.env.PAYLOAD_SECRET || 'ci-e2e-placeholder-secret-m
 const payloadDbPath = path.join(payloadRoot, 'database/payload-e2e.db');
 
 export default defineConfig({
-  testDir: path.join(root, 'e2e/tests'),
+  testDir: path.join(root, 'e2e'),
   fullyParallel: false,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
@@ -23,6 +23,13 @@ export default defineConfig({
     { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
   ],
   webServer: [
+    {
+      command: 'npm run msc:dev:dashboard',
+      cwd: root,
+      url: 'http://127.0.0.1:3010',
+      reuseExistingServer: false,
+      timeout: 120_000,
+    },
     {
       command: 'npm run dev --prefix examples/nextjs-minimal',
       cwd: root,

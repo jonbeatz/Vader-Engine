@@ -46,19 +46,8 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
     [onOpenChange],
   );
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        onOpenChange(true);
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [onOpenChange]);
-
   return (
-    <CommandDialog open={open} onOpenChange={onOpenChange} data-testid="command-palette">
+    <CommandDialog open={open} onOpenChange={onOpenChange} contentTestId="command-palette">
       <CommandInput placeholder="Search commands…" disabled={running} />
       <CommandList>
         <CommandEmpty>No commands found.</CommandEmpty>
