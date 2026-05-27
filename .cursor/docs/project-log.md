@@ -62,6 +62,12 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - Primary Database Layer: `DATABASE_URI` / `DATABASE_URL`
 - Port Allocations: Web **3000** (`MSC_DEV_PORT`) · Payload **3001** · Tailwind Path B **3002** · Vader Construct **3010** (`MSC_DASHBOARD_PORT`) · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
 
+### [2026-05-27] - biome.json: fix `_archive` ignore pattern
+
+- **Changed:** `files.includes` entry `!_archive/**` → `!_archive` (line 36) to clear Biome ignore-pattern warning
+- **Verified:** `npm run msc:lint` — 0 errors, 11 warnings (dashboard globals `!important` only)
+- **Context:** Tier-1 archive under `_archive/` (commit `2a0fc1d`); `lint-staged.config.mjs` already skips `_archive/` on commit
+
 ### [2026-05-27] - Phase 1–3 takeoff — Vader Construct dashboard wired
 
 - **Phase 1:** Full app shell, 11 routes, Path B token bridge, `ui/dashboard/README.md`, package rename `vader-construct-dashboard`
