@@ -6,7 +6,8 @@ describe('health.mjs', () => {
     const out = execSync('node scripts/health.mjs --json', { encoding: 'utf8' });
     const data = JSON.parse(out);
     expect(Array.isArray(data.diagnostics.ports)).toBe(true);
-    expect(data.diagnostics.ports).toHaveLength(4);
+    expect(data.diagnostics.ports).toHaveLength(5);
+    expect(data.diagnostics.ports.map((p) => p.port)).toContain(3010);
     expect(data.diagnostics.ports.map((p) => p.port)).toContain(3002);
   });
 });

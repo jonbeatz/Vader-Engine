@@ -53,13 +53,14 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - [x] Rebrand baseline tag — **v2.5.0-Engine** (grader banner, prompts, blueprint)
 - [x] Retire `Boilerplate-FrontEnd-v1` — merged; branch deleted
 - [x] Product rebrand **Boilerplate → Vader Engine** — `package.json` name `vader-engine`, docs/sandboxes/grader banner (May 2026)
-- [ ] **Active:** v0.dev generation + `ui/dashboard/` on **`feat/vader-construct-dashboard`** — see [v6-Master-Prompt.md](v0-Design/v6-Master-Prompt.md)
+- [ ] **Active:** Wire v0 dashboard in `ui/dashboard/` — [ENGINE_ROADMAP.md](../plans/ENGINE_ROADMAP.md) Phase 1–2 · `npm run msc:dev:dashboard`
+- [x] v0 workflow docs + [v0-Run-Sheet.md](v0-Design/v0-Run-Sheet.md)
 - [ ] Optional: close stale Dependabot PRs on GitHub UI (none open as of 2026-05-25)
 
 ## ⚙️ Core Environment Specs
 - Local Environment URL: `MSC_PUBLIC_ORIGIN` or localhost
 - Primary Database Layer: `DATABASE_URI` / `DATABASE_URL`
-- Port Allocations: Web **3000** (`MSC_DEV_PORT`) · Payload **3001** · Tailwind Path B **3002** · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
+- Port Allocations: Web **3000** (`MSC_DEV_PORT`) · Payload **3001** · Tailwind Path B **3002** · Vader Construct **3010** (`MSC_DASHBOARD_PORT`) · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
 
 ## ✅ Completed — Tailwind/shadcn sandbox (v2.5.0 sprint) — 2026-05-25
 
@@ -80,6 +81,13 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - **Remote:** pushed `40ab1dc` → `origin/main` (`26fc376..40ab1dc`)
 
 ## 🪵 Development Changelog
+
+### [2026-05-26] - docs: ENGINE_ROADMAP + dashboard Phase 1 foundation prep
+
+- **Added:** `.cursor/plans/ENGINE_ROADMAP.md` — Phases 1–3, architecture mapping, terminal draft, 5-step checklist
+- **Added:** v0 workflow docs (`Prompt-v0.md`, `v0-Run-Sheet.md`, v1–v6 refresh)
+- **Prep:** port **3010** on kill-list + health probes; `MSC_DASHBOARD_*` in `.env.example`; `npm run msc:dev:dashboard`; `ui/dashboard/` gitignore paths
+- **Next:** Commit `ui/dashboard/` v0 import → Phase 1 token bridge + route smoke on **3010**
 
 ## [2026-05-26] Rebrand Complete: Boilerplate → Vader Engine
 

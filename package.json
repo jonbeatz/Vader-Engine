@@ -21,6 +21,7 @@
     "msc:dev:example": "cd examples/nextjs-minimal && npm run dev",
     "msc:dev:payload": "cd examples/nextjs-payload && npm run dev",
     "msc:dev:tailwind": "cd examples/nextjs-tailwind && npm run dev",
+    "msc:dev:dashboard": "cd ui/dashboard && npm run dev -- -p 3010",
     "verify:mcp": "node scripts/msc-verify-mcp.mjs",
     "verify:mcp:probe": "node scripts/msc-verify-mcp.mjs --probe",
     "verify:local": "node scripts/msc-local-http-smoke.mjs",

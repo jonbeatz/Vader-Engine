@@ -54,6 +54,8 @@ Single entry point for all **Vader Engine v2.5.0-Engine** documentation. Technic
 | [v0-Design/README.md](.cursor/docs/v0-Design/README.md) | Module index · reading order · Git branches |
 | [v6-Master-Prompt.md](.cursor/docs/v0-Design/v6-Master-Prompt.md) | Copy-paste [v0.dev](https://v0.dev) prompt + 6 reference images |
 | [v5-Implementation.md](.cursor/docs/v0-Design/v5-Implementation.md) | `ui/dashboard/` Lean Boundary · §12–§14 post-v0 handoff |
+| [v0-Run-Sheet.md](.cursor/docs/v0-Design/v0-Run-Sheet.md) | One-page v0 Stage 1–3 operator checklist |
+| [ENGINE_ROADMAP.md](.cursor/plans/ENGINE_ROADMAP.md) | **Master integration roadmap** — Phases 1–3, API wiring, terminal plan |
 | Visual refs | `.cursor/design_references/v0-Design-Refrences/` |
 
 Active feature branch for dashboard work: **`feat/vader-construct-dashboard`** (branch from `main`).

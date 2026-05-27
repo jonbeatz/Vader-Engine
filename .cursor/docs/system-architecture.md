@@ -135,6 +135,7 @@ Consumer `package.json` scripts are appended from `config/npm-scripts-appendix.j
 | **3000** | Minimal frontend sandbox + HTTP smoke (`MSC_DEV_PORT`) |
 | **3001** | Payload full-stack CMS sandbox |
 | **3002** | Tailwind/shadcn Path B sandbox (`examples/nextjs-tailwind`) |
+| **3010** | Vader Construct control plane (`ui/dashboard` · `MSC_DASHBOARD_PORT`) |
 | **3003+** | Scaffolded sibling projects (dynamic via `msc_findFreePort`; vader-site uses **3003**) |
 | **8080** | Reserved — WordPress / microservices |
 | **4000** / **8000** | Local AI proxy (`MSC_LITELLM_PORT`) |
