@@ -1,38 +1,42 @@
-# ui/dashboard hygiene
-# Keep the repository lean: only the hardened Tailwind-v3 files are tracked.
+# ui/dashboard hygiene — allow-list hardened Vader Construct surface only
 
-# dependencies / build artifacts
 node_modules/
 .next/
 out/
 build/
 .dist/
-
-# env files
 .env*
 
-# Ignore the rest of the v0-export dump (tracked files are explicitly allow-listed below)
+# Ignore v0-export dump; re-include only wired dashboard files
 *
 
-# Re-include the hardened dashboard surface
 !.gitignore
-!app/
-!app/globals.css
-!app/layout.tsx
-!components.json
-!next.config.mjs
+!README.md
 !package.json
 !package-lock.json
+!components.json
+!next.config.mjs
 !postcss.config.mjs
 !tailwind.config.ts
+!tsconfig.json
+!next-env.d.ts
+
+!app/
+!app/**
+
+!lib/
+!lib/**
+
 !components/
+!components/dashboard/
+!components/dashboard/**
+
 !components/ui/
 !components/ui/button.tsx
 !components/ui/card.tsx
 !components/ui/command.tsx
 !components/ui/dialog.tsx
 !components/ui/input.tsx
-!components/dashboard/
-!components/dashboard/activity-feed.tsx
-!components/dashboard/support-tickets.tsx
-!components/dashboard/sidebar.tsx
+!components/ui/alert-dialog.tsx
+!components/ui/badge.tsx
+!components/ui/scroll-area.tsx

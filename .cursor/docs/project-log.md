@@ -53,7 +53,7 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - [x] Rebrand baseline tag — **v2.5.0-Engine** (grader banner, prompts, blueprint)
 - [x] Retire `Boilerplate-FrontEnd-v1` — merged; branch deleted
 - [x] Product rebrand **Boilerplate → Vader Engine** — `package.json` name `vader-engine`, docs/sandboxes/grader banner (May 2026)
-- [ ] **Active:** Wire v0 dashboard in `ui/dashboard/` — [ENGINE_ROADMAP.md](../plans/ENGINE_ROADMAP.md) Phase 1–2 · `npm run msc:dev:dashboard`
+- [x] **Active (takeoff):** Wire v0 dashboard in `ui/dashboard/` — Phases 1–3 complete on branch · `npm run msc:dev:dashboard` → **3010**
 - [x] v0 workflow docs + [v0-Run-Sheet.md](v0-Design/v0-Run-Sheet.md)
 - [ ] Optional: close stale Dependabot PRs on GitHub UI (none open as of 2026-05-25)
 
@@ -61,6 +61,14 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 - Local Environment URL: `MSC_PUBLIC_ORIGIN` or localhost
 - Primary Database Layer: `DATABASE_URI` / `DATABASE_URL`
 - Port Allocations: Web **3000** (`MSC_DEV_PORT`) · Payload **3001** · Tailwind Path B **3002** · Vader Construct **3010** (`MSC_DASHBOARD_PORT`) · AI proxy **4000**/**8000** (`MSC_LITELLM_PORT`)
+
+### [2026-05-27] - Phase 1–3 takeoff — Vader Construct dashboard wired
+
+- **Phase 1:** Full app shell, 11 routes, Path B token bridge, `ui/dashboard/README.md`, package rename `vader-construct-dashboard`
+- **Phase 2:** `scripts/lib/msc-spawn-script.mjs`, allowlist, parse-grade, log buffer; API `/api/health`, `/grade`, `/run-script`, `/logs`; UI wired (header metrics, sandbox cards, command palette, integrity grader)
+- **Phase 3:** `ui/dashboard` build PASS · `start-project:gate` **61/61** + **8/8** · route smoke **12/12** on **3010** · `/api/grade` → **61/61**
+- **Script:** `node scripts/msc-dashboard-route-smoke.mjs` (dev on **3010** required)
+- **Branch:** `feat/vader-construct-dashboard-v2`
 
 ### [2026-05-27] - Session Closeout — Vader Construct dashboard UI polish
 - **Added/Modified:** `ui/dashboard/app/globals.css` (command palette dialog centering, accent glow, command-input focus overrides); `ui/dashboard/components/ui/dialog.tsx` (darker overlay `bg-black/80`, centered `max-w-md` modal); `ui/dashboard/components/ui/command.tsx` (input focus ring cleanup); `ui/dashboard/components/dashboard/activity-feed.tsx` (Tailwind restore); `ui/msc-dashboard.css` (removed bulk duplicate dashboard BEM — project-manager modal styles retained)
