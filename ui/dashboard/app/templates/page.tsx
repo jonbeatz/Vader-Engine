@@ -28,7 +28,12 @@ const typeColors = {
 };
 
 export default function TemplatesPage() {
-  const { data: templates, isLoading, error, refetch } = useQuery({
+  const {
+    data: templates,
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
     queryKey: ['templates'],
     queryFn: fetchTemplates,
   });
@@ -85,10 +90,7 @@ export default function TemplatesPage() {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {templates?.map((template) => (
-          <Card
-            key={template.path}
-            className="card-glass-gleam transition-all hover:border-border"
-          >
+          <Card key={template.path} className="card-glass-gleam transition-all hover:border-border">
             <CardHeader>
               <div className="flex items-center gap-2">
                 <FileCode2 className="h-4 w-4 text-muted-foreground" aria-hidden />
