@@ -30,7 +30,7 @@ Deep scan of pillar repositories vs Vader Engine. Items marked **ported** exist 
 | **DevOps** | `start-project:smoke` | Node-Launcher `package.json` | **ported** → `scripts/msc-start-project-smoke.mjs` |
 | **DevOps** | TRUTH constitution | Node-Launcher `TRUTH.md` (repo root) | **ported** (generic) → `TRUTH.md` (repo root) |
 | **DevOps** | AST suspense repair | Node-Launcher `vader-fix-suspense.mjs` | **stub** → `scripts/repair/msc-fix-suspense.mjs` |
-| **DevOps** | LiteLLM PS bridge scripts | Node-Launcher `google-api/*.ps1` | **doc-only** — see `local-ai-proxy-setup.md` |
+| **DevOps** | LiteLLM + ngrok (`start google-api`) | `scripts/msc-litellm-*.mjs`, `scripts/vpe-start-api.ps1`, `google-api/ngrok.exe` (local) | **active** — see `local-ai-proxy-setup.md` |
 | **DevOps** | MCP catalog (CDP, global servers) | Node-Launcher `MCPs.md` | **partial** — `mcp-setup.md` + blueprint |
 | **DevOps** | FTP deploy / FlightPro scripts | MSC-Projectz, MSC_Clean | **doc-only** — `spaceship-node-deployment.md` |
 | **Media** | Multi-strategy hooks + sync | MSC-Projectz, MSC_Clean | **already ported** (prior session) |

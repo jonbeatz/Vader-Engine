@@ -12,6 +12,12 @@
 - **Updated docs:** `DOCS.md`, `START-HERE.md`, `TRUTH.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, `TROUBLESHOOTING.md`, `SECURITY.md`, `.cursor/docs/HOW-TO.md`, `.cursor/docs/Code-Jedi.md`, `.cursor/docs/system-architecture.md`, `.cursor/plans/ENGINE_ROADMAP.md`, `.cursor/prompts/{Start-Project,End-Project}.md`, `.cursor/rules/README.md`
 - **Release notes:** canonical v2.6.0 note is `docs/releases/RELEASE_v2.6.0.md`; changelog includes `[2.6.0]`.
 
+### [2026-05-28] - docs - `start google-api` LiteLLM + ngrok runbook sync
+- **Summary:** Documented canonical Vertex proxy flow for Cursor Cloud Agent (`start google-api` → `msc:litellm:start:ngrok`, `verify google-api` → `msc:litellm:test:ngrok`).
+- **Covers:** ngrok HTTPS URL, `vader-3-flash` model alias, database-less proxy (Payload `DATABASE_URL` strip), troubleshooting matrix, npm script inventory.
+- **Updated:** `local-ai-proxy-setup.md`, `START-HERE.md`, `Start-Project.md`, `Vader-Engine-Cheat-Sheet.md`, `Vader-Engine-Operator-Card.md`, `TROUBLESHOOTING.md`, `config/README.md`, `discovered-logic-map.md`, `global.mdc` shortcuts.
+- **Verified:** `msc:litellm:test:ngrok` PASS (local + remote `/v1/models`).
+
 ### [2026-05-28] - Session accomplishments summary
 
 | Feature | Status |

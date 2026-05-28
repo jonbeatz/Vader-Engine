@@ -139,11 +139,11 @@ When the user says any of these phrases, execute the corresponding command:
 
 | User says | Action |
 |-----------|--------|
-| "start google-api" | Run `npm run msc:litellm:start` |
+| "start google-api" | Run `npm run msc:litellm:start:ngrok` (LiteLLM + ngrok; prints HTTPS URL for Cursor Cloud Agent) |
 | "stop google-api" | Run `npm run msc:litellm:stop` |
 | "status google-api" | Run `npm run msc:litellm:status` |
-| "verify google-api" | Run `npm run msc:litellm:verify` |
-| "restart google-api" | Run `npm run msc:litellm:stop && npm run msc:litellm:start` |
+| "verify google-api" | Run `npm run msc:litellm:test:ngrok` |
+| "restart google-api" | Run `npm run msc:litellm:stop && npm run msc:litellm:start:ngrok` |
 | "Update Docs" | Run `@Update-Docs.md` |
 | "sync docs" | Run `@Update-Docs.md` |
 | "version bump" | Run `@Update-Docs.md` and then guide through version bump |

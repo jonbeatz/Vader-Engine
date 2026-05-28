@@ -51,6 +51,8 @@ npm run msc:check-node
 - [ ] `npm run start-project:gate` — validate-env · lint · **61/61** grade · **8/8** tests (one command)
 - [ ] (Optional) `npm run msc:e2e:install` then `npm run msc:e2e` — Playwright smoke (3 tests × chromium + firefox)
 
+- [ ] **Using `vader-3-flash` in Cursor:** say **`start google-api`** (or `npm run msc:litellm:start:ngrok`) → **`verify google-api`** — see [local-ai-proxy-setup.md](.cursor/docs/local-ai-proxy-setup.md) · [Start-Project.md](.cursor/prompts/Start-Project.md) §1.5
+
 - [ ] `npm run msc:dev:example` — minimal frontend on port **3000**
 
 - [ ] (Optional) `npm run msc:dev:payload` — full-stack CMS on port **3001**

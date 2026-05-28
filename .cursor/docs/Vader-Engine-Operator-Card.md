@@ -14,9 +14,28 @@
    - `npm run msc:dev:payload` (3001)
    - `npm run msc:dev:tailwind` (3002)
 
-If using Gemini via proxy:
-- `status google-api`
-- `start google-api` (only if needed)
+### Vertex / `vader-3-flash` (Cursor Cloud Agent)
+
+Cloud Agent **cannot** use `http://127.0.0.1:4000` — use ngrok HTTPS.
+
+| Step | Action |
+|------|--------|
+| 1 | `start google-api` → `npm run msc:litellm:start:ngrok` |
+| 2 | Copy **HTTPS URL `/v1`** from terminal output |
+| 3 | `verify google-api` → `npm run msc:litellm:test:ngrok` |
+| 4 | Cursor Settings → see table below |
+
+| Cursor setting | Value |
+|----------------|--------|
+| Override OpenAI Base URL | `https://<ngrok-host>/v1` |
+| Custom model | **`vader-3-flash`** |
+| OpenAI API Key | `MSC_LITELLM_MASTER_KEY` (`.env.local`, optional) |
+
+**Keep the proxy terminal open** (LiteLLM runs in foreground). ngrok runs in background.
+
+**Local IDE only** (same PC as LiteLLM): `npm run msc:litellm:start` + `http://127.0.0.1:4000/v1`
+
+**First time:** `npm run msc:litellm:preflight` · `npm run msc:litellm:install-deps` if needed
 
 ---
 
@@ -50,10 +69,11 @@ Equivalent direct commands:
 
 ## End Session
 
-1. `end project`
-2. Provide short summary when prompted
-3. Confirm `.cursor/docs/project-log.md` entry
-4. Commit/push only after gates are green
+1. `stop google-api` if proxy was started
+2. `end project`
+3. Provide short summary when prompted
+4. Confirm `.cursor/docs/project-log.md` entry
+5. Commit/push only after gates are green
 
 ---
 
@@ -61,7 +81,10 @@ Equivalent direct commands:
 
 - Port issue: `npm run msc:kill -- <port>`
 - Dashboard down: `npm run msc:kill -- 3010` then `npm run msc:dev:dashboard`
-- Proxy down: `npm run msc:litellm:status` then `npm run msc:litellm:start`
+- Proxy down: `status google-api` → `start google-api` → `verify google-api`
+- Cursor **Provider Error**: `restart google-api`; paste **new** ngrok HTTPS `/v1` in settings
+- Model not found: use **`vader-3-flash`** exactly
+- Prisma/PostgreSQL on proxy start: Payload `DATABASE_URL` — use latest scripts (DB stripped for LiteLLM)
 - Broken local state: `npm run dev:recover`
 - Lint drift: `npm run msc:lint:fix` then `npm run msc:lint`
 
@@ -69,18 +92,37 @@ Equivalent direct commands:
 
 ## Service URLs
 
-- Dashboard: `http://localhost:3010`
-- Minimal: `http://localhost:3000`
-- Payload: `http://localhost:3001`
-- Tailwind: `http://localhost:3002`
-- LiteLLM: `http://localhost:4000`
+| Service | URL |
+|---------|-----|
+| Dashboard | http://127.0.0.1:3010 |
+| Minimal | http://127.0.0.1:3000 |
+| Payload | http://127.0.0.1:3001 |
+| Tailwind | http://127.0.0.1:3002 |
+| LiteLLM (local) | http://127.0.0.1:4000/v1 |
+| LiteLLM (Cloud Agent) | `https://<ngrok-host>/v1` — from `start google-api` |
+| Ngrok inspector | http://127.0.0.1:4040 |
 
-Use `http://127.0.0.1:<port>` if localhost resolution is inconsistent.
+---
+
+## Agent shortcuts (`global.mdc`)
+
+| Say | Runs |
+|-----|------|
+| `start google-api` | `msc:litellm:start:ngrok` |
+| `verify google-api` | `msc:litellm:test:ngrok` |
+| `stop google-api` | `msc:litellm:stop` |
+| `status google-api` | `msc:litellm:status` |
+| `restart google-api` | stop + `start:ngrok` |
 
 ---
 
 ## Reference Docs
 
-- Full master reference: `.cursor/docs/Vader-Engine-Cheat-Sheet.md`
-- Session history: `.cursor/docs/project-log.md`
-- Rules/shortcuts: `.cursor/rules/global.mdc`
+- **Proxy runbook:** `.cursor/docs/local-ai-proxy-setup.md`
+- **Full reference:** `.cursor/docs/Vader-Engine-Cheat-Sheet.md`
+- **Session history:** `.cursor/docs/project-log.md`
+- **Rules/shortcuts:** `.cursor/rules/global.mdc`
+
+---
+
+*Last updated: May 28, 2026 — LiteLLM + ngrok / `start google-api`*
