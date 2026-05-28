@@ -4,18 +4,30 @@
 
 ---
 
+## What You Have Now
+
+| Command | What it does |
+|---------|--------------|
+| `update project` | Auto-syncs tracking docs (UPDATE_LOG, project-log, Checkpoint, CHANGELOG) |
+| `update docs` | Syncs version numbers across documentation |
+| `start project` | Session start with mandatory reads |
+| `end project` | Runs `update project` + cleanup + handoff |
+
+---
+
 ## 📌 At-a-Glance Index
 
 1. Quick Cursor Agent Commands
 2. Terminal Commands
 3. Quality & Testing
-4. Backup & Restore
-5. LiteLLM Proxy
-6. Troubleshooting Matrix
-7. Release Checklist
-8. Daily Operator Routine
-9. Service URLs
-10. Important File Locations
+4. Documentation, Tracking & Logging
+5. Backup & Restore
+6. LiteLLM Proxy
+7. Troubleshooting Matrix
+8. Release Checklist
+9. Daily Operator Routine
+10. Service URLs
+11. Important File Locations
 
 ---
 
@@ -48,9 +60,11 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 
 | Say This | Action |
 |----------|--------|
-| `start project` | Begin session with acknowledgment |
-| `end project` | Close session with summary logging |
-| `update docs` | Sync all documentation |
+| `start project` | Cold-start — gate, mandatory doc reads, optional LiteLLM |
+| `end project` | Closeout — gate, **auto `update project`**, handoff |
+| `update project` | Sync tracking docs (UPDATE_LOG, project-log, Checkpoint) |
+| `update docs` | Full doc/version sync (README, DOCS, version strings) |
+| `sync docs` | Alias for `update docs` |
 | `backup project` | Agent-driven conversational backup workflow |
 | `create backup` | Alias for backup workflow |
 | `start google-api` | `npm run msc:litellm:start:ngrok` — LiteLLM + ngrok; prints HTTPS URL |
@@ -120,7 +134,31 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 
 ---
 
-## 📝 Documentation & Logging
+## 📝 Documentation, Tracking & Logging
+
+### Chat workflows
+
+| Say this | Prompt | What it updates |
+|----------|--------|-----------------|
+| `update project` | `.cursor/prompts/Update-Project.md` | `UPDATE_LOG.md`, `project-log.md`, `Checkpoint.md`, `.last-sync.json`; optional `CHANGELOG.md` |
+| `update docs` | `.cursor/prompts/Update-Docs.md` | Version strings, README, DOCS index, feature detection, link check |
+| `end project` | `.cursor/prompts/End-Project.md` | Runs **§2.5** (`update project`) + closeout + `project-log` |
+
+### Agent workflow docs (`.cursor/docs/`)
+
+| Doc | Purpose |
+|-----|---------|
+| [TRUTH.md](TRUTH.md) | Agent constitution — gates, ports, zero-leak |
+| [Project-Bible.md](Project-Bible.md) | Command lexicon (§5) |
+| [REPAIR_PROTOCOLS.md](REPAIR_PROTOCOLS.md) | Recovery runbooks |
+| [UPDATE_LOG.md](UPDATE_LOG.md) | Fix history |
+| [MCPs.md](MCPs.md) | MCP catalog |
+| [Checkpoint.md](Checkpoint.md) | Branch / release milestones |
+| [local-ai-proxy-setup.md](local-ai-proxy-setup.md) | LiteLLM / ngrok runbook |
+
+**Index:** root [DOCS.md](../../DOCS.md) · **Archive:** `_archive/README.md`
+
+### npm / scripts
 
 | Command | What it does |
 |---------|--------------|
@@ -128,7 +166,7 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 | `npm run msc:health` | Run health check |
 | `npm run msc:health:json` | Health check as JSON |
 | `npm run inventory` | Generate project inventory |
-| `update docs` | Run docs sync workflow in chat |
+| `npm run repair:ast` | Next.js Suspense AST repair |
 
 ---
 
@@ -303,6 +341,7 @@ robocopy G:\Cursor_Project_BackUpz\Vader-Engine\Vader-Engine-v1-x D:\Cursor_Proj
 | Prisma / PostgreSQL error on start | Payload `DATABASE_URL` | Use latest scripts (strip DB for proxy); see proxy runbook |
 | Proxy port conflict (`:4000`) | `npm run msc:kill -- 4000` | `npm run msc:litellm:stop` then `start google-api` |
 | Docs drift from version | `update docs` | Run docs sync workflow and review report |
+| Tracking out of date | `update project` | Sync project-log, Checkpoint, UPDATE_LOG |
 | Need fast safe backup | `backup project` | Use conversational flow and confirm standard/full mode |
 
 ---
@@ -311,7 +350,7 @@ robocopy G:\Cursor_Project_BackUpz\Vader-Engine\Vader-Engine-v1-x D:\Cursor_Proj
 
 Use this sequence before tagging or cutting a release:
 
-1. Ensure docs are synced: `update docs`
+1. Ensure docs are synced: `update docs` · tracking current: `update project`
 2. Validate environment contract: `npm run msc:validate-env`
 3. Validate MCP map: `npm run verify:mcp`
 4. Run lint: `npm run msc:lint`
@@ -338,14 +377,15 @@ Use this sequence before tagging or cutting a release:
 1. Keep changes scoped and small
 2. Use `backup project` before risky refactors
 3. Periodically run `npm run msc:lint` and `npm run grade`
-4. Update docs in the same session when scripts/workflows change
+4. Say `update project` after significant fixes or milestones
+5. Say `update docs` when scripts, shortcuts, or version strings change
 
 ### End of Session
 
 1. Say `stop google-api` if LiteLLM/ngrok were started
-2. Say `end project`
-3. Provide concise session summary when asked
-4. Confirm `project-log.md` entry was appended
+2. Say `end project` (runs gate + **auto `update project`** + session summary)
+3. Provide concise session summary when asked (merged into project-log if §2.5 ran)
+4. Confirm `.cursor/docs/project-log.md` and `Checkpoint.md` updated
 5. Commit/push only after gates are green
 
 ---
@@ -377,13 +417,19 @@ Use this sequence before tagging or cutting a release:
 | `scripts/msc-backup.mjs` | Backup script |
 | `scripts/msc-check-deps.mjs` | Dependency checker |
 | `scripts/msc-log-session.mjs` | Session telemetry |
-| `.cursor/prompts/Start-Project.md` | Session start workflow |
-| `.cursor/prompts/End-Project.md` | Session closeout workflow |
-| `.cursor/prompts/Update-Docs.md` | Documentation sync workflow |
+| `DOCS.md` | Documentation index (root router) |
+| `.cursor/prompts/Start-Project.md` | Session start — mandatory doc reads + gate |
+| `.cursor/prompts/End-Project.md` | Session closeout — includes auto `update project` |
+| `.cursor/prompts/Update-Project.md` | Tracking sync (`update project`) |
+| `.cursor/prompts/Update-Docs.md` | Full doc sync (`update docs`) |
 | `.cursor/rules/global.mdc` | Natural language shortcuts |
-| `.cursor/docs/Vader-Engine-Cheat-Sheet.md` | Master quick-reference doc |
+| `.cursor/rules/start-project-ritual.mdc` | No dev server by default on start |
+| `.cursor/docs/Project-Bible.md` | npm command lexicon |
+| `.cursor/docs/Vader-Engine-Cheat-Sheet.md` | This file |
+| `.cursor/docs/Vader-Engine-Operator-Card.md` | One-page daily card |
 | `.cursor/docs/project-log.md` | Session history |
-| `.cursor/docs/.last-sync.json` | Tracks last doc sync state |
+| `.cursor/docs/.last-sync.json` | Last doc/project sync timestamp |
+| `_archive/README.md` | Archived v0-Design, old plans, Nova reference |
 | `package.json` | Root scripts and dependencies |
 | `biome.json` | Linting configuration |
 
@@ -395,9 +441,10 @@ Use this sequence before tagging or cutting a release:
 ┌─────────────────────────────────────────────────────────────────┐
 │                    VADER ENGINE - QUICK REFERENCE               │
 ├─────────────────────────────────────────────────────────────────┤
-│  start project      → Begin session                             │
-│  end project        → Close session                             │
-│  update docs        → Sync documentation                        │
+│  start project      → Begin session (gate + doc reads)          │
+│  end project        → Close (+ auto update project)             │
+│  update project     → Tracking docs sync                        │
+│  update docs        → Full documentation sync                   │
 │  backup project     → Conversational backup                     │
 │  start google-api   → LiteLLM + ngrok (HTTPS for Cloud Agent)   │
 │  verify google-api  → Test local + ngrok /v1/models             │
@@ -411,7 +458,7 @@ Use this sequence before tagging or cutting a release:
 
 ---
 
-*Last updated: May 28, 2026 | Version 2.6.0 — LiteLLM + ngrok / `start google-api` pass*
+*Last updated: May 28, 2026 | Version 2.6.0 — workflow docs, `update project`, doc cleanup*
 
 
 

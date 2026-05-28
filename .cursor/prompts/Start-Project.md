@@ -1,10 +1,24 @@
 **Act as a Lead Systems Architect. We are performing a 'Cold-Start' initialization for the v2.6.0-Engine project.**
 
-## 1. Environment Initialization
+## 1. Mandatory document reads (Read tool — do not skip)
 
-Run `npm run start-project:gate` to verify 61/61 grade, lint, and tests.
+Re-read in order before any shell commands or status claims:
 
-## 1.5 LiteLLM / Vertex AI Proxy (Required when using `vader-3-flash` in Cursor)
+1. **`README.md`** — repo overview
+2. **`PROJECT_CONTEXT.md`** — current scope and constraints
+3. **`.cursor/docs/TRUTH.md`** — agent constitution (integrity gate, zero-leak, ports)
+4. **`.cursor/docs/Project-Bible.md`** — command lexicon (§5)
+5. **`.cursor/docs/REPAIR_PROTOCOLS.md`** — skim recovery paths
+6. **`.cursor/docs/MCPs.md`** — MCP status (when using tools)
+7. **`START-HERE.md`** — operator cold-start contract
+
+Also apply: **`.cursor/rules/global.mdc`**, **`.cursor/rules/start-project-ritual.mdc`**
+
+## 2. Environment initialization
+
+Run **`npm run start-project:gate`** to verify **61/61** grade, lint, and tests.
+
+## 2.5 LiteLLM / Vertex AI Proxy (when using `vader-3-flash` in Cursor)
 
 Cursor custom models route through the local OpenAI-compatible proxy to **Vertex AI**. If the proxy is offline or the model alias is missing, Cursor shows **Provider Error / resource not found**.
 
@@ -15,7 +29,7 @@ Cursor custom models route through the local OpenAI-compatible proxy to **Vertex
 3. **Local IDE only (no Cloud Agent):** `npm run msc:litellm:start` + `msc:litellm:verify` — `http://127.0.0.1:4000/v1`
 4. First-time Python deps: `npm run msc:litellm:install-deps` if preflight fails
 
-Full runbook: `.cursor/docs/local-ai-proxy-setup.md` (Operator quick start: `start google-api`).
+Full runbook: **`.cursor/docs/local-ai-proxy-setup.md`** (Operator quick start: `start google-api`).
 
 **Cursor checklist (operator):**
 
@@ -29,22 +43,17 @@ Full runbook: `.cursor/docs/local-ai-proxy-setup.md` (Operator quick start: `sta
 
 > Proxy port: **4000** (`MSC_LITELLM_PORT`). Logs: `.sandbox/litellm/`. Stop: `npm run msc:litellm:stop`.
 
-## 2. Context Ingestion (Read-Only Scan)
+## 3. Operational readiness check
 
-- Scan `.cursor/docs/` and `.cursor/rules/` directories
-- Load core architecture from `ARCHITECTURE.md`, `TRUTH.md`, and `system-architecture.md`
-- Load root operator docs from `README.md`, `DOCS.md`, `START-HERE.md`, `SECURITY.md`, `CHANGELOG.md`, `CONTRIBUTING.md`
-- Apply behavioral constraints from `.cursor/rules/global.mdc`, `studio-dark-ui.mdc`, and `terminal-discipline.mdc`
+- Confirm latest **`.cursor/docs/project-log.md`** entry
+- Verify **`git status`** (report clean vs has changes)
+- Review **`examples/`** — Tailwind/shadcn for UI, Payload for backend
+- **Do not** start dev servers unless operator explicitly requests a sandbox UI
 
-## 3. Operational Readiness Check
+## 4. Objective setting
 
-- Confirm latest `project-log.md` entry
-- Verify `git status` is clean
-- Review `examples/` directory — Tailwind/shadcn for UI, Payload for backend
-
-## 4. Objective Setting
-
-- Check `.cursor/prompts/task-planner.md` for active Phase 1–3 goals
+- Check **`.cursor/prompts/task-planner.md`** for active Phase 1–3 goals
+- Obtain operator confirmation before writing or modifying code
 - Report: `System Ready. [Current Status] [Active Task].`
 
 ## 5. Acknowledgment
@@ -52,7 +61,7 @@ Full runbook: `.cursor/docs/local-ai-proxy-setup.md` (Operator quick start: `sta
 After completing all steps, print:
 
 ```
-✅ v2.6.0 READY — 61/61 · 8/8 · Git [clean|has changes] · LiteLLM [running|offline] · vader-3-flash [verified|failed]
+✅ v2.6.0 READY — 61/61 · 8/8 · Git [clean|has changes] · LiteLLM [running|offline] · vader-3-flash [verified|failed|n/a]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Ok, Jon. Let's build.
 ```
@@ -61,6 +70,6 @@ Where:
 
 - `Git clean` → `Git has changes` if unstaged files exist
 - `LiteLLM running` after `msc:litellm:status` is `online` (or `verify google-api` / `msc:litellm:test:ngrok` passes)
-- `vader-3-flash verified` when ngrok + `/v1/models` includes `vader-3-flash` (Cloud Agent path)
+- `vader-3-flash verified` when ngrok + `/v1/models` includes `vader-3-flash` (Cloud Agent path); `n/a` when operator is not using Vertex proxy
 
 **I am ready for high-velocity development. Acknowledge and proceed.**

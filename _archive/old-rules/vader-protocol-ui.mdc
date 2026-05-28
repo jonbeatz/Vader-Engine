@@ -1,0 +1,42 @@
+---
+description: Vader Protocol UI standards — Studio Dark tokens, Shield vs Tailwind paths
+globs: ["ui/**", "examples/**/*.tsx", "examples/**/*.css", "**/*.{tsx,jsx,css,scss}"]
+---
+
+# Vader Protocol UI Standards
+
+## 1. Visual tokens & color discipline
+
+- **Primary palette:** Background **#121212** | Surface **#1c1c1c** | Accent **#e02b20** (Vader Red) | Border **#2d2d2d**
+- **Token SSoT:** `ui/msc-shield.css` only — no new colors in components or satellites without updating tokens
+- **No hardcoding:** Prefer `var(--msc-*)` / Shield classes; Path B maps via Tailwind bridge
+
+## 2. Consumer paths
+
+- **Path A (Shield):** Dashboards, WordPress, Payload admin — satellites `ui/msc-*.css`, barrel `ui/msc-shield-load.css`
+- **Path B (Tailwind/shadcn):** `examples/nextjs-tailwind` — bridge `--msc-*` to Tailwind per [tailwind-shadcn-bridge.mdc](./tailwind-shadcn-bridge.mdc)
+- **Decision matrix:** [studio-dark-shield.md](../skills/studio-dark-shield.md)
+
+## 3. Component patterns
+
+- **Class prefix:** `msc-` on project-specific CSS
+- **Isolation:** v2 contract in `ui/studio-dark-shield.css` — strict scoping for multi-framework targets
+- **Accent glow:** optional `vader-glow` shadow `0 0 15px rgba(224, 43, 32, 0.4)` for primary CTAs only
+
+## 4. Typography
+
+- **Monospace / terminal / code:** JetBrains Mono or project-configured mono stack
+- **Body:** High-contrast white `#ffffff` or muted `#b3b3b3` on dark surfaces
+
+## 5. State colors (feedback)
+
+- **Success / healthy:** green accent on status lines only — not a new palette token
+- **Warning / booting:** amber for transient states
+- **Error / destructive:** accent red `#e02b20` with inline card + recovery CTA per [error-handling.mdc](./error-handling.mdc)
+
+## 6. Tooling
+
+- `npm run msc:shield:audit` — compliance check
+- `npm run msc:new:component` — scaffold satellite CSS
+
+Related: [studio-dark-ui.mdc](./studio-dark-ui.mdc), [design-system-rules.mdc](./design-system-rules.mdc), root [TRUTH.md](../../TRUTH.md) §4

@@ -7,6 +7,13 @@
 - **Current Version:** 2.6.0
 - **Status:** Vader Engine v2.6.0 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.0`
 
+### [2026-05-28 15:00] - Update Project Checkpoint
+- **Status:** Workflow docs consolidated; tracking automation live; uncommitted changes on `feat/phase-4-polish` (1 commit ahead of merge baseline + doc cleanup tree)
+- **Branch:** `feat/phase-4-polish`
+- **Gate:** 61/61 · 8/8 tests · LiteLLM online
+- **Files changed:** Workflow docs (`TRUTH`, `Project-Bible`, `MCPs`, `Checkpoint`, `UPDATE_LOG`), doc cleanup (`DOCS.md`, `_archive/*`), prompts (`Update-Project.md`, `Start/End-Project`), rules (`start-project-ritual`, `global.mdc`), Cheat Sheet + Operator Card
+- **Next:** Commit doc cleanup + workflow upgrade; merge or PR `feat/phase-4-polish` follow-up (`cf2a0c1` biome fix) if not on `main`
+
 ### [2026-05-27] - docs - v2.6.0 global docs alignment sweep
 - **Summary:** Updated root and `.cursor` operational docs to reflect `v2.6.0` as current baseline and synced prompt/rule headers to the active release line.
 - **Updated docs:** `DOCS.md`, `START-HERE.md`, `TRUTH.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, `TROUBLESHOOTING.md`, `SECURITY.md`, `.cursor/docs/HOW-TO.md`, `.cursor/docs/Code-Jedi.md`, `.cursor/docs/system-architecture.md`, `.cursor/plans/ENGINE_ROADMAP.md`, `.cursor/prompts/{Start-Project,End-Project}.md`, `.cursor/rules/README.md`

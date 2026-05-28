@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 
-import { execSync } from 'child_process';
-import fs from 'fs';
-import path from 'path';
+import './lib/msc-load-env.mjs';
+import { execSync } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const SOURCE = 'D:\\Cursor_Projectz\\Vader-Engine';
-const BACKUP_ROOT = 'G:\\Cursor_Project_BackUpz\\Vader-Engine';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = path.resolve(__dirname, '..');
+const BACKUP_ROOT = process.env.MSC_BACKUP_ROOT || 'G:\\Cursor_Project_BackUpz\\Vader-Engine';
+const SOURCE = REPO_ROOT;
 
-// Parse command line arguments
 const args = process.argv.slice(2);
 const isFullBackup = args.includes('--full') || args.includes('-f');
 const isStandardBackup = args.includes('--standard') || args.includes('-s');
 const customName = args.find((a) => !a.startsWith('-')) || null;
 
-// Find latest backup folder
 function getLatestBackup() {
   if (!fs.existsSync(BACKUP_ROOT)) return null;
   const folders = fs
@@ -25,7 +27,6 @@ function getLatestBackup() {
   return folders.length ? folders[folders.length - 1] : null;
 }
 
-// Increment version
 function incrementVersion(folderName) {
   const match = folderName.match(/Vader-Engine-v(\d+)(?:-([a-z]))?/);
   if (!match) return 'Vader-Engine-v1-a';
@@ -39,7 +40,6 @@ function incrementVersion(folderName) {
   return `Vader-Engine-v${num + 1}`;
 }
 
-// Run backup
 async function main() {
   const latest = getLatestBackup();
   const suggested = latest ? incrementVersion(latest) : 'Vader-Engine-v1-a';

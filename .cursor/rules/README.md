@@ -5,8 +5,9 @@ Always-on and scoped rules for **Vader Engine v2.6.0**. Precedence: [TRUTH.md](.
 | Rule | Scope | When it applies |
 |------|--------|-----------------|
 | [global.mdc](./global.mdc) | `**/*` · **alwaysApply** | Session open/close, command authority, Fix-Local-First, zero-leak |
+| [start-project-ritual.mdc](./start-project-ritual.mdc) | `**/*` · **alwaysApply** | Cold start: mandatory doc reads, gate, no dev server by default |
+| [vader-repair-ast.mdc](./vader-repair-ast.mdc) | examples, `scripts/repair/**` | Suspense AST repair lifecycle |
 | [env-ingestion-compliance.mdc](./env-ingestion-compliance.mdc) | Scripts / env | `.env.local` vs `.env.example`, no secret paste in chat |
-| [agent-workflow.mdc](./agent-workflow.mdc) | Agent sessions | Task planner + session handoff bindings |
 | [studio-dark-ui.mdc](./studio-dark-ui.mdc) | `ui/**`, `*.tsx`, `*.css` | Studio Dark / Shield — Path A dashboards, WordPress, Payload admin |
 | [design-system-rules.mdc](./design-system-rules.mdc) | `ui/**`, `*.tsx`, `*.css` | Tokens-first edits; new colors only in `msc-shield.css` |
 | [tailwind-shadcn-bridge.mdc](./tailwind-shadcn-bridge.mdc) | Tailwind/shadcn paths | Path B Next.js consumers — bridge `--msc-*` to Tailwind |

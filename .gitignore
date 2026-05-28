@@ -58,8 +58,8 @@ playwright-report/
 playwright/.cache/
 
 # Local-only operator docs (not published to GitHub)
-.cursor/docs/BOILERPLATE-IMPROVEMENT/
 .cursor/docs/README/
+# Legacy upgrade runbooks → _archive/boilerplate-improvement/ (optional local copies)
 
 # Local-only design captures (committed brand media → media/ or docs/assets/README.md)
 .cursor/design_references/*.jpg

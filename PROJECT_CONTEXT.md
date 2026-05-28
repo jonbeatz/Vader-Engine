@@ -1,7 +1,7 @@
 # PROJECT_CONTEXT — Vader Engine Agent Onboarding Map
 
 > **Derived onboarding doc.** Technical precedence: [TRUTH.md](TRUTH.md). Command truth: [package.json](package.json). Documentation index: [DOCS.md](DOCS.md).  
-> **Cleanup mode (2026-05-27):** Option C — audit + this file only; no archive moves until you approve [.cursor/docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md](.cursor/docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md).
+> **Doc cleanup (2026-05-28):** Obsolete docs archived under [`_archive/`](_archive/README.md). Audit: [`_archive/old-docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md`](_archive/old-docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md).
 
 ---
 
@@ -209,7 +209,7 @@ All `scripts/*.mjs` import `scripts/lib/msc-load-env.mjs` first: `.env.local` �
 
 ## 2.9 Cleanup Recommendations (no action taken)
 
-See checklist in [.cursor/docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md](.cursor/docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md).
+See checklist in [_archive/old-docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md](_archive/old-docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md).
 
 **Tier-1 archive candidates (when you approve):** `design_references/VaderLabz/`, `design_references/deprecated/`, `ui/imports/msc-import-*`, `boilerplate_v240_suggestions.md`.
 

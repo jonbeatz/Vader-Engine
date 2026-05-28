@@ -3,7 +3,7 @@
 **Product:** Vader Protocol · **UI:** Vader Construct · **Package:** `ui/dashboard/` · **Port:** `3010`  
 **Branch:** `feat/v0-core-integration-v1` (successor to `feat/vader-construct-dashboard-v2`)  
 **Baseline:** v2.6.0-Engine · **Grader target:** 61/61
-**Operator runbook:** [v0-Run-Sheet.md](../docs/v0-Design/v0-Run-Sheet.md) · **Handoff:** [v5-Implementation.md](../docs/v0-Design/v5-Implementation.md)
+**Operator runbook:** [v0-Run-Sheet.md](../../_archive/v0-design-docs/v0-Design/v0-Run-Sheet.md) · **Handoff:** [v5-Implementation.md](../../_archive/v0-design-docs/v0-Design/v5-Implementation.md)
 
 ---
 
@@ -22,7 +22,7 @@ The v0 dashboard is the **visual control plane** for Vader Engine. Integration f
 | 1 | **Verify integration** | Confirm `ui/dashboard/package.json`, `app/`, `components/` exist | Folder tracked in git; not only on disk outside repo |
 | 2 | **Validate repo gates** | `npm run grade` · `npm run msc:lint` · `npm run msc:test:root` | **61/61** · **0** lint issues · **8/8** tests |
 | 3 | **Naming & tokens** | `globals.css` → `@import '../../ui/msc-shield.css'`; `tailwind.config.ts` maps `var(--msc-*)` | No hardcoded `#121212` in TSX; no CSS modules |
-| 4 | **Route smoke** | `npm run msc:dev:dashboard` (after script added) → `http://127.0.0.1:3010` | All routes from [v0-Run-Sheet.md](../docs/v0-Design/v0-Run-Sheet.md) return 200 |
+| 4 | **Route smoke** | `npm run msc:dev:dashboard` (after script added) → `http://127.0.0.1:3010` | All routes from [v0-Run-Sheet.md](../../_archive/v0-design-docs/v0-Design/v0-Run-Sheet.md) return 200 |
 | 5 | **Test IDs** | `git grep -n "data-testid" ui/dashboard` | Required IDs from § Architecture mapping present |
 
 ---
@@ -76,11 +76,11 @@ The v0 dashboard is the **visual control plane** for Vader Engine. Integration f
 - [ ] `ui/dashboard/app/globals.css` imports `../../ui/msc-shield.css` (and optional `studio-dark-shield.css`)
 - [ ] `tailwind.config.ts` mirrors [examples/nextjs-tailwind/tailwind.config.ts](../../examples/nextjs-tailwind/tailwind.config.ts) (`msc-*` → `var(--msc-*)`)
 - [ ] Glass/gleam effects use Shield extension tokens or scoped utilities—no ad-hoc hex in components
-- [ ] `prefers-reduced-motion` respected ([v0-Run-Sheet.md](../docs/v0-Design/v0-Run-Sheet.md))
+- [ ] `prefers-reduced-motion` respected ([v0-Run-Sheet.md](../../_archive/v0-design-docs/v0-Design/v0-Run-Sheet.md))
 
 ### 1.3 Routing & IA
 
-Verify sidebar matches canonical order ([v4-Operations.md](../docs/v0-Design/v4-Operations.md)):
+Verify sidebar matches canonical order ([v4-Operations.md](../../_archive/v0-design-docs/v0-Design/v4-Operations.md)):
 
 | Route | Page |
 | --- | --- |
@@ -160,7 +160,7 @@ Create under `scripts/lib/` (imported by API routes in dashboard):
 | Activity feed | Subscribe to `/api/logs` SSE; append lines with relative timestamps |
 | Sandbox STOP | `AlertDialog` → `stop-sandbox-confirm` → kill port script |
 | Integrity | `run-grader-button` → `/api/grade` → display **61/61** + failure accordion |
-| TanStack Query | Poll `health` every 5s; invalidate on mutations ([v3-State-Data.md](../docs/v0-Design/v3-State-Data.md)) |
+| TanStack Query | Poll `health` every 5s; invalidate on mutations ([v3-State-Data.md](../../_archive/v0-design-docs/v0-Design/v3-State-Data.md)) |
 
 ### 2.4 Environment variables (`.env.example`)
 
@@ -249,7 +249,7 @@ Execute after Phase 2 is stable.
 | PHP `defined('ABSPATH') \|\| exit;` | Only if adding PHP bridge files under `core/` |
 | Dark-mode readability | Tokens from `msc-shield.css`; accent `#e02b20`; success `#1D9E75` |
 | No inline styles / CSS modules | Tailwind + shadcn only in dashboard |
-| No invented npm scripts | UI maps 1:1 to root `package.json` ([v4-Operations.md](../docs/v0-Design/v4-Operations.md) §8) |
+| No invented npm scripts | UI maps 1:1 to root `package.json` ([v4-Operations.md](../../_archive/v0-design-docs/v0-Design/v4-Operations.md) §8) |
 | Zero-leak | API never returns secret env values |
 | Fix-local-first | `msc:kill-dev-port` before declaring port conflicts resolved |
 
@@ -284,8 +284,8 @@ flowchart LR
 | Doc | Path |
 | --- | --- |
 | Constitution | `TRUTH.md` |
-| v0 workflow | `.cursor/docs/v0-Design/v0-Run-Sheet.md` |
-| State/data | `.cursor/docs/v0-Design/v3-State-Data.md` |
+| v0 workflow | `_archive/v0-design-docs/v0-Design/v0-Run-Sheet.md` |
+| State/data | `_archive/v0-design-docs/v0-Design/v3-State-Data.md` |
 | Path B rules | `.cursor/rules/tailwind-shadcn-bridge.mdc` |
 | Studio Dark skill | `.cursor/skills/studio-dark-shield.md` |
 | Port matrix | `.cursor/docs/system-architecture.md` |
