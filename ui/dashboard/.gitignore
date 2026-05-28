@@ -31,7 +31,11 @@ build/
 !components/dashboard/
 !components/dashboard/**
 
+!components/providers/
+!components/providers/**
+
 !components/ui/
+!components/ui/alert.tsx
 !components/ui/button.tsx
 !components/ui/card.tsx
 !components/ui/command.tsx
@@ -40,3 +44,4 @@ build/
 !components/ui/alert-dialog.tsx
 !components/ui/badge.tsx
 !components/ui/scroll-area.tsx
+!components/ui/skeleton.tsx

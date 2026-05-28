@@ -75,6 +75,16 @@
       }
     },
     {
+      "includes": ["ui/dashboard/lib/hooks/**"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "useHookAtTopLevel": "off"
+          }
+        }
+      }
+    },
+    {
       "includes": ["ui/dashboard/**/*.css"],
       "css": {
         "parser": {

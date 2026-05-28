@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Toaster } from 'sonner';
 import { AppShell } from '@/components/dashboard/app-shell';
+import { MscQueryProvider } from '@/components/providers/msc-query-provider';
 import './globals.css';
 
 const geist = Geist({
@@ -42,9 +43,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable} bg-background`}>
       <body className="msc-viewport-shield msc-dashboard-container font-sans antialiased">
-        <AppShell>{children}</AppShell>
-        <Toaster position="bottom-right" />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <MscQueryProvider>
+          <AppShell>{children}</AppShell>
+          <Toaster position="bottom-right" />
+          {process.env.NODE_ENV === 'production' && <Analytics />}
+        </MscQueryProvider>
       </body>
     </html>
   );

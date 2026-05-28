@@ -1,7 +1,6 @@
 'use client';
 
 import { ExternalLink, Play, Square } from 'lucide-react';
-import { useState } from 'react';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -16,7 +15,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { msc_killPort, msc_runScript } from '@/lib/msc-api';
+import { msc_useSandboxMutation } from '@/lib/hooks/msc-use-sandbox-mutation';
 import { cn } from '@/lib/utils';
 
 type SandboxCardProps = {
@@ -26,29 +25,12 @@ type SandboxCardProps = {
   status?: 'active' | 'idle' | 'unknown';
 };
 
-const ORIGIN = typeof window !== 'undefined' ? window.location.hostname : '127.0.0.1';
-
 export function SandboxCard({ port, title, script, status = 'unknown' }: SandboxCardProps) {
-  const [busy, setBusy] = useState(false);
+  const { mutate: runSandboxAction, isPending } = msc_useSandboxMutation();
   const testId = `sandbox-card-${port}`;
 
-  async function handleStart() {
-    setBusy(true);
-    try {
-      await msc_runScript({ script });
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  async function handleStop() {
-    setBusy(true);
-    try {
-      await msc_killPort(port);
-    } finally {
-      setBusy(false);
-    }
-  }
+  const handleStart = () => runSandboxAction({ port, action: 'start', script });
+  const handleStop = () => runSandboxAction({ port, action: 'stop' });
 
   return (
     <Card className="card-glass-gleam border-border/60" data-testid={testId}>
@@ -69,13 +51,18 @@ export function SandboxCard({ port, title, script, status = 'unknown' }: Sandbox
         </Badge>
       </CardHeader>
       <CardContent className="flex flex-wrap gap-2">
-        <Button size="sm" disabled={busy} onClick={handleStart}>
+        <Button
+          size="sm"
+          onClick={handleStart}
+          disabled={isPending}
+          className="flex-1 border-success/30 text-success transition-all duration-200 hover:bg-success hover:text-white"
+        >
           <Play className="h-3.5 w-3.5" aria-hidden />
-          START
+          {isPending ? '...' : 'START'}
         </Button>
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button size="sm" variant="destructive" disabled={busy}>
+            <Button size="sm" variant="destructive" disabled={isPending}>
               <Square className="h-3.5 w-3.5" aria-hidden />
               STOP
             </Button>
@@ -96,8 +83,8 @@ export function SandboxCard({ port, title, script, status = 'unknown' }: Sandbox
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
-        <Button size="sm" variant="outline" asChild>
-          <a href={`http://${ORIGIN}:${port}`} target="_blank" rel="noreferrer">
+        <Button size="sm" variant="outline" asChild disabled={isPending}>
+          <a href={`http://localhost:${port}`} target="_blank" rel="noreferrer">
             <ExternalLink className="h-3.5 w-3.5" aria-hidden />
             OPEN
           </a>

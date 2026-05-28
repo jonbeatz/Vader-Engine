@@ -7,6 +7,14 @@ export type MscHealthResponse = {
   };
 };
 
+export interface MscLogEntry {
+  id?: string;
+  timestamp: string;
+  line: string;
+  level: 'info' | 'warn' | 'error';
+  source?: string;
+}
+
 export type MscGradeResponse = {
   ok: boolean;
   parsed: {
