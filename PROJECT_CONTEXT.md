@@ -14,7 +14,7 @@
 | **Version** | `2.6.0` (`vader-engine` in root `package.json`) |
 | **Repository** | [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) |
 | **Primary users** | Operators and AI agents building MSC/Vader Protocol products |
-| **Active feature work** | Vader Construct dashboard (`ui/dashboard/`, port **3010**) on `feat/v0-core-integration-v1` |
+| **Active feature work** | Vader Construct dashboard (`ui/dashboard/`, port **3010**) — v2.6.0 live on `main` |
 
 ---
 
@@ -199,9 +199,9 @@ All `scripts/*.mjs` import `scripts/lib/msc-load-env.mjs` first: `.env.local` �
 | Item | State |
 |------|--------|
 | **Integrity** | **61/61** · **8/8** tests |
-| **Lint** | 11 warnings (`noImportantStyles` in dashboard globals) |
-| **Branch** | `feat/v0-core-integration-v1` |
-| **Dashboard** | Phase 1 largely wired (TanStack Query, live APIs, ops sub-pages); tickets mock + SSE polish open — [v0-integration-roadmap.md](.cursor/plans/v0-integration-roadmap.md) |
+| **Lint** | Clean — Biome allows Tailwind/`!important` in dashboard CSS via `biome.json` overrides |
+| **Branch** | `main` (v2.6.0) |
+| **Dashboard** | v2.6.0 shipped — TanStack Query, 7 API routes, ops hub; tickets mock + SSE polish open — [v0-integration-roadmap.md](.cursor/plans/v0-integration-roadmap.md) |
 | **CI E2E** | `.github/workflows/ci.yml` installs sandbox + `ui/dashboard` deps before `npm run msc:e2e` |
 | **Cleanup** | Audit complete; archive list awaiting operator approval |
 
