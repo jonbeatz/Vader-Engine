@@ -7,11 +7,11 @@
 
 ## 2.1 Executive Summary & Project Goals
 
-**Vader Engine** is a Cursor-native, lean full-stack **development factory** (v2.5.0-Engine): structural self-grader (61 checks), triple Next.js sandboxes, Payload CMS example, Tailwind/shadcn Path B sandbox, Studio Dark Shield UI, template scaffolding CLI, and MCP-ready agent workflows.
+**Vader Engine** is a Cursor-native, lean full-stack **development factory** (v2.6.0-Engine): structural self-grader (61 checks), triple Next.js sandboxes, Payload CMS example, Tailwind/shadcn Path B sandbox, Studio Dark Shield UI, template scaffolding CLI, and MCP-ready agent workflows.
 
 | Field | Value |
 |-------|--------|
-| **Version** | `2.5.0` (`vader-engine` in root `package.json`) |
+| **Version** | `2.6.0` (`vader-engine` in root `package.json`) |
 | **Repository** | [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) |
 | **Primary users** | Operators and AI agents building MSC/Vader Protocol products |
 | **Active feature work** | Vader Construct dashboard (`ui/dashboard/`, port **3010**) on `feat/v0-core-integration-v1` |
