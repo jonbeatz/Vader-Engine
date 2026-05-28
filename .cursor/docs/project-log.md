@@ -4,8 +4,13 @@
 - **Project Name:** Vader Engine (Vader Protocol)
 - **Repository:** [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) — renamed from `Boilerplate` / `jonbeatz/Boilerplate` (May 2026); prior slugs `Boilerplate-v1` / `Boilerplate-v2` preserved in `CHANGELOG.md` only
 - **Target Stack:** Next.js sandboxes · Payload CMS · WordPress Shield · Cursor MCP
-- **Current Version:** 2.5.0
-- **Status:** Vader Engine rebrand complete — v2.5.0-Engine baseline · **61/61** grade · release tags `v2.1.0`–`v2.5.0`
+- **Current Version:** 2.6.0
+- **Status:** Vader Engine v2.6.0 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.0`
+
+### [2026-05-27] - docs - v2.6.0 global docs alignment sweep
+- **Summary:** Updated root and `.cursor` operational docs to reflect `v2.6.0` as current baseline and synced prompt/rule headers to the active release line.
+- **Updated docs:** `DOCS.md`, `START-HERE.md`, `TRUTH.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, `TROUBLESHOOTING.md`, `SECURITY.md`, `.cursor/docs/HOW-TO.md`, `.cursor/docs/Code-Jedi.md`, `.cursor/docs/system-architecture.md`, `.cursor/plans/ENGINE_ROADMAP.md`, `.cursor/prompts/{Start-Project,End-Project}.md`, `.cursor/rules/README.md`
+- **Release notes:** canonical v2.6.0 note is `docs/releases/RELEASE_v2.6.0.md`; changelog includes `[2.6.0]`.
 
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 

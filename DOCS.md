@@ -1,12 +1,12 @@
 # Documentation Index (SSoT Router)
 
-Single entry point for all **Vader Engine v2.5.0-Engine** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
+Single entry point for all **Vader Engine v2.6.0-Engine** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
 
 | Field | Value |
 | --- | --- |
 | **Repository** | [github.com/jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) |
 | **Clone** | `git clone https://github.com/jonbeatz/Vader-Engine.git my-project` |
-| **Version** | v2.5.0-Engine · semver `2.5.0` · grade **61/61** |
+| **Version** | v2.6.0-Engine · semver `2.6.0` · grade **61/61** |
 
 ## Human control panel (root)
 
@@ -21,7 +21,7 @@ Single entry point for all **Vader Engine v2.5.0-Engine** documentation. Technic
 | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Operational recovery paths |
 | [SECURITY.md](SECURITY.md) | Private advisory reporting and zero-leak policy |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Fork, forge, hooks, PR gates |
-| [CHANGELOG.md](CHANGELOG.md) | Release history (v2.5.0 · v2.4.0 · v2.3.1 · v2.3.0 · v2.2.0 · v2.1.0) |
+| [CHANGELOG.md](CHANGELOG.md) | Release history (v2.6.0 · v2.5.0 · v2.4.0 · v2.3.1 · v2.3.0 · v2.2.0 · v2.1.0) |
 | [DEPLOY_TO_HOSTINGER.md](DEPLOY_TO_HOSTINGER.md) | Hostinger Node.js deploy for VaderLabz template |
 | [docs/releases/](docs/releases/) | Tagged release notes (`RELEASE_v*.md`) |
 | [docs/assets/](docs/assets/) | Asset index — committed media under `media/` |
@@ -60,7 +60,7 @@ Single entry point for all **Vader Engine v2.5.0-Engine** documentation. Technic
 | [ENGINE_ROADMAP.md](.cursor/plans/ENGINE_ROADMAP.md) | **Master integration roadmap** — Phases 1–3, API wiring, terminal plan |
 | Visual refs | `.cursor/design_references/v0-Design-Refrences/` |
 
-Active feature branch for dashboard work: **`feat/v0-core-integration-v1`** (v0 live-data integration; branch from `main`).
+Active release branch: **`main`** (v2.6.0 live-data integration merged and shipped).
 
 **Local-only (gitignored, not on GitHub):** `.cursor/docs/BOILERPLATE-IMPROVEMENT/`, `.cursor/docs/README/` — upgrade runbooks and README drafts.
 
@@ -131,7 +131,7 @@ Scaffold via `npm run msc:template -- apply <category/name> --name="..."` (defau
 | `.cursor/skills/vader_protocol_skill.md` | "Vader Protocol", "VaderLabz", "dark aesthetic", "keep my design style" |
 | `.cursor/skills/vader_animations_skill.md` | "add animations", "make it feel alive", "vader animations", "micro-interactions" |
 
-## v2.5 verification
+## v2.6 verification
 
 ```bash
 npm run msc:template -- doctor

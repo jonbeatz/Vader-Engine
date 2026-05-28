@@ -2,7 +2,7 @@
 
 **Product:** Vader Protocol · **UI:** Vader Construct · **Package:** `ui/dashboard/` · **Port:** `3010`  
 **Branch:** `feat/v0-core-integration-v1` (successor to `feat/vader-construct-dashboard-v2`)  
-**Baseline:** v2.5.0-Engine · **Grader target:** 61/61  
+**Baseline:** v2.6.0-Engine · **Grader target:** 61/61
 **Operator runbook:** [v0-Run-Sheet.md](../docs/v0-Design/v0-Run-Sheet.md) · **Handoff:** [v5-Implementation.md](../docs/v0-Design/v5-Implementation.md)
 
 ---

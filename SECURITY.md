@@ -1,6 +1,6 @@
 # Security
 
-Vader Engine v2.5.0 enforces a **zero-leak** environment contract: live credentials never belong in committed files or public issues.
+Vader Engine v2.6.0 enforces a **zero-leak** environment contract: live credentials never belong in committed files or public issues.
 
 ## Reporting a vulnerability
 

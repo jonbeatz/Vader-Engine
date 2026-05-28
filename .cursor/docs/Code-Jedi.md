@@ -98,11 +98,11 @@ Map the operator’s goal to **existing** assets. Extend via env flags and consu
 |--------|----------------|--------------|
 | `npm run log` | Session milestone or feature close | `msc-log-event.mjs` → appends `### [YYYY-MM-DD] - [type] - [msg]` to `.cursor/docs/project-log.md` (skips exact duplicate of last entry) |
 | `npm run inventory` | After MCP or dependency changes | `msc-generate-inventory.mjs` → refreshes `.cursor/docs/README-inventory.md` (MCP + npm tables, env health) |
-| `npm run grade` | v2.5.0 / release audit | `msc-grade-boilerplate.mjs` → structural PASS/FAIL vs TRUTH + Code-Jedi layout (exit **1** on any fail; **61/61**) |
+| `npm run grade` | v2.6.0 / release audit | `msc-grade-boilerplate.mjs` → structural PASS/FAIL vs TRUTH + Code-Jedi layout (exit **1** on any fail; **61/61**) |
 
 **Husky pre-commit:** lint-staged (Biome) → `msc:validate-env` → `verify:mcp`. **Pre-push:** `grade` + `msc:test:root`. Install hooks: `npm install` (runs `prepare`).
 
-### Bootstrap, sandboxes & quality (v2.5.0)
+### Bootstrap, sandboxes & quality (v2.6.0)
 
 | Script | When to invoke | What it does |
 |--------|----------------|--------------|
@@ -286,4 +286,4 @@ When adding a feature (e.g. `msc-portfolio-collection`), create `ui/msc-[feature
 
 ---
 
-*Maintained as the primary AI routing compass for Vader Engine v2.5.0. Update when `package.json` scripts or core module paths change.*
+*Maintained as the primary AI routing compass for Vader Engine v2.6.0. Update when `package.json` scripts or core module paths change.*

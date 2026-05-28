@@ -1,4 +1,4 @@
-**Act as a Lead Systems Architect. We are performing a 'Cold-Start' initialization for the v2.5.0-Engine project.**
+**Act as a Lead Systems Architect. We are performing a 'Cold-Start' initialization for the v2.6.0-Engine project.**
 
 ## 1. Environment Initialization
 

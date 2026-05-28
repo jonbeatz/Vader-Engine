@@ -1,6 +1,6 @@
 # Architecture
 
-High-level layout of **Vader Engine v2.5.0** ([jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine)).
+High-level layout of **Vader Engine v2.6.0** ([jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine)).
 
 ```mermaid
 flowchart TB
