@@ -11,7 +11,8 @@ Only start if you need Gemini models in Cursor:
 - Check status: `npm run msc:litellm:status`
 - If offline: `npm run msc:litellm:start`
 - Verify: `npm run msc:litellm:verify`
-- The proxy runs on port 4000. Keep the terminal open while using.
+
+> The proxy runs on port 4000. Keep this terminal open while using Cursor.
 
 ## 2. Context Ingestion (Read-Only Scan)
 
@@ -36,13 +37,14 @@ Only start if you need Gemini models in Cursor:
 After completing all steps, print:
 
 ```
-✅ v2.6.0 READY — 61/61 · 8/8 · Git clean · LiteLLM stopped
+✅ v2.6.0 READY — 61/61 · 8/8 · Git clean · LiteLLM [running/not started]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Ok, Jon. Let's build.
 ```
 
 Where:
 - `Git clean` changes to `Git has changes` if there are unstaged files
-- `LiteLLM stopped` changes to `LiteLLM running` if the proxy is active
+- `LiteLLM running` if the proxy was started (user chose to start it)
+- `LiteLLM not started` if the user skipped the optional proxy step
 
 **I am ready for high-velocity development. Acknowledge and proceed.**

@@ -13,7 +13,7 @@ If LiteLLM was started during this session:
 
 - Run `npm run msc:litellm:stop` to stop the proxy and kill ngrok
 - Verify port is free: `node scripts/msc-kill-dev-port.mjs 4000`
-- Log status in project-log.md
+- Log status in `.cursor/docs/project-log.md` (e.g., "LiteLLM stopped")
 
 ## 2. Project Log Update
 
@@ -47,14 +47,15 @@ If LiteLLM was started during this session:
 Print:
 
 ```
-✅ SESSION CLOSEOUT — v2.6.0 · Ports cleared · 61/61 · Git clean · LiteLLM stopped
+✅ SESSION CLOSEOUT — v2.6.0 · Ports cleared · 61/61 · Git clean · LiteLLM [stopped/not used]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Goodbye for now, Jon. See you next session.
 ```
 
 Where:
 - `Git clean` changes to `Git has changes` if there are unstaged files
-- `LiteLLM stopped` changes to `LiteLLM running` if the proxy was active during the session
+- `LiteLLM stopped` if the proxy was running and then stopped during closeout
+- `LiteLLM not used` if the proxy was never started this session
 - Add `⚠️ Blockers: [None/list]` on a new line if there are any blockers
 
 **Cold-start pointer for next agent:** Run `@Start-Project.md`, then initialize `task-planner.md` Phase 1–3.

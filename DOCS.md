@@ -111,7 +111,7 @@ Scaffold via `npm run msc:template -- apply <category/name> --name="..."` (defau
 | Command | Purpose |
 | --- | --- |
 | `npm run msc:template -- list \| apply \| seed \| doctor` | Template scaffolding CLI |
-| `npm run msc:github:sync` | GitHub About + `delete_branch_on_merge` via `gh` (see [CONTRIBUTING.md](CONTRIBUTING.md#github-repository-settings-mscgithubsync)) |
+| `npm run msc:github:sync` | GitHub About + `delete_branch_on_merge` via `gh` (see [CONTRIBUTING.md](docs/CONTRIBUTING.md#github-repository-settings-mscgithubsync)) |
 | `npm run msc:test:root` | `npm audit --production` + root Vitest (**pre-push**) |
 
 ## Scripts reference (vader-site)
@@ -153,6 +153,6 @@ Target: **61/61 (100%)** on `npm run grade` before forge-ready release.
 
 **Authority:** root `package.json` `"version"` — all **current-release** docs must match in the same commit as a semver bump.
 
-Operator checklist: [CONTRIBUTING.md — Version sync](CONTRIBUTING.md#version-sync-release-or-doc-sweep). Agent skill: [docs-ops-governance.md](.cursor/skills/docs-ops-governance.md).
+Operator checklist: [CONTRIBUTING.md — Version sync](docs/CONTRIBUTING.md#version-sync-release-or-doc-sweep). Agent skill: [docs-ops-governance.md](.cursor/skills/docs-ops-governance.md).
 
 *Powered by the MSC Media Engine*
