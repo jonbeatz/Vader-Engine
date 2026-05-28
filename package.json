@@ -65,8 +65,17 @@
     "msc:e2e:install": "playwright install --with-deps chromium firefox",
     "msc:e2e": "playwright test --config e2e/playwright.config.ts"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nextjs",
+    "boilerplate",
+    "cursor",
+    "mcp",
+    "dashboard",
+    "devtools",
+    "shadcn",
+    "tailwind"
+  ],
+  "author": "JonBeatz",
   "license": "MIT",
   "repository": {
     "type": "git",

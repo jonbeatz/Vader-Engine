@@ -5,6 +5,7 @@
 <h1 align="center">Vader Engine</h1>
 
 <p align="center">
+  <strong>The production-hardened development factory for Cursor agents.</strong><br>
   <strong>Build production-ready applications with a visual command center,<br>
   61-point integrity verification, and triple-sandbox development environments.</strong>
 </p>
@@ -49,7 +50,7 @@
 
 ---
 
-## Why Vader Engine?
+## 🚀 Why Vader Engine?
 
 Most boilerplates give you files. **Vader Engine gives you a complete development operating system.**
 
@@ -146,7 +147,7 @@ Vader-Engine/
 ├── scripts/               # Automation & tooling
 ├── core/                  # Shared bridge code
 ├── e2e/                   # Playwright test suite
-└── docs/                  # Documentation
+└── docs/                  # Documentation (TRUTH.md, PROJECT_CONTEXT.md, etc.)
 ```
 
 ---
