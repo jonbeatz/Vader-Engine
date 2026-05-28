@@ -1,23 +1,47 @@
 **Act as a Lead Systems Architect. We are performing a 'Session Closeout' for the v2.6.0-Engine project.**
 
-## 1. Environment Cleanup & Verification
+## 1. Bridge teardown & port cleanup
 
-- Run `npm run msc:kill-dev-port` to clear ports 3000, 3001, 3002, 8080
-- Run `npm run start-project:gate` to verify 61/61 grade, lint, and tests
-- Run `npm run msc:lint:fix` to ensure all files meet standards
-- If any gate fails, stop and report immediately before closing
+**First** — stop AI proxy if it was started this session:
 
-## 1.5 LiteLLM/Vertex AI Proxy Shutdown
+- Run **`npm run msc:litellm:stop`** (LiteLLM + ngrok)
+- Verify port free: **`npm run msc:kill -- 4000`**
 
-If LiteLLM was started during this session:
+Then clear dev sandboxes:
 
-- Run `npm run msc:litellm:stop` to stop the proxy and kill ngrok
-- Verify port is free: `node scripts/msc-kill-dev-port.mjs 4000`
-- Log status in `.cursor/docs/project-log.md` (e.g., "LiteLLM stopped")
+- Run **`npm run msc:kill-dev-port`** — ports **3000, 3001, 3002, 8080**
 
-## 2. Auto-Generate Session Summary
+## 2. Verification gate
 
-Before closing, ask the user:
+Run in order:
+
+1. **`npm run start-project:gate`** — **61/61**, lint, tests
+2. **`npm run msc:lint:fix`** — auto-fix where safe
+3. **Typecheck** — if examples were edited: `cd examples/nextjs-minimal && npx tsc --noEmit` (or relevant sandbox)
+
+If any gate fails, **stop and report** before closing.
+
+## 2.5 Auto-Update Tracking Docs
+
+Execute **`.cursor/prompts/Update-Project.md`** (same as **`update project`**):
+
+- Detect recent git changes
+- Append checkpoint to **project-log.md** and **Checkpoint.md**
+- Offer **UPDATE_LOG.md** / **CHANGELOG.md** updates per that workflow
+- Refresh **`.last-sync.json`** timestamp
+
+Run this **before** the session summary in §4 when possible — avoid duplicate project-log entries; merge into one closeout block if both run in the same session.
+
+## 3. Git audit
+
+- Run **`git status --porcelain`**
+- Ensure **`.env.local`** and credentials remain unstaged
+- Note branch and ahead/behind vs `main`
+- Ask operator: **"Commit and push? (yes/no)"** — only commit when explicitly approved
+
+## 4. Session summary (project-log)
+
+If §2.5 already appended an **Update Project Checkpoint**, extend that entry with closeout details instead of duplicating. Otherwise ask the operator:
 
 ```
 📝 Generate session summary?
@@ -25,47 +49,33 @@ Before closing, ask the user:
 What did we accomplish this session? (brief summary)
 ```
 
-Then append to `.cursor/docs/project-log.md`:
+Append to **`.cursor/docs/project-log.md`**:
 
 ```markdown
 ### [YYYY-MM-DD] - Session Closeout
 - **Session Summary:** [user's summary]
 - **Added/Modified:** [list files changed based on git diff]
 - **Verified:** start-project:gate PASS (61/61, lint, tests)
-- **Ports cleared:** 3000, 3001, 3002, 8080
+- **Ports cleared:** 3000, 3001, 3002, 8080, 4000
 - **LiteLLM:** [running/stopped/not used]
 ```
 
-Also check if any new features were added (new scripts, shortcuts, prompts) and offer to add to CHANGELOG.md.
+Offer **CHANGELOG.md** update if new scripts, shortcuts, or prompts shipped.
 
-## 3. Task Planner Sync Check
+## 5. Task planner sync
 
-- Check `.cursor/prompts/task-planner.md` for active Phase 1–3 objectives
-- If completed: note "✅ Task planner objectives cleared" in handoff block
-- If pending: note "⏳ Task planner objectives still pending"
+- Check **`.cursor/prompts/task-planner.md`** for Phase 1–3 objectives
+- Completed → note "✅ Task planner objectives cleared" in handoff
+- Pending → note "⏳ Task planner objectives still pending"
 
-## 4. Git Audit & Commit
-
-- Run `git status --porcelain`
-- Ensure no credentials leaked (`.env.local` remains unstaged)
-- Suggest a commit message following [Conventional Commits](https://www.conventionalcommits.org/)
-- Ask operator: **"Commit and push to origin/main? (yes/no)"**
-- If yes: `git add . && git commit -m "[message]" && git push origin main`
-
-## 5. Summary Logged to project-log.md
-
-Confirm: "✅ Session summary logged to .cursor/docs/project-log.md"
-
-## 6. Mandatory Handoff Block (Print Last)
-
-Print this as the final output after all cleanup, verification, and project-log updates are complete:
+## 6. Mandatory handoff block (print last)
 
 ```text
-✅ SESSION CLOSEOUT — v2.6.0 · Ports cleared · 61/61 · Git clean · LiteLLM stopped
+✅ SESSION CLOSEOUT — v2.6.0 · Ports cleared · 61/61 · Git [clean|has changes] · LiteLLM stopped
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Goodbye for now, Jon. See you next session.
 ```
 
-**Cold-start pointer for next agent:** Run `@Start-Project.md`, then initialize `task-planner.md` Phase 1–3.
+**Cold-start pointer for next agent:** Run **`@Start-Project.md`** — mandatory reads: README → PROJECT_CONTEXT → `.cursor/docs/TRUTH.md` → Project-Bible → REPAIR_PROTOCOLS → MCPs → START-HERE.
 
 **I am ready for closeout. Acknowledge and proceed.**

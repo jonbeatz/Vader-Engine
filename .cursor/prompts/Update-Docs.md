@@ -88,12 +88,11 @@ If yes, automatically format and append:
 ### Phase 5: Link Validation
 
 Check all markdown links in:
-- `README.md`
-- `DOCS.md`
-- `START-HERE.md`
+- `README.md`, `DOCS.md`, `START-HERE.md`, `PROJECT_CONTEXT.md`
+- `.cursor/docs/TRUTH.md`, `Project-Bible.md`, `REPAIR_PROTOCOLS.md`, `MCPs.md`
 - `.cursor/prompts/*.md`
 
-Verify referenced files exist. Report broken links.
+Verify referenced files exist (active paths only — `_archive/` links are historical). Report broken links to **non-archive** targets.
 
 ### Phase 6: Save New State
 

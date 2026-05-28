@@ -1,5 +1,7 @@
 # Project Truth (Constitution)
 
+> **Note:** This is the constitutional source of truth. For agent ritual and workflow execution, see [`.cursor/docs/TRUTH.md`](.cursor/docs/TRUTH.md).
+
 If any document conflicts with this file for **technical precedence**, this file wins for Vader Engine consumers.
 
 **Version target:** Vader Engine v2.6.0 — lean multi-runtime Node.js ecosystem (Node 20.x–24.x; CI + `.nvmrc` pin 20.x LTS) with triple Next.js sandboxes (minimal, Payload, Tailwind/shadcn Path B), read-only template blueprints, native scaffolding CLI, 61-point self-grader, and WordPress Shield bridge.

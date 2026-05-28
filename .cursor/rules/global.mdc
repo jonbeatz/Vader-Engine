@@ -144,9 +144,11 @@ When the user says any of these phrases, execute the corresponding command:
 | "status google-api" | Run `npm run msc:litellm:status` |
 | "verify google-api" | Run `npm run msc:litellm:test:ngrok` |
 | "restart google-api" | Run `npm run msc:litellm:stop && npm run msc:litellm:start:ngrok` |
-| "Update Docs" | Run `@Update-Docs.md` |
-| "sync docs" | Run `@Update-Docs.md` |
-| "version bump" | Run `@Update-Docs.md` and then guide through version bump |
+| "Update Docs" | Run `.cursor/prompts/Update-Docs.md` |
+| "sync docs" | Run `.cursor/prompts/Update-Docs.md` |
+| "version bump" | Run `.cursor/prompts/Update-Docs.md` and then guide through version bump |
+| "update project" | Run `.cursor/prompts/Update-Project.md` (auto-sync tracking docs) |
+| "sync project" | Alias for `update project` — run `.cursor/prompts/Update-Project.md` |
 | "start project" | Run `@Start-Project.md` |
 | "begin project" | Run `@Start-Project.md` |
 | "end project" | Run `@End-Project.md` |

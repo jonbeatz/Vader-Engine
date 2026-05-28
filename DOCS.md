@@ -1,158 +1,108 @@
 # Documentation Index (SSoT Router)
 
-Single entry point for all **Vader Engine v2.6.0-Engine** documentation. Technical precedence: [TRUTH.md](TRUTH.md).
+Single entry point for all **Vader Engine v2.6.0** documentation. Technical precedence: [TRUTH.md](TRUTH.md) (root) → [.cursor/docs/TRUTH.md](.cursor/docs/TRUTH.md) (agent ritual).
 
 | Field | Value |
 | --- | --- |
 | **Repository** | [github.com/jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) |
-| **Clone** | `git clone https://github.com/jonbeatz/Vader-Engine.git my-project` |
-| **Version** | v2.6.0-Engine · semver `2.6.0` · grade **61/61** |
+| **Version** | v2.6.0 · semver `2.6.0` · grade **61/61** |
 
 ## Human control panel (root)
 
 | Document | Purpose |
 |----------|---------|
 | [TRUTH.md](TRUTH.md) | Constitution — v2 principles, tokens, zero-leak, MCP portability |
-| [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) | Agent onboarding map — structure, ports, components, cleanup status (derived; TRUTH wins on conflict) |
-| [README.md](README.md) | System overview, governance, triple-sandbox map, operator controls, commands |
-| [START-HERE.md](START-HERE.md) | Agent/operator cold-start phases and checklists |
+| [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) | Agent onboarding map — structure, ports, components |
+| [README.md](README.md) | GitHub landing — overview, sandboxes, commands |
+| [START-HERE.md](START-HERE.md) | Cold-start phases and checklists |
 | [DOCS.md](DOCS.md) | This index |
-| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | High-level layout, sandboxes, CI pipeline |
-| [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Operational recovery paths |
-| [SECURITY.md](docs/SECURITY.md) | Private advisory reporting and zero-leak policy |
-| [CONTRIBUTING.md](docs/CONTRIBUTING.md) | Fork, forge, hooks, PR gates |
-| [CHANGELOG.md](CHANGELOG.md) | Release history (v2.6.0 · v2.5.0 · v2.4.0 · v2.3.1 · v2.3.0 · v2.2.0 · v2.1.0) |
-| [DEPLOY_TO_HOSTINGER.md](docs/DEPLOY_TO_HOSTINGER.md) | Hostinger Node.js deploy for VaderLabz template |
-| [docs/releases/](docs/releases/) | Tagged release notes (`RELEASE_v*.md`) |
-| [docs/assets/](docs/assets/) | Asset index — committed media under `media/` |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | High-level layout, sandboxes, CI |
+| [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Operational recovery |
+| [SECURITY.md](docs/SECURITY.md) | Zero-leak and advisory policy |
+| [CONTRIBUTING.md](docs/CONTRIBUTING.md) | Fork, hooks, PR gates |
+| [CHANGELOG.md](CHANGELOG.md) | Release history |
+| [DEPLOY_TO_HOSTINGER.md](docs/DEPLOY_TO_HOSTINGER.md) | Hostinger Node deploy |
+| [docs/releases/](docs/releases/) | Tagged release notes |
+| [media/readme/](media/readme/) | README screenshots (committed) |
 
-## Operator runbooks (`.cursor/docs/`)
+## Agent workflow (`.cursor/docs/` — active)
 
 | Document | Purpose |
 |----------|---------|
-| [HOW-TO.md](.cursor/docs/HOW-TO.md) | Command runbook, build ritual, release certification |
-| [Code-Jedi.md](.cursor/docs/Code-Jedi.md) | Module compass, npm script inventory |
-| [system-architecture.md](.cursor/docs/system-architecture.md) | Structural blueprint (4 layers) |
-| [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) | Next.js 15 + Payload consumer install |
-| [mcp-setup.md](.cursor/docs/mcp-setup.md) | MCP servers, `${workspaceFolder}`, API key contract |
-| [mcp-env-token-map.md](.cursor/docs/mcp-env-token-map.md) | MCP ↔ `.env.example` key mapping |
-| [ecosystem-options-matrix.md](.cursor/docs/ecosystem-options-matrix.md) | Env strategies and toggles |
+| [TRUTH.md](.cursor/docs/TRUTH.md) | Agent constitution — gates, ports, LiteLLM ritual |
+| [Project-Bible.md](.cursor/docs/Project-Bible.md) | Command lexicon (§5) |
+| [REPAIR_PROTOCOLS.md](.cursor/docs/REPAIR_PROTOCOLS.md) | Recovery runbooks |
+| [UPDATE_LOG.md](.cursor/docs/UPDATE_LOG.md) | Fix history |
+| [MCPs.md](.cursor/docs/MCPs.md) | MCP catalog + status |
+| [Checkpoint.md](.cursor/docs/Checkpoint.md) | Branch / release milestones |
+| [Vader-Engine-Cheat-Sheet.md](.cursor/docs/Vader-Engine-Cheat-Sheet.md) | Quick reference |
+| [Vader-Engine-Operator-Card.md](.cursor/docs/Vader-Engine-Operator-Card.md) | One-page operator card |
 | [project-log.md](.cursor/docs/project-log.md) | Session changelog |
+| [local-ai-proxy-setup.md](.cursor/docs/local-ai-proxy-setup.md) | LiteLLM / ngrok / `vader-3-flash` |
+| [.last-sync.json](.cursor/docs/.last-sync.json) | Update Docs sync state |
+
+## Agent runbooks (`.cursor/docs/`)
+
+| Document | Purpose |
+|----------|---------|
+| [HOW-TO.md](.cursor/docs/HOW-TO.md) | Build ritual, release certification |
+| [Code-Jedi.md](.cursor/docs/Code-Jedi.md) | Module compass, npm inventory |
+| [system-architecture.md](.cursor/docs/system-architecture.md) | Four-layer structural blueprint |
+| [consumer-bootstrap.md](.cursor/docs/consumer-bootstrap.md) | Next.js 15 + Payload consumer install |
+| [mcp-setup.md](.cursor/docs/mcp-setup.md) | MCP servers, `${workspaceFolder}`, keys |
+| [mcp-env-token-map.md](.cursor/docs/mcp-env-token-map.md) | MCP ↔ `.env.example` mapping |
+| [ecosystem-options-matrix.md](.cursor/docs/ecosystem-options-matrix.md) | Env strategies |
 | [incident-log.md](.cursor/docs/incident-log.md) | Incident history |
-| [REPAIR_PROTOCOLS.md](.cursor/docs/REPAIR_PROTOCOLS.md) | Repair escalation paths |
 | [discovered-logic-map.md](.cursor/docs/discovered-logic-map.md) | Multi-repo capability map |
-| [local-ai-proxy-setup.md](.cursor/docs/local-ai-proxy-setup.md) | LiteLLM / ngrok proxy |
 | [media-strategy-specs.md](.cursor/docs/media-strategy-specs.md) | Media sync strategies |
 | [spaceship-node-deployment.md](.cursor/docs/spaceship-node-deployment.md) | cPanel Node deploy |
 | [github-automation-rules.md](.cursor/docs/github-automation-rules.md) | Releases and branching |
 | [sqlite-repair-manifest.md](.cursor/docs/sqlite-repair-manifest.md) | SQLite repair contract |
-| [README-inventory.md](.cursor/docs/README-inventory.md) | Auto-generated MCP + npm inventory (`npm run inventory`) |
-| [audit/VADER_ENGINE_AUDIT_2026-05-27.md](.cursor/docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md) | Comprehensive cleanup audit (Option C — archive list for manual review) |
+| [README-inventory.md](.cursor/docs/README-inventory.md) | Auto inventory (`npm run inventory`) |
 
-## Vader Protocol design blueprint (`.cursor/docs/v0-Design/`)
-
-| Document | Purpose |
-| --- | --- |
-| [v0-Design/README.md](.cursor/docs/v0-Design/README.md) | Module index · reading order · Git branches |
-| [v6-Master-Prompt.md](.cursor/docs/v0-Design/v6-Master-Prompt.md) | Copy-paste [v0.dev](https://v0.dev) prompt + 6 reference images |
-| [v5-Implementation.md](.cursor/docs/v0-Design/v5-Implementation.md) | `ui/dashboard/` Lean Boundary · §12–§14 post-v0 handoff |
-| [v0-Run-Sheet.md](.cursor/docs/v0-Design/v0-Run-Sheet.md) | One-page v0 Stage 1–3 operator checklist |
-| [ENGINE_ROADMAP.md](.cursor/plans/ENGINE_ROADMAP.md) | **Master integration roadmap** — Phases 1–3, API wiring, terminal plan |
-| Visual refs | `.cursor/design_references/v0-Design-Refrences/` |
-
-Active release branch: **`main`** (v2.6.0 live-data integration merged and shipped).
-
-**Local-only (gitignored, not on GitHub):** `.cursor/docs/BOILERPLATE-IMPROVEMENT/`, `.cursor/docs/README/` — upgrade runbooks and README drafts.
-
-## Agent layer
+## Agent layer (prompts, rules, plans)
 
 | Path | Purpose |
 |------|---------|
-| [.cursor/skills/README.md](.cursor/skills/README.md) | Competency nodes 1–8 |
-| [.cursor/skills/studio-dark-shield.md](.cursor/skills/studio-dark-shield.md) | Path A Shield vs Path B Tailwind |
-| [.cursor/rules/README.md](.cursor/rules/README.md) | Conditional rules index |
+| [.cursor/prompts/Start-Project.md](.cursor/prompts/Start-Project.md) | Cold-start ritual |
+| [.cursor/prompts/End-Project.md](.cursor/prompts/End-Project.md) | Session closeout |
+| [.cursor/prompts/Update-Docs.md](.cursor/prompts/Update-Docs.md) | Doc sync workflow |
+| [.cursor/prompts/task-planner.md](.cursor/prompts/task-planner.md) | Phase 1–3 gate |
+| [.cursor/rules/README.md](.cursor/rules/README.md) | Rules index |
 | [.cursor/rules/global.mdc](.cursor/rules/global.mdc) | Always-on session bindings |
-| [.cursor/prompts/task-planner.md](.cursor/prompts/task-planner.md) | Start Project gate |
-| [.cursor/prompts/End-Project.md](.cursor/prompts/End-Project.md) | End Project / session closeout gate |
+| [.cursor/rules/start-project-ritual.mdc](.cursor/rules/start-project-ritual.mdc) | Start Project defaults |
+| [.cursor/plans/ENGINE_ROADMAP.md](.cursor/plans/ENGINE_ROADMAP.md) | Master integration roadmap |
+| [.cursor/plans/v0-integration-roadmap.md](.cursor/plans/v0-integration-roadmap.md) | v0 integration plan |
+| [.cursor/skills/README.md](.cursor/skills/README.md) | Skills nodes 1–8 |
+
+## Archived reference ([`_archive/`](../_archive/README.md))
+
+| Path | Purpose |
+|------|---------|
+| [_archive/v0-design-docs/v0-Design/](../_archive/v0-design-docs/v0-Design/) | v0.dev blueprint (reference only) |
+| [_archive/boilerplate-improvement/](../_archive/boilerplate-improvement/) | Legacy upgrade runbooks |
+| [_archive/old-plans/](../_archive/old-plans/) | Completed implementation plans |
+| [_archive/old-workflow-reference/](../_archive/old-workflow-reference/) | Nova Launcher doc reference |
+
+Visual refs for v0: `.cursor/design_references/v0-Design-Refrences/`
 
 ## Examples (sandboxes)
 
 | Path | Stack | Port |
 |------|-------|------|
-| [examples/nextjs-minimal/](examples/nextjs-minimal/) | Next.js 15.5.7 + TypeScript + Vitest | **3000** |
-| [examples/nextjs-payload/](examples/nextjs-payload/) | Next.js 15.4.11 + Payload CMS v3 + SQLite | **3001** |
-| [examples/nextjs-tailwind/](examples/nextjs-tailwind/) | Next.js 15.5.7 + Tailwind 3 + shadcn (Path B hybrid) | **3002** |
-| [ui/dashboard/](ui/dashboard/) | Vader Construct dashboard (v0 export hardened to Tailwind 3) | **3010** |
+| [examples/nextjs-minimal/](examples/nextjs-minimal/) | Next.js 15 + Vitest | **3000** |
+| [examples/nextjs-payload/](examples/nextjs-payload/) | Payload CMS v3 + SQLite | **3001** |
+| [examples/nextjs-tailwind/](examples/nextjs-tailwind/) | Tailwind 3 + shadcn (Path B) | **3002** |
+| [ui/dashboard/](ui/dashboard/) | Vader Construct dashboard | **3010** |
 
-From repo root: `npm run msc:dev:tailwind` → http://127.0.0.1:3002. Lean Boundary — deps only in the sandbox `package.json`.
-
-## Testing the Tailwind Sandbox
-
-After running `npm run msc:dev:tailwind`, visit:
-
-- http://localhost:3002 — Main demo page
-- http://localhost:3002/sandbox-test — Component stress-test page
-
-Both pages should render with Vader Protocol styling (dark background, accent colors). Root `npm run build` does not compile this sandbox — only `examples/nextjs-minimal` (Lean Boundary intact). Env contract: copy `examples/nextjs-tailwind/.env.example` → `.env.local`; never commit live secrets.
-
-## Template blueprints (read-only registry)
-
-| Path | Purpose |
-|------|---------|
-| [templates/frontend/portfolio/](templates/frontend/portfolio/) | Vader Shield portfolio scaffold (Path A) |
-| [templates/cms/divi-bridge/](templates/cms/divi-bridge/) | WordPress/Divi 4 bridge with ABSPATH guard |
-| [templates/full-stack/task-manager/](templates/full-stack/task-manager/) | Payload CRM collection stubs |
-| [templates/full-stack/vader-site/](templates/full-stack/vader-site/) | Vader Protocol Next.js 15 site (port **3003**) |
-
-Scaffold via `npm run msc:template -- apply <category/name> --name="..."` (default `../Dev-Projectz/<slug>`) or `--target=../Dev-Projectz/custom-path`. Operator guide: [HOW-TO.md — Scaffolding System](.cursor/docs/HOW-TO.md#-the-template--scaffolding-system-v240).
-
-## Maintainer tooling (`tools/msc-cli`)
-
-| Command | Purpose |
-| --- | --- |
-| `npm run msc:template -- list \| apply \| seed \| doctor` | Template scaffolding CLI |
-| `npm run msc:github:sync` | GitHub About + `delete_branch_on_merge` via `gh` (see [CONTRIBUTING.md](docs/CONTRIBUTING.md#github-repository-settings-mscgithubsync)) |
-| `npm run msc:test:root` | `npm audit --production` + root Vitest (**pre-push**) |
-
-## Scripts reference (vader-site)
-
-| Script | Purpose |
-|--------|---------|
-| `scripts/prep-hostinger-deploy.sh` | Copies vader-site to `vader-site-deploy/`, validates deps, GitHub-ready |
-| `scripts/deploy-prep.sh` | Strips dev artifacts, writes `.env.production`, full deploy prep |
-| `scripts/prebuild-static.mjs` | Stashes Payload modules for static-only builds |
-| `scripts/dev-fresh.mjs` | Clears `.next` cache before dev start, passes through env unchanged |
-| `scripts/postinstall.mjs` | No-op in static mode, seeds DB in CMS mode |
-
-## Cursor skills (Vader Protocol)
-
-| Skill | Trigger phrases |
-|-------|-----------------|
-| `.cursor/skills/vader_protocol_skill.md` | "Vader Protocol", "VaderLabz", "dark aesthetic", "keep my design style" |
-| `.cursor/skills/vader_animations_skill.md` | "add animations", "make it feel alive", "vader animations", "micro-interactions" |
-
-## v2.6 verification
+## Verification
 
 ```bash
-npm run msc:template -- doctor
-npm run msc:template -- list
-npm run msc:validate-env
-npm run verify:mcp
-npm run msc:lint
-npm run grade
-npm run msc:test:all
-npm run msc:e2e:install   # first time only
-npm run msc:e2e
+npm run start-project:gate   # 61/61 + lint + tests
+npm run grade              # integrity gate only
+npm run verify:mcp         # MCP structure
 ```
 
-Target: **61/61 (100%)** on `npm run grade` before forge-ready release.
-
-**CI mirror (GitHub Actions):** validate-env → verify:mcp → lint → grade → msc:test:root → minimal `npm ci` + test → payload `npm ci` + build → Playwright install → `msc:e2e`.
-
-## Version sync contract
-
-**Authority:** root `package.json` `"version"` — all **current-release** docs must match in the same commit as a semver bump.
-
-Operator checklist: [CONTRIBUTING.md — Version sync](docs/CONTRIBUTING.md#version-sync-release-or-doc-sweep). Agent skill: [docs-ops-governance.md](.cursor/skills/docs-ops-governance.md).
+**Update Docs:** say `update docs` or run [.cursor/prompts/Update-Docs.md](.cursor/prompts/Update-Docs.md).
 
 *Powered by the MSC Media Engine*

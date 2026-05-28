@@ -2,10 +2,18 @@
 
 ## [Unreleased]
 
+### Added
+
+- **`update project`** workflow — `.cursor/prompts/Update-Project.md` auto-syncs `UPDATE_LOG.md`, `project-log.md`, `Checkpoint.md`, `.last-sync.json`
+- Nova-pattern agent docs: `.cursor/docs/{TRUTH,Project-Bible,REPAIR_PROTOCOLS,UPDATE_LOG,MCPs,Checkpoint}.md`
+- Rules: `start-project-ritual.mdc`, `vader-repair-ast.mdc`
+- `_archive/README.md` index for archived v0-Design, old plans, Nova reference, boilerplate runbooks
+
 ### Changed
 
 - **Branding:** Vader Protocol baseline tag renamed from `v2.5.0-SOVEREIGN` to **v2.5.0-Engine** across docs, prompts, and grader banner (semver **2.5.0** unchanged)
-- **Docs:** `DOCS.md` v0-Design index; blueprint README Git workflow; retired `Boilerplate-FrontEnd-v1` after merge to `main`
+- **Docs:** Lean `DOCS.md` index; obsolete content moved to `_archive/` (no deletes); Cheat Sheet + Operator Card **What You Have Now** table
+- **End project:** §2.5 auto-runs `update project` before closeout handoff
 - **Branching:** Active dashboard work moves to `feat/vader-construct-dashboard`
 
 ---

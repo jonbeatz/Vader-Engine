@@ -1,0 +1,37 @@
+---
+description: AST repair rules for Next.js Suspense bailout and scripts/repair transforms
+globs: ["examples/**/*.{js,jsx,ts,tsx,mjs}", "scripts/repair/**", "ui/**/*.{tsx,jsx}"]
+---
+
+# Vader Repair AST Protocol
+
+## 1. Safe patching lifecycle
+
+- **Backup first:** Before automated edits, write **`.vader-backup`** next to the source file under the repo tree (same directory as patched file)
+- **Do not** store repair backups in `media/` or `.sandbox/` unless operator explicitly uses sandbox seed paths
+- **AST strategy:** Use **`scripts/repair/msc-fix-suspense.mjs`** via **`npm run repair:ast`** for structural transforms
+- **Interactive flows:** Show before/after diff before apply when operator is in the loop
+
+## 2. Next.js 15 Suspense specifics
+
+- Target **`useSearchParams`**, **`useParams`**, and CSR bailout build errors
+- Wrap the **smallest** subtree in **`<Suspense>`** with a meaningful fallback (loading skeleton, not empty fragment)
+- Prefer fixing the consuming page/layout over blanket Suspense at root unless required
+
+## 3. Activation context
+
+Suggest **`npm run repair:ast`** when:
+
+- User says repair, patch, fix suspense, or CSR bailout
+- Build output matches Next.js dynamic API static generation bailout
+- Grade or lint surfaces Suspense-related example failures
+
+## 4. Post-repair gate
+
+After AST repair:
+
+1. `npm run msc:lint:fix` on touched files
+2. Re-run affected example build or `npm run grade` if scope is broad
+3. Log novel patterns in [UPDATE_LOG.md](../docs/UPDATE_LOG.md) if reusable
+
+Related: [REPAIR_PROTOCOLS.md](../docs/REPAIR_PROTOCOLS.md) §5
