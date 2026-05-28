@@ -18,6 +18,15 @@
 
 ---
 
+## [2.6.1] - 2026-05-28
+
+### Changed
+- Documentation polish for production release
+- Windows .env copy hint in README
+- Final workflow cleanup and archive consolidation
+
+---
+
 ## [2.6.0] - 2026-05-27 (v0 Live Integration)
 
 ### New Features

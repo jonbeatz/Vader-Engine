@@ -1,6 +1,6 @@
 # Vader Engine - Master Cheat Sheet
 
-> **Version:** v2.6.0 | **Integrity:** 61/61 | **Status:** Production-ready baseline
+> **Version:** v2.6.1 | **Integrity:** 61/61 | **Status:** Production-ready baseline
 
 ---
 

@@ -4,8 +4,13 @@
 - **Project Name:** Vader Engine (Vader Protocol)
 - **Repository:** [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) — renamed from `Boilerplate` / `jonbeatz/Boilerplate` (May 2026); prior slugs `Boilerplate-v1` / `Boilerplate-v2` preserved in `CHANGELOG.md` only
 - **Target Stack:** Next.js sandboxes · Payload CMS · WordPress Shield · Cursor MCP
-- **Current Version:** 2.6.0
-- **Status:** Vader Engine v2.6.0 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.0`
+- **Current Version:** 2.6.1
+- **Status:** Vader Engine v2.6.1 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.1`
+
+### [2026-05-28] - chore - v2.6.1 version bump
+- **Summary:** Synced version to **2.6.1** across README, package.json, CHANGELOG, Checkpoint, UPDATE_LOG, TRUTH, DOCS, grader, and operator docs.
+- **Release:** GitHub tag `v2.6.1` · `docs/releases/RELEASE_v2.6.1.md`
+- **Gate:** 61/61 · 8/8 tests
 
 ### [2026-05-28 15:00] - Update Project Checkpoint
 - **Status:** Workflow docs consolidated; tracking automation live; uncommitted changes on `feat/phase-4-polish` (1 commit ahead of merge baseline + doc cleanup tree)

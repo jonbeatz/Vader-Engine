@@ -4,6 +4,21 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ---
 
+## [2026-05-28] — v2.6.1 version bump & documentation polish
+
+### Changes
+
+- **Version:** `package.json` → **2.6.1** · README badge and status table synced
+- **Docs:** `CHANGELOG.md`, `PROJECT_CONTEXT.md`, `Checkpoint.md`, `RELEASE_v2.6.1.md`
+- **README:** Windows `.env` copy hint · agent ritual pointer · production polish
+- **GitHub release:** [v2.6.1](https://github.com/jonbeatz/Vader-Engine/releases/tag/v2.6.1)
+
+### Verification
+
+- `npm run start-project:gate` — 61/61 · 8/8 · lint clean
+
+---
+
 ## [2026-05-28] — LiteLLM + ngrok integration (Phase 4)
 
 ### Changes
@@ -115,4 +130,4 @@ Running record of significant fixes, root causes, and verification. Session summ
 - …
 ```
 
-**Signature:** Vader Engine v2.6.0
+**Signature:** Vader Engine v2.6.1

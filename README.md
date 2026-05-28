@@ -15,7 +15,7 @@
     <img src="https://github.com/jonbeatz/Vader-Engine/actions/workflows/ci.yml/badge.svg" alt="CI">
   </a>
   <a href="https://github.com/jonbeatz/Vader-Engine/releases">
-    <img src="https://img.shields.io/badge/version-2.6.0-red" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.6.1-red" alt="Version">
   </a>
   <a href="https://vaderlabz.com">
     <img src="https://img.shields.io/badge/demo-vaderlabz.com-blue" alt="Live Demo">
@@ -40,7 +40,7 @@
 
 | Metric | Value |
 |--------|-------|
-| **Version** | v2.6.0 |
+| **Version** | v2.6.1 |
 | **Integrity Grade** | 61/61 (100%) |
 | **Dashboard** | ✅ Vader Construct — 12+ routes on port **3010** |
 | **API Layer** | ✅ 7 endpoints (health, grade, logs, projects, templates, env, scripts) |

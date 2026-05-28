@@ -1,6 +1,6 @@
 # Vader Engine - Operator Card (One Page)
 
-> **Version:** v2.6.0 | **Integrity target:** 61/61 | **Use this for fast daily operations**
+> **Version:** v2.6.1 | **Integrity target:** 61/61 | **Use this for fast daily operations**
 
 ---
 

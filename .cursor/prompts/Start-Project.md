@@ -1,4 +1,4 @@
-**Act as a Lead Systems Architect. We are performing a 'Cold-Start' initialization for the v2.6.0-Engine project.**
+**Act as a Lead Systems Architect. We are performing a 'Cold-Start' initialization for the v2.6.1-Engine project.**
 
 ## 1. Mandatory document reads (Read tool — do not skip)
 

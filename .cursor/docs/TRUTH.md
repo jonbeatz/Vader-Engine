@@ -1,4 +1,4 @@
-# The Project Truth (Vader Engine v2.6.0)
+# The Project Truth (Vader Engine v2.6.1)
 
 > **Note:** This is the agent ritual constitution. For technical precedence and project governance, see root [`TRUTH.md`](../../TRUTH.md).
 
@@ -14,7 +14,7 @@ This document is the **agent-layer constitution** for Vader Engine. It consolida
 
 **Agent tooling:** Model Context Protocol servers are documented in **[`MCPs.md`](./MCPs.md)**. Live secrets never belong in committed `.cursor/mcp.json` — use `.env.local` / Cursor MCP UI. See **[`mcp-setup.md`](./mcp-setup.md)** for extended catalog.
 
-**Shipped release:** Root **`package.json` → `version`** is **2.6.0**. Release tags: `v2.1.0` … `v2.6.0`. Product deltas: **[`UPDATE_LOG.md`](./UPDATE_LOG.md)**, **[`project-log.md`](./project-log.md)**. Branch history: **[`Checkpoint.md`](./Checkpoint.md)**.
+**Shipped release:** Root **`package.json` → `version`** is **2.6.1**. Release tags: `v2.1.0` … `v2.6.1`. Product deltas: **[`UPDATE_LOG.md`](./UPDATE_LOG.md)**, **[`project-log.md`](./project-log.md)**. Branch history: **[`Checkpoint.md`](./Checkpoint.md)**.
 
 ---
 
@@ -97,4 +97,4 @@ Canonical runbook: **[`local-ai-proxy-setup.md`](./local-ai-proxy-setup.md)**.
 | `.cursor/docs/MCPs.md` | MCP status + examples |
 | `.cursor/docs/Vader-Engine-Cheat-Sheet.md` | Quick reference |
 
-**Signature:** Powered by the MSC Media Engine · Vader Engine v2.6.0
+**Signature:** Powered by the MSC Media Engine · Vader Engine v2.6.1

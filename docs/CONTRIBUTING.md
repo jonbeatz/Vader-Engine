@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for improving Vader Engine (**v2.6.0**).
+Thank you for improving Vader Engine (**v2.6.1**).
 
 ## Fork and Rename
 
@@ -137,7 +137,7 @@ See also [HOW-TO.md — Pre-release gate](../.cursor/docs/HOW-TO.md#pre-release-
 
 ## Version sync (release or doc sweep)
 
-**Single source of truth:** root `package.json` → `"version"` field (currently **2.6.0**).
+**Single source of truth:** root `package.json` → `"version"` field (currently **2.6.1**).
 
 On every semver bump or alignment sweep, update **current-version** strings in the same session — never leave operator docs on an older release:
 
