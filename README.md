@@ -101,7 +101,7 @@ git clone https://github.com/jonbeatz/Vader-Engine.git
 cd Vader-Engine
 npm run msc:check-node          # Node 20.x–24.x preflight
 npm run bootstrap               # deps, ports, env validation
-cp .env.example .env.local      # then add live values in .env.local only
+cp .env.example .env.local      # (Windows: copy .env.example .env.local) then add live values
 npm run msc:dev:dashboard
 ```
 
