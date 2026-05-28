@@ -21,7 +21,7 @@ Phase B completion: structural grader expanded to **60/60**, standardized sandbo
 
 - [examples/README.md](examples/README.md) — sandbox index vs `templates/`
 - Standard headers + setup blocks on all `templates/*` and `examples/*` READMEs
-- [CONTRIBUTING.md](CONTRIBUTING.md) — issue/PR templates, template factory guide, Dependabot review ritual
+- [CONTRIBUTING.md](../CONTRIBUTING.md) — issue/PR templates, template factory guide, Dependabot review ritual
 
 ### Security & automation
 

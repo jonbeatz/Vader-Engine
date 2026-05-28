@@ -147,4 +147,4 @@ npm run msc:template -- apply frontend/portfolio --name="My App"
 - Repair: `npm run repair:sqlite`
 - WAL purge before deploy copy: `npm run db:wal-purge`
 
-See also [ARCHITECTURE.md](ARCHITECTURE.md), [REPAIR_PROTOCOLS.md](.cursor/docs/REPAIR_PROTOCOLS.md), and [TRUTH.md](TRUTH.md).
+See also [ARCHITECTURE.md](ARCHITECTURE.md), [REPAIR_PROTOCOLS.md](../.cursor/docs/REPAIR_PROTOCOLS.md), and [TRUTH.md](../TRUTH.md).

@@ -187,8 +187,8 @@ npm run msc:template        # Scaffold from templates
 | [TRUTH.md](TRUTH.md) | The Vader Protocol constitution |
 | [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) | Architecture & onboarding map |
 | [DOCS.md](DOCS.md) | Complete documentation index |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | System architecture deep dive |
-| [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Common issues & solutions |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | System architecture deep dive |
+| [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Common issues & solutions |
 
 > **Security Note:** This repository uses a `.env.local` gitignore policy. Never commit secrets. Use the Ops Hub for environment management.
 
@@ -218,7 +218,7 @@ We welcome contributions that respect the Vader Protocol.
 4. Commit your changes
 5. Push and open a Pull Request
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
+Please read [CONTRIBUTING.md](docs/CONTRIBUTING.md) for full guidelines.
 
 ---
 

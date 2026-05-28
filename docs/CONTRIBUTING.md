@@ -92,7 +92,7 @@ npm run msc:e2e           # optional local parity with CI
 - Target branch: **`main`** (single production branch)
 - Keep grade at **61/61** before push
 - Do not commit `.env.local`, sandbox `.env.local`, or live MCP tokens
-- Update [CHANGELOG.md](CHANGELOG.md) for user-visible changes
+- Update [CHANGELOG.md](../CHANGELOG.md) for user-visible changes
 - CI must pass: validate-env → verify:mcp → lint → grade → root tests → sandbox builds → Playwright E2E
 
 ## Documentation Sync
@@ -102,10 +102,10 @@ When changing scripts, hooks, or sandboxes, update in the same session:
 - `package.json` (authority)
 - [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
 - [HOW-TO.md](.cursor/docs/HOW-TO.md)
-- [README.md](README.md) command reference (if operator-facing)
-- [DOCS.md](DOCS.md) index (if new doc files)
+- [README.md](../README.md) command reference (if operator-facing)
+- [DOCS.md](../DOCS.md) index (if new doc files)
 
-Constitutional changes require [TRUTH.md](TRUTH.md) update first.
+Constitutional changes require [TRUTH.md](../TRUTH.md) update first.
 
 ## Release and versioning
 
@@ -155,7 +155,7 @@ On every semver bump or alignment sweep, update **current-version** strings in t
 
 **Preserve as history (do not rewrite):** prior `CHANGELOG.md` sections, `.github/RELEASE-v2.x.x.md` archives, README "What's new in v2.x" for older releases.
 
-After sync: run the [pre-tag gate](#pre-tag-gate-mandatory) · `npm run grade` (61/61) · update [CHANGELOG.md](CHANGELOG.md) · tag `vX.Y.Z` on the alignment commit.
+After sync: run the [pre-tag gate](#pre-tag-gate-mandatory) · `npm run grade` (61/61) · update [CHANGELOG.md](../CHANGELOG.md) · tag `vX.Y.Z` on the alignment commit.
 
 ## GitHub repository settings (`msc:github:sync`)
 
@@ -171,7 +171,7 @@ This runs:
 2. `gh repo edit <owner/repo>` — description + homepage from `package.json` repository slug (overridable via `MSC_GITHUB_DESCRIPTION`, `MSC_GITHUB_HOMEPAGE` in `.env.local`)
 3. `gh api repos/<owner/repo> -f delete_branch_on_merge=true`
 
-Run after a **rebrand or repo rename** so the public About box matches [DOCS.md](DOCS.md). Historical `.github/RELEASE-v2.*` archives are not rewritten.
+Run after a **rebrand or repo rename** so the public About box matches [DOCS.md](../DOCS.md). Historical `.github/RELEASE-v2.*` archives are not rewritten.
 
 **Manual fallback** (if `gh` is unavailable): Settings → General → set description/homepage and enable **Automatically delete head branches** under Pull Requests.
 

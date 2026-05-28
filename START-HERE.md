@@ -231,11 +231,11 @@ npm run msc:smoke -- 3000
 
 | GitHub releases & branching | `.cursor/docs/github-automation-rules.md` |
 
-| System architecture map | `.cursor/docs/system-architecture.md` · [ARCHITECTURE.md](ARCHITECTURE.md) |
+| System architecture map | `.cursor/docs/system-architecture.md` · [ARCHITECTURE.md](docs/ARCHITECTURE.md) |
 
 | Consumer Next + Payload bootstrap | `.cursor/docs/consumer-bootstrap.md` |
 
-| Troubleshooting | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) |
+| Troubleshooting | [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) |
 
 
 

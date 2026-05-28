@@ -17,12 +17,12 @@ Single entry point for all **Vader Engine v2.6.0-Engine** documentation. Technic
 | [README.md](README.md) | System overview, governance, triple-sandbox map, operator controls, commands |
 | [START-HERE.md](START-HERE.md) | Agent/operator cold-start phases and checklists |
 | [DOCS.md](DOCS.md) | This index |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | High-level layout, sandboxes, CI pipeline |
-| [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Operational recovery paths |
-| [SECURITY.md](SECURITY.md) | Private advisory reporting and zero-leak policy |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Fork, forge, hooks, PR gates |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | High-level layout, sandboxes, CI pipeline |
+| [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Operational recovery paths |
+| [SECURITY.md](docs/SECURITY.md) | Private advisory reporting and zero-leak policy |
+| [CONTRIBUTING.md](docs/CONTRIBUTING.md) | Fork, forge, hooks, PR gates |
 | [CHANGELOG.md](CHANGELOG.md) | Release history (v2.6.0 · v2.5.0 · v2.4.0 · v2.3.1 · v2.3.0 · v2.2.0 · v2.1.0) |
-| [DEPLOY_TO_HOSTINGER.md](DEPLOY_TO_HOSTINGER.md) | Hostinger Node.js deploy for VaderLabz template |
+| [DEPLOY_TO_HOSTINGER.md](docs/DEPLOY_TO_HOSTINGER.md) | Hostinger Node.js deploy for VaderLabz template |
 | [docs/releases/](docs/releases/) | Tagged release notes (`RELEASE_v*.md`) |
 | [docs/assets/](docs/assets/) | Asset index — committed media under `media/` |
 

@@ -46,7 +46,7 @@
 - **`npm run msc:dev:tailwind`** — Path B hybrid dev command
 - **Vader token bridge** — `tailwind.config.ts` maps `msc-bg-main`, `msc-surface`, `msc-text-primary`, `msc-text-secondary`, `msc-accent`, `msc-accent-hover` to `var(--msc-*)`
 - **`/sandbox-test`** — stress-test page for `MscButton` + `MscCard` with Lean Boundary summary
-- **[SECURITY.md](SECURITY.md)** — private GitHub advisory reporting; zero-leak contract
+- **[SECURITY.md](docs/SECURITY.md)** — private GitHub advisory reporting; zero-leak contract
 - **[.github/workflows/release.yml](.github/workflows/release.yml)** — automated published releases on `v*` tags
 
 ### Grader
@@ -112,7 +112,7 @@
 ### Documentation and UX
 
 - README **Live proof** hero image (`media/readme/vaderlabz-hero-reference.jpg`), **Version** and **Live demo** badges, documentation map links to [vaderlabz.com](https://vaderlabz.com)
-- **Pre-tag ritual** in [HOW-TO.md](.cursor/docs/HOW-TO.md) and [CONTRIBUTING.md](CONTRIBUTING.md) — `msc:lint` → `grade` → `msc:test:root` before tags
+- **Pre-tag ritual** in [HOW-TO.md](.cursor/docs/HOW-TO.md) and [CONTRIBUTING.md](docs/CONTRIBUTING.md) — `msc:lint` → `grade` → `msc:test:root` before tags
 - Root `.env.example` PORT nudge and pointer to `templates/full-stack/vader-site` default port **3003**
 - GitHub About: website `https://vaderlabz.com`, docs link in description
 
