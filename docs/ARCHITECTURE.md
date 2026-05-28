@@ -111,6 +111,6 @@ On push/PR to `main`:
 
 ## Command authority
 
-All npm scripts are defined in root `package.json`. Agent inventory: [Code-Jedi.md](.cursor/docs/Code-Jedi.md). Operator runbook: [HOW-TO.md](.cursor/docs/HOW-TO.md). Conventions: [CONTRIBUTING.md](CONTRIBUTING.md).
+All npm scripts are defined in root `package.json`. Agent inventory: [Code-Jedi.md](../.cursor/docs/Code-Jedi.md). Operator runbook: [HOW-TO.md](../.cursor/docs/HOW-TO.md). Conventions: [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Deep structural map: [system-architecture.md](.cursor/docs/system-architecture.md).
+Deep structural map: [system-architecture.md](../.cursor/docs/system-architecture.md).

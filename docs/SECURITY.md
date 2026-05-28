@@ -28,7 +28,7 @@ Security fixes are applied on the current **v2.x** line on `main`. Tagged releas
 
 ## Further reading
 
-- [README — Security & compliance](./README.md#security--compliance)
-- [TRUTH.md](./TRUTH.md) — zero-leak and MCP rules
-- [env-ingestion-compliance](.cursor/rules/env-ingestion-compliance.mdc)
+- [README — Security & compliance](../README.md#security--compliance)
+- [TRUTH.md](../TRUTH.md) — zero-leak and MCP rules
+- [env-ingestion-compliance](../.cursor/rules/env-ingestion-compliance.mdc)
 - [CONTRIBUTING.md — Dependabot and security](./CONTRIBUTING.md#dependabot-and-security)

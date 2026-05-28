@@ -133,3 +133,60 @@ Before performing any structural changes, always check the `README.md` in the ta
 
 Details: **Node 6** `.cursor/docs/local-ai-proxy-setup.md` · **Node 2** `.cursor/skills/node-runtime-mastery.md`.
 
+## Natural Language Commands (Agent Chat)
+
+When the user says any of these phrases, execute the corresponding command:
+
+| User says | Action |
+|-----------|--------|
+| "start google-api" | Run `npm run msc:litellm:start:ngrok` (LiteLLM + ngrok; prints HTTPS URL for Cursor Cloud Agent) |
+| "stop google-api" | Run `npm run msc:litellm:stop` |
+| "status google-api" | Run `npm run msc:litellm:status` |
+| "verify google-api" | Run `npm run msc:litellm:test:ngrok` |
+| "restart google-api" | Run `npm run msc:litellm:stop && npm run msc:litellm:start:ngrok` |
+| "Update Docs" | Run `@Update-Docs.md` |
+| "sync docs" | Run `@Update-Docs.md` |
+| "version bump" | Run `@Update-Docs.md` and then guide through version bump |
+| "start project" | Run `@Start-Project.md` |
+| "begin project" | Run `@Start-Project.md` |
+| "end project" | Run `@End-Project.md` |
+| "close project" | Run `@End-Project.md` |
+| "backup project" | Run `npm run msc:backup` |
+| "create backup" | Run `npm run msc:backup` |
+| "backup" | Run `npm run msc:backup` |
+
+## Backup Workflow (Agent-Driven - Conversational)
+
+When user says "backup project", follow this CONVERSATIONAL flow (ONE question at a time):
+
+### Step 1: Ask backup type
+Ask: "What type of backup? (1 = Standard / 2 = Full)"
+Wait for user response.
+
+### Step 2: After user answers, ask destination
+Ask: "Destination drive? (1 = Same G: drive / 2 = Different)"
+Wait for user response.
+
+### Step 3: After user answers, find latest backup and suggest name
+- Scan G: drive for existing backups
+- Calculate next version (e.g., v1-j → v1-k)
+- Ask: "Folder name? (1 = Use [suggested name] / 2 = Enter custom)"
+Wait for user response.
+
+### Step 4: After user answers, show summary
+Display:
+```
+Backup Summary:
+- Type: [Standard/Full]
+- Destination: [path]
+- Folder: [name]
+Confirm? (1 = Yes / 2 = No)
+```
+Wait for user response.
+
+### Step 5: If Yes, run: npm run msc:backup -- --[standard/full] [folder-name]
+
+### Step 6: Report completion
+
+NEVER ask multiple questions at once. Wait for each answer before asking the next.
+

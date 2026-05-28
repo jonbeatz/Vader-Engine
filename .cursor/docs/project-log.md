@@ -12,6 +12,36 @@
 - **Updated docs:** `DOCS.md`, `START-HERE.md`, `TRUTH.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, `TROUBLESHOOTING.md`, `SECURITY.md`, `.cursor/docs/HOW-TO.md`, `.cursor/docs/Code-Jedi.md`, `.cursor/docs/system-architecture.md`, `.cursor/plans/ENGINE_ROADMAP.md`, `.cursor/prompts/{Start-Project,End-Project}.md`, `.cursor/rules/README.md`
 - **Release notes:** canonical v2.6.0 note is `docs/releases/RELEASE_v2.6.0.md`; changelog includes `[2.6.0]`.
 
+### [2026-05-28] - docs - `start google-api` LiteLLM + ngrok runbook sync
+- **Summary:** Documented canonical Vertex proxy flow for Cursor Cloud Agent (`start google-api` → `msc:litellm:start:ngrok`, `verify google-api` → `msc:litellm:test:ngrok`).
+- **Covers:** ngrok HTTPS URL, `vader-3-flash` model alias, database-less proxy (Payload `DATABASE_URL` strip), troubleshooting matrix, npm script inventory.
+- **Updated:** `local-ai-proxy-setup.md`, `START-HERE.md`, `Start-Project.md`, `Vader-Engine-Cheat-Sheet.md`, `Vader-Engine-Operator-Card.md`, `TROUBLESHOOTING.md`, `config/README.md`, `discovered-logic-map.md`, `global.mdc` shortcuts.
+- **Verified:** `msc:litellm:test:ngrok` PASS (local + remote `/v1/models`).
+
+### [2026-05-28] - Session accomplishments summary
+
+| Feature | Status |
+| --- | --- |
+| LiteLLM integration | ✅ Start/stop/status/verify scripts |
+| Start/End project workflows | ✅ Clean acknowledgment and handoff |
+| Agent-driven backup | ✅ Conversational, one question at a time |
+| Update Docs | ✅ Full documentation sync with feature detection |
+| Session auto-logging | ✅ End project logs to `project-log.md` |
+| Natural language shortcuts | ✅ "start project", "end project", "backup project", "update docs" |
+
+### [2026-05-28] - Session Closeout
+- **Session Summary:** LiteLLM integration finalized with agent shortcuts; start/end workflows polished with clean acknowledgment/handoff; backup moved to conversational one-question flow with standard/full options; docs sync workflow upgraded with feature detection; session auto-logging integrated; master cheat sheet + one-page operator card completed.
+- **Added/Modified:** `scripts/msc-backup.mjs`
+- **Verified:** start-project:gate PASS (61/61, lint, tests)
+- **Ports cleared:** 3000, 3001, 3002, 8080
+- **LiteLLM:** stopped
+
+### [2026-05-28] - Session Closeout
+- **Session Summary:** Fixed the End Session closeout of project.
+- **Verified:** start-project:gate PASS (61/61, lint, tests)
+- **Ports cleared:** 3000, 3001, 3002, 3010, 4000, 8080
+- **LiteLLM:** stopped
+
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 
 **Shipped 2026-05-24** — commit `22ed024` · tag `v2.2.0`

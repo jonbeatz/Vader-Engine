@@ -170,10 +170,10 @@ try {
 
 report('.env.example exists at root', pathExists('.env.example'));
 report('LICENSE exists', pathExists('LICENSE'));
-report('TROUBLESHOOTING.md exists', pathExists('TROUBLESHOOTING.md'));
-report('ARCHITECTURE.md exists', pathExists('ARCHITECTURE.md'));
+report('docs/TROUBLESHOOTING.md exists', pathExists('docs/TROUBLESHOOTING.md'));
+report('docs/ARCHITECTURE.md exists', pathExists('docs/ARCHITECTURE.md'));
 report('CHANGELOG.md exists', pathExists('CHANGELOG.md'));
-report('CONTRIBUTING.md exists', pathExists('CONTRIBUTING.md'));
+report('docs/CONTRIBUTING.md exists', pathExists('docs/CONTRIBUTING.md'));
 report('biome.json exists', pathExists('biome.json'));
 report('.husky/pre-push exists', pathExists('.husky/pre-push'));
 report('global.mdc rules migrated', pathExists('.cursor/rules/global.mdc'));
@@ -200,7 +200,7 @@ try {
   releaseMatchesVersion = false;
 }
 report('docs/releases/RELEASE_v*.md matches package.json version', releaseMatchesVersion);
-report('DEPLOY_TO_HOSTINGER.md exists', pathExists('DEPLOY_TO_HOSTINGER.md'));
+report('docs/DEPLOY_TO_HOSTINGER.md exists', pathExists('docs/DEPLOY_TO_HOSTINGER.md'));
 let vaderEnvStaticFirst = false;
 try {
   const vaderEnv = readFileSync(

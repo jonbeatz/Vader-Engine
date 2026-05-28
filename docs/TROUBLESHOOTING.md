@@ -142,9 +142,29 @@ npm run msc:template -- apply frontend/portfolio --name="My App"
 - Dev stopped first: `npm run clean:next`
 - Safe rebuild with port cleanup: `npm run verify:next:safe`
 
+## LiteLLM + ngrok (`vader-3-flash` / `start google-api`)
+
+Canonical runbook: [local-ai-proxy-setup.md](../.cursor/docs/local-ai-proxy-setup.md).
+
+```bash
+npm run msc:litellm:preflight
+npm run msc:litellm:start:ngrok    # or say "start google-api" in Agent chat
+npm run msc:litellm:test:ngrok    # or say "verify google-api"
+```
+
+| Symptom | Fix |
+|---------|-----|
+| Cursor `ERROR_PROVIDER_ERROR` | `restart google-api`; paste **new** `https://….ngrok-free.dev/v1` from startup output |
+| `vader-3-flash` not found | Model name must match `config/litellm_config.yaml` exactly |
+| Prisma / `postgresql://` on proxy start | Do not use Payload `DATABASE_URL` for LiteLLM — update to latest `msc-litellm-start.mjs` |
+| ngrok URL missing | Set `NGROK_AUTHTOKEN` in `.env.local`; place `ngrok.exe` in `google-api/` |
+| Port 4000 busy | `npm run msc:litellm:stop` |
+
+Stop at session end: `npm run msc:litellm:stop` (or `stop google-api`).
+
 ## SQLite
 
 - Repair: `npm run repair:sqlite`
 - WAL purge before deploy copy: `npm run db:wal-purge`
 
-See also [ARCHITECTURE.md](ARCHITECTURE.md), [REPAIR_PROTOCOLS.md](.cursor/docs/REPAIR_PROTOCOLS.md), and [TRUTH.md](TRUTH.md).
+See also [ARCHITECTURE.md](ARCHITECTURE.md), [REPAIR_PROTOCOLS.md](../.cursor/docs/REPAIR_PROTOCOLS.md), and [TRUTH.md](../TRUTH.md).

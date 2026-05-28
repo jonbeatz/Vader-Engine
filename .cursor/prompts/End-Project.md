@@ -7,24 +7,42 @@
 - Run `npm run msc:lint:fix` to ensure all files meet standards
 - If any gate fails, stop and report immediately before closing
 
-## 2. Project Log Update
+## 1.5 LiteLLM/Vertex AI Proxy Shutdown
 
-- Append to `.cursor/docs/project-log.md` with the current date:
+If LiteLLM was started during this session:
+
+- Run `npm run msc:litellm:stop` to stop the proxy and kill ngrok
+- Verify port is free: `node scripts/msc-kill-dev-port.mjs 4000`
+- Log status in `.cursor/docs/project-log.md` (e.g., "LiteLLM stopped")
+
+## 2. Auto-Generate Session Summary
+
+Before closing, ask the user:
+
+```
+📝 Generate session summary?
+
+What did we accomplish this session? (brief summary)
+```
+
+Then append to `.cursor/docs/project-log.md`:
 
 ```markdown
 ### [YYYY-MM-DD] - Session Closeout
-- **Added/Modified:** [Summary of session work]
+- **Session Summary:** [user's summary]
+- **Added/Modified:** [list files changed based on git diff]
 - **Verified:** start-project:gate PASS (61/61, lint, tests)
 - **Ports cleared:** 3000, 3001, 3002, 8080
+- **LiteLLM:** [running/stopped/not used]
 ```
 
-- Check `.cursor/docs/incident-log.md` for any session-specific resolutions
+Also check if any new features were added (new scripts, shortcuts, prompts) and offer to add to CHANGELOG.md.
 
 ## 3. Task Planner Sync Check
 
 - Check `.cursor/prompts/task-planner.md` for active Phase 1–3 objectives
-- If completed: note **"✅ Task planner objectives cleared"** in handoff block
-- If pending: note **"⏳ Task planner objectives still pending"**
+- If completed: note "✅ Task planner objectives cleared" in handoff block
+- If pending: note "⏳ Task planner objectives still pending"
 
 ## 4. Git Audit & Commit
 
@@ -34,21 +52,18 @@
 - Ask operator: **"Commit and push to origin/main? (yes/no)"**
 - If yes: `git add . && git commit -m "[message]" && git push origin main`
 
-## 5. Mandatory Handoff Block
+## 5. Summary Logged to project-log.md
 
-Print:
+Confirm: "✅ Session summary logged to .cursor/docs/project-log.md"
 
-```
-╔══════════════════════════════════════════════════════════════╗
-║  ✅ Session Closeout — v2.6.0-Engine                       ║
-║  📦 Ports cleared | 🎯 Grade: 61/61                           ║
-║  📝 Git: [clean / changes staged / unstaged]                  ║
-║  📝 Current State: [Summary]                                  ║
-║  📋 Task planner: [cleared / pending]                         ║
-║  🚀 Next Action: [Phase 1-3 from task-planner.md]             ║
-║  ⚠️ Blockers: [None / list]                                   ║
-║  🔄 Next session: Run @Start-Project.md to resume             ║
-╚══════════════════════════════════════════════════════════════╝
+## 6. Mandatory Handoff Block (Print Last)
+
+Print this as the final output after all cleanup, verification, and project-log updates are complete:
+
+```text
+✅ SESSION CLOSEOUT — v2.6.0 · Ports cleared · 61/61 · Git clean · LiteLLM stopped
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Goodbye for now, Jon. See you next session.
 ```
 
 **Cold-start pointer for next agent:** Run `@Start-Project.md`, then initialize `task-planner.md` Phase 1–3.

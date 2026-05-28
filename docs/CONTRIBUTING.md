@@ -17,7 +17,7 @@ The forge shield blocks mutations on protected `msc-` namespaces and paths under
 - All automation lives under `scripts/`.
 - First import: `import './lib/msc-load-env.mjs'` (and node guard where applicable).
 - Register new commands in root `package.json` only.
-- Update [Code-Jedi.md](.cursor/docs/Code-Jedi.md) and [HOW-TO.md](.cursor/docs/HOW-TO.md) when adding scripts.
+- Update [Code-Jedi.md](../.cursor/docs/Code-Jedi.md) and [HOW-TO.md](../.cursor/docs/HOW-TO.md) when adding scripts.
 - Template blueprints under `templates/` use `{{TOKEN}}` placeholders — excluded from Biome (`biome.json` → `!templates`). Do not run forge against protected paths.
 
 ## Issues and pull requests
@@ -26,9 +26,9 @@ Use GitHub templates (Vader Protocol workflow):
 
 | Template | Path |
 | --- | --- |
-| Bug report | [.github/ISSUE_TEMPLATE/bug_report.yml](.github/ISSUE_TEMPLATE/bug_report.yml) |
-| Feature request | [.github/ISSUE_TEMPLATE/feature_request.yml](.github/ISSUE_TEMPLATE/feature_request.yml) |
-| Pull request | [.github/pull_request_template.md](.github/pull_request_template.md) |
+| Bug report | [.github/ISSUE_TEMPLATE/bug_report.yml](../.github/ISSUE_TEMPLATE/bug_report.yml) |
+| Feature request | [.github/ISSUE_TEMPLATE/feature_request.yml](../.github/ISSUE_TEMPLATE/feature_request.yml) |
+| Pull request | [.github/pull_request_template.md](../.github/pull_request_template.md) |
 
 No API keys, passwords, or `.env.local` contents in issues or PR descriptions.
 
@@ -50,7 +50,7 @@ No API keys, passwords, or `.env.local` contents in issues or PR descriptions.
 
 **Registry (current):** `frontend/portfolio` · `cms/divi-bridge` · `full-stack/task-manager` · `full-stack/vader-site`
 
-See [examples/README.md](examples/README.md) for sandboxes vs templates.
+See [examples/README.md](../examples/README.md) for sandboxes vs templates.
 
 ## CSS Naming
 
@@ -92,7 +92,7 @@ npm run msc:e2e           # optional local parity with CI
 - Target branch: **`main`** (single production branch)
 - Keep grade at **61/61** before push
 - Do not commit `.env.local`, sandbox `.env.local`, or live MCP tokens
-- Update [CHANGELOG.md](CHANGELOG.md) for user-visible changes
+- Update [CHANGELOG.md](../CHANGELOG.md) for user-visible changes
 - CI must pass: validate-env → verify:mcp → lint → grade → root tests → sandbox builds → Playwright E2E
 
 ## Documentation Sync
@@ -100,12 +100,12 @@ npm run msc:e2e           # optional local parity with CI
 When changing scripts, hooks, or sandboxes, update in the same session:
 
 - `package.json` (authority)
-- [Code-Jedi.md](.cursor/docs/Code-Jedi.md)
-- [HOW-TO.md](.cursor/docs/HOW-TO.md)
-- [README.md](README.md) command reference (if operator-facing)
-- [DOCS.md](DOCS.md) index (if new doc files)
+- [Code-Jedi.md](../.cursor/docs/Code-Jedi.md)
+- [HOW-TO.md](../.cursor/docs/HOW-TO.md)
+- [README.md](../README.md) command reference (if operator-facing)
+- [DOCS.md](../DOCS.md) index (if new doc files)
 
-Constitutional changes require [TRUTH.md](TRUTH.md) update first.
+Constitutional changes require [TRUTH.md](../TRUTH.md) update first.
 
 ## Release and versioning
 
@@ -133,7 +133,7 @@ npm run msc:lint && npm run grade && npm run msc:test:root
 
 **CI lesson (2026-05-25):** Do not use deprecated `/**` suffixes on Biome folder ignores (`!templates/**` → `!templates`). The v2.3.0 release push failed CI until `biome.json` was fixed (`9a1a4b6`). Run lint locally before every tag.
 
-See also [HOW-TO.md — Pre-release gate](.cursor/docs/HOW-TO.md#pre-release-gate-mandatory-before-any-git-tag).
+See also [HOW-TO.md — Pre-release gate](../.cursor/docs/HOW-TO.md#pre-release-gate-mandatory-before-any-git-tag).
 
 ## Version sync (release or doc sweep)
 
@@ -155,7 +155,7 @@ On every semver bump or alignment sweep, update **current-version** strings in t
 
 **Preserve as history (do not rewrite):** prior `CHANGELOG.md` sections, `.github/RELEASE-v2.x.x.md` archives, README "What's new in v2.x" for older releases.
 
-After sync: run the [pre-tag gate](#pre-tag-gate-mandatory) · `npm run grade` (61/61) · update [CHANGELOG.md](CHANGELOG.md) · tag `vX.Y.Z` on the alignment commit.
+After sync: run the [pre-tag gate](#pre-tag-gate-mandatory) · `npm run grade` (61/61) · update [CHANGELOG.md](../CHANGELOG.md) · tag `vX.Y.Z` on the alignment commit.
 
 ## GitHub repository settings (`msc:github:sync`)
 
@@ -171,13 +171,13 @@ This runs:
 2. `gh repo edit <owner/repo>` — description + homepage from `package.json` repository slug (overridable via `MSC_GITHUB_DESCRIPTION`, `MSC_GITHUB_HOMEPAGE` in `.env.local`)
 3. `gh api repos/<owner/repo> -f delete_branch_on_merge=true`
 
-Run after a **rebrand or repo rename** so the public About box matches [DOCS.md](DOCS.md). Historical `.github/RELEASE-v2.*` archives are not rewritten.
+Run after a **rebrand or repo rename** so the public About box matches [DOCS.md](../DOCS.md). Historical `.github/RELEASE-v2.*` archives are not rewritten.
 
 **Manual fallback** (if `gh` is unavailable): Settings → General → set description/homepage and enable **Automatically delete head branches** under Pull Requests.
 
 ## Dependabot and security
 
-- Configuration: [.github/dependabot.yml](.github/dependabot.yml) — weekly npm updates for root, `examples/nextjs-minimal`, and `examples/nextjs-payload` (Next.js, Payload, and related stack).
+- Configuration: [.github/dependabot.yml](../.github/dependabot.yml) — weekly npm updates for root, `examples/nextjs-minimal`, and `examples/nextjs-payload` (Next.js, Payload, and related stack).
 - **Pre-merge / pre-push gate:** `msc:test:root` includes `npm audit --production` before Vitest — fix or accept advisories before merging.
 - Review each Dependabot PR: `npm run msc:lint && npm run grade && npm run msc:test:root` — CI must stay green.
 - Optional operator tool: [Snyk](https://snyk.io) or similar — configure locally; never commit Snyk tokens to the repo (use `.env.local` only).

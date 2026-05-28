@@ -27,7 +27,7 @@
 | **Control plane** | Next.js 16 + Tailwind 3 (`ui/dashboard/`) |
 | **WordPress** | Shield bridge via `core/` PHP + `templates/cms/divi-bridge` |
 | **Styling** | MSC Shield — CSS variables in `ui/msc-shield.css`; Path B maps `var(--msc-*)` in Tailwind |
-| **Hosting** | Hostinger workflow — [DEPLOY_TO_HOSTINGER.md](DEPLOY_TO_HOSTINGER.md), `scripts/prep-hostinger-deploy.sh` |
+| **Hosting** | Hostinger workflow — [DEPLOY_TO_HOSTINGER.md](docs/DEPLOY_TO_HOSTINGER.md), `scripts/prep-hostinger-deploy.sh` |
 | **Testing** | Vitest (root + minimal sandbox), Playwright (`npm run msc:e2e`) |
 | **Tooling** | `tools/msc-cli/` (`msc:template`), Biome, Husky |
 | **AI** | `.cursor/mcp.json` (13 servers), optional LiteLLM proxy (ports **4000** / **8000**) |

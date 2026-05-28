@@ -1,11 +1,63 @@
-model_list:
-  - model_name: vertex-gemini-pro
-    litellm_params:
-      model: vertex_ai/gemini-pro
-      vertex_project: "your-gcp-project-id"
-      vertex_location: "us-central1"
-      vertex_credentials: "config/gcp-service-account.json"
+# LiteLLM proxy — Vertex AI (OpenAI-compatible). Hydrate via scripts/lib/msc-load-env.mjs.
+# Cursor custom model names must match model_name entries below exactly.
+#
+# Database: Cursor-only proxy does NOT use PostgreSQL/SQLite. Payload's DATABASE_URL in
+# .env.example must not reach LiteLLM (see scripts/lib/msc-litellm-env.mjs).
 
 litellm_settings:
   drop_params: true
   set_verbose: false
+
+general_settings:
+  store_model_in_db: false
+  disable_spend_logs: true
+  disable_spend_updates: true
+  # Optional — set MSC_LITELLM_MASTER_KEY in .env.local for Cursor OpenAI API Key field
+  # master_key: os.environ/MSC_LITELLM_MASTER_KEY
+  # Optional — PostgreSQL only (admin UI / key management). Not required for vader-3-flash.
+  # database_url: os.environ/MSC_LITELLM_DATABASE_URL
+
+model_list:
+  # Cursor-facing aliases (match IDE custom model dropdown)
+  - model_name: vader-3-flash
+    litellm_params:
+      model: vertex_ai/gemini-3-flash-preview
+      vertex_project: os.environ/GOOGLE_CLOUD_PROJECT
+      vertex_location: os.environ/GOOGLE_CLOUD_LOCATION
+      vertex_credentials: os.environ/GOOGLE_APPLICATION_CREDENTIALS
+
+  - model_name: vader-3-pro
+    litellm_params:
+      model: vertex_ai/gemini-3.1-pro-preview
+      vertex_project: os.environ/GOOGLE_CLOUD_PROJECT
+      vertex_location: os.environ/GOOGLE_CLOUD_LOCATION
+      vertex_credentials: os.environ/GOOGLE_APPLICATION_CREDENTIALS
+
+  # Legacy / docs aliases
+  - model_name: vertex-gemini-flash
+    litellm_params:
+      model: vertex_ai/gemini-3-flash-preview
+      vertex_project: os.environ/GOOGLE_CLOUD_PROJECT
+      vertex_location: os.environ/GOOGLE_CLOUD_LOCATION
+      vertex_credentials: os.environ/GOOGLE_APPLICATION_CREDENTIALS
+
+  - model_name: vertex-gemini-pro
+    litellm_params:
+      model: vertex_ai/gemini-3.1-pro-preview
+      vertex_project: os.environ/GOOGLE_CLOUD_PROJECT
+      vertex_location: os.environ/GOOGLE_CLOUD_LOCATION
+      vertex_credentials: os.environ/GOOGLE_APPLICATION_CREDENTIALS
+
+  - model_name: msc-gemini-flash
+    litellm_params:
+      model: vertex_ai/gemini-3-flash-preview
+      vertex_project: os.environ/GOOGLE_CLOUD_PROJECT
+      vertex_location: os.environ/GOOGLE_CLOUD_LOCATION
+      vertex_credentials: os.environ/GOOGLE_APPLICATION_CREDENTIALS
+
+  - model_name: msc-gemini-pro
+    litellm_params:
+      model: vertex_ai/gemini-3.1-pro-preview
+      vertex_project: os.environ/GOOGLE_CLOUD_PROJECT
+      vertex_location: os.environ/GOOGLE_CLOUD_LOCATION
+      vertex_credentials: os.environ/GOOGLE_APPLICATION_CREDENTIALS
