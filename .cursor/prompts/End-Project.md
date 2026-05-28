@@ -7,6 +7,14 @@
 - Run `npm run msc:lint:fix` to ensure all files meet standards
 - If any gate fails, stop and report immediately before closing
 
+## 1.5 LiteLLM/Vertex AI Proxy Shutdown
+
+If LiteLLM was started during this session:
+
+- Run `npm run msc:litellm:stop` to stop the proxy and kill ngrok
+- Verify port is free: `node scripts/msc-kill-dev-port.mjs 4000`
+- Log status in project-log.md
+
 ## 2. Project Log Update
 
 - Append to `.cursor/docs/project-log.md` with the current date:
@@ -39,17 +47,15 @@
 Print:
 
 ```
-╔══════════════════════════════════════════════════════════════╗
-║  ✅ Session Closeout — v2.6.0-Engine                       ║
-║  📦 Ports cleared | 🎯 Grade: 61/61                           ║
-║  📝 Git: [clean / changes staged / unstaged]                  ║
-║  📝 Current State: [Summary]                                  ║
-║  📋 Task planner: [cleared / pending]                         ║
-║  🚀 Next Action: [Phase 1-3 from task-planner.md]             ║
-║  ⚠️ Blockers: [None / list]                                   ║
-║  🔄 Next session: Run @Start-Project.md to resume             ║
-╚══════════════════════════════════════════════════════════════╝
+✅ SESSION CLOSEOUT — v2.6.0 · Ports cleared · 61/61 · Git clean · LiteLLM stopped
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Goodbye for now, Jon. See you next session.
 ```
+
+Where:
+- `Git clean` changes to `Git has changes` if there are unstaged files
+- `LiteLLM stopped` changes to `LiteLLM running` if the proxy was active during the session
+- Add `⚠️ Blockers: [None/list]` on a new line if there are any blockers
 
 **Cold-start pointer for next agent:** Run `@Start-Project.md`, then initialize `task-planner.md` Phase 1–3.
 

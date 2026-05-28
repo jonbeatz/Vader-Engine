@@ -1,10 +1,17 @@
 model_list:
   - model_name: vertex-gemini-pro
     litellm_params:
-      model: vertex_ai/gemini-pro
-      vertex_project: "your-gcp-project-id"
-      vertex_location: "us-central1"
-      vertex_credentials: "config/gcp-service-account.json"
+      model: vertex_ai/gemini-3.1-pro-preview
+      vertex_project: "wordpress-map-1492461083797"
+      vertex_location: "global"
+      vertex_credentials: "D:/Antigravity_Projectz/Node-Launcher/gcp_key.json"
+
+  - model_name: vertex-gemini-flash
+    litellm_params:
+      model: vertex_ai/gemini-3-flash-preview
+      vertex_project: "wordpress-map-1492461083797"
+      vertex_location: "global"
+      vertex_credentials: "D:/Antigravity_Projectz/Node-Launcher/gcp_key.json"
 
 litellm_settings:
   drop_params: true

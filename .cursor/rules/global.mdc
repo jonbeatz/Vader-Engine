@@ -133,3 +133,15 @@ Before performing any structural changes, always check the `README.md` in the ta
 
 Details: **Node 6** `.cursor/docs/local-ai-proxy-setup.md` · **Node 2** `.cursor/skills/node-runtime-mastery.md`.
 
+## Natural Language Commands (Agent Chat)
+
+When the user says any of these phrases, execute the corresponding command:
+
+| User says | Action |
+|-----------|--------|
+| "start google-api" | Run `npm run msc:litellm:start` |
+| "stop google-api" | Run `npm run msc:litellm:stop` |
+| "status google-api" | Run `npm run msc:litellm:status` |
+| "verify google-api" | Run `npm run msc:litellm:verify` |
+| "restart google-api" | Run `npm run msc:litellm:stop && npm run msc:litellm:start` |
+
