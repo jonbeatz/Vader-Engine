@@ -37,6 +37,7 @@
       "!logs",
       "!ui/dashboard/next-env.d.ts",
       "!.sandbox",
+      "!config/gcp-service-account.json",
       "!examples/nextjs-payload/src/payload-types.ts"
     ]
   },

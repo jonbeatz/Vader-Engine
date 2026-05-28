@@ -7,7 +7,6 @@ import './lib/msc-load-env.mjs';
 import process from 'node:process';
 import { msc_hydrateVertexEnv, msc_litellmAuthHeaders } from './lib/msc-litellm-env.mjs';
 
-const BANNER = '[msc:litellm:status]';
 const { port } = msc_hydrateVertexEnv();
 const base = `http://127.0.0.1:${port}`;
 
