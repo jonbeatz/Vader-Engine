@@ -75,7 +75,17 @@ tools/msc-cli/      → cli.mjs, template-engine.mjs, demo-seeder.mjs, utils.mjs
 
 **Current state:** 61/61 integrity, all E2E tests passing, dependencies clean
 
-**Next phase:** Wire up v0 design components to live API data
+**Next phase:** Wire `/projects` + `/operations/scripts` UIs; support tickets; optional SSE activity
+
+### [2026-05-28] - feat(dashboard): v0 live-data integration on `feat/v0-core-integration-v1`
+
+- **TanStack Query:** `MscQueryProvider`, `msc_useHealth`, `msc_useGrade`, `msc_useLogs`, `msc_useSandboxMutation` (toast + health invalidation)
+- **Pages:** live `/templates`, `/operations/ports`, `/operations/env`, `/operations` hub, curated `/protocols`, prefs `/settings`; dashboard home hybrid (tickets still mock)
+- **APIs:** `GET /api/templates`, `/api/env`, `/api/projects`, `/api/scripts` (+ existing health/grade/logs/run-script)
+- **Sidebar:** collapsible Operations sub-nav (Ports, Env, Scripts, Processes, Jobs, Metrics, Logs, Database)
+- **CI:** `.github/workflows/ci.yml` — `npm ci` for sandboxes + `ui/dashboard` before E2E; `e2e/playwright.config.ts` uses `msc:dev:*` scripts
+- **Smoke:** `msc:dashboard:smoke` extended to 18 routes (pages + API probes)
+- **Docs:** `v0-integration-roadmap.md`, `PROJECT_CONTEXT.md`, `DOCS.md`, `ENGINE_ROADMAP.md`
 
 ### [2026-05-27] - fix(scripts): `health.mjs --json` pure stdout (no dotenv logs)
 

@@ -60,7 +60,7 @@ Single entry point for all **Vader Engine v2.5.0-Engine** documentation. Technic
 | [ENGINE_ROADMAP.md](.cursor/plans/ENGINE_ROADMAP.md) | **Master integration roadmap** — Phases 1–3, API wiring, terminal plan |
 | Visual refs | `.cursor/design_references/v0-Design-Refrences/` |
 
-Active feature branch for dashboard work: **`feat/vader-construct-dashboard`** (branch from `main`).
+Active feature branch for dashboard work: **`feat/v0-core-integration-v1`** (v0 live-data integration; branch from `main`).
 
 **Local-only (gitignored, not on GitHub):** `.cursor/docs/BOILERPLATE-IMPROVEMENT/`, `.cursor/docs/README/` — upgrade runbooks and README drafts.
 

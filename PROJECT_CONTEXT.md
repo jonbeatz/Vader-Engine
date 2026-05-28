@@ -14,7 +14,7 @@
 | **Version** | `2.5.0` (`vader-engine` in root `package.json`) |
 | **Repository** | [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) |
 | **Primary users** | Operators and AI agents building MSC/Vader Protocol products |
-| **Active feature work** | Vader Construct dashboard (`ui/dashboard/`, port **3010**) on `feat/vader-construct-dashboard-v2` |
+| **Active feature work** | Vader Construct dashboard (`ui/dashboard/`, port **3010**) on `feat/v0-core-integration-v1` |
 
 ---
 
@@ -161,13 +161,19 @@ All `scripts/*.mjs` import `scripts/lib/msc-load-env.mjs` first: `.env.local` �
 | Component / route | Path | Status |
 |-------------------|------|--------|
 | App shell | `components/dashboard/app-shell.tsx` | Stable |
-| Dashboard home | `components/dashboard/dashboard-home.tsx` | Stable |
-| Sandbox cards | `components/dashboard/sandbox-card.tsx` | Stable · API wired |
+| Dashboard home | `components/dashboard/dashboard-home.tsx` | Stable · TanStack Query |
+| Sandbox cards | `components/dashboard/sandbox-card.tsx` | Stable · mutations + toasts |
 | Command palette | `components/dashboard/command-palette.tsx` | Stable |
-| Integrity / grader | `app/integrity/page.tsx` | Stable |
-| API health | `app/api/health/route.ts` | Stable |
-| API grade | `app/api/grade/route.ts` | Stable |
-| API run-script | `app/api/run-script/route.ts` | Stable · allowlist |
+| Sidebar | `components/dashboard/sidebar.tsx` | Stable · Operations sub-nav |
+| Query provider | `components/providers/msc-query-provider.tsx` | Stable |
+| Hooks | `lib/hooks/msc-use-health.ts`, `msc-use-logs.ts`, `msc-use-sandbox-mutation.ts` | Stable |
+| Templates page | `app/templates/page.tsx` | Live · `/api/templates` |
+| Operations hub | `app/operations/page.tsx` | Stable · route grid |
+| Ports / Env | `app/operations/ports/page.tsx`, `env/page.tsx` | Live · `/api/health`, `/api/env` |
+| Protocols / Settings | `app/protocols/page.tsx`, `settings/page.tsx` | Static / client prefs |
+| Integrity / grader | `app/integrity/page.tsx` | Stable · manual grade run |
+| API health / grade / run-script / logs | `app/api/health`, `grade`, `run-script`, `logs` | Stable |
+| API templates / env / projects / scripts | `app/api/templates`, `env`, `projects`, `scripts` | Stable |
 | Bridge | `lib/msc-bridge.ts` | Stable |
 
 ### Sandboxes
@@ -194,8 +200,9 @@ All `scripts/*.mjs` import `scripts/lib/msc-load-env.mjs` first: `.env.local` �
 |------|--------|
 | **Integrity** | **61/61** · **8/8** tests |
 | **Lint** | 11 warnings (`noImportantStyles` in dashboard globals) |
-| **Branch** | `feat/vader-construct-dashboard-v2` |
-| **Dashboard** | Phases 1–2 wired; Phase 3 (E2E, SSE activity UI, env CRUD) open per [ENGINE_ROADMAP.md](.cursor/plans/ENGINE_ROADMAP.md) |
+| **Branch** | `feat/v0-core-integration-v1` |
+| **Dashboard** | Phase 1 largely wired (TanStack Query, live APIs, ops sub-pages); tickets mock + SSE polish open — [v0-integration-roadmap.md](.cursor/plans/v0-integration-roadmap.md) |
+| **CI E2E** | `.github/workflows/ci.yml` installs sandbox + `ui/dashboard` deps before `npm run msc:e2e` |
 | **Cleanup** | Audit complete; archive list awaiting operator approval |
 
 ---
@@ -220,7 +227,8 @@ See checklist in [.cursor/docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md](.cursor/d
 
 ### Medium (product)
 
-- [ ] ENGINE_ROADMAP Phase 3 — Playwright dashboard E2E, live activity SSE UI
+- [x] Playwright dashboard E2E in CI (workspace `npm ci` before `msc:e2e`)
+- [ ] Live activity SSE UI; wire `/projects` and `/operations/scripts` pages to APIs
 - [ ] Optional grader check for `ui/dashboard/README.md`
 
 ### Long-term

@@ -48,6 +48,13 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium firefox
 
+      - name: Install E2E workspace dependencies
+        run: |
+          npm ci --prefix examples/nextjs-minimal
+          npm ci --prefix examples/nextjs-payload
+          npm ci --prefix examples/nextjs-tailwind
+          npm ci --prefix ui/dashboard
+
       - name: Run Multi-Sandbox E2E
         env:
           PAYLOAD_SECRET: ci-build-placeholder-secret-min-32-chars-long

@@ -31,14 +31,14 @@ export default defineConfig({
       timeout: 120_000,
     },
     {
-      command: 'npm run dev --prefix examples/nextjs-minimal',
+      command: 'npm run msc:dev:example',
       cwd: root,
       url: 'http://127.0.0.1:3000',
       reuseExistingServer: !process.env.CI,
       timeout: 120_000,
     },
     {
-      command: 'npm run dev --prefix examples/nextjs-payload',
+      command: 'npm run msc:dev:payload',
       cwd: root,
       url: 'http://127.0.0.1:3001',
       reuseExistingServer: !process.env.CI,

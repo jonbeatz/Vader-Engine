@@ -21,6 +21,12 @@ const ROUTES = [
   '/protocols',
   '/settings',
   '/api/health',
+  '/api/grade',
+  '/api/templates',
+  '/api/env',
+  '/api/projects',
+  '/api/scripts',
+  '/api/logs',
 ];
 
 let failed = 0;
