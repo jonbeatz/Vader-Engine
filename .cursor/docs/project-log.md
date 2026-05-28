@@ -12,6 +12,17 @@
 - **Updated docs:** `DOCS.md`, `START-HERE.md`, `TRUTH.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, `TROUBLESHOOTING.md`, `SECURITY.md`, `.cursor/docs/HOW-TO.md`, `.cursor/docs/Code-Jedi.md`, `.cursor/docs/system-architecture.md`, `.cursor/plans/ENGINE_ROADMAP.md`, `.cursor/prompts/{Start-Project,End-Project}.md`, `.cursor/rules/README.md`
 - **Release notes:** canonical v2.6.0 note is `docs/releases/RELEASE_v2.6.0.md`; changelog includes `[2.6.0]`.
 
+### [2026-05-28] - Session accomplishments summary
+
+| Feature | Status |
+| --- | --- |
+| LiteLLM integration | ✅ Start/stop/status/verify scripts |
+| Start/End project workflows | ✅ Clean acknowledgment and handoff |
+| Agent-driven backup | ✅ Conversational, one question at a time |
+| Update Docs | ✅ Full documentation sync with feature detection |
+| Session auto-logging | ✅ End project logs to `project-log.md` |
+| Natural language shortcuts | ✅ "start project", "end project", "backup project", "update docs" |
+
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 
 **Shipped 2026-05-24** — commit `22ed024` · tag `v2.2.0`

@@ -15,24 +15,34 @@ If LiteLLM was started during this session:
 - Verify port is free: `node scripts/msc-kill-dev-port.mjs 4000`
 - Log status in `.cursor/docs/project-log.md` (e.g., "LiteLLM stopped")
 
-## 2. Project Log Update
+## 2. Auto-Generate Session Summary
 
-- Append to `.cursor/docs/project-log.md` with the current date:
+Before closing, ask the user:
+
+```
+📝 Generate session summary?
+
+What did we accomplish this session? (brief summary)
+```
+
+Then append to `.cursor/docs/project-log.md`:
 
 ```markdown
 ### [YYYY-MM-DD] - Session Closeout
-- **Added/Modified:** [Summary of session work]
+- **Session Summary:** [user's summary]
+- **Added/Modified:** [list files changed based on git diff]
 - **Verified:** start-project:gate PASS (61/61, lint, tests)
 - **Ports cleared:** 3000, 3001, 3002, 8080
+- **LiteLLM:** [running/stopped/not used]
 ```
 
-- Check `.cursor/docs/incident-log.md` for any session-specific resolutions
+Also check if any new features were added (new scripts, shortcuts, prompts) and offer to add to CHANGELOG.md.
 
 ## 3. Task Planner Sync Check
 
 - Check `.cursor/prompts/task-planner.md` for active Phase 1–3 objectives
-- If completed: note **"✅ Task planner objectives cleared"** in handoff block
-- If pending: note **"⏳ Task planner objectives still pending"**
+- If completed: note "✅ Task planner objectives cleared" in handoff block
+- If pending: note "⏳ Task planner objectives still pending"
 
 ## 4. Git Audit & Commit
 
@@ -47,16 +57,14 @@ If LiteLLM was started during this session:
 Print:
 
 ```
-✅ SESSION CLOSEOUT — v2.6.0 · Ports cleared · 61/61 · Git clean · LiteLLM [stopped/not used]
+✅ SESSION CLOSEOUT — v2.6.0 · Ports cleared · 61/61 · Git clean · LiteLLM stopped
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Goodbye for now, Jon. See you next session.
 ```
 
-Where:
-- `Git clean` changes to `Git has changes` if there are unstaged files
-- `LiteLLM stopped` if the proxy was running and then stopped during closeout
-- `LiteLLM not used` if the proxy was never started this session
-- Add `⚠️ Blockers: [None/list]` on a new line if there are any blockers
+## 6. Summary Logged to project-log.md
+
+Confirm: "✅ Session summary logged to .cursor/docs/project-log.md"
 
 **Cold-start pointer for next agent:** Run `@Start-Project.md`, then initialize `task-planner.md` Phase 1–3.
 

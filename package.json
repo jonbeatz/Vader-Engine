@@ -65,6 +65,9 @@
     "msc:new:component": "node scripts/msc-new-component.mjs",
     "msc:template": "node tools/msc-cli/cli.mjs",
     "msc:mock:media": "node scripts/msc-mock-media.mjs",
+    "msc:backup": "node scripts/msc-backup.mjs",
+    "msc:backup:standard": "node scripts/msc-backup.mjs --standard",
+    "msc:backup:full": "node scripts/msc-backup.mjs --full",
     "msc:ensure-lockfiles": "node scripts/msc-ensure-lockfiles.mjs",
     "msc:e2e:install": "playwright install --with-deps chromium firefox",
     "msc:e2e": "playwright test --config e2e/playwright.config.ts"
