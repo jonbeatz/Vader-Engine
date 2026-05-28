@@ -42,10 +42,12 @@
 |--------|-------|
 | **Version** | v2.6.0 |
 | **Integrity Grade** | 61/61 (100%) |
-| **Dashboard** | ✅ Complete + Live |
-| **API Layer** | ✅ 7 Endpoints |
-| **Sandboxes** | ✅ 3 Isolated Environments (3000-3002) |
-| **E2E Tests** | ✅ 12+ Routes Passing |
+| **Dashboard** | ✅ Vader Construct — 12+ routes on port **3010** |
+| **API Layer** | ✅ 7 endpoints (health, grade, logs, projects, templates, env, scripts) |
+| **Sandboxes** | ✅ 3 isolated environments (ports **3000–3002**) |
+| **Templates** | ✅ 4 blueprints (`portfolio`, `divi-bridge`, `task-manager`, `vader-site`) |
+| **Unit Tests** | ✅ 8/8 Vitest |
+| **E2E Tests** | ✅ 6 Playwright specs (dashboard navigation + sandbox smoke) |
 | **Status** | 🟢 Production Ready |
 
 ---
@@ -63,6 +65,7 @@ Most boilerplates give you files. **Vader Engine gives you a complete developmen
 | Built-in Template Engine | ✅ | ❌ |
 | MCP-Ready (13 servers) | ✅ | ❌ |
 | Zero-Leak Security Protocol | ✅ | ❌ |
+| Agent Start / End / Update Rituals | ✅ | ❌ |
 
 ---
 
@@ -96,13 +99,24 @@ Most boilerplates give you files. **Vader Engine gives you a complete developmen
 ```bash
 git clone https://github.com/jonbeatz/Vader-Engine.git
 cd Vader-Engine
-npm run bootstrap
+npm run msc:check-node          # Node 20.x–24.x preflight
+npm run bootstrap               # deps, ports, env validation
+cp .env.example .env.local      # then add live values in .env.local only
 npm run msc:dev:dashboard
 ```
 
-**Open `http://localhost:3010`** — you'll see the live Vader Construct dashboard.
+**Open `http://localhost:3010`** — the Vader Construct command center.
 
-> **Requirements:** Node 20.x–24.x (`.nvmrc` pins 20.19.1) · npm ≥ 10
+Verify the full baseline gate:
+
+```bash
+npm run start-project:gate      # validate-env · lint · 61/61 · 8/8 tests
+```
+
+> **Requirements:** Node 20.x–24.x (`.nvmrc` pins **20.19.1**) · npm ≥ 10  
+> **Secrets:** Live keys belong in `.env.local` only — never commit or paste into chat. See [SECURITY.md](docs/SECURITY.md).
+
+> **Agent ritual:** Say `start project` in Cursor chat for full cold-start — see [START-HERE.md](START-HERE.md).
 
 ---
 
@@ -110,13 +124,14 @@ npm run msc:dev:dashboard
 
 | Feature | Description |
 |---------|-------------|
-| 🎨 **Complete v0 UI/UX** | Full dashboard rewrite with live data |
-| 📡 **7 New API Endpoints** | Health, grade, logs, projects, templates, env, scripts |
-| ⚡ **TanStack Query** | Race-condition-free data fetching + skeletons |
-| 🧪 **E2E Test Suite** | 12+ routes passing with Playwright |
-| 🔧 **Operations Hub** | Ports, Logs, Processes, Metrics, Env, Scripts |
+| 🎨 **Complete v0 UI/UX** | Full dashboard rewrite with live data across 12+ routes |
+| 📡 **7 API Endpoints** | Health, grade, logs, projects, templates, env, scripts |
+| ⚡ **TanStack Query v5** | Race-condition-free fetching with skeleton loading states |
+| 🧪 **E2E Test Suite** | Playwright smoke for dashboard navigation + sandboxes |
+| 🔧 **Operations Hub** | Ports, logs, processes, metrics, env, and script dispatch |
+| 📚 **Lean doc index** | `DOCS.md` router + agent workflow prompts (Start / End / Update Project) |
 
-**Full release notes:** [RELEASE_v2.6.0.md](docs/releases/RELEASE_v2.6.0.md)
+**Full release notes:** [RELEASE_v2.6.0.md](docs/releases/RELEASE_v2.6.0.md) · **Changelog:** [CHANGELOG.md](CHANGELOG.md)
 
 ---
 
@@ -124,13 +139,15 @@ npm run msc:dev:dashboard
 
 ```
 Vader Engine
-├── Dashboard (port 3010)    # Vader Construct UI
+├── Dashboard (port 3010)    # Vader Construct UI — shells out to msc:* scripts
 ├── Integrity Center         # 61-point grader
-├── Sandbox Manager          # 3 isolated environments (3000-3002)
-├── Template Engine          # Blueprint scaffolding
+├── Sandbox Manager          # 3 isolated environments (3000–3002)
+├── Template Engine          # 4 blueprint scaffolds via msc:template CLI
 ├── Operations Hub           # Ports, logs, processes, metrics
-└── CLI Engine               # msc:* script system
+└── CLI Engine               # msc:* script system (scripts/ + package.json)
 ```
+
+**Design principle:** Lean Boundary — the dashboard never duplicates grader or health logic; API routes invoke existing root scripts.
 
 ---
 
@@ -138,16 +155,20 @@ Vader Engine
 
 ```
 Vader-Engine/
-├── ui/dashboard/          # Vader Construct dashboard
+├── ui/dashboard/          # Vader Construct (Next.js, port 3010)
+├── ui/msc-shield.css      # Studio Dark token SSoT
 ├── examples/              # Triple sandboxes
-│   ├── nextjs-minimal/    # Port 3000
-│   ├── nextjs-payload/    # Port 3001
-│   └── nextjs-tailwind/   # Port 3002
-├── templates/             # Reusable blueprints
-├── scripts/               # Automation & tooling
+│   ├── nextjs-minimal/    # Port 3000 — minimal frontend
+│   ├── nextjs-payload/    # Port 3001 — full-stack CMS
+│   └── nextjs-tailwind/   # Port 3002 — Tailwind + shadcn Path B
+├── templates/             # Reusable blueprints (4 registered)
+├── scripts/               # Automation & msc:* tooling
 ├── core/                  # Shared bridge code
 ├── e2e/                   # Playwright test suite
-└── docs/                  # Documentation (TRUTH.md, PROJECT_CONTEXT.md, etc.)
+├── .cursor/               # Agent prompts, rules, skills, MCP config
+├── docs/                  # Human runbooks (ARCHITECTURE, CONTRIBUTING, releases)
+├── TRUTH.md               # Constitution (root — technical precedence)
+└── _archive/              # Archived legacy docs (reference only)
 ```
 
 ---
@@ -161,7 +182,7 @@ Vader-Engine/
 | `GET /api/logs` | Real-time activity logs |
 | `GET /api/projects` | Dynamic project discovery |
 | `GET /api/templates` | Template catalog |
-| `GET /api/env` | Runtime environment info |
+| `GET /api/env` | Runtime environment info (redacted) |
 | `GET /api/scripts` | Available npm scripts |
 
 ---
@@ -169,13 +190,19 @@ Vader-Engine/
 ## 🔧 Development Commands
 
 ```bash
-npm run grade               # Run 61-point integrity check
-npm run msc:dev:dashboard   # Start dashboard on :3010
-npm run msc:e2e             # Run E2E tests
-npm run msc:check-deps      # Check for outdated dependencies
-npm run msc:log-session     # Capture session telemetry
-npm run msc:template        # Scaffold from templates
+npm run start-project:gate    # Full baseline gate (recommended before PR)
+npm run grade                 # 61-point integrity check
+npm run msc:dev:dashboard     # Dashboard on :3010
+npm run msc:dev:example       # Minimal sandbox on :3000
+npm run msc:dev:payload       # Payload sandbox on :3001
+npm run msc:dev:tailwind      # Tailwind sandbox on :3002
+npm run msc:template -- list  # Template catalog
+npm run msc:e2e               # Playwright E2E (run msc:e2e:install first)
+npm run msc:backup            # Standard backup (see msc:backup:full)
+npm run dev:recover           # Clear stale caches + restart dev flow
 ```
+
+Say **End Project** in Cursor chat for session closeout — see [START-HERE.md](START-HERE.md).
 
 ---
 
@@ -183,28 +210,35 @@ npm run msc:template        # Scaffold from templates
 
 | Document | Purpose |
 |----------|---------|
-| [START-HERE.md](START-HERE.md) | Agent/operator cold-start guide |
-| [TRUTH.md](TRUTH.md) | The Vader Protocol constitution |
+| [START-HERE.md](START-HERE.md) | Operator cold-start checklist |
+| [DOCS.md](DOCS.md) | Complete documentation index (SSoT router) |
+| [TRUTH.md](TRUTH.md) | Constitution — zero-leak, tokens, MCP portability |
 | [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) | Architecture & onboarding map |
-| [DOCS.md](DOCS.md) | Complete documentation index |
 | [ARCHITECTURE.md](docs/ARCHITECTURE.md) | System architecture deep dive |
-| [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Common issues & solutions |
+| [CONTRIBUTING.md](docs/CONTRIBUTING.md) | Fork, hooks, PR gates |
+| [SECURITY.md](docs/SECURITY.md) | Zero-leak policy & advisory reporting |
+| [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Common issues & recovery |
+| [CHANGELOG.md](CHANGELOG.md) | Release history |
 
-> **Security Note:** This repository uses a `.env.local` gitignore policy. Never commit secrets. Use the Ops Hub for environment management.
+**For Cursor agents:** [.cursor/docs/Code-Jedi.md](.cursor/docs/Code-Jedi.md) · [.cursor/prompts/Start-Project.md](.cursor/prompts/Start-Project.md)
+
+> **Security:** `.env.local` is gitignored. Use `.env.example` for key names only. Never commit secrets.
 
 ---
 
 ## 🗺️ Roadmap
 
 ### v2.7 (Next)
-- Enhanced Metrics Dashboard
-- Activity Timeline View
-- Project Manager improvements
+- Enhanced metrics dashboard & activity timeline
+- Project manager improvements
+- Deeper Operations Hub integrations
 
 ### v3.0 (Future)
 - Boilerplate Studio visual editor
 - AI Project Builder
-- Tauri Desktop App
+- Tauri desktop app
+
+See [.cursor/plans/ENGINE_ROADMAP.md](.cursor/plans/ENGINE_ROADMAP.md) for the full integration plan.
 
 ---
 
@@ -214,11 +248,11 @@ We welcome contributions that respect the Vader Protocol.
 
 1. Fork the repository
 2. Create a feature branch (`feat/your-feature`)
-3. Ensure `npm run grade` passes (61/61)
-4. Commit your changes
+3. Run `npm run start-project:gate` — must pass **61/61** grade and **8/8** tests
+4. Commit your changes (Husky runs lint + env validation)
 5. Push and open a Pull Request
 
-Please read [CONTRIBUTING.md](docs/CONTRIBUTING.md) for full guidelines.
+Please read [CONTRIBUTING.md](docs/CONTRIBUTING.md) for forge rules, template conventions, and pre-tag gates.
 
 ---
 
@@ -229,5 +263,5 @@ MIT © [Vader Engine](https://github.com/jonbeatz/Vader-Engine)
 ---
 
 <p align="center">
-  <sub>Built with ☕ and <a href="https://cursor.sh">Cursor</a> • Powered by the MSC Media Engine</sub>
+  <sub>Built with ☕ and <a href="https://cursor.sh">Cursor</a> · Powered by the MSC Media Engine</sub>
 </p>
