@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Operational recovery paths for the **MSC v2.6.0** workspace ([jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine)).
+Operational recovery paths for the **MSC v2.6.1** workspace ([jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine)).
 
 ## Node version / Cursor terminal
 

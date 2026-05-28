@@ -7,17 +7,20 @@
 - **Current Version:** 2.6.1
 - **Status:** Vader Engine v2.6.1 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.1`
 
+### [2026-05-28] - docs - full v2.6.1 documentation sync
+- **Summary:** Synced all active root, `.cursor/docs`, rules, and prompt headers to **2.6.1**; removed stale branch references (`feat/phase-4-polish`).
+- **Gate:** 61/61 · 8/8 tests
+
 ### [2026-05-28] - chore - v2.6.1 version bump
 - **Summary:** Synced version to **2.6.1** across README, package.json, CHANGELOG, Checkpoint, UPDATE_LOG, TRUTH, DOCS, grader, and operator docs.
 - **Release:** GitHub tag `v2.6.1` · `docs/releases/RELEASE_v2.6.1.md`
 - **Gate:** 61/61 · 8/8 tests
 
-### [2026-05-28 15:00] - Update Project Checkpoint
-- **Status:** Workflow docs consolidated; tracking automation live; uncommitted changes on `feat/phase-4-polish` (1 commit ahead of merge baseline + doc cleanup tree)
-- **Branch:** `feat/phase-4-polish`
-- **Gate:** 61/61 · 8/8 tests · LiteLLM online
-- **Files changed:** Workflow docs (`TRUTH`, `Project-Bible`, `MCPs`, `Checkpoint`, `UPDATE_LOG`), doc cleanup (`DOCS.md`, `_archive/*`), prompts (`Update-Project.md`, `Start/End-Project`), rules (`start-project-ritual`, `global.mdc`), Cheat Sheet + Operator Card
-- **Next:** Commit doc cleanup + workflow upgrade; merge or PR `feat/phase-4-polish` follow-up (`cf2a0c1` biome fix) if not on `main`
+### [2026-05-28 15:00] - Update Project Checkpoint (superseded)
+
+- **Status:** MERGED — PR #14 on `main`; feature branch deleted
+- **Gate:** 61/61 · 8/8 tests
+- **Note:** See v2.6.1 bump entry above for current baseline
 
 ### [2026-05-27] - docs - v2.6.0 global docs alignment sweep
 - **Summary:** Updated root and `.cursor` operational docs to reflect `v2.6.0` as current baseline and synced prompt/rule headers to the active release line.

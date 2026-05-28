@@ -1,4 +1,4 @@
-# The Vader Engine Project Bible (v2.6.0)
+# The Vader Engine Project Bible (v2.6.1)
 
 Architecture, workflow, and **what we fixed**. Command tables are authoritative only when they match root **`package.json`**.
 
@@ -38,7 +38,7 @@ Architecture, workflow, and **what we fixed**. Command tables are authoritative 
 | **MCPs.md** | MCP server catalog |
 | **project-log.md** | Session check-ins |
 
-## 5. Vader Engine: Command Lexicon (v2.6.0)
+## 5. Vader Engine: Command Lexicon (v2.6.1)
 
 Single reference for **maintenance, dev, gates, and AI proxy**. Authoritative list: root **`package.json`** → `scripts`.
 
@@ -118,13 +118,11 @@ Single reference for **maintenance, dev, gates, and AI proxy**. Authoritative li
 - **Fixes:** Node scripts under `scripts/msc-litellm-*.mjs`; model alias in `config/litellm_config.yaml`; strip Payload `DATABASE_URL`; ngrok path for Cloud Agent
 - **Verify:** `npm run msc:litellm:test:ngrok`
 
-### Phase 4 polish branch (2026-05)
+### Phase 4 polish (2026-05) — MERGED
 
-- **Branch:** `feat/phase-4-polish` — docs sync, operator card, backup conversational flow
+- **Branch:** `feat/phase-4-polish` → merged to `main` (PR #14)
 - **Gate:** 61/61 + 8/8 tests maintained
-
-See **[UPDATE_LOG.md](./UPDATE_LOG.md)** for dated entries.
 
 ---
 
-**Baseline:** Vader Engine v2.6.0 · **Signature:** Powered by the MSC Media Engine
+**Baseline:** Vader Engine v2.6.1 · **Signature:** Powered by the MSC Media Engine

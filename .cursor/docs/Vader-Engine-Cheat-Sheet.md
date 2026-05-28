@@ -265,8 +265,7 @@ robocopy G:\Cursor_Project_BackUpz\Vader-Engine\Vader-Engine-v1-x D:\Cursor_Proj
 | `git branch` | List local branches |
 | `git branch -a` | List all branches (local + remote) |
 | `git checkout main` | Switch to main branch |
-| `git checkout feat/phase-4-polish` | Switch to feature branch |
-| `git checkout -b feat/new-branch` | Create and switch to new branch |
+| `git checkout -b feat/new-branch` | Create and switch to new feature branch |
 | `git merge main` | Merge main into current branch |
 | `git branch -d branch-name` | Delete local branch |
 | `git push origin --delete branch-name` | Delete remote branch |
@@ -458,7 +457,7 @@ Use this sequence before tagging or cutting a release:
 
 ---
 
-*Last updated: May 28, 2026 | Version 2.6.0 — workflow docs, `update project`, doc cleanup*
+*Last updated: May 28, 2026 | Version 2.6.1 — full doc sync, production README, GitHub release*
 
 
 

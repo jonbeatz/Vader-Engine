@@ -1,4 +1,4 @@
-# Active MCP Servers (Vader Engine v2.6.0)
+# Active MCP Servers (Vader Engine v2.6.1)
 
 Reference for MCP servers in **`.cursor/mcp.json`**. Extended setup: **[mcp-setup.md](./mcp-setup.md)**. Structure check: **`npm run verify:mcp`** (no secret values printed).
 
@@ -144,4 +144,4 @@ Reference for MCP servers in **`.cursor/mcp.json`**. Extended setup: **[mcp-setu
 - **Never** replace `YOUR_*` with live tokens in Git commits
 - User-level MCPs (browser devtools, terminal-controller, etc.) may exist outside this repo file — document in session handoff if used
 
-**Signature:** Vader Engine v2.6.0 · 13 servers in project `mcp.json`
+**Signature:** Vader Engine v2.6.1 · 13 servers in project `mcp.json`

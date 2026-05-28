@@ -1,6 +1,6 @@
-# HOW-TO: Vader Engine v2.6.0 Operational Runbook
+# HOW-TO: Vader Engine v2.6.1 Operational Runbook
 
-Single operator-facing guide for running, verifying, and extending **Vader Engine v2.6.0** (`vader-engine`). For agent routing and module maps, use [Code-Jedi.md](./Code-Jedi.md). Constitutional precedence: [TRUTH.md](../../TRUTH.md).
+Single operator-facing guide for running, verifying, and extending **Vader Engine v2.6.1** (`vader-engine`). For agent routing and module maps, use [Code-Jedi.md](./Code-Jedi.md). Constitutional precedence: [TRUTH.md](../../TRUTH.md).
 
 **Repository:** [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) · **Clone:** `git clone https://github.com/jonbeatz/Vader-Engine.git my-project`
 
@@ -8,7 +8,7 @@ Single operator-facing guide for running, verifying, and extending **Vader Engin
 
 ## Mission
 
-Vader Engine v2.6.0 is an **unbranded, self-validating engine** — a portable factory layer for Payload/Next.js consumers, WordPress/Divi surfaces, Studio Dark UI, and **sibling-directory scaffolding** via `msc:template`. It ships:
+Vader Engine v2.6.1 is an **unbranded, self-validating engine** — a portable factory layer for Payload/Next.js consumers, WordPress/Divi surfaces, Studio Dark UI, and **sibling-directory scaffolding** via `msc:template`. It ships:
 
 - **61-point** structural grader with CI and pre-push enforcement
 - Env-driven, selectable strategies (no forced production defaults)
@@ -106,7 +106,7 @@ npm run msc:lint && npm run grade && npm run msc:test:root
 
 **CI lesson (2026-05-25):** Biome 2.2.0+ rejects folder ignores with trailing `/**` (use `!templates`, not `!templates/**`). The v2.3.0 tag failed CI until `biome.json` was corrected in commit `9a1a4b6` — always run `npm run msc:lint` locally before pushing tags.
 
-### 5. Optional v2.6.0 release certification
+### 5. Optional release certification
 
 When releasing or forking to a new consumer:
 
@@ -119,7 +119,7 @@ npm run msc:test:all
 npm run msc:e2e:install   # first time only
 npm run msc:e2e
 npm run inventory
-npm run log -- --type chore --msg "v2.6.0 release audit passed"
+npm run log -- --type chore --msg "v2.6.1 release audit passed"
 ```
 
 `grade` must report **61/61 (100%)** before treating the tree as forge-ready.
@@ -221,7 +221,7 @@ Requires [GitHub CLI](https://cli.github.com/) (`gh auth login` with admin on th
 |------|---------|-------------|
 | Append changelog | `npm run log -- --type feat --msg "Description"` | Types: `feat`, `fix`, `chore` → `.cursor/docs/project-log.md` |
 | Refresh dep/MCP inventory | `npm run inventory` | Writes `.cursor/docs/README-inventory.md` |
-| v2.6.0 structural grade | `npm run grade` | **61-point** PASS/FAIL audit; exit **1** on failure; **pre-push** |
+| v2.6.1 structural grade | `npm run grade` | **61-point** PASS/FAIL audit; exit **1** on failure; **pre-push** |
 
 ### Git hooks (automatic)
 
@@ -345,7 +345,7 @@ Setup details: [mcp-setup.md](./mcp-setup.md). Extended catalog: `.cursor/mcp-bl
 
 ---
 
-*Operational runbook for Vader Engine v2.6.0. When scripts or gates change, update `package.json`, Code-Jedi, and this file in the same session.*
+*Operational runbook for Vader Engine v2.6.1. When scripts or gates change, update `package.json`, Code-Jedi, and this file in the same session.*
 
 ---
 

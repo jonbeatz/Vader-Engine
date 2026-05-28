@@ -1,8 +1,8 @@
 # Vader Engine — Dashboard Integration Roadmap
 
 **Product:** Vader Protocol · **UI:** Vader Construct · **Package:** `ui/dashboard/` · **Port:** `3010`  
-**Branch:** `feat/v0-core-integration-v1` (successor to `feat/vader-construct-dashboard-v2`)  
-**Baseline:** v2.6.0-Engine · **Grader target:** 61/61
+**Branch:** `main` (v2.6.1 shipped)  
+**Baseline:** v2.6.1-Engine · **Grader target:** 61/61
 **Operator runbook:** [v0-Run-Sheet.md](../../_archive/v0-design-docs/v0-Design/v0-Run-Sheet.md) · **Handoff:** [v5-Implementation.md](../../_archive/v0-design-docs/v0-Design/v5-Implementation.md)
 
 ---
@@ -292,4 +292,4 @@ flowchart LR
 
 ---
 
-*Last updated: 2026-05-26 · Owner: Vader Construct / `feat/vader-construct-dashboard`*
+*Last updated: 2026-05-28 · Owner: Vader Construct / `main` (v2.6.1)*

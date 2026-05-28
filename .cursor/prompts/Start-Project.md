@@ -61,7 +61,7 @@ Full runbook: **`.cursor/docs/local-ai-proxy-setup.md`** (Operator quick start: 
 After completing all steps, print:
 
 ```
-✅ v2.6.0 READY — 61/61 · 8/8 · Git [clean|has changes] · LiteLLM [running|offline] · vader-3-flash [verified|failed|n/a]
+✅ v2.6.1 READY — 61/61 · 8/8 · Git [clean|has changes] · LiteLLM [running|offline] · vader-3-flash [verified|failed|n/a]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Ok, Jon. Let's build.
 ```

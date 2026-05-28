@@ -71,7 +71,7 @@ Offer **CHANGELOG.md** update if new scripts, shortcuts, or prompts shipped.
 ## 6. Mandatory handoff block (print last)
 
 ```text
-✅ SESSION CLOSEOUT — v2.6.0 · Ports cleared · 61/61 · Git [clean|has changes] · LiteLLM stopped
+✅ SESSION CLOSEOUT — v2.6.1 · Ports cleared · 61/61 · Git [clean|has changes] · LiteLLM stopped
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Goodbye for now, Jon. See you next session.
 ```

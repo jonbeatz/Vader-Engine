@@ -32,7 +32,7 @@ npm run msc:check-node
 | Wrong Node on **Windows** | Use integrated terminal profile **Vader Engine Node** (`.vscode/settings.json`) or put `C:\Program Files\nodejs` first in user PATH |
 | Match CI exactly | `nvm use 20.19.1` or `fnm use` in repo root (reads `.nvmrc`) |
 
-## v2.6 baseline checklist
+## v2.6.1 baseline checklist
 
 - [ ] `npm run msc:check-node` — Node preflight (fail-fast before grade/hooks)
 - [ ] `npm run msc:onboard` or `npm run bootstrap` — ports cleared, deps installed, env validation
@@ -41,7 +41,7 @@ npm run msc:check-node
 
 - [ ] `npm run msc:template -- doctor` — scaffolding CLI health check
 
-- [ ] `npm run msc:template -- list` — verify three blueprints registered
+- [ ] `npm run msc:template -- list` — verify four templates registered
 
 - [ ] `npm run msc:lint` — Biome clean
 
@@ -245,7 +245,7 @@ npm run msc:smoke -- 3000
 
 
 
-When pausing or handing off work, say **End Project** or open `.cursor/prompts/End-Project.md` (v2.6.0-Engine session closeout), then:
+When pausing or handing off work, say **End Project** or open `.cursor/prompts/End-Project.md` (v2.6.1-Engine session closeout), then:
 
 
 

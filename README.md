@@ -120,7 +120,19 @@ npm run start-project:gate      # validate-env · lint · 61/61 · 8/8 tests
 
 ---
 
-## ✨ What's New in v2.6.0
+## ✨ What's New
+
+### v2.6.1 (Documentation Polish)
+
+| Feature | Description |
+|---------|-------------|
+| 📖 **Production README** | Status table, Quick Start, agent ritual pointers |
+| 🪟 **Windows hint** | `.env.local` copy instruction for Windows operators |
+| 🔄 **Full doc sync** | Root, `.cursor/docs`, rules, and prompts aligned to **2.6.1** |
+
+**Release notes:** [RELEASE_v2.6.1.md](docs/releases/RELEASE_v2.6.1.md)
+
+### v2.6.0 (Vader Construct Live)
 
 | Feature | Description |
 |---------|-------------|
@@ -131,7 +143,7 @@ npm run start-project:gate      # validate-env · lint · 61/61 · 8/8 tests
 | 🔧 **Operations Hub** | Ports, logs, processes, metrics, env, and script dispatch |
 | 📚 **Lean doc index** | `DOCS.md` router + agent workflow prompts (Start / End / Update Project) |
 
-**Full release notes:** [RELEASE_v2.6.0.md](docs/releases/RELEASE_v2.6.0.md) · **Changelog:** [CHANGELOG.md](CHANGELOG.md)
+**Full release notes:** [RELEASE_v2.6.0.md](docs/releases/RELEASE_v2.6.0.md) · [RELEASE_v2.6.1.md](docs/releases/RELEASE_v2.6.1.md) · **Changelog:** [CHANGELOG.md](CHANGELOG.md)
 
 ---
 

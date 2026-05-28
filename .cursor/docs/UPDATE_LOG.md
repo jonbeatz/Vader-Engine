@@ -4,6 +4,21 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ---
 
+## [2026-05-28] — Full documentation sync to v2.6.1
+
+### Changes
+
+- **Version headers:** HOW-TO, Code-Jedi, MCPs, Project-Bible, REPAIR_PROTOCOLS, system-architecture, ARCHITECTURE, SECURITY, TROUBLESHOOTING
+- **Rules & prompts:** `.cursor/rules/README.md`, Start/End-Project, Update-Docs templates
+- **Operator docs:** Cheat Sheet branch table, ENGINE_ROADMAP → `main`, START-HERE checklist (four templates)
+- **Deprecated:** `.cursorrules` pointer updated to v2.6.1
+
+### Verification
+
+- `npm run start-project:gate` — 61/61 · 8/8 · lint clean
+
+---
+
 ## [2026-05-28] — v2.6.1 version bump & documentation polish
 
 ### Changes
