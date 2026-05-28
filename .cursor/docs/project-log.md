@@ -30,6 +30,12 @@
 - **Ports cleared:** 3000, 3001, 3002, 8080
 - **LiteLLM:** stopped
 
+### [2026-05-28] - Session Closeout
+- **Session Summary:** Fixed the End Session closeout of project.
+- **Verified:** start-project:gate PASS (61/61, lint, tests)
+- **Ports cleared:** 3000, 3001, 3002, 3010, 4000, 8080
+- **LiteLLM:** stopped
+
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 
 **Shipped 2026-05-24** — commit `22ed024` · tag `v2.2.0`
