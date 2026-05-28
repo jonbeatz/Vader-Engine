@@ -29,7 +29,7 @@ function getLatestBackup() {
 function incrementVersion(folderName) {
   const match = folderName.match(/Vader-Engine-v(\d+)(?:-([a-z]))?/);
   if (!match) return 'Vader-Engine-v1-a';
-  const num = parseInt(match[1]);
+  const num = parseInt(match[1], 10);
   const letter = match[2];
   if (letter) {
     const nextLetter = String.fromCharCode(letter.charCodeAt(0) + 1);
@@ -45,6 +45,7 @@ async function main() {
   const suggested = latest ? incrementVersion(latest) : 'Vader-Engine-v1-a';
   const destName = customName || suggested;
   const fullDestPath = path.join(BACKUP_ROOT, destName);
+
   const backupType = isFullBackup ? 'FULL' : 'STANDARD';
 
   console.log(`\n📂 Source: ${SOURCE}`);
@@ -52,7 +53,6 @@ async function main() {
   console.log(`📦 Type: ${backupType}`);
   console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`);
 
-  // Create destination folder if needed
   if (!fs.existsSync(fullDestPath)) {
     fs.mkdirSync(fullDestPath, { recursive: true });
   }

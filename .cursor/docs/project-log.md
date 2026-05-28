@@ -23,6 +23,13 @@
 | Session auto-logging | ✅ End project logs to `project-log.md` |
 | Natural language shortcuts | ✅ "start project", "end project", "backup project", "update docs" |
 
+### [2026-05-28] - Session Closeout
+- **Session Summary:** LiteLLM integration finalized with agent shortcuts; start/end workflows polished with clean acknowledgment/handoff; backup moved to conversational one-question flow with standard/full options; docs sync workflow upgraded with feature detection; session auto-logging integrated; master cheat sheet + one-page operator card completed.
+- **Added/Modified:** `scripts/msc-backup.mjs`
+- **Verified:** start-project:gate PASS (61/61, lint, tests)
+- **Ports cleared:** 3000, 3001, 3002, 8080
+- **LiteLLM:** stopped
+
 ## ✅ Completed — Template Scaffolding CLI (v2.2.0)
 
 **Shipped 2026-05-24** — commit `22ed024` · tag `v2.2.0`
