@@ -52,19 +52,19 @@ Also check if any new features were added (new scripts, shortcuts, prompts) and 
 - Ask operator: **"Commit and push to origin/main? (yes/no)"**
 - If yes: `git add . && git commit -m "[message]" && git push origin main`
 
-## 5. Mandatory Handoff Block
+## 5. Summary Logged to project-log.md
 
-Print:
+Confirm: "✅ Session summary logged to .cursor/docs/project-log.md"
 
-```
+## 6. Mandatory Handoff Block (Print Last)
+
+Print this as the final output after all cleanup, verification, and project-log updates are complete:
+
+```text
 ✅ SESSION CLOSEOUT — v2.6.0 · Ports cleared · 61/61 · Git clean · LiteLLM stopped
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Goodbye for now, Jon. See you next session.
 ```
-
-## 6. Summary Logged to project-log.md
-
-Confirm: "✅ Session summary logged to .cursor/docs/project-log.md"
 
 **Cold-start pointer for next agent:** Run `@Start-Project.md`, then initialize `task-planner.md` Phase 1–3.
 
