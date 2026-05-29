@@ -144,6 +144,7 @@ When the user says any of these phrases, execute the corresponding command:
 | "status google-api" | Run `npm run msc:litellm:status` |
 | "verify google-api" | Run `npm run msc:litellm:test:ngrok` |
 | "restart google-api" | Run `npm run msc:litellm:stop && npm run msc:litellm:start:ngrok` |
+| "test 3.5 flash" | `curl` POST to ngrok or `127.0.0.1:4000` `/v1/chat/completions` with model `vader-3.5-flash` (use `MSC_LITELLM_MASTER_KEY`) |
 | "Update Docs" | Run `.cursor/prompts/Update-Docs.md` |
 | "sync docs" | Run `.cursor/prompts/Update-Docs.md` |
 | "version bump" | Run `.cursor/prompts/Update-Docs.md` and then guide through version bump |

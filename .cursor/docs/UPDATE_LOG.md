@@ -4,6 +4,24 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ---
 
+## [2026-05-29] — LiteLLM start hardening & gemini-3.5-flash alias
+
+### Problem
+- `start google-api` would sometimes fail if stale ngrok processes or port 4000 processes remained listening, causing conflicts.
+- Vertex Gemini 3.5 Flash alias `vader-3.5-flash` was missing from the configuration.
+
+### Solution
+- Updated `scripts/msc-litellm-stop.mjs` and added helper `msc_killNgrokProcesses()` to terminate orphaned/stale ngrok instances.
+- Modified `scripts/msc-litellm-start.mjs` to auto-clean port 4000 and stop old tunnels before Starting.
+- Registered `vader-3.5-flash` (`vertex_ai/gemini-3.5-flash`) on `config/litellm_config.yaml` and `google-api/litellm_config.yaml`.
+- Synced shortcuts (`test 3.5 flash`) in `.cursor/rules/global.mdc` and aligned `.env.local` keys.
+
+### Verification
+- Tested start command, local model inspection, and POST completions through ngrok.
+- Passed: `msc:litellm:test:ngrok` successfully resolved all four models.
+
+---
+
 ## [2026-05-28] — Full documentation sync to v2.6.1
 
 ### Changes

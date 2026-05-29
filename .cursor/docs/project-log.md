@@ -7,6 +7,12 @@
 - **Current Version:** 2.6.1
 - **Status:** Vader Engine v2.6.1 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.1`
 
+### [2026-05-29] - Update Project Checkpoint
+- **Status:** ACTIVE — working on dev branch `Vader-Engine-Dev-v1`
+- **Branch:** `Vader-Engine-Dev-v1`
+- **Files changed:** `config/litellm_config.yaml`, `google-api/litellm_config.yaml`, `scripts/msc-litellm-start.mjs`, `scripts/msc-litellm-stop.mjs`, `scripts/lib/msc-ngrok-utils.mjs`, `.cursor/rules/global.mdc`, `.cursor/docs/Vader-Engine-Operator-Card.md`, `.cursor/docs/Vader-Engine-Cheat-Sheet.md`, `.cursor/docs/.last-sync.json`, `UPDATE_LOG.md`, `Checkpoint.md`
+- **Next:** Proceed with feature development or sandbox tasks on the dev branch.
+
 ### [2026-05-28] - Session Closeout
 - **Session Summary:** Merged PR #14 to `main`; production README polish; version bump to **v2.6.1** + GitHub release; full documentation sync (22 files); standard + full backups (`v1-p`, `v1-q`).
 - **Added/Modified:** README, START-HERE, package.json, CHANGELOG, Checkpoint, UPDATE_LOG, `.cursor/docs/*`, `.cursor/rules`, `.cursor/prompts`, `docs/releases/RELEASE_v2.6.1.md`

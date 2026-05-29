@@ -27,9 +27,9 @@
 
 > Dev servers are **not** started by `start project` unless you ask.
 
-### Vertex / `vader-3-flash` (Cursor Cloud Agent)
+### Vertex / `vader-3.5-flash` (Cursor Cloud Agent)
 
-Cloud Agent **cannot** use `http://127.0.0.1:4000` — use ngrok HTTPS.
+Cloud Agent **cannot** use `http://127.0.0.1:4000` — use ngrok HTTPS. Recommended model is **`vader-3.5-flash`**.
 
 | Step | Action |
 |------|--------|
@@ -41,8 +41,17 @@ Cloud Agent **cannot** use `http://127.0.0.1:4000` — use ngrok HTTPS.
 | Cursor setting | Value |
 |----------------|--------|
 | Override OpenAI Base URL | `https://<ngrok-host>/v1` |
-| Custom model | **`vader-3-flash`** |
-| OpenAI API Key | `MSC_LITELLM_MASTER_KEY` (`.env.local`, optional) |
+| Custom model | **`vader-3.5-flash`** |
+| OpenAI API Key | `sk-vader-protocol-1234` (from `MSC_LITELLM_MASTER_KEY` in `.env.local`) |
+
+**Your Working Models:**
+
+| Model | Use Case |
+|-------|----------|
+| **`vader-3.5-flash`** | Recommended — best for coding/agent tasks, uses thinking |
+| **`vader-31-pro`** | More powerful, slower, no thinking |
+| **`vader-3-pro`** | Good balance |
+| **`vader-3-flash`** | Fastest, no thinking (legacy compatibility) |
 
 **Keep the proxy terminal open** (LiteLLM runs in foreground). ngrok runs in background.
 
@@ -102,7 +111,7 @@ Optional mid-session: `update project` (without full closeout).
 - Dashboard down: `npm run msc:kill -- 3010` then `npm run msc:dev:dashboard`
 - Proxy down: `status google-api` → `start google-api` → `verify google-api`
 - Cursor **Provider Error**: `restart google-api`; paste **new** ngrok HTTPS `/v1` in settings
-- Model not found: use **`vader-3-flash`** exactly
+- Model not found: use **`vader-3.5-flash`** (or `vader-31-pro` / `vader-3-flash`) exactly in Settings
 - Prisma/PostgreSQL on proxy start: Payload `DATABASE_URL` — proxy runs database-less by default
 - Broken local state: `npm run dev:recover`
 - Lint drift: `npm run msc:lint:fix` then `npm run msc:lint`

@@ -20,5 +20,11 @@ model_list:
       vertex_project: "wordpress-map-1492461083797"
       vertex_location: "global"
 
+  - model_name: vader-3.5-flash
+    litellm_params:
+      model: vertex_ai/gemini-3.5-flash
+      vertex_project: "wordpress-map-1492461083797"
+      vertex_location: "global"
+
 general_settings:
   master_key: sk-vader-protocol-1234

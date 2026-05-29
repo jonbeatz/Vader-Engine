@@ -14,6 +14,13 @@ Authoritative build and branch history for Vader Engine releases.
 
 ---
 
+## Branch: `Vader-Engine-Dev-v1` (2026-05-29)
+
+- **Current status:** Active dev — `vader-3.5-flash` Vertex configuration added and verified · ngrok tunnel active · clean stop/start mechanics configured on proxy · tracking docs synced.
+- **Recent commits:** None on branch yet (working tree modified with model additions, cleanup fixes, and tracking updates)
+
+---
+
 ## Branch: `main` (2026-05-28)
 
 - **Current status:** Session closeout complete · v2.6.1 on `main` · gate **61/61** · **8/8** tests · LiteLLM **offline**

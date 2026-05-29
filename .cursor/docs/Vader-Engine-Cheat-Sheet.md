@@ -42,13 +42,13 @@
 4) open http://localhost:3010
 ```
 
-**Vertex / `vader-3-flash` (Cursor Cloud Agent):**
+**Vertex / `vader-3.5-flash` (Cursor Cloud Agent):**
 
 ```text
 1) start google-api          # LiteLLM :4000 + ngrok; copy HTTPS /v1 from output
 2) verify google-api         # local + remote /v1/models
 3) Cursor → Override OpenAI Base URL = https://<ngrok-host>/v1
-4) Cursor → Custom model = vader-3-flash
+4) Cursor → Custom model = vader-3.5-flash
 5) stop google-api           # end of session
 ```
 
@@ -203,7 +203,7 @@ robocopy G:\Cursor_Project_BackUpz\Vader-Engine\Vader-Engine-v1-x D:\Cursor_Proj
 
 ---
 
-## 🔌 LiteLLM Proxy (Google Vertex AI / `vader-3-flash`)
+## 🔌 LiteLLM Proxy (Google Vertex AI / `vader-3.5-flash`)
 
 | Command | What it does |
 |---------|--------------|
@@ -221,8 +221,17 @@ robocopy G:\Cursor_Project_BackUpz\Vader-Engine\Vader-Engine-v1-x D:\Cursor_Proj
 | Setting | Value |
 |---------|--------|
 | Override OpenAI Base URL | `https://<ngrok-host>/v1` (printed at startup — **not** `127.0.0.1`) |
-| Custom model | **`vader-3-flash`** |
-| OpenAI API Key | `MSC_LITELLM_MASTER_KEY` in `.env.local` (optional) |
+| Custom model | **`vader-3.5-flash`** |
+| OpenAI API Key | `sk-vader-protocol-1234` (from `MSC_LITELLM_MASTER_KEY` in `.env.local`) |
+
+### Your Working Models
+
+| Model | Use Case |
+|-------|----------|
+| **`vader-3.5-flash`** | Recommended — best for coding/agent tasks, uses thinking |
+| **`vader-31-pro`** | More powerful, slower, no thinking |
+| **`vader-3-pro`** | Good balance |
+| **`vader-3-flash`** | Fastest, no thinking (legacy compatibility) |
 
 ### `.env.local` keys (proxy)
 
@@ -336,7 +345,7 @@ robocopy G:\Cursor_Project_BackUpz\Vader-Engine\Vader-Engine-v1-x D:\Cursor_Proj
 | E2E failures | `npm run msc:e2e` | Ensure target dev servers are up and ports are free |
 | LiteLLM appears offline | `status google-api` | `start google-api`, then `verify google-api` |
 | Cursor `ERROR_PROVIDER_ERROR` | Stale ngrok URL | `restart google-api`; paste **new** HTTPS `/v1` in Cursor |
-| Model not found | Wrong model name | Use **`vader-3-flash`** in Cursor |
+| Model not found | Wrong model name | Use **`vader-3.5-flash`** (or `vader-31-pro`) in Cursor |
 | Prisma / PostgreSQL error on start | Payload `DATABASE_URL` | Use latest scripts (strip DB for proxy); see proxy runbook |
 | Proxy port conflict (`:4000`) | `npm run msc:kill -- 4000` | `npm run msc:litellm:stop` then `start google-api` |
 | Docs drift from version | `update docs` | Run docs sync workflow and review report |
@@ -369,7 +378,7 @@ Use this sequence before tagging or cutting a release:
 1. Say `start project`
 2. Run `npm run start-project:gate`
 3. Start only needed dev servers (`msc:dev:*`)
-4. If using **`vader-3-flash`**: `start google-api` → `verify google-api` (keep proxy terminal open)
+4. If using **`vader-3.5-flash`**: `start google-api` → `verify google-api` (keep proxy terminal open)
 
 ### During Session
 
@@ -450,7 +459,7 @@ Use this sequence before tagging or cutting a release:
 │  stop google-api    → Stop proxy + ngrok                        │
 ├─────────────────────────────────────────────────────────────────┤
 │  Dashboard:  http://localhost:3010                              │
-│  vader-3-flash:  https://<ngrok>/v1  (start google-api)         │
+│  vader-3.5-flash:  https://<ngrok>/v1  (start google-api)         │
 │  Integrity:  61/61                                              │
 └─────────────────────────────────────────────────────────────────┘
 ```
