@@ -1,4 +1,4 @@
-# Repair Protocols (Vader Engine v2.6.1)
+# Repair Protocols (Vader Engine v2.7.0)
 
 Runbooks for **local recovery**, **Next.js cache**, **SQLite**, and **AST Suspense** fixes. **Canonical commands:** [Project-Bible.md](./Project-Bible.md) §5.
 
@@ -129,4 +129,4 @@ Full matrix: [local-ai-proxy-setup.md](./local-ai-proxy-setup.md) · [TROUBLESHO
 3. `npm run start-project:gate`
 4. Log incident in [incident-log.md](./incident-log.md) if novel
 
-**Signature:** Vader Engine v2.6.1
+**Signature:** Vader Engine v2.7.0

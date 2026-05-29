@@ -1,25 +1,26 @@
-# Checkpoint (Vader Engine v2.6.1)
+# Checkpoint (Vader Engine v2.7.0)
 
 Authoritative build and branch history for Vader Engine releases.
 
 ---
 
-## Active release: v2.6.1
+## Active release: v2.7.0 (branch milestone)
 
-- **Status:** SHIPPED on `main`
+- **Status:** **READY on `Vader-Engine-Dev-v2`** — merge to `main` pending operator
 - **Integrity:** **61/61** grade · root Vitest **8/8**
-- **Tags:** `v2.1.0`, `v2.2.0`, `v2.3.0`, `v2.4.0`, `v2.5.0`, `v2.6.0`, `v2.6.1`
-- **Release doc:** `docs/releases/RELEASE_v2.6.1.md`
-- **GitHub release:** [v2.6.1 — Documentation Polish](https://github.com/jonbeatz/Vader-Engine/releases/tag/v2.6.1)
+- **Tags (shipped):** `v2.1.0`, `v2.2.0`, `v2.3.0`, `v2.4.0`, `v2.5.0`, `v2.6.0`, `v2.6.1`
+- **Next tag:** `v2.7.0` (portable modules + backup system)
+- **Release doc:** `docs/releases/RELEASE_v2.7.0.md`
+- **Head:** `c4ceac7` — backup-system v1.2.0 + 8-step agent ritual
 
 ---
 
-## Branch: `Vader-Engine-Dev-v2` (2026-05-29) — **active**
+## Branch: `Vader-Engine-Dev-v2` (2026-05-29) — **active · v2.7.0**
 
-- **Current status:** Portable `custom-scriptz` modules (google-api-proxy + backup-system) with production `install.ps1` · restore checklist docs · local `ngrok.exe` in module pack
-- **Restore point:** `Vader-Engine-Dev-v1` @ `c993472` (unchanged on remote)
-- **Recent:** `c993472` restore docs · `c8a422f` initial custom-scriptz scaffold (prior push)
-- **LiteLLM:** `npm run msc:google-api:start` · module install: `.cursor/custom-scriptz/google-api-proxy/install.ps1`
+- **Current status:** Portable `custom-scriptz` modules (google-api-proxy + backup-system v1.2.0) · interactive backup + `BackUp-Notez.md` · 8-step agent backup ritual · `Prompt-Module.md` canonical
+- **Restore point:** `Vader-Engine-Dev-v1` @ `c993472` (frozen on remote)
+- **G: backup:** `Vader-Engine-v1-v` @ `5f505b9` (includes BackUp-Notez; `.env.local` present)
+- **Recent:** `c4ceac7` backup ritual docs · `5f505b9` BackUp-Notez · `f149a6c` production portable modules
 
 ## Branch: `Vader-Engine-Dev-v1` (2026-05-29) — **frozen**
 
@@ -30,12 +31,12 @@ Authoritative build and branch history for Vader Engine releases.
 
 ## Branch: `main` (2026-05-28)
 
-- **Current status:** Session closeout complete · v2.6.1 on `main` · gate **61/61** · **8/8** tests · LiteLLM **offline**
-- **Recent commits:** `a23dfdb` doc sync · `5992502` version bump · README polish chain
+- **Current status:** v2.6.1 shipped · gate **61/61** · **8/8** tests
+- **Pending:** Merge `Vader-Engine-Dev-v2` for v2.7.0 baseline
 
 ### [2026-05-28] — v2.6.1 documentation polish
 
-- **Status:** SHIPPED
+- **Status:** SHIPPED on `main`
 - **Changes:** README production polish, Windows `.env` copy hint, version bump to **2.6.1**
 - **Verified:** `start-project:gate` PASS · GitHub release `v2.6.1`
 
@@ -62,6 +63,7 @@ Authoritative build and branch history for Vader Engine releases.
 
 | Version | Focus |
 |---------|--------|
+| **v2.7.0** | Portable modules, interactive backup, BackUp-Notez, backup-system v1.2.0 |
 | **v2.6.1** | Documentation polish, README production release, version sync |
 | **v2.6.0** | Lean multi-runtime boilerplate, triple Next sandboxes, 61-point grader, MCP portability |
 | **v2.5.x** | Shield UI, scaffolding CLI, template layer |
@@ -78,4 +80,4 @@ Authoritative build and branch history for Vader Engine releases.
 
 ---
 
-*Last updated: 2026-05-29 (update project)*
+*Last updated: 2026-05-29 (update project · v2.7.0 bump)*

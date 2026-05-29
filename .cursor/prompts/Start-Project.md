@@ -1,4 +1,4 @@
-**Act as a Lead Systems Architect. We are performing a 'Cold-Start' initialization for the v2.6.1-Engine project.**
+**Act as a Lead Systems Architect. We are performing a 'Cold-Start' initialization for the v2.7.0-Engine project.**
 
 ## 1. Mandatory document reads (Read tool — do not skip)
 
@@ -61,7 +61,7 @@ Full runbook: **`.cursor/docs/local-ai-proxy-setup.md`** (Operator quick start: 
 After completing all steps, print:
 
 ```
-✅ v2.6.1 READY — 61/61 · 8/8 · Git [clean|has changes] · LiteLLM [running|offline] · vader-3-flash [verified|failed|n/a]
+✅ v2.7.0 READY — 61/61 · 8/8 · Git [clean|has changes] · LiteLLM [running|offline] · vader-3-flash [verified|failed|n/a]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Ok, Jon. Let's build.
 ```

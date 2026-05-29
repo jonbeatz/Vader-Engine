@@ -105,7 +105,7 @@ Update `.cursor/docs/.last-sync.json` with current snapshot:
 ```json
 {
   "lastSync": "2026-05-28T...",
-  "version": "2.6.1",
+  "version": "2.7.0",
   "scripts": ["list of all npm scripts"],
   "shortcuts": ["list of natural language shortcuts"],
   "prompts": ["list of prompt files"],
@@ -118,7 +118,7 @@ Update `.cursor/docs/.last-sync.json` with current snapshot:
 Print:
 
 ```
-✅ DOCS SYNC — v2.6.1 · Version sync · No new features · No broken links
+✅ DOCS SYNC — v2.7.0 · Version sync · No new features · No broken links
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Documentation is up to date.
 ```
@@ -126,7 +126,7 @@ Print:
 If there ARE changes:
 
 ```
-✅ DOCS SYNC — v2.6.1 · 3 files updated · 2 new features · 0 broken links
+✅ DOCS SYNC — v2.7.0 · 3 files updated · 2 new features · 0 broken links
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🆕 New features: msc:backup, "backup project" shortcut
 📝 Added to CHANGELOG.md

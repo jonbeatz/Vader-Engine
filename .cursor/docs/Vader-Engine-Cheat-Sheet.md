@@ -1,6 +1,6 @@
 # Vader Engine - Master Cheat Sheet
 
-> **Version:** v2.6.1 | **Integrity:** 61/61 | **Status:** Production-ready baseline
+> **Version:** v2.7.0 | **Integrity:** 61/61 | **Status:** Production-ready baseline
 
 ---
 
@@ -569,7 +569,7 @@ Use this sequence before tagging or cutting a release:
 
 ---
 
-*Last updated: May 29, 2026 | Version 2.6.1 — Portable module commands, Prompt-Module.md canonical*
+*Last updated: May 29, 2026 | Version 2.7.0 — Portable modules, backup-system v1.2.0, 8-step agent ritual*
 
 
 

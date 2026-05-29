@@ -15,7 +15,7 @@
     <img src="https://github.com/jonbeatz/Vader-Engine/actions/workflows/ci.yml/badge.svg" alt="CI">
   </a>
   <a href="https://github.com/jonbeatz/Vader-Engine/releases">
-    <img src="https://img.shields.io/badge/version-2.6.1-red" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.7.0-red" alt="Version">
   </a>
   <a href="https://vaderlabz.com">
     <img src="https://img.shields.io/badge/demo-vaderlabz.com-blue" alt="Live Demo">
@@ -40,7 +40,7 @@
 
 | Metric | Value |
 |--------|-------|
-| **Version** | v2.6.1 |
+| **Version** | v2.7.0 |
 | **Integrity Grade** | 61/61 (100%) |
 | **Dashboard** | ✅ Vader Construct — 12+ routes on port **3010** |
 | **API Layer** | ✅ 7 endpoints (health, grade, logs, projects, templates, env, scripts) |
@@ -122,6 +122,17 @@ npm run start-project:gate      # validate-env · lint · 61/61 · 8/8 tests
 
 ## ✨ What's New
 
+### v2.7.0 (Portable Modules & Backup System)
+
+| Feature | Description |
+|---------|-------------|
+| 📦 **Portable modules** | `google-api-proxy` + `backup-system` under `.cursor/custom-scriptz/` with `install.ps1` |
+| 💾 **Interactive backup** | `msc-backup.mjs` — prompts, `--yes`, `--note`, `BackUp-Notez.md` per backup folder |
+| 🤖 **8-step backup ritual** | Agent conversational flow in `global.mdc`, Cheat Sheet, Operator Card |
+| 📖 **Prompt-Module.md** | Canonical portable module installer for any project |
+
+**Release notes:** [RELEASE_v2.7.0.md](docs/releases/RELEASE_v2.7.0.md)
+
 ### v2.6.1 (Documentation Polish)
 
 | Feature | Description |
@@ -143,7 +154,7 @@ npm run start-project:gate      # validate-env · lint · 61/61 · 8/8 tests
 | 🔧 **Operations Hub** | Ports, logs, processes, metrics, env, and script dispatch |
 | 📚 **Lean doc index** | `DOCS.md` router + agent workflow prompts (Start / End / Update Project) |
 
-**Full release notes:** [RELEASE_v2.6.0.md](docs/releases/RELEASE_v2.6.0.md) · [RELEASE_v2.6.1.md](docs/releases/RELEASE_v2.6.1.md) · **Changelog:** [CHANGELOG.md](CHANGELOG.md)
+**Full release notes:** [RELEASE_v2.6.0.md](docs/releases/RELEASE_v2.6.0.md) · [RELEASE_v2.6.1.md](docs/releases/RELEASE_v2.6.1.md) · [RELEASE_v2.7.0.md](docs/releases/RELEASE_v2.7.0.md) · **Changelog:** [CHANGELOG.md](CHANGELOG.md)
 
 ---
 

@@ -4,6 +4,20 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ---
 
+## [2026-05-29] — v2.7.0 version bump (Dev-v2 milestone)
+
+### Changed
+
+- **`package.json`** → **2.7.0** · grader reads version dynamically
+- **Docs:** README, DOCS, TRUTH, PROJECT_CONTEXT, START-HERE, Checkpoint, operator cards, prompts, `RELEASE_v2.7.0.md`
+- **CHANGELOG:** `[Unreleased]` → `[2.7.0] - 2026-05-29`
+
+### Note
+
+- v2.7.0 lives on **`Vader-Engine-Dev-v2`** until merge to `main` and GitHub tag
+
+---
+
 ## [2026-05-29] — backup-system v1.2.0 + 8-step agent backup ritual
 
 ### Added
@@ -299,4 +313,4 @@ Running record of significant fixes, root causes, and verification. Session summ
 - …
 ```
 
-**Signature:** Vader Engine v2.6.1
+**Signature:** Vader Engine v2.7.0

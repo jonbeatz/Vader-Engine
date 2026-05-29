@@ -1,11 +1,11 @@
 # Documentation Index (SSoT Router)
 
-Single entry point for all **Vader Engine v2.6.1** documentation. Technical precedence: [TRUTH.md](TRUTH.md) (root) → [.cursor/docs/TRUTH.md](.cursor/docs/TRUTH.md) (agent ritual).
+Single entry point for all **Vader Engine v2.7.0** documentation. Technical precedence: [TRUTH.md](TRUTH.md) (root) → [.cursor/docs/TRUTH.md](.cursor/docs/TRUTH.md) (agent ritual).
 
 | Field | Value |
 | --- | --- |
 | **Repository** | [github.com/jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) |
-| **Version** | v2.6.1 · semver `2.6.1` · grade **61/61** |
+| **Version** | v2.7.0 · semver `2.7.0` · grade **61/61** |
 
 ## Human control panel (root)
 

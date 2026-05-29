@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Vader Engine v2.6.1-Engine structural grading utility (61-point audit).
+ * Vader Engine structural grading utility (61-point audit). Version follows package.json.
  * Usage: npm run grade
  */
 import './lib/msc-load-env.mjs';
@@ -43,7 +43,13 @@ function pathExists(rel) {
   return existsSync(join(MSC_PROJECT_ROOT, rel));
 }
 
-console.log('--- 📊 Grading Vader Engine v2.6.1-Engine (61-point) ---\n');
+let gradePkgVer = 'unknown';
+try {
+  gradePkgVer = JSON.parse(readFileSync(join(MSC_PROJECT_ROOT, 'package.json'), 'utf8')).version;
+} catch {
+  /* keep unknown */
+}
+console.log(`--- 📊 Grading Vader Engine v${gradePkgVer}-Engine (61-point) ---\n`);
 
 if (process.env.MSC_GRADE_MOCK_FAIL === '1') {
   report('mock failure injection test', false);

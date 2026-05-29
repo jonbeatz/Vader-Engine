@@ -4,7 +4,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Version** | v2.6.1 |
+| **Version** | v2.7.0 |
 | **Last doc sync** | 2026-05-29 |
 
 ---

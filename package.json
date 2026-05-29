@@ -1,7 +1,7 @@
 {
   "name": "vader-engine",
-  "version": "2.6.1",
-  "description": "Vader Protocol v2.6.1-Engine — Cursor-native full-stack Vader Engine with a 61-point self-grader, template scaffolding CLI, isolated Next.js / Payload / Tailwind-shadcn / WordPress sandboxes, Studio Dark UI shield, Biome linting, and MCP-ready agent workflows",
+  "version": "2.7.0",
+  "description": "Vader Protocol v2.7.0-Engine — Cursor-native full-stack Vader Engine with a 61-point self-grader, portable custom-scriptz modules, interactive backup, template scaffolding CLI, isolated Next.js / Payload / Tailwind-shadcn / WordPress sandboxes, Studio Dark UI shield, Biome linting, and MCP-ready agent workflows",
   "type": "module",
   "main": "core/index.mjs",
   "scripts": {

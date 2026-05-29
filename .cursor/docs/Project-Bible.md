@@ -1,4 +1,4 @@
-# The Vader Engine Project Bible (v2.6.1)
+# The Vader Engine Project Bible (v2.7.0)
 
 Architecture, workflow, and **what we fixed**. Command tables are authoritative only when they match root **`package.json`**.
 
@@ -38,7 +38,7 @@ Architecture, workflow, and **what we fixed**. Command tables are authoritative 
 | **MCPs.md** | MCP server catalog |
 | **project-log.md** | Session check-ins |
 
-## 5. Vader Engine: Command Lexicon (v2.6.1)
+## 5. Vader Engine: Command Lexicon (v2.7.0)
 
 Single reference for **maintenance, dev, gates, and AI proxy**. Authoritative list: root **`package.json`** → `scripts`.
 
@@ -125,4 +125,4 @@ Single reference for **maintenance, dev, gates, and AI proxy**. Authoritative li
 
 ---
 
-**Baseline:** Vader Engine v2.6.1 · **Signature:** Powered by the MSC Media Engine
+**Baseline:** Vader Engine v2.7.0 · **Signature:** Powered by the MSC Media Engine

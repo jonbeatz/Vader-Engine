@@ -1,6 +1,6 @@
 # Cursor Rules Index
 
-Always-on and scoped rules for **Vader Engine v2.6.1**. Precedence: [TRUTH.md](../../TRUTH.md) → [global.mdc](./global.mdc) → this folder.
+Always-on and scoped rules for **Vader Engine v2.7.0**. Precedence: [TRUTH.md](../../TRUTH.md) → [global.mdc](./global.mdc) → this folder.
 
 | Rule | Scope | When it applies |
 |------|--------|-----------------|

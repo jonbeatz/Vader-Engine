@@ -4,8 +4,20 @@
 - **Project Name:** Vader Engine (Vader Protocol)
 - **Repository:** [jonbeatz/Vader-Engine](https://github.com/jonbeatz/Vader-Engine) — renamed from `Boilerplate` / `jonbeatz/Boilerplate` (May 2026); prior slugs `Boilerplate-v1` / `Boilerplate-v2` preserved in `CHANGELOG.md` only
 - **Target Stack:** Next.js sandboxes · Payload CMS · WordPress Shield · Cursor MCP
-- **Current Version:** 2.6.1
-- **Status:** Vader Engine v2.6.1 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.1`
+- **Current Version:** 2.7.0
+- **Status:** v2.7.0 milestone on `Vader-Engine-Dev-v2` · v2.6.1 on `main` · **61/61** grade · release tags `v2.1.0`–`v2.7.0` (v2.7.0 pending tag on merge)
+
+### [2026-05-29] - Update Project · v2.7.0 version bump
+- **Milestone:** Portable modules + backup-system v1.2.0 branch ready for merge
+- **Version:** `package.json` → **2.7.0** · `RELEASE_v2.7.0.md` · doc sweep across root + `.cursor/docs`
+- **Branch:** `Vader-Engine-Dev-v2` @ `c4ceac7`
+- **Next:** Merge to `main` · tag `v2.7.0` · GitHub release
+
+### [2026-05-29 17:00] - Update Project Checkpoint
+- **Status:** v2.7.0 doc sync complete on Dev-v2
+- **Branch:** `Vader-Engine-Dev-v2`
+- **Files changed:** package.json, CHANGELOG, README, Checkpoint, RELEASE_v2.7.0, operator docs
+- **Next:** Operator review · commit · merge to main
 
 ### [2026-05-29] - backup-system v1.2.0 + 8-step agent backup ritual
 - **Module:** `backup-system` v1.2.0 — `global.mdc.fragment`, CURSOR/README refresh, manifest features
@@ -88,7 +100,7 @@
 
 - **Status:** MERGED — PR #14 on `main`; feature branch deleted
 - **Gate:** 61/61 · 8/8 tests
-- **Note:** See v2.6.1 bump entry above for current baseline
+- **Note:** See v2.7.0 bump entry above for current baseline
 
 ### [2026-05-27] - docs - v2.6.0 global docs alignment sweep
 - **Summary:** Updated root and `.cursor` operational docs to reflect `v2.6.0` as current baseline and synced prompt/rule headers to the active release line.

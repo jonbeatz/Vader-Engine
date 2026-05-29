@@ -1,7 +1,7 @@
 # Vader Credentials — Master Personal Reference
 
 > **Purpose:** One-page backup for your G: drive / offline reference.  
-> **Last updated:** 2026-05-29 · **Engine version:** v2.6.1 · **Branch:** `Vader-Engine-Dev-v1`  
+> **Last updated:** 2026-05-29 · **Engine version:** v2.7.0 · **Branch:** `Vader-Engine-Dev-v2`  
 > **Security:** Copy this file + the JSON key files to your backup drive. Do **not** push live secrets to public GitHub.
 
 ---
