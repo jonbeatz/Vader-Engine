@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>The production-hardened development factory for Cursor agents.</strong><br>
-  <strong>Build production-ready applications with a visual command center,<br>
+  <strong>Visual command center, portable drop-in modules, interactive backups,<br>
   61-point integrity verification, and triple-sandbox development environments.</strong>
 </p>
 
@@ -46,6 +46,9 @@
 | **API Layer** | ✅ 7 endpoints (health, grade, logs, projects, templates, env, scripts) |
 | **Sandboxes** | ✅ 3 isolated environments (ports **3000–3002**) |
 | **Templates** | ✅ 4 blueprints (`portfolio`, `divi-bridge`, `task-manager`, `vader-site`) |
+| **Portable modules** | ✅ `google-api-proxy` + `backup-system` — copy to any project via [`Prompt-Module.md`](.cursor/custom-scriptz/Prompt-Module.md) |
+| **Backup system** | ✅ Interactive `msc:backup` · agent **backup project** ritual · `BackUp-Notez.md` per folder |
+| **Google API proxy** | ✅ LiteLLM + ngrok on port **4000** — say **start google-api** or `npm run msc:google-api:start` |
 | **Unit Tests** | ✅ 8/8 Vitest |
 | **E2E Tests** | ✅ 6 Playwright specs (dashboard navigation + sandbox smoke) |
 | **Status** | 🟢 Production Ready |
@@ -63,6 +66,9 @@ Most boilerplates give you files. **Vader Engine gives you a complete developmen
 | Real-time Operations Hub | ✅ | ❌ |
 | Triple Sandbox Architecture | ✅ | ❌ |
 | Built-in Template Engine | ✅ | ❌ |
+| Portable Drop-in Modules | ✅ | ❌ |
+| Interactive Backup + Notes | ✅ | ❌ |
+| LiteLLM / Google API Proxy | ✅ | ❌ |
 | MCP-Ready (13 servers) | ✅ | ❌ |
 | Zero-Leak Security Protocol | ✅ | ❌ |
 | Agent Start / End / Update Rituals | ✅ | ❌ |
@@ -116,7 +122,8 @@ npm run start-project:gate      # validate-env · lint · 61/61 · 8/8 tests
 > **Requirements:** Node 20.x–24.x (`.nvmrc` pins **20.19.1**) · npm ≥ 10  
 > **Secrets:** Live keys belong in `.env.local` only — never commit or paste into chat. See [SECURITY.md](docs/SECURITY.md).
 
-> **Agent ritual:** Say `start project` in Cursor chat for full cold-start — see [START-HERE.md](START-HERE.md).
+> **Agent ritual:** Say `start project` in Cursor chat for full cold-start — see [START-HERE.md](START-HERE.md).  
+> **Portable modules:** Copy a folder from [`.cursor/custom-scriptz/`](.cursor/custom-scriptz/) to any repo and run `install.ps1` — see [Prompt-Module.md](.cursor/custom-scriptz/Prompt-Module.md).
 
 ---
 
@@ -166,6 +173,9 @@ Vader Engine
 ├── Integrity Center         # 61-point grader
 ├── Sandbox Manager          # 3 isolated environments (3000–3002)
 ├── Template Engine          # 4 blueprint scaffolds via msc:template CLI
+├── Portable Modules         # .cursor/custom-scriptz/ — google-api-proxy, backup-system
+├── Backup System            # msc:backup · BackUp-Notez.md · agent backup project ritual
+├── Google API Proxy         # LiteLLM :4000 + ngrok — msc:google-api:start
 ├── Operations Hub           # Ports, logs, processes, metrics
 └── CLI Engine               # msc:* script system (scripts/ + package.json)
 ```
@@ -185,10 +195,11 @@ Vader-Engine/
 │   ├── nextjs-payload/    # Port 3001 — full-stack CMS
 │   └── nextjs-tailwind/   # Port 3002 — Tailwind + shadcn Path B
 ├── templates/             # Reusable blueprints (4 registered)
-├── scripts/               # Automation & msc:* tooling
+├── scripts/               # Automation & msc:* tooling (backup, LiteLLM, health, grade)
 ├── core/                  # Shared bridge code
 ├── e2e/                   # Playwright test suite
 ├── .cursor/               # Agent prompts, rules, skills, MCP config
+│   └── custom-scriptz/    # Portable modules (google-api-proxy, backup-system)
 ├── docs/                  # Human runbooks (ARCHITECTURE, CONTRIBUTING, releases)
 ├── TRUTH.md               # Constitution (root — technical precedence)
 └── _archive/              # Archived legacy docs (reference only)
@@ -221,9 +232,13 @@ npm run msc:dev:payload       # Payload sandbox on :3001
 npm run msc:dev:tailwind      # Tailwind sandbox on :3002
 npm run msc:template -- list  # Template catalog
 npm run msc:e2e               # Playwright E2E (run msc:e2e:install first)
-npm run msc:backup            # Standard backup (see msc:backup:full)
+npm run msc:backup            # Standard backup (interactive; say backup project in Cursor)
+npm run msc:backup:full       # Full mirror backup
+npm run msc:google-api:start  # LiteLLM + ngrok (alias: start google-api in chat)
 npm run dev:recover           # Clear stale caches + restart dev flow
 ```
+
+**Cursor chat shortcuts:** `backup project` · `start google-api` · `install module` · `make new` — see [Operator Card](.cursor/docs/Vader-Engine-Operator-Card.md).
 
 Say **End Project** in Cursor chat for session closeout — see [START-HERE.md](START-HERE.md).
 
@@ -242,6 +257,9 @@ Say **End Project** in Cursor chat for session closeout — see [START-HERE.md](
 | [SECURITY.md](docs/SECURITY.md) | Zero-leak policy & advisory reporting |
 | [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Common issues & recovery |
 | [CHANGELOG.md](CHANGELOG.md) | Release history |
+| [Vader-Engine-Cheat-Sheet.md](.cursor/docs/Vader-Engine-Cheat-Sheet.md) | Full command reference |
+| [Vader-Engine-Operator-Card.md](.cursor/docs/Vader-Engine-Operator-Card.md) | One-page daily ops |
+| [Prompt-Module.md](.cursor/custom-scriptz/Prompt-Module.md) | Install portable modules in any project |
 
 **For Cursor agents:** [.cursor/docs/Code-Jedi.md](.cursor/docs/Code-Jedi.md) · [.cursor/prompts/Start-Project.md](.cursor/prompts/Start-Project.md)
 
@@ -251,7 +269,12 @@ Say **End Project** in Cursor chat for session closeout — see [START-HERE.md](
 
 ## 🗺️ Roadmap
 
-### v2.7 (Next)
+### v2.7.0 (Shipped)
+- Portable modules (`google-api-proxy`, `backup-system`) with `install.ps1`
+- Interactive backup + `BackUp-Notez.md` · 8-step agent backup ritual
+- LiteLLM + ngrok proxy · `Prompt-Module.md` canonical installer
+
+### v2.8 (Next)
 - Enhanced metrics dashboard & activity timeline
 - Project manager improvements
 - Deeper Operations Hub integrations
