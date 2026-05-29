@@ -7,9 +7,14 @@
 - **Current Version:** 2.6.1
 - **Status:** Vader Engine v2.6.1 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.1`
 
+### [2026-05-29] - Restore .env.local in Standard backup
+- **Fixed:** `msc-backup.mjs` + `backup-system` module — Standard copies `.env.local` again (removed `/XF`)
+- **Backup:** `Vader-Engine-v1-u` on G: (includes secrets; keep private)
+- **Branch:** `Vader-Engine-Dev-v2`
+
 ### [2026-05-29] - Prompt-Module + interactive backup + doc sync
 - **Canonical:** `.cursor/custom-scriptz/Prompt-Module.md` for module install (any project)
-- **Backup:** interactive `msc-backup.mjs` — prompts for path/folder; `--yes` for automation
+- **Backup:** interactive `msc-backup.mjs` — prompts for path/folder; `--yes` for automation; Standard includes `.env.local`
 - **Docs:** Cheat Sheet + Operator Card portable module table; CHANGELOG/UPDATE_LOG synced
 - **Branch:** `Vader-Engine-Dev-v2`
 

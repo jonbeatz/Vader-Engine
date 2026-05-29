@@ -6,7 +6,7 @@
 
 - **Portable modules** — `.cursor/custom-scriptz/` with `google-api-proxy` (LiteLLM + ngrok + `install.ps1` + `module.manifest.json`) and `backup-system`; shared `_lib/Msc-ModuleInstall.ps1`; **`make new`** / **`create module`** via `Create-New-Module.md`
 - **`Prompt-Module.md`** — canonical portable module installer guide in `custom-scriptz/` (any project); Vader **`Install-Module.md`** thin wrapper
-- **Interactive backup** — `msc-backup.mjs` prompts for destination/folder; project-name + timestamp default; `--yes` for non-TTY; standard skip includes `.env.local`
+- **Interactive backup** — `msc-backup.mjs` prompts for destination/folder; project-name + timestamp default; `--yes` for non-TTY; Standard copies `.env.local` (keep destination private)
 - **Personal env vault** — `.cursor/env/` reference contracts (`master.env.*`), gitignored `Personal-Secrets-Vault.md`, and `scripts/msc-build-personal-secrets-vault.mjs` (scans `.env.local`, MCP, optional `env/backups/1–6`)
 - **`.cursor/README.md`** — agent layer folder index
 - **`msc:google-api:start`** — canonical `stop` + `start:ngrok` npm alias for **start google-api**
@@ -15,6 +15,10 @@
 - Nova-pattern agent docs: `.cursor/docs/{TRUTH,Project-Bible,REPAIR_PROTOCOLS,UPDATE_LOG,MCPs,Checkpoint}.md`
 - Rules: `start-project-ritual.mdc`, `vader-repair-ast.mdc`
 - `_archive/README.md` index for archived v0-Design, old plans, Nova reference, boilerplate runbooks
+
+### Fixed
+
+- **Standard backup** — restored `.env.local` copy in `msc-backup.mjs` (portable `backup-system` module aligned)
 
 ### Changed
 

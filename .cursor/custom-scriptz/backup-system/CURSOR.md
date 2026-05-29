@@ -21,7 +21,7 @@
 
 ## Backup ritual
 
-Follow `.cursor/rules/global.mdc` — Standard summary lists **skips only**.
+Follow `.cursor/rules/global.mdc` — Standard summary lists **skips only** (not includes). Standard backups **include `.env.local`** — remind operator to keep G: destination private.
 
 ## Report
 

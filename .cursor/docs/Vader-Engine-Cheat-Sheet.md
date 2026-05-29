@@ -221,7 +221,7 @@ Index: `.cursor/custom-scriptz/README.md` · Agent: each module's `CURSOR.md` + 
 
 | Command | What it does |
 |---------|--------------|
-| `npm run msc:backup` | Standard backup — skips `node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy` |
+| `npm run msc:backup` | Standard backup — interactive prompts; skips dirs only; **includes `.env.local`** |
 | `npm run msc:backup:standard` | Same as above |
 | `npm run msc:backup:full` | Full mirror (includes `node_modules`, `.next`, etc.) |
 | `npm run msc:backup -- --standard <folder-name>` | Standard backup to custom folder |

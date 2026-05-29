@@ -4,6 +4,19 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ---
 
+## [2026-05-29] — Restore `.env.local` in Standard backup
+
+### Fixed
+
+- **`msc-backup.mjs`** (repo + `backup-system` module) — removed erroneous `/XF .env.local`; Standard again mirrors `.env.local` with directory skips only
+- **`backup-system` README/CURSOR** — Standard copies `.env.local`; keep G: destination private
+
+### Note
+
+- `Vader-Engine-v1-t` was taken while `.env.local` was excluded; use **`Vader-Engine-v1-u`** (or later) for restore points with secrets
+
+---
+
 ## [2026-05-29] — Prompt-Module canonical + interactive backup
 
 ### Added
@@ -13,7 +26,7 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ### Changed
 
-- **`msc-backup.mjs`** — interactive destination/folder prompts; default `G:\Cursor_Project_BackUpz`; project-name + timestamp folder; non-TTY requires `--yes`
+- **`msc-backup.mjs`** — interactive destination/folder prompts; default `G:\Cursor_Project_BackUpz`; project-name + timestamp folder; non-TTY requires `--yes`; Standard **includes `.env.local`**
 - **Cheat Sheet + Operator Card** — portable module commands table; Prompt-Module as canonical reference
 - **`Create-New-Module.md`** — register new modules in Prompt-Module.md
 

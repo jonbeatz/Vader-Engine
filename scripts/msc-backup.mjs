@@ -132,10 +132,11 @@ async function main() {
     let cmd = `robocopy "${REPO_ROOT}" "${fullBackupPath}" /MIR`;
 
     if (isStandardBackup || (!isFullBackup && !isStandardBackup)) {
-      cmd += ` /XD ${STANDARD_DIRS.join(' ')} /XF .env.local`;
+      cmd += ` /XD ${STANDARD_DIRS.join(' ')}`;
       console.log(
-        'ℹ️  Standard skips: node_modules, .next, logs, test-results, vader-site-deploy, .env.local\n',
+        'ℹ️  Standard skips: node_modules, .next, logs, test-results, vader-site-deploy\n',
       );
+      console.log('ℹ️  Keep backup destination private (.env.local is copied).\n');
     } else {
       console.log('ℹ️  Full backup: no directory skips (includes node_modules, .next)\n');
     }

@@ -4,9 +4,9 @@ Robocopy-based **Standard** and **Full** project backups to a configurable drive
 
 ## Standard skips
 
-`node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy`, `.env.local`
+`node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy`
 
-Summaries should list **skips only**, not “includes”.
+Everything else is mirrored (**including `.env.local`**). Summaries should list **skips only**, not “includes”. Keep G: backups private.
 
 ## How it works
 
@@ -14,7 +14,7 @@ When you run `npm run msc:backup` or **`backup project`**, the script will:
 
 1. Ask for backup drive/folder (defaults to `G:\Cursor_Project_BackUpz`)
 2. Suggest a folder name based on the project name + timestamp
-3. Ask for confirmation, then create the backup with standard exclusions
+3. Ask for confirmation, then create the backup (Standard skips dirs only; **`.env.local` is copied**)
 
 Set **`MSC_BACKUP_ROOT`** in `.env.local` to use a fixed backup root (skips the location prompt).
 
