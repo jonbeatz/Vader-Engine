@@ -89,9 +89,21 @@ Flow (one question at a time):
 
 **Standard skips:** `node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy`
 
+> Standard = **source + config + secrets** (including `.env.local`). Not runnable until you `npm install`. **Full** copies everything (large).
+
 Equivalent direct commands:
 - `npm run msc:backup -- --standard <folder-name>`
 - `npm run msc:backup -- --full <folder-name>`
+
+### After Standard restore (5 steps)
+
+1. `robocopy G:\...\Vader-Engine-v1-x D:\Cursor_Projectz\Vader-Engine /MIR`
+2. `npm install` (+ `--prefix ui/dashboard` and sandboxes you use)
+3. `npm run start-project:gate`
+4. `npm run clean:next` if dev cache errors
+5. Vertex: `msc:litellm:preflight` → `start google-api` → `verify google-api`
+
+Full checklist: [Vader-Engine-Cheat-Sheet.md](Vader-Engine-Cheat-Sheet.md) § Backup & Restore
 
 ---
 
@@ -119,6 +131,7 @@ Optional mid-session: `update project` (without full closeout).
 - Lint drift: `npm run msc:lint:fix` then `npm run msc:lint`
 - Docs/version drift: `update docs`
 - Tracking drift: `update project`
+- `Cannot find module` after restore: `npm install` (root + prefixes) → `start-project:gate`
 
 ---
 
@@ -167,4 +180,4 @@ Optional mid-session: `update project` (without full closeout).
 
 ---
 
-*Last updated: May 28, 2026 — `update project`, workflow docs, end-project auto-tracking*
+*Last updated: May 29, 2026 — Standard restore steps, backup vs Full*

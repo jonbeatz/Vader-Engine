@@ -180,6 +180,8 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 | `npm run msc:backup -- --standard <folder-name>` | Standard backup to custom folder |
 | `npm run msc:backup -- --full <folder-name>` | Full backup to custom folder |
 
+> **Standard vs Full:** Standard = source, config, `.env.local`, git — **not** a turn-key runnable tree (no `node_modules` / `.next`). Full = everything copied; larger and slower. Use Standard for daily safety; Full before risky OS moves or offline air-gap restore.
+
 ### Manual Backup Command
 
 ```powershell
@@ -197,11 +199,46 @@ Use `backup project` (or `create backup`) in chat and answer one question at a t
 3. Folder naming (`1` Suggested / `2` Custom)
 4. Confirm (`1` Yes / `2` No)
 
-### Restore from Backup
+### Restore from Standard backup
+
+**1. Copy files** (prefer empty target folder, or know `/MIR` deletes extras on the destination):
 
 ```powershell
 robocopy G:\Cursor_Project_BackUpz\Vader-Engine\Vader-Engine-v1-x D:\Cursor_Projectz\Vader-Engine /MIR
 ```
+
+Override backup root with `MSC_BACKUP_ROOT` in `.env.local` if not using default `G:\Cursor_Project_BackUpz\Vader-Engine`.
+
+**2. Reinstall deps** (required — Standard skips `node_modules`):
+
+```powershell
+cd D:\Cursor_Projectz\Vader-Engine
+npm install
+npm install --prefix ui/dashboard
+npm install --prefix examples/nextjs-minimal
+# Optional if you use them:
+npm install --prefix examples/nextjs-payload
+npm install --prefix examples/nextjs-tailwind
+```
+
+**3. Validate environment:**
+
+```powershell
+npm run msc:validate-env
+npm run start-project:gate
+```
+
+**4. Regenerate caches / optional helpers:**
+
+```powershell
+npm run clean:next          # clears skipped .next folders from old machine
+npm run msc:ensure-lockfiles
+node scripts/msc-build-personal-secrets-vault.mjs   # refresh .cursor/env vault (gitignored)
+```
+
+**5. If using Vertex in Cursor:** `npm run msc:litellm:preflight` → `start google-api` → `verify google-api`
+
+**Fresh clone shortcut:** `npm run bootstrap` (kill ports + quickstart) after copy if you prefer the scripted first-run path.
 
 ---
 
@@ -354,6 +391,8 @@ robocopy G:\Cursor_Project_BackUpz\Vader-Engine\Vader-Engine-v1-x D:\Cursor_Proj
 | Docs drift from version | `update docs` | Run docs sync workflow and review report |
 | Tracking out of date | `update project` | Sync project-log, Checkpoint, UPDATE_LOG |
 | Need fast safe backup | `backup project` | Use conversational flow and confirm standard/full mode |
+| `Cannot find module` after restore | Missing `node_modules` | `npm install` at root + `--prefix` paths you use, then `start-project:gate` |
+| Restored backup but dev won't start | Skipped `.next` | `npm run clean:next` then restart `msc:dev:*` |
 
 ---
 
@@ -469,7 +508,7 @@ Use this sequence before tagging or cutting a release:
 
 ---
 
-*Last updated: May 28, 2026 | Version 2.6.1 — full doc sync, production README, GitHub release*
+*Last updated: May 29, 2026 | Version 2.6.1 — Standard restore checklist, backup vs Full*
 
 
 
