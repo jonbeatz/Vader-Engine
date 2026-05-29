@@ -157,6 +157,8 @@ When the user says any of these phrases, execute the corresponding command:
 | "backup project" | Run `npm run msc:backup` |
 | "create backup" | Run `npm run msc:backup` |
 | "backup" | Run `npm run msc:backup` |
+| "make new" | Run `.cursor/prompts/Create-New-Module.md` — scaffold a portable module under `.cursor/custom-scriptz/` |
+| "create module" | Same as **make new** |
 
 ## Backup Workflow (Agent-Driven - Conversational)
 
