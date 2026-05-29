@@ -16,8 +16,8 @@ Authoritative build and branch history for Vader Engine releases.
 
 ## Branch: `main` (2026-05-28)
 
-- **Current status:** v2.6.1 documentation polish **complete** · gate **61/61** · **8/8** tests
-- **Recent commits:** README finalization · Windows `.env` hint · version bump sync
+- **Current status:** Session closeout complete · v2.6.1 on `main` · gate **61/61** · **8/8** tests · LiteLLM **offline**
+- **Recent commits:** `a23dfdb` doc sync · `5992502` version bump · README polish chain
 
 ### [2026-05-28] — v2.6.1 documentation polish
 
@@ -64,4 +64,4 @@ Authoritative build and branch history for Vader Engine releases.
 
 ---
 
-*Last updated: 2026-05-28 16:15*
+*Last updated: 2026-05-28 16:24 (session closeout)*

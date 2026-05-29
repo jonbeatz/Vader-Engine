@@ -67,11 +67,11 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 | `sync docs` | Alias for `update docs` |
 | `backup project` | Agent-driven conversational backup workflow |
 | `create backup` | Alias for backup workflow |
-| `start google-api` | `npm run msc:litellm:start:ngrok` — LiteLLM + ngrok; prints HTTPS URL |
+| `start google-api` | `npm run msc:litellm:stop` then `start:ngrok` (clean restart, prints HTTPS) |
 | `stop google-api` | `npm run msc:litellm:stop` |
 | `status google-api` | `npm run msc:litellm:status` |
 | `verify google-api` | `npm run msc:litellm:test:ngrok` — local + ngrok check |
-| `restart google-api` | stop then `msc:litellm:start:ngrok` |
+| `restart google-api` | `npm run msc:litellm:stop` then `start:ngrok` (same as start) |
 
 ---
 

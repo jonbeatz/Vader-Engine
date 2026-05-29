@@ -7,6 +7,15 @@
 - **Current Version:** 2.6.1
 - **Status:** Vader Engine v2.6.1 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.1`
 
+### [2026-05-28] - Session Closeout
+- **Session Summary:** Merged PR #14 to `main`; production README polish; version bump to **v2.6.1** + GitHub release; full documentation sync (22 files); standard + full backups (`v1-p`, `v1-q`).
+- **Added/Modified:** README, START-HERE, package.json, CHANGELOG, Checkpoint, UPDATE_LOG, `.cursor/docs/*`, `.cursor/rules`, `.cursor/prompts`, `docs/releases/RELEASE_v2.6.1.md`
+- **Verified:** `start-project:gate` PASS (61/61, 8/8, lint clean)
+- **Ports cleared:** 3000, 3001, 3002, 3010, 8080, 4000
+- **LiteLLM:** stopped
+- **Git:** `main` @ `a23dfdb` · clean · up to date with `origin/main`
+- **Next:** Say **Start Project** for next session cold-start
+
 ### [2026-05-28] - docs - full v2.6.1 documentation sync
 - **Summary:** Synced all active root, `.cursor/docs`, rules, and prompt headers to **2.6.1**; removed stale branch references (`feat/phase-4-polish`).
 - **Gate:** 61/61 · 8/8 tests

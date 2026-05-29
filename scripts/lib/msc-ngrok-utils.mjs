@@ -102,3 +102,21 @@ export function msc_printCursorNgrokSettings(publicBaseUrl) {
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+/** Terminate stale ngrok processes (detached tunnels not bound to inspector 4040). */
+export function msc_killNgrokProcesses() {
+  const BANNER = '[msc:ngrok:kill]';
+  if (process.platform === 'win32') {
+    for (const image of ['ngrok.exe', 'ngrok']) {
+      const r = spawnSync('taskkill', ['/F', '/IM', image], { stdio: 'pipe', encoding: 'utf8' });
+      if (r.status === 0) {
+        console.log(`${BANNER} stopped ${image} (win32)`);
+      }
+    }
+    return;
+  }
+  const r = spawnSync('pkill', ['-f', 'ngrok'], { stdio: 'pipe', encoding: 'utf8' });
+  if (r.status === 0) {
+    console.log(`${BANNER} stopped ngrok (posix)`);
+  }
+}

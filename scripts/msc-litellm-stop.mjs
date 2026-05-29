@@ -8,11 +8,15 @@ import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { msc_hydrateVertexEnv } from './lib/msc-litellm-env.mjs';
+import { msc_killNgrokProcesses } from './lib/msc-ngrok-utils.mjs';
 
 const BANNER = '[msc:litellm:stop]';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const scriptsDir = path.resolve(__dirname);
 const { port } = msc_hydrateVertexEnv();
+
+console.log(`${BANNER} clearing ngrok processes`);
+msc_killNgrokProcesses();
 
 console.log(`${BANNER} clearing proxy port ${port}`);
 spawnSync(process.execPath, [path.join(scriptsDir, 'msc-kill-dev-port.mjs'), String(port)], {

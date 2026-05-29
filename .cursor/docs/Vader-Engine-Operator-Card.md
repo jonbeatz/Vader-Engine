@@ -33,7 +33,7 @@ Cloud Agent **cannot** use `http://127.0.0.1:4000` — use ngrok HTTPS.
 
 | Step | Action |
 |------|--------|
-| 1 | `start google-api` → `npm run msc:litellm:start:ngrok` |
+| 1 | `start google-api` → `npm run msc:litellm:stop` then `start:ngrok` |
 | 2 | Copy **HTTPS URL `/v1`** from terminal output |
 | 3 | `verify google-api` → `npm run msc:litellm:test:ngrok` |
 | 4 | Cursor Settings → see table below |
@@ -133,11 +133,11 @@ Optional mid-session: `update project` (without full closeout).
 | `end project` | `@End-Project.md` (+ auto tracking sync) |
 | `update project` | `.cursor/prompts/Update-Project.md` |
 | `update docs` / `sync docs` | `.cursor/prompts/Update-Docs.md` |
-| `start google-api` | `msc:litellm:start:ngrok` |
+| `start google-api` | `msc:litellm:stop` then `msc:litellm:start:ngrok` (clean restart) |
 | `verify google-api` | `msc:litellm:test:ngrok` |
 | `stop google-api` | `msc:litellm:stop` |
 | `status google-api` | `msc:litellm:status` |
-| `restart google-api` | stop + `start:ngrok` |
+| `restart google-api` | `msc:litellm:stop` then `msc:litellm:start:ngrok` (same as start) |
 | `backup project` | `npm run msc:backup` (conversational) |
 
 ---

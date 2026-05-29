@@ -28,6 +28,16 @@ const startNgrok =
   process.env.MSC_LITELLM_START_NGROK === '1' ||
   process.env.MSC_LITELLM_START_NGROK === 'true';
 
+if (startNgrok) {
+  console.log(`${BANNER} clean stop before ngrok + LiteLLM start…`);
+  const stop = spawnSync(process.execPath, [path.join(scriptsDir, 'msc-litellm-stop.mjs')], {
+    stdio: 'inherit',
+  });
+  if (stop.status !== 0) {
+    process.exit(stop.status ?? 1);
+  }
+}
+
 const pre = spawnSync(process.execPath, [path.join(scriptsDir, 'msc-litellm-preflight.mjs')], {
   stdio: 'inherit',
 });
