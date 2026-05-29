@@ -118,7 +118,10 @@ Flow (one question at a time):
 
 Equivalent direct commands:
 - `npm run msc:backup -- --standard <folder-name>`
+- `npm run msc:backup -- --standard <folder-name> --yes --note "why I backed up"`
 - `npm run msc:backup -- --full <folder-name>`
+
+Each backup writes **`.cursor/BackUp-Notez.md`** in the backup folder (git summary + optional note; newest entries at top).
 
 ### After Standard restore (5 steps)
 
@@ -215,4 +218,4 @@ Optional mid-session: `update project` (without full closeout).
 
 ---
 
-*Last updated: May 29, 2026 — Portable module commands, Prompt-Module.md canonical*
+*Last updated: May 29, 2026 — Backup notes (BackUp-Notez.md), --note flag*

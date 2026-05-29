@@ -1,7 +1,7 @@
 {
   "moduleId": "backup-system",
-  "version": "1.0.0",
-  "description": "Standard/Full robocopy backups to MSC_BACKUP_ROOT",
+  "version": "1.1.0",
+  "description": "Standard/Full robocopy backups with BackUp-Notez.md per folder",
   "install": {
     "command": ".\\.cursor\\custom-scriptz\\backup-system\\install.ps1"
   },

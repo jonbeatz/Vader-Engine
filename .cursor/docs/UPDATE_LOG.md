@@ -4,7 +4,13 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ---
 
-## [2026-05-29] — Restore `.env.local` in Standard backup
+## [2026-05-29] — Backup notes (`BackUp-Notez.md`)
+
+### Added
+
+- **`msc-backup.mjs`** — writes `.cursor/BackUp-Notez.md` in each backup folder after robocopy (prepend newest); optional `--note`; git branch/commit/message; Excluded vs Included (secrets) rows
+
+---
 
 ### Fixed
 

@@ -221,10 +221,11 @@ Index: `.cursor/custom-scriptz/README.md` · Agent: each module's `CURSOR.md` + 
 
 | Command | What it does |
 |---------|--------------|
-| `npm run msc:backup` | Standard backup — interactive prompts; skips dirs only; **includes `.env.local`** |
+| `npm run msc:backup` | Standard backup — interactive prompts; skips dirs only; **includes `.env.local`**; writes `.cursor/BackUp-Notez.md` in backup folder |
 | `npm run msc:backup:standard` | Same as above |
 | `npm run msc:backup:full` | Full mirror (includes `node_modules`, `.next`, etc.) |
-| `npm run msc:backup -- --standard <folder-name>` | Standard backup to custom folder |
+| `npm run msc:backup -- --standard <folder-name>` | Standard backup to named folder |
+| `npm run msc:backup -- --standard <folder-name> --yes --note "text"` | Non-interactive + backup note |
 | `npm run msc:backup -- --full <folder-name>` | Full backup to custom folder |
 
 > **Standard vs Full:** Standard = source, config, `.env.local`, git — **not** a turn-key runnable tree (no `node_modules` / `.next`). Full = everything copied; larger and slower. Use Standard for daily safety; Full before risky OS moves or offline air-gap restore.

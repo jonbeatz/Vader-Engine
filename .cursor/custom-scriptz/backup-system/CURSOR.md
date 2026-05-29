@@ -23,6 +23,8 @@
 
 Follow `.cursor/rules/global.mdc` — Standard summary lists **skips only** (not includes). Standard backups **include `.env.local`** — remind operator to keep G: destination private.
 
+After a successful backup, the script writes **`.cursor/BackUp-Notez.md`** inside the backup folder (post-robocopy). Optional operator note via prompt or `npm run msc:backup -- --standard <folder> --yes --note "..."`.
+
 ## Report
 
 ```text

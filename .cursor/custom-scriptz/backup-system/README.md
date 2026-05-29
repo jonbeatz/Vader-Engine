@@ -18,9 +18,19 @@ When you run `npm run msc:backup` or **`backup project`**, the script will:
 
 Set **`MSC_BACKUP_ROOT`** in `.env.local` to use a fixed backup root (skips the location prompt).
 
-Non-interactive / CI: pass a folder name and `--yes`, e.g. `npm run msc:backup -- --standard my-backup --yes`.
+Non-interactive / CI: pass a folder name and `--yes`, e.g. `npm run msc:backup -- --standard my-backup --yes`. Optional note: `--note "reason for backup"`.
 
-## Install
+## Backup Notes
+
+Each backup writes **`.cursor/BackUp-Notez.md`** inside the backup folder (after robocopy completes):
+
+- Your manual notes at the top (optional prompt, or `--note` on CLI)
+- Git branch, commit, and message
+- Backup type (Standard / Full)
+- **Excluded** directory list (from `STANDARD_DIRS`)
+- **Included (secrets)** — `.env.local` for Standard backups
+
+New entries are **prepended** (newest at top). Re-backing up the same folder name appends history in one file.
 
 ```powershell
 cd .cursor/custom-scriptz/backup-system

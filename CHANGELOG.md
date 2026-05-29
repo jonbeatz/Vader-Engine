@@ -20,6 +20,10 @@
 
 - **Standard backup** — restored `.env.local` copy in `msc-backup.mjs` (portable `backup-system` module aligned)
 
+### Added
+
+- **Backup notes** — `.cursor/BackUp-Notez.md` per backup folder (manual note + git summary; `--note` for non-interactive); written after robocopy
+
 ### Changed
 
 - **Cheat Sheet + Operator Card** — full portable module command table; `Prompt-Module.md` as canonical install reference

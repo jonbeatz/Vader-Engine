@@ -11,8 +11,21 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
 const DEFAULT_BACKUP_ROOT = 'G:\\Cursor_Project_BackUpz';
 const STANDARD_DIRS = ['node_modules', '.next', 'logs', 'test-results', 'vader-site-deploy'];
+const NOTES_REL_PATH = path.join('.cursor', 'BackUp-Notez.md');
+const NOTES_HEADER = `# Backup Notes
 
-const args = process.argv.slice(2);
+Per-backup log (newest entries at top). Standard backups copy \`.env.local\` — keep destination private.
+
+`;
+
+const rawArgs = process.argv.slice(2);
+const noteFlagIndex = rawArgs.findIndex((a) => a === '--note' || a === '-n');
+const userNoteFromCli = noteFlagIndex !== -1 ? (rawArgs[noteFlagIndex + 1] || '').trim() : '';
+const args =
+  noteFlagIndex === -1
+    ? rawArgs
+    : rawArgs.filter((_, i) => i !== noteFlagIndex && i !== noteFlagIndex + 1);
+
 const isFullBackup = args.includes('--full') || args.includes('-f');
 const isStandardBackup = args.includes('--standard') || args.includes('-s');
 const skipConfirm = args.includes('--yes') || args.includes('-y');
@@ -36,6 +49,108 @@ function getProjectName() {
 function defaultBackupFolder(projectName) {
   const stamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
   return `${projectName}-backup-${stamp}`;
+}
+
+function displayBackupType(backupType) {
+  return backupType === 'FULL' ? 'Full' : 'Standard';
+}
+
+function escapeTableCell(text) {
+  return String(text).replace(/\|/g, '\\|').replace(/\r?\n/g, ' ').trim();
+}
+
+function getGitInfo(repoRoot) {
+  try {
+    const branch = execSync('git branch --show-current', {
+      cwd: repoRoot,
+      encoding: 'utf8',
+    }).trim();
+    const commit = execSync('git rev-parse --short HEAD', {
+      cwd: repoRoot,
+      encoding: 'utf8',
+    }).trim();
+    const message = execSync('git log -1 --pretty=%B', {
+      cwd: repoRoot,
+      encoding: 'utf8',
+    })
+      .trim()
+      .split('\n')[0];
+    return { branch, commit, message };
+  } catch {
+    return { branch: 'unknown', commit: 'unknown', message: 'unknown' };
+  }
+}
+
+function formatExcluded(backupType) {
+  if (backupType === 'FULL') {
+    return 'None (full backup)';
+  }
+  return STANDARD_DIRS.map((d) => `${d}/`).join(', ');
+}
+
+function formatIncluded(backupType) {
+  if (backupType === 'FULL') {
+    return 'Full mirror (all project files)';
+  }
+  return '.env.local';
+}
+
+function buildNoteEntry({ timestamp, backupType, userNotes, gitInfo, backupFolder }) {
+  const typeLabel = displayBackupType(backupType);
+  let entry = `## [${timestamp}] - ${typeLabel} Backup\n\n`;
+
+  if (userNotes?.trim()) {
+    entry += `**My Notes:** ${userNotes.trim()}\n\n---\n\n`;
+  } else {
+    entry += `---\n\n`;
+  }
+
+  entry += `| Field | Value |\n`;
+  entry += `|-------|-------|\n`;
+  entry += `| **Folder** | ${escapeTableCell(backupFolder)} |\n`;
+  entry += `| **Branch** | ${escapeTableCell(gitInfo.branch)} |\n`;
+  entry += `| **Commit** | ${escapeTableCell(gitInfo.commit)} |\n`;
+  entry += `| **Message** | ${escapeTableCell(gitInfo.message)} |\n`;
+  entry += `| **Type** | ${typeLabel} |\n`;
+  entry += `| **Excluded** | ${escapeTableCell(formatExcluded(backupType))} |\n`;
+  entry += `| **Included (secrets)** | ${escapeTableCell(formatIncluded(backupType))} |\n`;
+  entry += `\n---\n\n`;
+
+  return entry;
+}
+
+function prependBackupNote(backupPath, entry, preservedTail = '') {
+  const notesPath = path.join(backupPath, NOTES_REL_PATH);
+  const notesDir = path.dirname(notesPath);
+
+  if (!fs.existsSync(notesDir)) {
+    fs.mkdirSync(notesDir, { recursive: true });
+  }
+
+  let tail = preservedTail;
+  if (!tail && fs.existsSync(notesPath)) {
+    tail = fs.readFileSync(notesPath, 'utf8');
+  }
+
+  if (!tail.startsWith('# Backup Notes')) {
+    tail = NOTES_HEADER + tail;
+  }
+
+  fs.writeFileSync(notesPath, entry + tail, 'utf8');
+  return notesPath;
+}
+
+function readExistingNotesBody(backupPath) {
+  const notesPath = path.join(backupPath, NOTES_REL_PATH);
+  if (!fs.existsSync(notesPath)) {
+    return '';
+  }
+  let content = fs.readFileSync(notesPath, 'utf8');
+  const headerEnd = content.indexOf('\n\n', content.indexOf('# Backup Notes'));
+  if (headerEnd !== -1 && content.startsWith('# Backup Notes')) {
+    content = content.slice(headerEnd + 2);
+  }
+  return content;
 }
 
 function askQuestion(rl, question) {
@@ -111,7 +226,28 @@ Source: ${REPO_ROOT}
     return null;
   }
 
-  return { fullBackupPath, backupFolder, backupType };
+  let userNotes = userNoteFromCli;
+  if (interactive && !userNotes) {
+    userNotes = await askQuestion(
+      rl,
+      '\n📝 Add a short note about this backup (optional, press Enter to skip): ',
+    );
+    userNotes = userNotes.trim();
+  }
+
+  return { fullBackupPath, backupFolder, backupType, userNotes };
+}
+
+function printSuccess(fullBackupPath, backupType, backupFolder, notesPath) {
+  console.log(`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Backup complete!
+📂 Location: ${fullBackupPath}
+📦 Type: ${backupType}
+📝 Notes:   ${notesPath}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+`);
+  console.log(`Folder: ${backupFolder}`);
 }
 
 async function main() {
@@ -123,7 +259,7 @@ async function main() {
       return;
     }
 
-    const { fullBackupPath, backupFolder, backupType } = plan;
+    const { fullBackupPath, backupFolder, backupType, userNotes } = plan;
 
     if (!fs.existsSync(fullBackupPath)) {
       fs.mkdirSync(fullBackupPath, { recursive: true });
@@ -143,30 +279,35 @@ async function main() {
 
     console.log('📦 Creating backup...\n');
 
+    const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
+    const gitInfo = getGitInfo(REPO_ROOT);
+    const noteEntry = buildNoteEntry({
+      timestamp,
+      backupType,
+      userNotes,
+      gitInfo,
+      backupFolder,
+    });
+    const preservedNotes = readExistingNotesBody(fullBackupPath);
+
+    let robocopyOk = false;
+
     try {
       execSync(cmd, { stdio: 'inherit', shell: 'powershell.exe' });
-      console.log(`
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Backup complete!
-📂 Location: ${fullBackupPath}
-📦 Type: ${backupType}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-`);
+      robocopyOk = true;
     } catch (error) {
       if (error.status === 1) {
-        console.log(`
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Backup complete!
-📂 Location: ${fullBackupPath}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-`);
+        robocopyOk = true;
       } else {
         console.error(`\n❌ Backup failed: ${error.message}`);
         process.exit(1);
       }
     }
 
-    console.log(`Folder: ${backupFolder}`);
+    if (robocopyOk) {
+      const notesPath = prependBackupNote(fullBackupPath, noteEntry, preservedNotes);
+      printSuccess(fullBackupPath, backupType, backupFolder, notesPath);
+    }
   } finally {
     rl.close();
   }

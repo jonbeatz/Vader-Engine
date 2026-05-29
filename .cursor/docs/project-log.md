@@ -7,6 +7,10 @@
 - **Current Version:** 2.6.1
 - **Status:** Vader Engine v2.6.1 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.1`
 
+### [2026-05-29] - Backup notes (BackUp-Notez.md)
+- **Added:** `.cursor/BackUp-Notez.md` per backup folder — manual note + git summary; `--note` flag; prepend history preserved across re-backup to same folder
+- **Synced:** `backup-system` module + `scripts/msc-backup.mjs`, README, CURSOR, Cheat Sheet, CHANGELOG, UPDATE_LOG
+
 ### [2026-05-29] - Restore .env.local in Standard backup
 - **Fixed:** `msc-backup.mjs` + `backup-system` module — Standard copies `.env.local` again (removed `/XF`)
 - **Backup:** `Vader-Engine-v1-u` on G: (includes secrets; keep private)
