@@ -4,6 +4,21 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ---
 
+## [2026-05-29] — Prompt-Module canonical + interactive backup
+
+### Added
+
+- **`.cursor/custom-scriptz/Prompt-Module.md`** — single agent guide for installing modules in any project
+- **`.cursor/prompts/Install-Module.md`** — Vader-only wrapper → Prompt-Module
+
+### Changed
+
+- **`msc-backup.mjs`** — interactive destination/folder prompts; default `G:\Cursor_Project_BackUpz`; project-name + timestamp folder; non-TTY requires `--yes`
+- **Cheat Sheet + Operator Card** — portable module commands table; Prompt-Module as canonical reference
+- **`Create-New-Module.md`** — register new modules in Prompt-Module.md
+
+---
+
 ## [2026-05-29] — Portable custom-scriptz modules (production install)
 
 ### Added

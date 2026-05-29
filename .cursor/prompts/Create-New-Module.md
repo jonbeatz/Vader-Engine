@@ -83,8 +83,10 @@ Create:
 ## After creation
 
 1. Append row(s) to `.cursor/custom-scriptz/README.md` module index table
-2. Optionally add install shortcut to `global.mdc` if operator requested
-3. Report:
+2. **Register the module** in [.cursor/custom-scriptz/Prompt-Module.md](../custom-scriptz/Prompt-Module.md) under **Available modules** (folder name + one-line description)
+3. If operator requested new chat shortcuts: add to `global.mdc`, then mirror to **Cheat Sheet** and **Operator Card** (What You Have Now + shortcuts tables)
+4. Optionally add install shortcut to `global.mdc` if operator requested
+5. Report:
 
 ```text
 ✅ Module [name] created

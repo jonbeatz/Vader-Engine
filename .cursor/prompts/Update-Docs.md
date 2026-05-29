@@ -46,6 +46,10 @@ Report any NEW items found:
 - `"backup project" → npm run msc:backup`
 - etc.
 
+When new shortcuts are found in `.cursor/rules/global.mdc`, **also update** (same pass):
+- `.cursor/docs/Vader-Engine-Cheat-Sheet.md` — § What You Have Now + § Quick Cursor Agent Commands + Quick Reference Card
+- `.cursor/docs/Vader-Engine-Operator-Card.md` — § What You Have Now + § Agent shortcuts
+
 **New prompt files:**
 - `.cursor/prompts/Update-Docs.md`
 - etc.

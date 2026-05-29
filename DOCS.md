@@ -71,6 +71,8 @@ Single entry point for all **Vader Engine v2.6.1** documentation. Technical prec
 | [.cursor/prompts/End-Project.md](.cursor/prompts/End-Project.md) | Session closeout |
 | [.cursor/prompts/Update-Docs.md](.cursor/prompts/Update-Docs.md) | Doc sync workflow |
 | [.cursor/prompts/Create-New-Module.md](.cursor/prompts/Create-New-Module.md) | Scaffold portable module (`make new`) |
+| [.cursor/custom-scriptz/Prompt-Module.md](.cursor/custom-scriptz/Prompt-Module.md) | **Canonical** portable module installer (any project) |
+| [.cursor/prompts/Install-Module.md](.cursor/prompts/Install-Module.md) | Vader wrapper → Prompt-Module (`install module`) |
 | [.cursor/prompts/task-planner.md](.cursor/prompts/task-planner.md) | Phase 1–3 gate |
 | [.cursor/custom-scriptz/README.md](.cursor/custom-scriptz/README.md) | Portable modules (google-api-proxy, backup-system) |
 | [.cursor/rules/README.md](.cursor/rules/README.md) | Rules index |

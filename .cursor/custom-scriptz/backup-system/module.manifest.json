@@ -9,7 +9,7 @@
   "prerequisites": ["scripts/lib/msc-load-env.mjs"],
   "envKeys": ["MSC_BACKUP_ROOT"],
   "defaults": {
-    "MSC_BACKUP_ROOT": "G:\\Cursor_Project_BackUpz\\Vader-Engine"
+    "MSC_BACKUP_ROOT": "G:\\Cursor_Project_BackUpz"
   },
   "standardSkips": ["node_modules", ".next", "logs", "test-results", "vader-site-deploy"],
   "agentDoc": "CURSOR.md",

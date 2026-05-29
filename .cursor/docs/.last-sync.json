@@ -1,6 +1,6 @@
 {
-  "lastSync": "2026-05-29T16:00:00-07:00",
-  "lastProjectUpdate": "2026-05-29T16:00:00-07:00",
+  "lastSync": "2026-05-29T23:00:00-07:00",
+  "lastProjectUpdate": "2026-05-29T23:00:00-07:00",
   "version": "2.6.1",
   "scripts": [
     "prepare",
@@ -94,10 +94,16 @@
     "\"backup\" -> npm run msc:backup",
     "\"full backup\" -> npm run msc:backup:full",
     "\"make new\" -> .cursor/prompts/Create-New-Module.md",
-    "\"create module\" -> .cursor/prompts/Create-New-Module.md"
+    "\"create module\" -> .cursor/prompts/Create-New-Module.md",
+    "\"install module\" -> .cursor/prompts/Install-Module.md",
+    "\"install google-api-proxy\" -> .cursor/prompts/Install-Module.md",
+    "\"install google-api module\" -> .cursor/prompts/Install-Module.md",
+    "\"install backup-system\" -> .cursor/prompts/Install-Module.md",
+    "\"list modules\" -> .cursor/prompts/Install-Module.md"
   ],
   "prompts": [
     ".cursor/prompts/Create-New-Module.md",
+    ".cursor/prompts/Install-Module.md",
     ".cursor/prompts/End-Project.md",
     ".cursor/prompts/Start-Project.md",
     ".cursor/prompts/TEMPLATE-PLAN.md",

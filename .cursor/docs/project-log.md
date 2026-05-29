@@ -7,6 +7,12 @@
 - **Current Version:** 2.6.1
 - **Status:** Vader Engine v2.6.1 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.1`
 
+### [2026-05-29] - Prompt-Module + interactive backup + doc sync
+- **Canonical:** `.cursor/custom-scriptz/Prompt-Module.md` for module install (any project)
+- **Backup:** interactive `msc-backup.mjs` — prompts for path/folder; `--yes` for automation
+- **Docs:** Cheat Sheet + Operator Card portable module table; CHANGELOG/UPDATE_LOG synced
+- **Branch:** `Vader-Engine-Dev-v2`
+
 ### [2026-05-29] - Portable modules + v2 branch
 - **Branch:** `Vader-Engine-Dev-v2` (working); `Vader-Engine-Dev-v1` @ `c993472` restore point
 - **Added:** `.cursor/custom-scriptz/` google-api-proxy + backup-system with production `install.ps1`, manifests, `_lib` helpers

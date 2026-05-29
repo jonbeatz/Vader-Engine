@@ -159,6 +159,11 @@ When the user says any of these phrases, execute the corresponding command:
 | "backup" | Run `npm run msc:backup` |
 | "make new" | Run `.cursor/prompts/Create-New-Module.md` — scaffold a portable module under `.cursor/custom-scriptz/` |
 | "create module" | Same as **make new** |
+| "install module" | Run `.cursor/prompts/Install-Module.md` — list modules if unnamed, then install |
+| "install google-api-proxy" | Run `.cursor/prompts/Install-Module.md` — module folder `google-api-proxy` |
+| "install google-api module" | Same as **install google-api-proxy** |
+| "install backup-system" | Run `.cursor/prompts/Install-Module.md` — module folder `backup-system` |
+| "list modules" | List `.cursor/custom-scriptz/*/` folders that contain `module.manifest.json` |
 
 ## Backup Workflow (Agent-Driven - Conversational)
 

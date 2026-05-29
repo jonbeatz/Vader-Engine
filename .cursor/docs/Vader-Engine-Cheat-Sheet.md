@@ -12,6 +12,33 @@
 | `update docs` | Syncs version numbers across documentation |
 | `start project` | Session start with mandatory reads |
 | `end project` | Runs `update project` + cleanup + handoff |
+| `make new` | Scaffold portable module — `Create-New-Module.md` |
+| `create module` | Same as **make new** |
+| `list modules` | Shows all available portable modules in `custom-scriptz` |
+| `install module` | Lists modules, asks which to install — `Prompt-Module.md` |
+| `install google-api-proxy` | Installs LiteLLM + ngrok proxy module |
+| `install google-api module` | Same as **install google-api-proxy** (alias) |
+| `install backup-system` | Installs backup commands module |
+
+> **Portable modules:** Canonical agent guide is [`.cursor/custom-scriptz/Prompt-Module.md`](../custom-scriptz/Prompt-Module.md). In Vader, chat shortcuts route via [`Install-Module.md`](../prompts/Install-Module.md) (thin wrapper).
+
+> **Doc rule:** New chat shortcuts in `global.mdc` must be mirrored here and in [Vader-Engine-Operator-Card.md](Vader-Engine-Operator-Card.md) when added (same session or `update docs`).
+
+---
+
+## Portable module commands
+
+| You say | What happens |
+|---------|--------------|
+| `list modules` | Shows all available portable modules |
+| `install module` | Lists modules, asks which to install |
+| `install google-api-proxy` | Installs LiteLLM + ngrok proxy |
+| `install google-api module` | Same as above (alias) |
+| `install backup-system` | Installs backup commands |
+| `make new` | Creates a new portable module |
+| `create module` | Same as **make new** |
+
+Copy `.cursor/custom-scriptz/` to any project, then point the agent at **Prompt-Module.md**.
 
 ---
 
@@ -69,6 +96,11 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 | `create backup` | Alias for backup workflow |
 | `make new` | Scaffold portable module — `Create-New-Module.md` |
 | `create module` | Same as **make new** |
+| `list modules` | List `custom-scriptz` folders with manifests |
+| `install module` | Follow `Prompt-Module.md` — pick module if unnamed |
+| `install google-api-proxy` | Install `google-api-proxy` per `Prompt-Module.md` |
+| `install google-api module` | Alias → `google-api-proxy` |
+| `install backup-system` | Install `backup-system` per `Prompt-Module.md` |
 | `start google-api` | `npm run msc:google-api:start` (clean stop → boot → ngrok → **READY**) |
 | `stop google-api` | `npm run msc:litellm:stop` |
 | `status google-api` | `npm run msc:litellm:status` |
@@ -487,6 +519,9 @@ Use this sequence before tagging or cutting a release:
 | `.cursor/prompts/End-Project.md` | Session closeout — includes auto `update project` |
 | `.cursor/prompts/Update-Project.md` | Tracking sync (`update project`) |
 | `.cursor/prompts/Update-Docs.md` | Full doc sync (`update docs`) |
+| `.cursor/custom-scriptz/Prompt-Module.md` | **Canonical** portable module installer (any project) |
+| `.cursor/prompts/Install-Module.md` | Vader wrapper → `Prompt-Module.md` |
+| `.cursor/custom-scriptz/README.md` | Portable modules index |
 | `.cursor/rules/global.mdc` | Natural language shortcuts |
 | `.cursor/rules/start-project-ritual.mdc` | No dev server by default on start |
 | `.cursor/docs/Project-Bible.md` | npm command lexicon |
@@ -510,7 +545,14 @@ Use this sequence before tagging or cutting a release:
 │  end project        → Close (+ auto update project)             │
 │  update project     → Tracking docs sync                        │
 │  update docs        → Full documentation sync                   │
-│  backup project     → Conversational backup                     │
+│  make new           → Scaffold portable module (custom-scriptz) │
+│  create module      → Same as make new                          │
+│  list modules       → Show available portable modules           │
+│  install module     → Prompt-Module.md — pick module            │
+│  install google-api-proxy → LiteLLM + ngrok module              │
+│  install google-api module → Alias for google-api-proxy         │
+│  install backup-system → Backup commands module                 │
+│  backup project     → Interactive backup (msc-backup.mjs)       │
 │  start google-api   → LiteLLM + ngrok (HTTPS for Cloud Agent)   │
 │  verify google-api  → Test local + ngrok /v1/models             │
 │  stop google-api    → Stop proxy + ngrok                        │
@@ -523,7 +565,7 @@ Use this sequence before tagging or cutting a release:
 
 ---
 
-*Last updated: May 29, 2026 | Version 2.6.1 — portable custom-scriptz modules, v2 branch*
+*Last updated: May 29, 2026 | Version 2.6.1 — Portable module commands, Prompt-Module.md canonical*
 
 
 

@@ -4,77 +4,170 @@ import './lib/msc-load-env.mjs';
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
-const BACKUP_ROOT = process.env.MSC_BACKUP_ROOT || 'G:\\Cursor_Project_BackUpz\\Vader-Engine';
-const SOURCE = REPO_ROOT;
+const DEFAULT_BACKUP_ROOT = 'G:\\Cursor_Project_BackUpz';
+const STANDARD_DIRS = ['node_modules', '.next', 'logs', 'test-results', 'vader-site-deploy'];
 
 const args = process.argv.slice(2);
 const isFullBackup = args.includes('--full') || args.includes('-f');
 const isStandardBackup = args.includes('--standard') || args.includes('-s');
+const skipConfirm = args.includes('--yes') || args.includes('-y');
 const customName = args.find((a) => !a.startsWith('-')) || null;
 
-function getLatestBackup() {
-  if (!fs.existsSync(BACKUP_ROOT)) return null;
-  const folders = fs
-    .readdirSync(BACKUP_ROOT)
-    .filter(
-      (f) => f.startsWith('Vader-Engine-v') && fs.statSync(path.join(BACKUP_ROOT, f)).isDirectory(),
-    )
-    .sort();
-  return folders.length ? folders[folders.length - 1] : null;
+function getProjectName() {
+  try {
+    const pkgPath = path.join(REPO_ROOT, 'package.json');
+    if (fs.existsSync(pkgPath)) {
+      const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+      if (pkg.name && typeof pkg.name === 'string') {
+        return pkg.name.replace(/^@/, '').replace(/\//g, '-');
+      }
+    }
+  } catch {
+    /* use folder name */
+  }
+  return path.basename(REPO_ROOT);
 }
 
-function incrementVersion(folderName) {
-  const match = folderName.match(/Vader-Engine-v(\d+)(?:-([a-z]))?/);
-  if (!match) return 'Vader-Engine-v1-a';
-  const num = parseInt(match[1], 10);
-  const letter = match[2];
-  if (letter) {
-    const nextLetter = String.fromCharCode(letter.charCodeAt(0) + 1);
-    if (nextLetter <= 'z') return `Vader-Engine-v${num}-${nextLetter}`;
-    return `Vader-Engine-v${num + 1}-a`;
+function defaultBackupFolder(projectName) {
+  const stamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+  return `${projectName}-backup-${stamp}`;
+}
+
+function askQuestion(rl, question) {
+  return new Promise((resolve) => {
+    rl.question(question, (answer) => {
+      resolve(answer);
+    });
+  });
+}
+
+function createReadline() {
+  return readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+}
+
+async function resolveBackupPlan(rl) {
+  const projectName = getProjectName();
+  const suggestedFolder = customName || defaultBackupFolder(projectName);
+
+  let backupRoot = process.env.MSC_BACKUP_ROOT?.trim() || '';
+  let backupFolder = customName || '';
+  const interactive = process.stdin.isTTY;
+
+  console.log(`
+╔══════════════════════════════════════════════════════════════╗
+║  📦 Portable Backup System                                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+Current project: ${projectName}
+Source: ${REPO_ROOT}
+`);
+
+  if (interactive) {
+    if (!backupRoot) {
+      const answer = await askQuestion(rl, `Backup drive/folder [${DEFAULT_BACKUP_ROOT}]: `);
+      backupRoot = answer.trim() || DEFAULT_BACKUP_ROOT;
+    } else {
+      console.log(`Backup root (from MSC_BACKUP_ROOT): ${backupRoot}`);
+    }
+
+    if (!backupFolder) {
+      const folderAnswer = await askQuestion(rl, `Backup folder name [${suggestedFolder}]: `);
+      backupFolder = folderAnswer.trim() || suggestedFolder;
+    }
+  } else {
+    backupRoot = backupRoot || DEFAULT_BACKUP_ROOT;
+    backupFolder = backupFolder || suggestedFolder;
+    console.log(`Backup root: ${backupRoot}`);
+    console.log(`Backup folder: ${backupFolder}`);
   }
-  return `Vader-Engine-v${num + 1}`;
+
+  const fullBackupPath = path.join(backupRoot, backupFolder);
+  const backupType = isFullBackup ? 'FULL' : 'STANDARD';
+
+  console.log(`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📂 Source:      ${REPO_ROOT}
+📂 Destination: ${fullBackupPath}
+📦 Type:        ${backupType}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+`);
+
+  if (interactive && !skipConfirm) {
+    const confirm = await askQuestion(rl, 'Proceed with backup? (y/n): ');
+    if (confirm.trim().toLowerCase() !== 'y') {
+      console.log('\n❌ Backup cancelled.');
+      return null;
+    }
+  } else if (!interactive && !skipConfirm) {
+    console.log('\nNon-interactive session: add --yes to run, or run from a terminal for prompts.');
+    return null;
+  }
+
+  return { fullBackupPath, backupFolder, backupType };
 }
 
 async function main() {
-  const latest = getLatestBackup();
-  const suggested = latest ? incrementVersion(latest) : 'Vader-Engine-v1-a';
-  const destName = customName || suggested;
-  const fullDestPath = path.join(BACKUP_ROOT, destName);
-
-  const backupType = isFullBackup ? 'FULL' : 'STANDARD';
-
-  console.log(`\n📂 Source: ${SOURCE}`);
-  console.log(`📂 Destination: ${fullDestPath}`);
-  console.log(`📦 Type: ${backupType}`);
-  console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`);
-
-  if (!fs.existsSync(fullDestPath)) {
-    fs.mkdirSync(fullDestPath, { recursive: true });
-  }
-
-  let cmd = `robocopy "${SOURCE}" "${fullDestPath}" /MIR`;
-
-  if (isStandardBackup || (!isFullBackup && !isStandardBackup)) {
-    cmd += ' /XD node_modules .next logs test-results vader-site-deploy';
-    console.log('ℹ️  Standard skips: node_modules, .next, logs, test-results, vader-site-deploy\n');
-    console.log('ℹ️  Keep backup destination private (live secrets may be present).\n');
-  }
+  const rl = createReadline();
 
   try {
-    execSync(cmd, { stdio: 'inherit', shell: 'powershell.exe' });
-    console.log(`\n✅ Backup complete: ${destName}`);
-  } catch (error) {
-    if (error.status === 1) {
-      console.log(`\n✅ Backup complete: ${destName}`);
-    } else {
-      console.error(`\n❌ Backup failed: ${error.message}`);
-      process.exit(1);
+    const plan = await resolveBackupPlan(rl);
+    if (!plan) {
+      return;
     }
+
+    const { fullBackupPath, backupFolder, backupType } = plan;
+
+    if (!fs.existsSync(fullBackupPath)) {
+      fs.mkdirSync(fullBackupPath, { recursive: true });
+    }
+
+    let cmd = `robocopy "${REPO_ROOT}" "${fullBackupPath}" /MIR`;
+
+    if (isStandardBackup || (!isFullBackup && !isStandardBackup)) {
+      cmd += ` /XD ${STANDARD_DIRS.join(' ')} /XF .env.local`;
+      console.log(
+        'ℹ️  Standard skips: node_modules, .next, logs, test-results, vader-site-deploy, .env.local\n',
+      );
+    } else {
+      console.log('ℹ️  Full backup: no directory skips (includes node_modules, .next)\n');
+    }
+
+    console.log('📦 Creating backup...\n');
+
+    try {
+      execSync(cmd, { stdio: 'inherit', shell: 'powershell.exe' });
+      console.log(`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Backup complete!
+📂 Location: ${fullBackupPath}
+📦 Type: ${backupType}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+`);
+    } catch (error) {
+      if (error.status === 1) {
+        console.log(`
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Backup complete!
+📂 Location: ${fullBackupPath}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+`);
+      } else {
+        console.error(`\n❌ Backup failed: ${error.message}`);
+        process.exit(1);
+      }
+    }
+
+    console.log(`Folder: ${backupFolder}`);
+  } finally {
+    rl.close();
   }
 }
 

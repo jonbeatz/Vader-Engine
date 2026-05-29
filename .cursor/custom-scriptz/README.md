@@ -27,6 +27,10 @@ Shared installer helpers: [_lib/Msc-ModuleInstall.ps1](_lib/Msc-ModuleInstall.ps
 
 Say **`make new`** or **`create module`** — [Create-New-Module.md](../prompts/Create-New-Module.md)
 
-## Agent rule
+## Agent entry (any project)
 
-Point the agent at a module folder → read `module.manifest.json` + `CURSOR.md` → run `install.ps1`.
+**[Prompt-Module.md](Prompt-Module.md)** — tell the agent to read and follow this file, then name the module (e.g. `google-api-proxy`).
+
+In Vader Engine, chat shortcuts (`install module`, etc.) route to [Install-Module.md](../prompts/Install-Module.md), which points back to Prompt-Module.md.
+
+Per-module detail: `module.manifest.json` + `CURSOR.md` + `install.ps1`.

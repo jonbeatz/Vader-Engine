@@ -53,6 +53,6 @@ if (Test-Path $dest) {
 
 Write-Host ""
 Write-Host "Installation complete." -ForegroundColor Green
-Write-Host "Default backup root: G:\Cursor_Project_BackUpz\Vader-Engine (override MSC_BACKUP_ROOT in .env.local)"
+Write-Host "Default backup root prompt: G:\Cursor_Project_BackUpz (override MSC_BACKUP_ROOT in .env.local)"
 Write-Host "Standard skips: node_modules, .next, logs, test-results, vader-site-deploy"
 Write-Host ""

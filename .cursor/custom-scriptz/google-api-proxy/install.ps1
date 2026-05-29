@@ -95,7 +95,7 @@ if (-not $ngrokOk -and -not $WhatIf) {
   if (Test-Path (Join-Path $gaDest "ngrok.exe")) { $ngrokOk = $true }
 }
 if (-not $ngrokOk) {
-  Write-Host "  WARN: ngrok.exe not in module or target — Cloud Agent needs ngrok or PATH" -ForegroundColor Yellow
+  Write-Host "  WARN: ngrok.exe not in module or target - Cloud Agent needs ngrok or PATH" -ForegroundColor Yellow
   Write-Host "         https://ngrok.com/download -> google-api/ngrok.exe" -ForegroundColor DarkGray
 }
 

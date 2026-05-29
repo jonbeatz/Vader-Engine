@@ -12,6 +12,31 @@
 | `update docs` | Syncs version numbers across documentation |
 | `start project` | Session start with mandatory reads |
 | `end project` | Runs `update project` + cleanup + handoff |
+| `make new` | Scaffold portable module under `.cursor/custom-scriptz/` |
+| `create module` | Same as **make new** |
+| `list modules` | Shows all available portable modules |
+| `install module` | Lists modules, asks which to install — `Prompt-Module.md` |
+| `install google-api-proxy` | Installs LiteLLM + ngrok proxy module |
+| `install google-api module` | Same as **install google-api-proxy** (alias) |
+| `install backup-system` | Installs backup commands module |
+
+> **Portable modules:** [`.cursor/custom-scriptz/Prompt-Module.md`](../custom-scriptz/Prompt-Module.md) is the canonical guide for any project. Vader chat shortcuts use [`Install-Module.md`](../prompts/Install-Module.md) as a thin wrapper.
+
+> **Doc rule:** When a new phrase is added to `.cursor/rules/global.mdc`, add it here and in [Vader-Engine-Cheat-Sheet.md](Vader-Engine-Cheat-Sheet.md) (same session or next `update docs`).
+
+---
+
+## Portable module commands
+
+| You say | What happens |
+|---------|--------------|
+| `list modules` | Shows all available portable modules |
+| `install module` | Lists modules, asks which to install |
+| `install google-api-proxy` | Installs LiteLLM + ngrok proxy |
+| `install google-api module` | Same as above (alias) |
+| `install backup-system` | Installs backup commands |
+| `make new` | Creates a new portable module |
+| `create module` | Same as **make new** |
 
 ---
 
@@ -163,6 +188,13 @@ Optional mid-session: `update project` (without full closeout).
 | `status google-api` | `msc:litellm:status` |
 | `restart google-api` | `npm run msc:google-api:start` |
 | `backup project` | `npm run msc:backup` (conversational) |
+| `make new` | `.cursor/prompts/Create-New-Module.md` |
+| `create module` | Same as **make new** |
+| `list modules` | Scan `.cursor/custom-scriptz/` manifests |
+| `install module` | `.cursor/custom-scriptz/Prompt-Module.md` — pick module |
+| `install google-api-proxy` | `Prompt-Module.md` → `google-api-proxy` |
+| `install google-api module` | Same as **install google-api-proxy** |
+| `install backup-system` | `Prompt-Module.md` → `backup-system` |
 
 ---
 
@@ -177,7 +209,10 @@ Optional mid-session: `update project` (without full closeout).
 | `.cursor/docs/Vader-Engine-Cheat-Sheet.md` | Full quick reference |
 | `.cursor/docs/project-log.md` | Session history |
 | `.cursor/rules/global.mdc` | All chat shortcuts |
+| `.cursor/custom-scriptz/Prompt-Module.md` | **Canonical** portable module installer |
+| `.cursor/prompts/Install-Module.md` | Vader wrapper → Prompt-Module.md |
+| `.cursor/custom-scriptz/README.md` | Module library index |
 
 ---
 
-*Last updated: May 29, 2026 — Standard restore steps, backup vs Full*
+*Last updated: May 29, 2026 — Portable module commands, Prompt-Module.md canonical*
