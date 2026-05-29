@@ -29,12 +29,15 @@ Create:
 
 ```text
 .cursor/custom-scriptz/[module-name]/
-├── README.md          # human docs (purpose, install, commands)
-├── CURSOR.md          # agent install steps + report block
-├── install.ps1        # copies scripts/, merges package-scripts.json
-├── package-scripts.json   # { "scripts": {}, "envKeys": [], "shortcuts": {} }
-├── env.example.fragment   # optional — keys for .env.example
-└── scripts/           # copied or stubbed .mjs files
+├── module.manifest.json   # agent machine-readable contract
+├── README.md
+├── CURSOR.md
+├── install.ps1            # dot-source ../_lib/Msc-ModuleInstall.ps1
+├── package-scripts.json   # { "scripts", "envKeys", "shortcuts", optional "dependencies" }
+├── env.example.fragment
+├── global.mdc.fragment    # optional shortcut rows
+├── prerequisites/         # optional — msc-load-env, msc-kill-dev-port, package-scripts.json (dotenv)
+└── scripts/ | config/ | …
 ```
 
 ### README.md template
@@ -54,11 +57,13 @@ Create:
 
 ### install.ps1 rules
 
-- Resolve repo root: `Join-Path $PSScriptRoot "..\..\.."`
-- Copy `scripts/**` into target `scripts/` (create `scripts/lib/` if needed)
-- Merge `package-scripts.json` → `package.json` via Node (same pattern as existing modules)
-- Support `-WhatIf` for dry run
-- Print **Next steps** (env, verify, global.mdc)
+- Dot-source [`.cursor/custom-scriptz/_lib/Msc-ModuleInstall.ps1`](../custom-scriptz/_lib/Msc-ModuleInstall.ps1)
+- Use `Resolve-MscRepoRoot` (cwd with `package.json`, else `..\..\..` from module)
+- `Install-MscPrerequisites` when target lacks `msc-load-env.mjs`
+- `Merge-MscPackageJson` via **Node only** — never PowerShell `ConvertTo-Json` on `package.json`
+- `Merge-MscEnvFragment` with a unique marker key
+- Support `-WhatIf`, `-Force`, `-SkipVerify`
+- Run `npm run msc:litellm:preflight` (or module-specific verify) when `node_modules` exists
 
 ### package-scripts.json
 

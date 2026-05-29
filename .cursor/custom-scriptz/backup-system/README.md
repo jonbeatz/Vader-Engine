@@ -34,10 +34,21 @@ Chat: **`backup project`** — conversational flow in `global.mdc`.
 
 See `.cursor/docs/Vader-Engine-Cheat-Sheet.md` § Backup & Restore.
 
+## Install
+
+```powershell
+.\.cursor\custom-scriptz\backup-system\install.ps1
+.\.cursor\custom-scriptz\backup-system\install.ps1 -WhatIf
+```
+
+Uses same repo-root detection as google-api-proxy. Pulls `msc-load-env` from google-api-proxy `prerequisites/` if missing.
+
 ## Env
 
-| Key | Default |
-|-----|---------|
-| `MSC_BACKUP_ROOT` | `G:\Cursor_Project_BackUpz\Vader-Engine` (Windows) |
+| Key | Default (personal) |
+|-----|---------------------|
+| `MSC_BACKUP_ROOT` | `G:\Cursor_Project_BackUpz\Vader-Engine` |
 
-Set in `.env.local` per project name.
+Set in `.env.local` per project name. Installer appends comment to `.env.example` if missing.
+
+Manifest: [module.manifest.json](module.manifest.json)

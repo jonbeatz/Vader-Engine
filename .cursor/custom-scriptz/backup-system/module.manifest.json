@@ -1,0 +1,17 @@
+{
+  "moduleId": "backup-system",
+  "version": "1.0.0",
+  "description": "Standard/Full robocopy backups to MSC_BACKUP_ROOT",
+  "install": {
+    "command": ".\\.cursor\\custom-scriptz\\backup-system\\install.ps1"
+  },
+  "verifyCommands": ["npm run msc:backup -- --standard install-smoke-test"],
+  "prerequisites": ["scripts/lib/msc-load-env.mjs"],
+  "envKeys": ["MSC_BACKUP_ROOT"],
+  "defaults": {
+    "MSC_BACKUP_ROOT": "G:\\Cursor_Project_BackUpz\\Vader-Engine"
+  },
+  "standardSkips": ["node_modules", ".next", "logs", "test-results", "vader-site-deploy"],
+  "agentDoc": "CURSOR.md",
+  "humanDoc": "README.md"
+}

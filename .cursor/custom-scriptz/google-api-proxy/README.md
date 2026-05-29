@@ -1,50 +1,72 @@
-# google-api-proxy (portable module)
+# Google API Proxy Module
 
-Local **LiteLLM** proxy to **Google Vertex AI**, with optional **ngrok** for Cursor Cloud Agent (`vader-3-flash` / `vader-3.5-flash`).
+LiteLLM + **Google Vertex AI** + **ngrok** for Cursor Cloud Agent (`vader-3.5-flash` / `vader-3-flash`).
 
-## Contents
+## Personal workflow (this machine)
 
-| Path | Purpose |
-|------|---------|
-| `scripts/msc-litellm-*.mjs` | Start, stop, status, verify, preflight, ngrok test |
-| `scripts/lib/msc-litellm-env.mjs` | Port, config path, auth headers, health probes |
-| `scripts/lib/msc-ngrok-utils.mjs` | ngrok binary resolve, tunnel URL, Cursor settings banner |
-| `scripts/vpe-start-api.ps1` | Windows launcher → `npm run msc:litellm:start[:ngrok]` |
-| `config/litellm_config.example.yaml` | Model aliases + `master_key` template |
-| `google-api/` | **Runtime slot** — place `ngrok.exe` here (~31 MB, not in Git). See `google-api/README.md` |
-| `google-api/vpe-start-api.ps1` | Windows launcher shim |
-| `package-scripts.json` | npm scripts + env keys + chat shortcuts |
-| `env.example.fragment` | Keys to append to target `.env.example` |
+| Step | Action |
+|------|--------|
+| 1 | Keep module pack at `.cursor/custom-scriptz/google-api-proxy/` with **`google-api/ngrok.exe` on disk** (~31 MB, not in Git) |
+| 2 | Standard backup (`backup project`) copies the whole repo including `custom-scriptz` + local ngrok |
+| 3 | New project: robocopy `.cursor/custom-scriptz/` from Vader or G: backup → run `install.ps1` |
+| 4 | `npm install` → set `.env.local` + GCP key → `npm run msc:litellm:preflight` → `start google-api` |
+
+## Requirements
+
+| Item | Where |
+|------|--------|
+| Node 20+ | Target repo |
+| `dotenv` | Merged into `package.json` if missing (via prerequisites) |
+| GCP service account JSON | `config/gcp-service-account.json` (gitignored) |
+| **ngrok.exe** | Module `google-api/` → installed to repo `google-api/ngrok.exe` |
+| `NGROK_AUTHTOKEN` | `.env.local` |
+| Python LiteLLM | `npm run msc:litellm:install-deps` (first time) |
 
 ## Install
 
 ```powershell
-cd .cursor/custom-scriptz/google-api-proxy
-.\install.ps1
-.\install.ps1 -WhatIf   # dry run
+# From repo root (recommended)
+.\.cursor\custom-scriptz\google-api-proxy\install.ps1
+
+# Dry run
+.\.cursor\custom-scriptz\google-api-proxy\install.ps1 -WhatIf
+
+# Overwrite existing litellm_config.yaml
+.\.cursor\custom-scriptz\google-api-proxy\install.ps1 -Force
 ```
 
-## Operator commands (after install)
+Installer auto-detects repo root: current directory if `package.json` exists, else parent of `.cursor/custom-scriptz/`.
 
-| Say | npm |
-|-----|-----|
+## What's installed
+
+| Component | Location |
+|-----------|----------|
+| LiteLLM scripts | `scripts/msc-litellm-*.mjs`, `scripts/lib/msc-*` |
+| Prerequisites (if missing) | `scripts/lib/msc-load-env.mjs`, `scripts/msc-kill-dev-port.mjs` |
+| ngrok | `google-api/ngrok.exe` |
+| Config | `config/litellm_config.yaml` |
+| npm scripts | Merged from `package-scripts.json` |
+
+## Commands
+
+| Say / Command | Action |
+|---------------|--------|
 | `start google-api` | `npm run msc:google-api:start` |
-| `verify google-api` | `npm run msc:litellm:test:ngrok` |
+| `verify google-api` | `npm run msc:litellm:test:ngrok` (local + ngrok **200**) |
 | `stop google-api` | `npm run msc:litellm:stop` |
+| `status google-api` | `npm run msc:litellm:status` |
 
-## Prerequisites
+## Cursor shortcuts
 
-- Node 20+ repo with `scripts/lib/msc-load-env.mjs`
-- Python `pip install litellm[proxy]` (`npm run msc:litellm:install-deps`)
-- GCP service account JSON (gitignored) — `GOOGLE_APPLICATION_CREDENTIALS`
-- **`google-api/ngrok.exe`** on disk (or `ngrok` on PATH) — required for Cloud Agent / `msc:litellm:start:ngrok`
-- `NGROK_AUTHTOKEN` in `.env.local` for authenticated tunnels
+Merge [global.mdc.fragment](global.mdc.fragment) into `.cursor/rules/global.mdc` for new repos.
 
-## Ports
+## Troubleshooting
 
-| Service | Default |
-|---------|---------|
-| LiteLLM | `4000` (`MSC_LITELLM_PORT`) |
-| ngrok inspector | `4040` |
+| Issue | Fix |
+|-------|-----|
+| 401 Unauthorized | `MSC_LITELLM_MASTER_KEY` must match `general_settings.master_key` in `config/litellm_config.yaml` |
+| ngrok not found | Place `ngrok.exe` in module `google-api/` and re-run `install.ps1`, or set `MSC_NGROK_BIN` |
+| GCP auth failed | Real `config/gcp-service-account.json` + project id in `litellm_config.yaml` |
+| Provider Error in Cursor | New ngrok URL — `restart google-api`, paste HTTPS `/v1` in settings |
 
-Full runbook: `.cursor/docs/local-ai-proxy-setup.md` (when installed in Vader Engine).
+Agent manifest: [module.manifest.json](module.manifest.json) · Runbook (Vader): `.cursor/docs/local-ai-proxy-setup.md`

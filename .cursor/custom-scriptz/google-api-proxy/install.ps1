@@ -1,75 +1,158 @@
-# google-api-proxy — install into repo root (parent of .cursor)
-param([switch]$WhatIf)
+# google-api-proxy — portable installer (personal dev profile)
+param(
+  [string]$ProjectRoot,
+  [switch]$Force,
+  [switch]$WhatIf,
+  [switch]$SkipVerify
+)
 
 $ErrorActionPreference = "Stop"
 $ModuleRoot = $PSScriptRoot
-$RepoRoot = (Resolve-Path (Join-Path $ModuleRoot "..\..\..")).Path
+$LibPath = Join-Path (Split-Path $ModuleRoot -Parent) "_lib\Msc-ModuleInstall.ps1"
+. $LibPath
 
-Write-Host "Module: google-api-proxy" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "Google API Proxy Module Installer" -ForegroundColor Cyan
+Write-Host "--------------------------------" -ForegroundColor Cyan
+
+$RepoRoot = Resolve-MscRepoRoot -ModuleRoot $ModuleRoot -ProjectRoot $ProjectRoot
 Write-Host "Target: $RepoRoot"
+Write-Host ""
 
-function Copy-FileToRepo($RelativeSrc, $DestRelative) {
-  $src = Join-Path $ModuleRoot $RelativeSrc
-  $dest = Join-Path $RepoRoot $DestRelative
-  if (-not (Test-Path $src)) { return }
-  if ($WhatIf) {
-    Write-Host "[WhatIf] $RelativeSrc -> $DestRelative"
-    return
-  }
-  $parent = Split-Path $dest -Parent
-  if (-not (Test-Path $parent)) { New-Item -ItemType Directory -Force -Path $parent | Out-Null }
-  Copy-Item $src $dest -Force
-  Write-Host "Copied: $DestRelative"
-}
+# Step 0: Prerequisites (only if missing)
+Write-Host "[0] Prerequisites..." -ForegroundColor Yellow
+$prereqRoot = Join-Path $ModuleRoot "prerequisites"
+Install-MscPrerequisites -RepoRoot $RepoRoot -PrereqRoot $prereqRoot -WhatIf:$WhatIf
 
-Get-ChildItem (Join-Path $ModuleRoot "scripts") -File | ForEach-Object {
-  Copy-FileToRepo "scripts\$($_.Name)" "scripts\$($_.Name)"
-}
-Get-ChildItem (Join-Path $ModuleRoot "scripts\lib") -File -ErrorAction SilentlyContinue | ForEach-Object {
-  Copy-FileToRepo "scripts\lib\$($_.Name)" "scripts\lib\$($_.Name)"
-}
-
-$configDest = Join-Path $RepoRoot "config\litellm_config.yaml"
-if (-not (Test-Path $configDest)) {
-  Copy-FileToRepo "config\litellm_config.example.yaml" "config\litellm_config.yaml"
+# Step 1: Scripts
+Write-Host "[1] Scripts..." -ForegroundColor Yellow
+$scriptSrc = Join-Path $ModuleRoot "scripts"
+$scriptDest = Join-Path $RepoRoot "scripts"
+if ($WhatIf) {
+  Write-Host "[WhatIf] Copy scripts/* and scripts/lib/*"
 } else {
-  Write-Host "Skip: config/litellm_config.yaml already exists"
-}
-
-Get-ChildItem (Join-Path $ModuleRoot "google-api") -File -ErrorAction SilentlyContinue | ForEach-Object {
-  if ($_.Name -eq 'README.md') { return }
-  Copy-FileToRepo "google-api\$($_.Name)" "google-api\$($_.Name)"
-}
-
-# Optional: seed ngrok.exe from this module pack OR from target's existing google-api/ (local only)
-$ngrokNames = @('ngrok.exe', 'ngrok')
-foreach ($name in $ngrokNames) {
-  $moduleNgrok = Join-Path $ModuleRoot "google-api\$name"
-  $repoNgrok = Join-Path $RepoRoot "google-api\$name"
-  if (Test-Path $moduleNgrok) {
-    if (-not (Test-Path $repoNgrok) -or (Get-Item $moduleNgrok).Length -gt 0) {
-      Copy-FileToRepo "google-api\$name" "google-api\$name"
+  New-Item -ItemType Directory -Force -Path $scriptDest, (Join-Path $scriptDest "lib") | Out-Null
+  Get-ChildItem $scriptSrc -File | ForEach-Object {
+    Copy-Item $_.FullName (Join-Path $scriptDest $_.Name) -Force
+    Write-Host "  Copied scripts/$($_.Name)"
+  }
+  $libSrc = Join-Path $scriptSrc "lib"
+  if (Test-Path $libSrc) {
+    Get-ChildItem $libSrc -File | ForEach-Object {
+      Copy-Item $_.FullName (Join-Path $scriptDest "lib\$($_.Name)") -Force
+      Write-Host "  Copied scripts/lib/$($_.Name)"
     }
   }
 }
-if (-not (Test-Path (Join-Path $RepoRoot "google-api\ngrok.exe")) -and -not (Test-Path (Join-Path $RepoRoot "google-api\ngrok"))) {
-  Write-Host "WARN: google-api/ngrok.exe not found — Cloud Agent mode needs ngrok. See google-api/README.md in module." -ForegroundColor Yellow
+
+# Step 2: Config
+Write-Host "[2] Config..." -ForegroundColor Yellow
+$configDest = Join-Path $RepoRoot "config\litellm_config.yaml"
+$configExample = Join-Path $ModuleRoot "config\litellm_config.example.yaml"
+if ($WhatIf) {
+  Write-Host "[WhatIf] config/litellm_config.yaml"
+} elseif ((Test-Path $configDest) -and -not $Force) {
+  Write-Host "  Skip: config/litellm_config.yaml exists (use -Force to overwrite)"
+} elseif (Test-Path $configExample) {
+  New-Item -ItemType Directory -Force -Path (Join-Path $RepoRoot "config") | Out-Null
+  Copy-Item $configExample $configDest -Force
+  Write-Host "  Created config/litellm_config.yaml (edit GCP project + master_key)"
 }
 
-$mergeFile = Join-Path $ModuleRoot "package-scripts.json"
-$pkgFile = Join-Path $RepoRoot "package.json"
-if ((Test-Path $mergeFile) -and (Test-Path $pkgFile)) {
-  if ($WhatIf) {
-    Write-Host "[WhatIf] Merge package-scripts.json into package.json"
+$gcpExample = Join-Path $ModuleRoot "config\gcp-service-account.example.json"
+$gcpDest = Join-Path $RepoRoot "config\gcp-service-account.json"
+if ((Test-Path $gcpExample) -and -not (Test-Path $gcpDest) -and -not $WhatIf) {
+  Copy-Item $gcpExample $gcpDest -Force
+  Write-Host "  Created config/gcp-service-account.json placeholder (replace with real key)"
+}
+
+# Step 3: google-api runtime (ngrok + launcher)
+Write-Host "[3] google-api runtime..." -ForegroundColor Yellow
+$gaDest = Join-Path $RepoRoot "google-api"
+if (-not $WhatIf) { New-Item -ItemType Directory -Force -Path $gaDest | Out-Null }
+$ngrokOk = $false
+foreach ($name in @("ngrok.exe", "ngrok")) {
+  $src = Join-Path $ModuleRoot "google-api\$name"
+  $dest = Join-Path $gaDest $name
+  if (Test-Path $src) {
+    if ($WhatIf) {
+      Write-Host "[WhatIf] google-api/$name"
+    } else {
+      Copy-Item $src $dest -Force
+      Write-Host "  Copied google-api/$name"
+      $ngrokOk = $true
+    }
+  }
+}
+Get-ChildItem (Join-Path $ModuleRoot "google-api") -File -ErrorAction SilentlyContinue | ForEach-Object {
+  if ($_.Name -match '^ngrok') { return }
+  if ($_.Name -eq 'README.md') { return }
+  $dest = Join-Path $gaDest $_.Name
+  if ($WhatIf) { Write-Host "[WhatIf] google-api/$($_.Name)" }
+  else { Copy-Item $_.FullName $dest -Force; Write-Host "  Copied google-api/$($_.Name)" }
+}
+if (-not $ngrokOk -and -not $WhatIf) {
+  if (Test-Path (Join-Path $gaDest "ngrok.exe")) { $ngrokOk = $true }
+}
+if (-not $ngrokOk) {
+  Write-Host "  WARN: ngrok.exe not in module or target — Cloud Agent needs ngrok or PATH" -ForegroundColor Yellow
+  Write-Host "         https://ngrok.com/download -> google-api/ngrok.exe" -ForegroundColor DarkGray
+}
+
+# Step 4: .env.example
+Write-Host "[4] .env.example..." -ForegroundColor Yellow
+Merge-MscEnvFragment -RepoRoot $RepoRoot -ModuleRoot $ModuleRoot -MarkerKey "MSC_LITELLM_PORT" -WhatIf:$WhatIf
+
+# Step 5: package.json scripts
+Write-Host "[5] package.json..." -ForegroundColor Yellow
+Merge-MscPackageJson -RepoRoot $RepoRoot -MergeFilePath (Join-Path $ModuleRoot "package-scripts.json") -WhatIf:$WhatIf
+
+# Step 6: Verify
+Write-Host ""
+Write-Host "Verify" -ForegroundColor Cyan
+$hardFail = $false
+$checks = @(
+  @{ Path = "scripts\msc-litellm-start.mjs"; Hard = $true },
+  @{ Path = "config\litellm_config.yaml"; Hard = $true },
+  @{ Path = "google-api\ngrok.exe"; Hard = $false }
+)
+foreach ($c in $checks) {
+  $p = Join-Path $RepoRoot $c.Path
+  if (Test-Path $p) {
+    Write-Host "  OK $($c.Path)" -ForegroundColor Green
+  } elseif ($c.Hard) {
+    Write-Host "  FAIL $($c.Path)" -ForegroundColor Red
+    $hardFail = $true
   } else {
-    node -e "import fs from 'node:fs';const r=process.argv[1],m=process.argv[2];const pkg=JSON.parse(fs.readFileSync(r+'/package.json','utf8'));const merge=JSON.parse(fs.readFileSync(m,'utf8'));Object.assign(pkg.scripts,merge.scripts);fs.writeFileSync(r+'/package.json',JSON.stringify(pkg,null,2)+'\n');console.log('[install] merged',Object.keys(merge.scripts).length,'npm scripts');" $RepoRoot $mergeFile
+    Write-Host "  WARN $($c.Path) (optional if ngrok on PATH)" -ForegroundColor Yellow
   }
 }
 
+$nodeModules = Join-Path $RepoRoot "node_modules"
+if (-not $SkipVerify -and (Test-Path $nodeModules) -and -not $WhatIf) {
+  Write-Host "  Running msc:litellm:preflight..." -ForegroundColor DarkGray
+  Push-Location $RepoRoot
+  try {
+    npm run msc:litellm:preflight
+    if ($LASTEXITCODE -ne 0) { $hardFail = $true }
+  } finally {
+    Pop-Location
+  }
+} elseif (-not $WhatIf) {
+  Write-Host "  Skip runtime preflight (npm install first, or use -SkipVerify)" -ForegroundColor DarkGray
+}
+
 Write-Host ""
-Write-Host "Next steps:" -ForegroundColor Green
-Write-Host "  1) Append env.example.fragment to .env.example (if missing)"
-Write-Host "  2) Set GCP credentials in .env.local (never commit keys)"
-Write-Host "  3) npm run msc:litellm:preflight"
-Write-Host "  4) npm run msc:google-api:start"
-Write-Host "  5) Merge shortcuts from package-scripts.json into global.mdc"
+if ($hardFail) {
+  Write-Host "Installation finished with errors." -ForegroundColor Red
+  exit 1
+}
+Write-Host "Installation complete." -ForegroundColor Green
+Write-Host ""
+Write-Host "Next steps:" -ForegroundColor Cyan
+Write-Host "  1) Set GCP key + .env.local (NGROK_AUTHTOKEN, MSC_LITELLM_MASTER_KEY)"
+Write-Host "  2) npm install  (if needed)"
+Write-Host "  3) npm run msc:litellm:install-deps  (first-time Python)"
+Write-Host "  4) npm run msc:google-api:start  then  msc:litellm:test:ngrok"
+Write-Host "  5) Merge global.mdc.fragment into .cursor/rules/global.mdc (if new repo)"
+Write-Host ""

@@ -2,29 +2,31 @@
 
 ## When to use
 
-Operator says **`install backup module`**, or enabling `backup project` in a new repo.
+- Operator says **`install backup module`**
+- Enabling `backup project` on a personal repo
 
-## Agent steps
+## Agent procedure
 
-1. Confirm `scripts/lib/msc-load-env.mjs` exists in target repo.
-2. Run:
+1. Read [module.manifest.json](module.manifest.json).
+2. Run from repo root:
 
    ```powershell
    .\.cursor\custom-scriptz\backup-system\install.ps1
    ```
 
-3. Add `MSC_BACKUP_ROOT` to `.env.example` from `env.example.fragment` if missing.
-4. Merge `package-scripts.json` shortcuts into `.cursor/rules/global.mdc` (backup conversational workflow).
-5. Optional: point operator to Cheat Sheet restore checklist after Standard backup.
+3. Merge `env.example.fragment` (installer adds `MSC_BACKUP_ROOT` comment if missing).
+4. Optional: set `MSC_BACKUP_ROOT` in `.env.local` (default `G:\Cursor_Project_BackUpz\Vader-Engine`).
+5. Merge backup shortcuts from `package-scripts.json` / `global.mdc` if new repo.
+6. Smoke: `npm run msc:backup -- --standard install-smoke-test` (operator confirms delete after).
 
-## Agent backup ritual
+## Backup ritual
 
-Follow `global.mdc` **Backup Workflow** — one question at a time; Standard summary = skips only.
+Follow `.cursor/rules/global.mdc` — Standard summary lists **skips only**.
 
 ## Report
 
-```
+```text
 ✅ backup-system installed
 📂 scripts/msc-backup.mjs
-📦 npm scripts: msc:backup, msc:backup:standard, msc:backup:full
+📦 msc:backup, msc:backup:standard, msc:backup:full
 ```

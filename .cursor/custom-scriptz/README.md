@@ -1,31 +1,32 @@
 # Portable modules (`custom-scriptz`)
 
-Drop-in capability packs you can copy into any Vader Engine (or compatible Node) repo.
+Personal dev packs — **fat on disk** (include `ngrok.exe` locally), **lean in Git** (binaries gitignored).
 
-| Module | Purpose |
-|--------|---------|
-| [google-api-proxy](./google-api-proxy/) | LiteLLM + Vertex + ngrok for Cursor Cloud Agent (drop `ngrok.exe` in module `google-api/` for portable copies) |
-| [backup-system](./backup-system/) | Standard/Full robocopy backups to `MSC_BACKUP_ROOT` |
+| Module | Purpose | Manifest |
+|--------|---------|----------|
+| [google-api-proxy](google-api-proxy/) | LiteLLM + Vertex + ngrok | [module.manifest.json](google-api-proxy/module.manifest.json) |
+| [backup-system](backup-system/) | Standard/Full robocopy to G: | [module.manifest.json](backup-system/module.manifest.json) |
 
-## Install (human)
+Shared installer helpers: [_lib/Msc-ModuleInstall.ps1](_lib/Msc-ModuleInstall.ps1)
+
+## Quick install (Vader or any repo)
 
 ```powershell
-cd .cursor/custom-scriptz/google-api-proxy   # or backup-system
-.\install.ps1
+.\.cursor\custom-scriptz\google-api-proxy\install.ps1
+.\.cursor\custom-scriptz\backup-system\install.ps1
 ```
 
-## Install (Cursor Agent)
+## Copy to another project
 
-Say **`install google-api module`** or **`install backup module`** — follow each module's `CURSOR.md`.
+1. Robocopy entire `.cursor/custom-scriptz/` folder (includes local `ngrok.exe` in google-api-proxy).
+2. Run both `install.ps1` scripts from the new repo root.
+3. `npm install` · copy `.env.local` + GCP key manually.
+4. `npm run msc:litellm:preflight`
 
 ## Create a new module
 
-Say **`make new`** or **`create module`** — runs [Create-New-Module.md](../prompts/Create-New-Module.md).
+Say **`make new`** or **`create module`** — [Create-New-Module.md](../prompts/Create-New-Module.md)
 
-## Prerequisites (all modules)
+## Agent rule
 
-Target repo must already have:
-
-- `scripts/lib/msc-load-env.mjs` (env hydration)
-- Root `.env.example` / `.env.local` contract
-- `package.json` with `"type": "module"` (recommended)
+Point the agent at a module folder → read `module.manifest.json` + `CURSOR.md` → run `install.ps1`.

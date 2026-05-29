@@ -4,6 +4,22 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ---
 
+## [2026-05-29] — Portable custom-scriptz modules (production install)
+
+### Added
+
+- **`.cursor/custom-scriptz/google-api-proxy/`** — scripts, `install.ps1`, `module.manifest.json`, `CURSOR.md`, prerequisites (`msc-load-env`, `msc-kill-dev-port`), `global.mdc.fragment`; local `ngrok.exe` in module pack (gitignored)
+- **`.cursor/custom-scriptz/backup-system/`** — `install.ps1`, manifest, aligned env merge
+- **`_lib/Msc-ModuleInstall.ps1`** — shared repo-root resolve, Node package.json merge, env fragment merge
+- **`Create-New-Module.md`** — scaffold workflow for future modules
+
+### Changed
+
+- Installers: auto ProjectRoot, inline prerequisites if missing, `msc:litellm:preflight` verify when `node_modules` present
+- Branch **`Vader-Engine-Dev-v2`** — active dev; **`Vader-Engine-Dev-v1`** frozen restore point
+
+---
+
 ## [2026-05-29] — Update Docs sync (v2.6.1)
 
 ### Changed

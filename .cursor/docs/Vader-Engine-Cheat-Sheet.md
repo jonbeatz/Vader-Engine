@@ -67,6 +67,8 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 | `sync docs` | Alias for `update docs` |
 | `backup project` | Agent-driven conversational backup workflow |
 | `create backup` | Alias for backup workflow |
+| `make new` | Scaffold portable module — `Create-New-Module.md` |
+| `create module` | Same as **make new** |
 | `start google-api` | `npm run msc:google-api:start` (clean stop → boot → ngrok → **READY**) |
 | `stop google-api` | `npm run msc:litellm:stop` |
 | `status google-api` | `npm run msc:litellm:status` |
@@ -167,6 +169,19 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 | `npm run msc:health:json` | Health check as JSON |
 | `npm run inventory` | Generate project inventory |
 | `npm run repair:ast` | Next.js Suspense AST repair |
+
+---
+
+## 📦 Portable modules (`custom-scriptz`)
+
+Copy `.cursor/custom-scriptz/` to another repo (includes local `ngrok.exe` in google-api-proxy on disk).
+
+| Module | Install |
+|--------|---------|
+| google-api-proxy | `.\.cursor\custom-scriptz\google-api-proxy\install.ps1` |
+| backup-system | `.\.cursor\custom-scriptz\backup-system\install.ps1` |
+
+Index: `.cursor/custom-scriptz/README.md` · Agent: each module's `CURSOR.md` + `module.manifest.json`
 
 ---
 
@@ -508,7 +523,7 @@ Use this sequence before tagging or cutting a release:
 
 ---
 
-*Last updated: May 29, 2026 | Version 2.6.1 — Standard restore checklist, backup vs Full*
+*Last updated: May 29, 2026 | Version 2.6.1 — portable custom-scriptz modules, v2 branch*
 
 
 

@@ -16,8 +16,11 @@ Project-local Cursor configuration: MCP, hooks, rules, docs, and personal env re
 | `plans/` | Roadmaps | Subfolder |
 | `blueprints/` | Reference snippets | Subfolder |
 | `env/` | Personal env contracts + generated vault | Subfolder |
+| `custom-scriptz/` | Portable install packs (LiteLLM, backup) | Subfolder |
 
 **Not in `.cursor`:** v0 mock images → `media/design-references/` (local reference; binaries gitignored).
+
+**Portable modules:** [custom-scriptz/README.md](custom-scriptz/README.md) — copy folder to another repo, run `install.ps1`; include local `google-api/ngrok.exe` on disk (not in Git).
 
 **Commands:** `npm run msc:google-api:start` or say **start google-api** in chat.
 

@@ -4,6 +4,7 @@
 
 ### Added
 
+- **Portable modules** — `.cursor/custom-scriptz/` with `google-api-proxy` (LiteLLM + ngrok + `install.ps1` + `module.manifest.json`) and `backup-system`; shared `_lib/Msc-ModuleInstall.ps1`; **`make new`** / **`create module`** via `Create-New-Module.md`
 - **Personal env vault** — `.cursor/env/` reference contracts (`master.env.*`), gitignored `Personal-Secrets-Vault.md`, and `scripts/msc-build-personal-secrets-vault.mjs` (scans `.env.local`, MCP, optional `env/backups/1–6`)
 - **`.cursor/README.md`** — agent layer folder index
 - **`msc:google-api:start`** — canonical `stop` + `start:ngrok` npm alias for **start google-api**

@@ -7,6 +7,12 @@
 - **Current Version:** 2.6.1
 - **Status:** Vader Engine v2.6.1 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.1`
 
+### [2026-05-29] - Portable modules + v2 branch
+- **Branch:** `Vader-Engine-Dev-v2` (working); `Vader-Engine-Dev-v1` @ `c993472` restore point
+- **Added:** `.cursor/custom-scriptz/` google-api-proxy + backup-system with production `install.ps1`, manifests, `_lib` helpers
+- **Local:** `ngrok.exe` in module `google-api/` (gitignored; on disk for G: backup)
+- **Chat:** `make new` / `create module` → `Create-New-Module.md`
+
 ### [2026-05-29 15:00] - Update Docs sync (v2.6.1)
 - **Changed:** `msc:google-api:start` truth across Cheat Sheet, Operator Card, START-HERE, Start-Project, `local-ai-proxy-setup.md`, `global.mdc`, `start-project-ritual.mdc`
 - **Changed:** backup ritual skips-only wording in Operator Card + prior `msc-backup.mjs` / `global.mdc` / Cheat Sheet

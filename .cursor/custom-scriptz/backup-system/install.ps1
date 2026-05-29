@@ -1,34 +1,58 @@
-# backup-system — install into repo root (parent of .cursor)
-param([switch]$WhatIf)
+# backup-system — portable installer (personal dev profile)
+param(
+  [string]$ProjectRoot,
+  [switch]$WhatIf,
+  [switch]$SkipVerify
+)
 
 $ErrorActionPreference = "Stop"
 $ModuleRoot = $PSScriptRoot
-$RepoRoot = (Resolve-Path (Join-Path $ModuleRoot "..\..\..")).Path
+$LibPath = Join-Path (Split-Path $ModuleRoot -Parent) "_lib\Msc-ModuleInstall.ps1"
+. $LibPath
 
-Write-Host "Module: backup-system" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "Backup System Module Installer" -ForegroundColor Cyan
+Write-Host "------------------------------" -ForegroundColor Cyan
+
+$RepoRoot = Resolve-MscRepoRoot -ModuleRoot $ModuleRoot -ProjectRoot $ProjectRoot
 Write-Host "Target: $RepoRoot"
+Write-Host ""
 
-$src = Join-Path $ModuleRoot "scripts\msc-backup.mjs"
-$dest = Join-Path $RepoRoot "scripts\msc-backup.mjs"
-
-if ($WhatIf) {
-  Write-Host "[WhatIf] scripts/msc-backup.mjs -> $dest"
-} else {
-  Copy-Item $src $dest -Force
-  Write-Host "Copied: scripts/msc-backup.mjs"
+# Prerequisites for msc-backup.mjs
+$prereqRoot = Join-Path (Split-Path $ModuleRoot -Parent) "google-api-proxy\prerequisites"
+if (Test-Path $prereqRoot) {
+  Write-Host "[0] Prerequisites..." -ForegroundColor Yellow
+  Install-MscPrerequisites -RepoRoot $RepoRoot -PrereqRoot $prereqRoot -WhatIf:$WhatIf
 }
 
-$mergeFile = Join-Path $ModuleRoot "package-scripts.json"
-if ((Test-Path $mergeFile) -and (Test-Path (Join-Path $RepoRoot "package.json"))) {
-  if ($WhatIf) {
-    Write-Host "[WhatIf] Merge package-scripts.json into package.json"
-  } else {
-    node -e "import fs from 'node:fs';const r=process.argv[1],m=process.argv[2];const pkg=JSON.parse(fs.readFileSync(r+'/package.json','utf8'));const merge=JSON.parse(fs.readFileSync(m,'utf8'));Object.assign(pkg.scripts,merge.scripts);fs.writeFileSync(r+'/package.json',JSON.stringify(pkg,null,2)+'\n');console.log('[install] merged',Object.keys(merge.scripts).length,'npm scripts');" $RepoRoot $mergeFile
-  }
+Write-Host "[1] scripts/msc-backup.mjs..." -ForegroundColor Yellow
+$src = Join-Path $ModuleRoot "scripts\msc-backup.mjs"
+$dest = Join-Path $RepoRoot "scripts\msc-backup.mjs"
+if ($WhatIf) {
+  Write-Host "[WhatIf] $dest"
+} else {
+  New-Item -ItemType Directory -Force -Path (Split-Path $dest -Parent) | Out-Null
+  Copy-Item $src $dest -Force
+  Write-Host "  Copied scripts/msc-backup.mjs"
+}
+
+Write-Host "[2] .env.example..." -ForegroundColor Yellow
+Merge-MscEnvFragment -RepoRoot $RepoRoot -ModuleRoot $ModuleRoot -MarkerKey "MSC_BACKUP_ROOT" -WhatIf:$WhatIf
+
+Write-Host "[3] package.json..." -ForegroundColor Yellow
+Merge-MscPackageJson -RepoRoot $RepoRoot -MergeFilePath (Join-Path $ModuleRoot "package-scripts.json") -WhatIf:$WhatIf
+
+Write-Host ""
+Write-Host "Verify" -ForegroundColor Cyan
+if (Test-Path $dest) {
+  Write-Host "  OK scripts/msc-backup.mjs" -ForegroundColor Green
+} else {
+  Write-Host "  FAIL scripts/msc-backup.mjs" -ForegroundColor Red
+  exit 1
 }
 
 Write-Host ""
-Write-Host "Next steps:" -ForegroundColor Green
-Write-Host "  1) Set MSC_BACKUP_ROOT in .env.local (optional; default G:\...\Vader-Engine)"
-Write-Host "  2) npm run msc:backup -- --standard <folder-name>"
-Write-Host "  3) Add backup project shortcuts from package-scripts.json to global.mdc"
+Write-Host "Installation complete." -ForegroundColor Green
+Write-Host "Default backup root: G:\Cursor_Project_BackUpz\Vader-Engine (override MSC_BACKUP_ROOT in .env.local)"
+Write-Host "Standard skips: node_modules, .next, logs, test-results, vader-site-deploy"
+Write-Host ""

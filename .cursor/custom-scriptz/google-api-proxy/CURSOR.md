@@ -2,40 +2,45 @@
 
 ## When to use
 
-Operator says **`install google-api module`**, or copying LiteLLM/ngrok tooling into another repo.
+- Operator says **`install google-api module`**
+- Copying LiteLLM/ngrok tooling to another personal repo on the same PC
+- After restoring from G: backup — re-run installer if `scripts/` was refreshed
 
-## Agent steps
+## Agent procedure
 
-1. **Preflight:** Target repo has `scripts/lib/msc-load-env.mjs` and root `package.json`. If missing, stop and report.
-2. **Run installer** from repo root:
+1. Read [module.manifest.json](module.manifest.json) for verify commands and `neverCommit` list.
+2. **Preflight:** Target has or will receive `package.json`. If missing, stop.
+3. **Run installer** from repo root:
 
    ```powershell
    .\.cursor\custom-scriptz\google-api-proxy\install.ps1
    ```
 
-3. **ngrok binary:** Module does **not** ship `ngrok.exe` in Git (~31 MB, third-party). For portable packs, operator copies `ngrok.exe` into `.cursor/custom-scriptz/google-api-proxy/google-api/` before `install.ps1`, or relies on PATH / `MSC_NGROK_BIN`. Warn if missing before `start google-api`.
-4. **Env contract:** Merge keys from `env.example.fragment` into `.env.example` (placeholders only). Operator sets live values in `.env.local` — never paste secrets in chat.
-5. **Config:** If `config/litellm_config.yaml` was created from example, remind operator to set `vertex_project` and `master_key`.
-6. **Shortcuts:** Append `package-scripts.json` → `shortcuts` block to `.cursor/rules/global.mdc` (Natural Language Commands table) if not present.
-7. **Verify:**
+   Optional: `-ProjectRoot D:\path\to\repo` · `-WhatIf` · `-Force` (overwrite config)
 
-   ```bash
+4. **ngrok:** Module pack should include `google-api/ngrok.exe` on disk (gitignored). Installer copies to target `google-api/`. Warn if missing.
+5. **Env:** Installer merges `env.example.fragment` into `.env.example`. Operator sets live values in `.env.local` only — never paste secrets in chat.
+6. **GCP:** If `config/gcp-service-account.json` was created from example, operator replaces with real key file.
+7. **global.mdc:** If shortcuts missing, merge rows from [global.mdc.fragment](global.mdc.fragment) into `.cursor/rules/global.mdc`.
+8. **Verify** (repo has `node_modules`):
+
+   ```powershell
    npm run msc:litellm:preflight
    npm run msc:google-api:start
+   npm run msc:litellm:test:ngrok
    ```
-
-   In a second step (or after READY): `npm run msc:litellm:test:ngrok`
 
 ## Do not
 
-- Commit `gcp_key.json`, `.env.local`, or real `master_key` values
-- Replace placeholders in `.cursor/mcp.json` with live tokens
+- Commit `ngrok.exe`, `gcp_key.json`, real `gcp-service-account.json`, or `.env.local`
+- Replace MCP placeholders in committed `mcp.json` with live tokens
 
 ## Report
 
-```
+```text
 ✅ google-api-proxy installed
-📂 Scripts → scripts/ + scripts/lib/
-📂 Config  → config/litellm_config.yaml (if new)
-📦 npm scripts merged from package-scripts.json
+📂 Target: {repo root}
+📦 Scripts + config + google-api/ (ngrok if present in module)
+📄 See module.manifest.json verifyCommands
+⏭️ Operator: .env.local + npm install + litellm:install-deps if first run
 ```

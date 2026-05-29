@@ -14,12 +14,17 @@ Authoritative build and branch history for Vader Engine releases.
 
 ---
 
-## Branch: `Vader-Engine-Dev-v1` (2026-05-29)
+## Branch: `Vader-Engine-Dev-v2` (2026-05-29) — **active**
 
-- **Current status:** Active dev — env vault + reliable LiteLLM/ngrok start (`msc:google-api:start`) · **61/61** gate · pushed `7d839f4` to `origin`
-- **Recent commits:** `7d839f4` docs(tooling) env vault, google-api start, cursor hygiene · `d753c17` feat gemini-3.5-flash
-- **Working tree:** backup ritual skips-only wording (uncommitted)
-- **LiteLLM:** use `npm run msc:google-api:start` — verifies HTTP **200** before READY
+- **Current status:** Portable `custom-scriptz` modules (google-api-proxy + backup-system) with production `install.ps1` · restore checklist docs · local `ngrok.exe` in module pack
+- **Restore point:** `Vader-Engine-Dev-v1` @ `c993472` (unchanged on remote)
+- **Recent:** `c993472` restore docs · `c8a422f` initial custom-scriptz scaffold (prior push)
+- **LiteLLM:** `npm run msc:google-api:start` · module install: `.cursor/custom-scriptz/google-api-proxy/install.ps1`
+
+## Branch: `Vader-Engine-Dev-v1` (2026-05-29) — **frozen**
+
+- **Status:** Restore point only — do not delete; use `git checkout Vader-Engine-Dev-v1` to return
+- **Tip:** `c993472` + G: backup `Vader-Engine-v1-s`
 
 ---
 
