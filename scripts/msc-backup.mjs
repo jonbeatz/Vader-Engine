@@ -61,9 +61,8 @@ async function main() {
 
   if (isStandardBackup || (!isFullBackup && !isStandardBackup)) {
     cmd += ' /XD node_modules .next logs test-results vader-site-deploy';
-    console.log(
-      'ℹ️  Standard: includes .env.local (live secrets) — keep backup destination private.\n',
-    );
+    console.log('ℹ️  Standard skips: node_modules, .next, logs, test-results, vader-site-deploy\n');
+    console.log('ℹ️  Keep backup destination private (live secrets may be present).\n');
   }
 
   try {

@@ -24,7 +24,7 @@ Cursor custom models route through the local OpenAI-compatible proxy to **Vertex
 
 **Execute in order (agent runs these; do not skip when operator uses Gemini via Vertex):**
 
-1. Say **`start google-api`** or run `npm run msc:litellm:start:ngrok` — preflight, ngrok HTTPS URL, foreground LiteLLM (keep terminal open)
+1. Say **`start google-api`** or run `npm run msc:google-api:start` — clean stop, LiteLLM boot, ngrok HTTPS URL, **READY** when `/v1/models` returns **200** (keep terminal open)
 2. Say **`verify google-api`** or run `npm run msc:litellm:test:ngrok` — local `:4000` + remote ngrok `/v1/models`
 3. **Local IDE only (no Cloud Agent):** `npm run msc:litellm:start` + `msc:litellm:verify` — `http://127.0.0.1:4000/v1`
 4. First-time Python deps: `npm run msc:litellm:install-deps` if preflight fails

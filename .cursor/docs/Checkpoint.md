@@ -16,8 +16,10 @@ Authoritative build and branch history for Vader Engine releases.
 
 ## Branch: `Vader-Engine-Dev-v1` (2026-05-29)
 
-- **Current status:** Active dev — `vader-3.5-flash` Vertex configuration added and verified · ngrok tunnel active · clean stop/start mechanics configured on proxy · tracking docs synced.
-- **Recent commits:** None on branch yet (working tree modified with model additions, cleanup fixes, and tracking updates)
+- **Current status:** Active dev — env vault + reliable LiteLLM/ngrok start (`msc:google-api:start`) · **61/61** gate · pushed `7d839f4` to `origin`
+- **Recent commits:** `7d839f4` docs(tooling) env vault, google-api start, cursor hygiene · `d753c17` feat gemini-3.5-flash
+- **Working tree:** backup ritual skips-only wording (uncommitted)
+- **LiteLLM:** use `npm run msc:google-api:start` — verifies HTTP **200** before READY
 
 ---
 
@@ -71,4 +73,4 @@ Authoritative build and branch history for Vader Engine releases.
 
 ---
 
-*Last updated: 2026-05-28 16:24 (session closeout)*
+*Last updated: 2026-05-29 (update project)*

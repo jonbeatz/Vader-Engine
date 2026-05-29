@@ -67,11 +67,11 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 | `sync docs` | Alias for `update docs` |
 | `backup project` | Agent-driven conversational backup workflow |
 | `create backup` | Alias for backup workflow |
-| `start google-api` | `npm run msc:litellm:stop` then `start:ngrok` (clean restart, prints HTTPS) |
+| `start google-api` | `npm run msc:google-api:start` (clean stop → boot → ngrok → **READY**) |
 | `stop google-api` | `npm run msc:litellm:stop` |
 | `status google-api` | `npm run msc:litellm:status` |
 | `verify google-api` | `npm run msc:litellm:test:ngrok` — local + ngrok check |
-| `restart google-api` | `npm run msc:litellm:stop` then `start:ngrok` (same as start) |
+| `restart google-api` | `npm run msc:google-api:start` |
 
 ---
 
@@ -174,7 +174,7 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 
 | Command | What it does |
 |---------|--------------|
-| `npm run msc:backup` | Standard backup (skips heavy dirs; **includes** `.env.local`) |
+| `npm run msc:backup` | Standard backup — skips `node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy` |
 | `npm run msc:backup:standard` | Same as above |
 | `npm run msc:backup:full` | Full mirror (includes `node_modules`, `.next`, etc.) |
 | `npm run msc:backup -- --standard <folder-name>` | Standard backup to custom folder |
@@ -186,7 +186,7 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 robocopy D:\Cursor_Projectz\Vader-Engine G:\Cursor_Project_BackUpz\Vader-Engine\Vader-Engine-v1-x /MIR /XD node_modules .next logs test-results vader-site-deploy
 ```
 
-> **Security:** Standard backups copy `.env.local` (API keys, PATs). Store backups on a private drive (default `G:\Cursor_Project_BackUpz\`); never sync to public cloud unencrypted.
+> **Security:** Standard backups copy live secrets (e.g. `.env.local`). Keep `G:\Cursor_Project_BackUpz\` private; never sync to public cloud unencrypted.
 
 ### Agent Backup Flow (recommended)
 

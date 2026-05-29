@@ -33,11 +33,11 @@ Use this when Cursor is set to **`vader-3-flash`** and routes through Vertex via
 
 | You say | Command |
 |---------|---------|
-| `start google-api` | `npm run msc:litellm:start:ngrok` |
+| `start google-api` | `npm run msc:google-api:start` (clean stop → LiteLLM boot → ngrok → **200** verify → **READY**) |
 | `verify google-api` | `npm run msc:litellm:test:ngrok` |
 | `status google-api` | `npm run msc:litellm:status` |
 | `stop google-api` | `npm run msc:litellm:stop` |
-| `restart google-api` | `npm run msc:litellm:stop` then `npm run msc:litellm:start:ngrok` |
+| `restart google-api` | `npm run msc:google-api:start` |
 
 Defined in `.cursor/rules/global.mdc`.
 

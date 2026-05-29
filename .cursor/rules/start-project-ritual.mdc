@@ -14,7 +14,7 @@ Treat operator messages as a **Start Project** ritual when they say **Start Proj
 1. **Re-read** the files listed in **Start-Project.md** using the **Read** tool before executing shells or claiming repo state.
 2. **Do not** run **`npm run msc:dev:example`**, **`msc:dev:payload`**, **`msc:dev:tailwind`**, or other long-running dev servers unless the operator **explicitly** asks for a sandbox UI or localhost demo.
 3. **Do** run **`npm run start-project:gate`** (or smoke per prompt) as the default health check.
-4. **LiteLLM:** When operator uses **`vader-3-flash`** in Cursor, run **`start google-api`** (`npm run msc:litellm:stop && npm run msc:litellm:start:ngrok`) and **`verify google-api`** unless operator says verify-only or `:4000` already serves `/v1/models` with **200**. On port conflict: `npm run msc:litellm:stop` then `msc:kill -- 4000`, retry.
+4. **LiteLLM:** When operator uses **`vader-3-flash`** in Cursor, run **`start google-api`** (`npm run msc:google-api:start`) and **`verify google-api`** unless operator says verify-only or `:4000` already serves `/v1/models` with **200**. On port conflict: `npm run msc:litellm:stop` then `msc:kill -- 4000`, retry.
 5. **Task planner:** Present `.cursor/prompts/task-planner.md` Phase 1–3 and obtain operator confirmation **before** writing or modifying code.
 
 Session hooks print banners only — they do **not** start LiteLLM or dev servers.

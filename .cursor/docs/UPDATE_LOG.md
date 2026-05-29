@@ -4,6 +4,34 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ---
 
+## [2026-05-29] — Update Docs sync (v2.6.1)
+
+### Changed
+
+- **`local-ai-proxy-setup.md`** — `start google-api` → `npm run msc:google-api:start` (READY + HTTP 200 flow)
+- **`global.mdc`** — shortcuts aligned; backup Step 4 skips-only summary template
+- **`.last-sync.json`** — `lastSync` + script inventory refresh
+- **Cheat Sheet / CHANGELOG** — backup and LiteLLM command truth
+
+---
+
+## [2026-05-29] — Backup ritual summary (skips-only wording)
+
+### Problem
+
+- Operator confusion when Standard backup summary said “includes `.env.local`” alongside skip list.
+
+### Solution
+
+- **Agent ritual** (`global.mdc`) and **Cheat Sheet** now show Standard type as **skips only**: `node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy`.
+- **`msc-backup.mjs`** console matches (security note separate).
+
+### Prevention
+
+- Keep behavior in script (`/XF .env.local` removed); document skips in summaries only.
+
+---
+
 ## [2026-05-29] — LiteLLM reliable start + docs commit prep
 
 ### Changed

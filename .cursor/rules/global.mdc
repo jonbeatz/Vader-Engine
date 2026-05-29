@@ -139,11 +139,11 @@ When the user says any of these phrases, execute the corresponding command:
 
 | User says | Action |
 |-----------|--------|
-| "start google-api" | Run `npm run msc:litellm:stop && npm run msc:litellm:start:ngrok` (clean stop, then LiteLLM + ngrok; keep terminal open) |
+| "start google-api" | Run `npm run msc:google-api:start` (alias: `msc:litellm:stop && msc:litellm:start:ngrok`; waits for HTTP 200; keep terminal open) |
 | "stop google-api" | Run `npm run msc:litellm:stop` |
 | "status google-api" | Run `npm run msc:litellm:status` |
 | "verify google-api" | Run `npm run msc:litellm:test:ngrok` |
-| "restart google-api" | Run `npm run msc:litellm:stop && npm run msc:litellm:start:ngrok` |
+| "restart google-api" | Run `npm run msc:google-api:start` |
 | "test 3.5 flash" | `curl` POST to ngrok or `127.0.0.1:4000` `/v1/chat/completions` with model `vader-3.5-flash` (use `MSC_LITELLM_MASTER_KEY`) |
 | "Update Docs" | Run `.cursor/prompts/Update-Docs.md` |
 | "sync docs" | Run `.cursor/prompts/Update-Docs.md` |
@@ -166,6 +166,8 @@ When user says "backup project", follow this CONVERSATIONAL flow (ONE question a
 Ask: "What type of backup? (1 = Standard / 2 = Full)"
 Wait for user response.
 
+**Standard skips (do not list "includes" in summaries):** `node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy`. Everything else is copied (including `.env.local`). **Full:** no skips.
+
 ### Step 2: After user answers, ask destination
 Ask: "Destination drive? (1 = Same G: drive / 2 = Different)"
 Wait for user response.
@@ -177,14 +179,16 @@ Wait for user response.
 Wait for user response.
 
 ### Step 4: After user answers, show summary
-Display:
+Display (Standard **Type** line = skips only, not includes):
 ```
 Backup Summary:
-- Type: [Standard/Full]
+- Type: Standard (skips node_modules, .next, logs, test-results, vader-site-deploy)
+  — or — Full (no skips)
 - Destination: [path]
 - Folder: [name]
 Confirm? (1 = Yes / 2 = No)
 ```
+Optional one-line security note after the table: store G: backups private (`.env.local` is copied).
 Wait for user response.
 
 ### Step 5: If Yes, run: npm run msc:backup -- --[standard/full] [folder-name]

@@ -7,6 +7,17 @@
 - **Current Version:** 2.6.1
 - **Status:** Vader Engine v2.6.1 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.1`
 
+### [2026-05-29 15:00] - Update Docs sync (v2.6.1)
+- **Changed:** `msc:google-api:start` truth across Cheat Sheet, Operator Card, START-HERE, Start-Project, `local-ai-proxy-setup.md`, `global.mdc`, `start-project-ritual.mdc`
+- **Changed:** backup ritual skips-only wording in Operator Card + prior `msc-backup.mjs` / `global.mdc` / Cheat Sheet
+- **Synced:** `.last-sync.json`, `UPDATE_LOG.md`
+
+### [2026-05-29 14:30] - Update Project Checkpoint
+- **Status:** ACTIVE — `Vader-Engine-Dev-v1` synced to `origin` (`7d839f4` pushed)
+- **Branch:** `Vader-Engine-Dev-v1`
+- **Recent ship:** env vault, LiteLLM reliable `start google-api`, `msc:google-api:start`, cursor hygiene
+- **Uncommitted:** doc sync + backup wording (pending operator commit)
+
 ### [2026-05-29] - Docs sync + LiteLLM reliable start (commit)
 - **Changed:** LiteLLM start waits for HTTP 200 before ngrok; auth synced from `litellm_config.yaml`
 - **Added:** `msc:google-api:start`, `msc-build-personal-secrets-vault.mjs`, `.cursor/env/`, `Vader-Credentials.md`, `.cursor/README.md`
@@ -16,7 +27,7 @@
 ### [2026-05-29] - `.cursor` hygiene (env + design refs)
 - **Renamed:** `ENV-Files/` → `env/`; vault + gitignore + docs paths synced
 - **Moved:** v0 design mocks → `media/design-references/`
-- **Added:** `.cursor/README.md`; standard backup includes `.env.local`
+- **Added:** `.cursor/README.md`; standard backup copies `.env.local` (summaries list skips only)
 - **Regenerate vault:** `node scripts/msc-build-personal-secrets-vault.mjs`
 
 ### [2026-05-29] - Personal secrets vault (initial)

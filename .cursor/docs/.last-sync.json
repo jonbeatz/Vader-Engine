@@ -1,6 +1,6 @@
 {
-  "lastSync": "2026-05-29T14:15:00-07:00",
-  "lastProjectUpdate": "2026-05-29T14:15:00-07:00",
+  "lastSync": "2026-05-29T15:00:00-07:00",
+  "lastProjectUpdate": "2026-05-29T15:00:00-07:00",
   "version": "2.6.1",
   "scripts": [
     "prepare",
@@ -76,11 +76,11 @@
     "msc:e2e"
   ],
   "shortcuts": [
-    "\"start google-api\" -> npm run msc:litellm:stop && npm run msc:litellm:start:ngrok",
+    "\"start google-api\" -> npm run msc:google-api:start",
     "\"stop google-api\" -> npm run msc:litellm:stop",
     "\"status google-api\" -> npm run msc:litellm:status",
     "\"verify google-api\" -> npm run msc:litellm:test:ngrok",
-    "\"restart google-api\" -> npm run msc:litellm:stop && npm run msc:litellm:start:ngrok",
+    "\"restart google-api\" -> npm run msc:google-api:start",
     "\"update project\" -> .cursor/prompts/Update-Project.md",
     "\"sync project\" -> .cursor/prompts/Update-Project.md",
     "\"Update Docs\" -> .cursor/prompts/Update-Docs.md",

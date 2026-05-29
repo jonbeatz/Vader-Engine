@@ -17,7 +17,7 @@
 
 - **LiteLLM start reliability** — boot proxy before ngrok; sync `MSC_LITELLM_MASTER_KEY` from `config/litellm_config.yaml`; verify local + ngrok `/v1/models` return **200** before READY
 - **`.cursor` hygiene** — `env/` personal desk; v0 mocks moved to `media/design-references/`; removed stale pre-upgrade snapshots
-- **Standard backup** — includes repo-root `.env.local` (live secrets on private G: drive)
+- **Standard backup** — copies repo-root `.env.local`; agent summaries list **skips only** (`node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy`)
 - **Branding:** Vader Protocol baseline tag renamed from `v2.5.0-SOVEREIGN` to **v2.5.0-Engine** across docs, prompts, and grader banner (semver **2.5.0** unchanged)
 - **Docs:** Lean `DOCS.md` index; obsolete content moved to `_archive/` (no deletes); Cheat Sheet + Operator Card **What You Have Now** table
 - **End project:** §2.5 auto-runs `update project` before closeout handoff

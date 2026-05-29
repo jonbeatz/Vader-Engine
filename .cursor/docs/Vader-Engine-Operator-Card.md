@@ -33,7 +33,7 @@ Cloud Agent **cannot** use `http://127.0.0.1:4000` — use ngrok HTTPS. Recommen
 
 | Step | Action |
 |------|--------|
-| 1 | `start google-api` → `npm run msc:litellm:stop` then `start:ngrok` |
+| 1 | `start google-api` → `npm run msc:google-api:start` |
 | 2 | Copy **HTTPS URL `/v1`** from terminal output |
 | 3 | `verify google-api` → `npm run msc:litellm:test:ngrok` |
 | 4 | Cursor Settings → see table below |
@@ -86,6 +86,8 @@ Flow (one question at a time):
 2. Destination (`1` Same G: / `2` Different)
 3. Folder (`1` Suggested / `2` Custom)
 4. Confirm (`1` Yes / `2` No`)
+
+**Standard skips:** `node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy`
 
 Equivalent direct commands:
 - `npm run msc:backup -- --standard <folder-name>`
@@ -142,11 +144,11 @@ Optional mid-session: `update project` (without full closeout).
 | `end project` | `@End-Project.md` (+ auto tracking sync) |
 | `update project` | `.cursor/prompts/Update-Project.md` |
 | `update docs` / `sync docs` | `.cursor/prompts/Update-Docs.md` |
-| `start google-api` | `msc:litellm:stop` then `msc:litellm:start:ngrok` (clean restart) |
+| `start google-api` | `npm run msc:google-api:start` (clean stop → boot → ngrok → **READY**) |
 | `verify google-api` | `msc:litellm:test:ngrok` |
 | `stop google-api` | `msc:litellm:stop` |
 | `status google-api` | `msc:litellm:status` |
-| `restart google-api` | `msc:litellm:stop` then `msc:litellm:start:ngrok` (same as start) |
+| `restart google-api` | `npm run msc:google-api:start` |
 | `backup project` | `npm run msc:backup` (conversational) |
 
 ---
