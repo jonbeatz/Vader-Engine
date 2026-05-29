@@ -107,21 +107,22 @@ Cloud Agent **cannot** use `http://127.0.0.1:4000` — use ngrok HTTPS. Recommen
 Say: `backup project`
 
 Flow (one question at a time):
-1. Type (`1` Standard / `2` Full)
+1. Type (`1` Standard / `2` Full) — list **skips only** for Standard
 2. Destination (`1` Same G: / `2` Different)
 3. Folder (`1` Suggested / `2` Custom)
-4. Confirm (`1` Yes / `2` No`)
+4. Show summary (no confirm yet)
+5. Note (`Add a note about this backup?` — optional, Enter to skip)
+6. Confirm (`1` Yes / `2` No)
+7. Run with `--yes` and optional `--note "..."`
 
 **Standard skips:** `node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy`
 
-> Standard = **source + config + secrets** (including `.env.local`). Not runnable until you `npm install`. **Full** copies everything (large).
-
 Equivalent direct commands:
-- `npm run msc:backup -- --standard <folder-name>`
+- `npm run msc:backup -- --standard <folder-name> --yes`
 - `npm run msc:backup -- --standard <folder-name> --yes --note "why I backed up"`
-- `npm run msc:backup -- --full <folder-name>`
+- `npm run msc:backup -- --full <folder-name> --yes`
 
-Each backup writes **`.cursor/BackUp-Notez.md`** in the backup folder (git summary + optional note; newest entries at top).
+Each backup writes **`.cursor/BackUp-Notez.md`** in the backup folder after robocopy (newest entries at top).
 
 ### After Standard restore (5 steps)
 

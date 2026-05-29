@@ -6,55 +6,7 @@ Robocopy-based **Standard** and **Full** project backups to a configurable drive
 
 `node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy`
 
-Everything else is mirrored (**including `.env.local`**). Summaries should list **skips only**, not “includes”. Keep G: backups private.
-
-## How it works
-
-When you run `npm run msc:backup` or **`backup project`**, the script will:
-
-1. Ask for backup drive/folder (defaults to `G:\Cursor_Project_BackUpz`)
-2. Suggest a folder name based on the project name + timestamp
-3. Ask for confirmation, then create the backup (Standard skips dirs only; **`.env.local` is copied**)
-
-Set **`MSC_BACKUP_ROOT`** in `.env.local` to use a fixed backup root (skips the location prompt).
-
-Non-interactive / CI: pass a folder name and `--yes`, e.g. `npm run msc:backup -- --standard my-backup --yes`. Optional note: `--note "reason for backup"`.
-
-## Backup Notes
-
-Each backup writes **`.cursor/BackUp-Notez.md`** inside the backup folder (after robocopy completes):
-
-- Your manual notes at the top (optional prompt, or `--note` on CLI)
-- Git branch, commit, and message
-- Backup type (Standard / Full)
-- **Excluded** directory list (from `STANDARD_DIRS`)
-- **Included (secrets)** — `.env.local` for Standard backups
-
-New entries are **prepended** (newest at top). Re-backing up the same folder name appends history in one file.
-
-```powershell
-cd .cursor/custom-scriptz/backup-system
-.\install.ps1
-```
-
-## Commands
-
-| Command | Action |
-|---------|--------|
-| `npm run msc:backup` | Standard backup (default) |
-| `npm run msc:backup:standard` | Same |
-| `npm run msc:backup:full` | Full mirror (includes `node_modules`, `.next`) |
-| `npm run msc:backup -- --standard Vader-Engine-v1-x` | Named folder |
-
-Chat: **`backup project`** — conversational flow in `global.mdc`.
-
-## After restore (Standard)
-
-1. robocopy backup → project folder  
-2. `npm install` (+ `--prefix` for workspaces you use)  
-3. `npm run start-project:gate`
-
-See `.cursor/docs/Vader-Engine-Cheat-Sheet.md` § Backup & Restore.
+Summaries should list **skips only** — do not add “includes `.env.local`” or `BackUp-Notez.md` in the type/summary lines. Keep G: backups private.
 
 ## Install
 
@@ -63,14 +15,54 @@ See `.cursor/docs/Vader-Engine-Cheat-Sheet.md` § Backup & Restore.
 .\.cursor\custom-scriptz\backup-system\install.ps1 -WhatIf
 ```
 
-Uses same repo-root detection as google-api-proxy. Pulls `msc-load-env` from google-api-proxy `prerequisites/` if missing.
+Uses shared `_lib/Msc-ModuleInstall.ps1`. Pulls `msc-load-env` from `google-api-proxy/prerequisites/` if missing.
+
+## Commands
+
+| Command | Action |
+|---------|--------|
+| `npm run msc:backup` | Standard backup (interactive) |
+| `npm run msc:backup:standard` | Same |
+| `npm run msc:backup:full` | Full mirror (no directory skips) |
+| `npm run msc:backup -- --standard <folder> --yes` | Non-interactive Standard |
+| `npm run msc:backup -- --standard <folder> --yes --note "why"` | Non-interactive + backup note |
+
+Chat (Vader or after merging `global.mdc.fragment`): **`backup project`**
+
+## Script flow (direct `npm run msc:backup`)
+
+1. Backup drive/folder (default `G:\Cursor_Project_BackUpz`, or `MSC_BACKUP_ROOT`)
+2. Folder name (project name + timestamp, or CLI arg)
+3. Confirm (interactive only)
+4. Optional note prompt (interactive only; use `--note` when using `--yes`)
+5. Robocopy, then write `.cursor/BackUp-Notez.md`
+
+## Agent flow (`backup project` — one question at a time)
+
+See [CURSOR.md](CURSOR.md) § Backup ritual (matches Vader `global.mdc`):
+
+1. Type · 2. Destination · 3. Folder · 4. Summary · 5. Note · 6. Confirm · 7. Run with `--yes --note "..."`
+
+## Backup Notes
+
+Each backup writes **`.cursor/BackUp-Notez.md`** inside the backup folder **after** robocopy:
+
+- Optional **My Notes** at top (prompt or `--note`)
+- Git branch, commit, message
+- Type, **Excluded** dirs, **Included (secrets)** row (`.env.local` for Standard)
+
+New entries **prepend** (newest first). Re-backup to the same folder preserves prior note history.
 
 ## Env
 
-| Key | Default (personal) |
-|-----|---------------------|
-| `MSC_BACKUP_ROOT` | `G:\Cursor_Project_BackUpz\Vader-Engine` |
+| Key | Default |
+|-----|---------|
+| `MSC_BACKUP_ROOT` | `G:\Cursor_Project_BackUpz` (prompt default; set in `.env.local` to skip location prompt) |
 
-Set in `.env.local` per project name. Installer appends comment to `.env.example` if missing.
+## After restore (Standard)
 
-Manifest: [module.manifest.json](module.manifest.json)
+1. robocopy backup → project folder  
+2. `npm install` (+ `--prefix` for workspaces you use)  
+3. Run project smoke/gate if defined  
+
+Manifest: [module.manifest.json](module.manifest.json) · Agent: [CURSOR.md](CURSOR.md)

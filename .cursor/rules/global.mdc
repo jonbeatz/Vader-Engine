@@ -173,19 +173,21 @@ When user says "backup project", follow this CONVERSATIONAL flow (ONE question a
 Ask: "What type of backup? (1 = Standard / 2 = Full)"
 Wait for user response.
 
-**Standard skips (do not list "includes" in summaries):** `node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy`. Everything else is copied (including `.env.local`). **Full:** no skips.
+When describing **Standard** to the operator, list **skips only** — never add "(copies `.env.local`)", "includes", or `BackUp-Notez.md` in the type question or the Step 4 summary.
 
-### Step 2: After user answers, ask destination
+**Standard skips:** `node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy`. **Full:** no skips.
+
+### Step 2: Ask destination
 Ask: "Destination drive? (1 = Same G: drive / 2 = Different)"
 Wait for user response.
 
-### Step 3: After user answers, find latest backup and suggest name
-- Scan G: drive for existing backups
-- Calculate next version (e.g., v1-j → v1-k)
+### Step 3: Ask folder name
+- Scan G: drive (or chosen destination) for existing backups
+- Calculate next version (e.g., v1-u → v1-v)
 - Ask: "Folder name? (1 = Use [suggested name] / 2 = Enter custom)"
 Wait for user response.
 
-### Step 4: After user answers, show summary
+### Step 4: Show summary
 Display (Standard **Type** line = skips only, not includes):
 ```
 Backup Summary:
@@ -193,14 +195,36 @@ Backup Summary:
   — or — Full (no skips)
 - Destination: [path]
 - Folder: [name]
-Confirm? (1 = Yes / 2 = No)
 ```
-Optional one-line security note after the table: store G: backups private (`.env.local` is copied).
+Optional one-line security note: keep G: backups private.
+Do **not** ask for confirmation yet.
+
+### Step 5: Ask for backup note
+Ask: "Add a note about this backup? (optional — type your note, or press Enter to skip)"
+Wait for user response. Store as `[user note]` (empty string if skipped).
+
+### Step 6: Confirm backup
+Ask: "Confirm backup? (1 = Yes / 2 = No)"
 Wait for user response.
 
-### Step 5: If Yes, run: npm run msc:backup -- --[standard/full] [folder-name]
+### Step 7: Run backup
+If Yes, run from repo root (agent executes; use `--yes` so the script does not re-prompt):
 
-### Step 6: Report completion
+```bash
+npm run msc:backup -- --standard [folder-name] --yes --note "[user note]"
+```
+
+Use `--full` instead of `--standard` when Step 1 was Full. Omit `--note "..."` entirely if the operator skipped the note (empty).
+
+Example:
+```bash
+npm run msc:backup -- --standard Vader-Engine-v1-v --yes --note "Added backup notes feature"
+```
+
+Set `MSC_BACKUP_ROOT` via `.env.local` or pass the resolved destination path when destination was not default G:.
+
+### Step 8: Report completion
+Report location, folder name, and path to `.cursor/BackUp-Notez.md` inside the backup folder.
 
 NEVER ask multiple questions at once. Wait for each answer before asking the next.
 

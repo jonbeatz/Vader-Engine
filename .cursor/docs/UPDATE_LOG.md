@@ -4,6 +4,21 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ---
 
+## [2026-05-29] — backup-system v1.2.0 + 8-step agent backup ritual
+
+### Added
+
+- **`backup-system/global.mdc.fragment`** — portable merge target for `backup project` / `backup` / `create backup` shortcuts (points to module `CURSOR.md`)
+- **`module.manifest.json`** — v1.2.0; `features.backupNotes`; `agentWorkflowSteps: 8`
+
+### Changed
+
+- **`global.mdc`** — Backup Workflow: optional note step before confirm; run with `--yes --note "…"`; skips-only wording in type/summary (Steps 1–4)
+- **`backup-system/`** — README (script vs agent flow), CURSOR (full ritual), `install.ps1` (fragment + BackUp-Notez mention)
+- **Cheat Sheet + Operator Card** — aligned 8-step conversational backup flow
+
+---
+
 ## [2026-05-29] — Backup notes (`BackUp-Notez.md`)
 
 ### Added

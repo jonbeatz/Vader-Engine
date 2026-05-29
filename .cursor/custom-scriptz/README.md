@@ -5,7 +5,7 @@ Personal dev packs — **fat on disk** (include `ngrok.exe` locally), **lean in 
 | Module | Purpose | Manifest |
 |--------|---------|----------|
 | [google-api-proxy](google-api-proxy/) | LiteLLM + Vertex + ngrok | [module.manifest.json](google-api-proxy/module.manifest.json) |
-| [backup-system](backup-system/) | Standard/Full robocopy to G: | [module.manifest.json](backup-system/module.manifest.json) |
+| [backup-system](backup-system/) | Standard/Full robocopy + BackUp-Notez + note workflow | [module.manifest.json](backup-system/module.manifest.json) |
 
 Shared installer helpers: [_lib/Msc-ModuleInstall.ps1](_lib/Msc-ModuleInstall.ps1)
 

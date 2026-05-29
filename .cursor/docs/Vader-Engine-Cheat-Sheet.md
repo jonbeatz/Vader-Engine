@@ -221,7 +221,7 @@ Index: `.cursor/custom-scriptz/README.md` · Agent: each module's `CURSOR.md` + 
 
 | Command | What it does |
 |---------|--------------|
-| `npm run msc:backup` | Standard backup — interactive prompts; skips dirs only; **includes `.env.local`**; writes `.cursor/BackUp-Notez.md` in backup folder |
+| `npm run msc:backup` | Standard backup — interactive prompts; skips `node_modules`, `.next`, `logs`, `test-results`, `vader-site-deploy` |
 | `npm run msc:backup:standard` | Same as above |
 | `npm run msc:backup:full` | Full mirror (includes `node_modules`, `.next`, etc.) |
 | `npm run msc:backup -- --standard <folder-name>` | Standard backup to named folder |
@@ -242,10 +242,13 @@ robocopy D:\Cursor_Projectz\Vader-Engine G:\Cursor_Project_BackUpz\Vader-Engine\
 
 Use `backup project` (or `create backup`) in chat and answer one question at a time:
 
-1. Backup type (`1` Standard / `2` Full)
+1. Backup type (`1` Standard / `2` Full) — **skips only** for Standard
 2. Destination drive (`1` Same G: / `2` Different)
 3. Folder naming (`1` Suggested / `2` Custom)
-4. Confirm (`1` Yes / `2` No)
+4. Summary shown (no confirm yet)
+5. Optional note (`Add a note about this backup?` — Enter to skip)
+6. Confirm (`1` Yes / `2` No)
+7. Agent runs `npm run msc:backup -- --standard <folder> --yes --note "..."` (omit `--note` if skipped)
 
 ### Restore from Standard backup
 

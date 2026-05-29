@@ -23,9 +23,11 @@
 ### Added
 
 - **Backup notes** — `.cursor/BackUp-Notez.md` per backup folder (manual note + git summary; `--note` for non-interactive); written after robocopy
+- **`backup-system` v1.2.0** — `global.mdc.fragment` for portable `backup project` shortcuts; CURSOR 8-step agent ritual; manifest `features.backupNotes`
 
 ### Changed
 
+- **Agent backup ritual** — `global.mdc` + Cheat Sheet + Operator Card: 8 steps (type → destination → folder → summary → optional note → confirm → run with `--yes --note` → report); user-facing Standard/Full text lists **skips only**
 - **Cheat Sheet + Operator Card** — full portable module command table; `Prompt-Module.md` as canonical install reference
 - **LiteLLM start reliability** — boot proxy before ngrok; sync `MSC_LITELLM_MASTER_KEY` from `config/litellm_config.yaml`; verify local + ngrok `/v1/models` return **200** before READY
 - **`.cursor` hygiene** — `env/` personal desk; v0 mocks moved to `media/design-references/`; removed stale pre-upgrade snapshots
