@@ -1,7 +1,7 @@
 /**
  * lint-staged — excludes paths ignored by biome.json (e.g. design_references).
  */
-const DESIGN_REF = '.cursor/design_references';
+const DESIGN_REF = 'media/design-references';
 const TEMPLATES = 'templates/';
 const ARCHIVE = '_archive/';
 

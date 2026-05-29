@@ -5,7 +5,7 @@
 import './lib/msc-load-env.mjs';
 
 import process from 'node:process';
-import { msc_hydrateVertexEnv, msc_litellmAuthHeaders } from './lib/msc-litellm-env.mjs';
+import { msc_hydrateVertexEnv, msc_litellmFetchHeaders } from './lib/msc-litellm-env.mjs';
 
 const BANNER = '[msc:litellm:verify]';
 const args = new Set(process.argv.slice(2));
@@ -14,9 +14,10 @@ const skipChat = args.has('--models-only');
 const { port } = msc_hydrateVertexEnv();
 const base = process.env.MSC_LITELLM_BASE_URL?.trim() || `http://127.0.0.1:${port}`;
 const baseV1 = base.endsWith('/v1') ? base : `${base.replace(/\/$/, '')}/v1`;
+const isNgrok = baseV1.startsWith('https://');
 const headers = {
   'Content-Type': 'application/json',
-  ...msc_litellmAuthHeaders(),
+  ...msc_litellmFetchHeaders({ ngrok: isNgrok }),
 };
 
 let failed = 0;

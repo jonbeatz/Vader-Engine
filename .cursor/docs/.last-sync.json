@@ -1,6 +1,6 @@
 {
-  "lastSync": "2026-05-29T09:27:00-07:00",
-  "lastProjectUpdate": "2026-05-28T16:24:00-07:00",
+  "lastSync": "2026-05-29T14:15:00-07:00",
+  "lastProjectUpdate": "2026-05-29T14:15:00-07:00",
   "version": "2.6.1",
   "scripts": [
     "prepare",
@@ -20,14 +20,15 @@
     "msc:dev:payload",
     "msc:dev:tailwind",
     "msc:dev:dashboard",
+    "msc:litellm:preflight",
+    "msc:litellm:install-deps",
     "msc:litellm:start",
     "msc:litellm:start:ngrok",
+    "msc:google-api:start",
     "msc:litellm:test:ngrok",
     "msc:litellm:stop",
     "msc:litellm:status",
     "msc:litellm:verify",
-    "msc:litellm:preflight",
-    "msc:litellm:install-deps",
     "msc:dashboard:smoke",
     "verify:mcp",
     "verify:mcp:probe",
@@ -106,6 +107,7 @@
   "scripts_files": [
     "scripts/health.mjs",
     "scripts/msc-backup.mjs",
+    "scripts/msc-build-personal-secrets-vault.mjs",
     "scripts/msc-check-deps.mjs",
     "scripts/msc-check-node.mjs",
     "scripts/msc-clean-next-cache.mjs",
@@ -147,5 +149,12 @@
     "scripts/msc-verify-next-safe.mjs",
     "scripts/quickstart.mjs",
     "scripts/validate-env.mjs"
+  ],
+  "env_files_reference": [
+    ".cursor/README.md",
+    ".cursor/env/README.md",
+    ".cursor/env/master.env.example",
+    ".cursor/env/master.env.local.example",
+    ".cursor/env/Personal-Secrets-Vault.md"
   ]
 }

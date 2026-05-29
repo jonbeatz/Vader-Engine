@@ -4,6 +4,49 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ---
 
+## [2026-05-29] — LiteLLM reliable start + docs commit prep
+
+### Changed
+
+- **`msc-litellm-start.mjs`** — LiteLLM health wait → ngrok → local/ngrok **200** verification; prints **READY**
+- **`msc-litellm-env.mjs`** — `msc_syncLitellmMasterKey()`, `msc_probeLitellmModels()`, ngrok skip header
+- **`package.json`** — `msc:google-api:start` script alias
+- **Docs** — Cheat Sheet, REPAIR_PROTOCOLS (401 fix), CHANGELOG, DOCS index, `.cursor/README.md`
+
+---
+
+## [2026-05-29] — `.cursor` folder hygiene (env path + design refs)
+
+### Changed
+
+- **`ENV-Files/` → `env/`** — master contracts, vault output, README; optional snapshots under `env/backups/1–6`
+- **Vault script** — writes only `.cursor/env/Personal-Secrets-Vault.md` (dropped Credentials duplicate)
+- **v0 mocks** — `.cursor/design_references/` → `media/design-references/` (gitignored binaries)
+- **`.cursor/README.md`** — folder index for operators
+- **Docs / gitignore / biome / lint-staged** — paths synced to `env/` and `media/design-references/`
+
+---
+
+## [2026-05-29] — ENV-Files personal secrets vault & doc sync
+
+### Added
+
+- **`.cursor/ENV-Files/README.md`** — index for master env contracts and generated vault files
+- **`scripts/msc-build-personal-secrets-vault.mjs`** — builds `Personal-Secrets-Vault.md` + `Personal-Secrets-Vault-Credentials.md` from `.env.local`, project/global MCP JSON, LiteLLM/GCP, and numbered backup folders
+- **Master references:** `master.env.example`, `master.env.local.example`, paired `.md` views
+
+### Changed
+
+- **Vault layout:** collapsible `<details>` sections; ENV-Files folders nested under scan manifest; MCP section includes project `mcp.json`, `mcp-blueprint.json`, `~/.cursor/mcp.json`, and runtime `.env.local` keys
+- **Docs:** `START-HERE.md`, `DOCS.md`, `Vader-Credentials.md` cross-links
+- **`.gitignore`:** generated vault markdown files
+
+### Security
+
+- Vault outputs remain **gitignored** — store on encrypted backup drive only; never commit or paste into chat.
+
+---
+
 ## [2026-05-29] — LiteLLM start hardening & gemini-3.5-flash alias
 
 ### Problem

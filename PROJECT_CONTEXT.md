@@ -67,7 +67,7 @@ Full constitution: [TRUTH.md](TRUTH.md) · Session rules: [.cursor/rules/global.
 | `templates/full-stack/vader-site/` | Marketing / optional Payload site | Active · **3003** when applied |
 | `core/` | TS + PHP shared bridge | Active |
 | `e2e/` | Playwright multi-sandbox | Active |
-| `.cursor/design_references/` | v0 Stage 2 JPG/PDF refs | Active |
+| `media/design-references/` | v0 Stage 2 JPG/PDF refs (gitignored binaries) | Active |
 | `vader-site-deploy/` | Hostinger deploy output | Gitignored · regenerate only |
 | `_archive/` | Future operator-approved moves | **Not created** — Phase 3A deferred all archive items (2026-05-27) |
 
@@ -211,7 +211,7 @@ All `scripts/*.mjs` import `scripts/lib/msc-load-env.mjs` first: `.env.local` �
 
 See checklist in [_archive/old-docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md](_archive/old-docs/audit/VADER_ENGINE_AUDIT_2026-05-27.md).
 
-**Tier-1 archive candidates (when you approve):** `design_references/VaderLabz/`, `design_references/deprecated/`, `ui/imports/msc-import-*`, `boilerplate_v240_suggestions.md`.
+**Tier-1 archive candidates (when you approve):** `media/design-references/VaderLabz/` (if present), `ui/imports/msc-import-*`, `boilerplate_v240_suggestions.md`.
 
 **Keep:** `examples/`, all `templates/`, `scripts/lib/msc-load-env.mjs`, Shield CSS.
 

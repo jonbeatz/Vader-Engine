@@ -115,6 +115,14 @@ MCP paths in `.cursor/mcp.json` must use `"${workspaceFolder}"` — never machin
 
 
 
+**Personal env vault (optional, encrypted backup only):**
+
+- Reference contracts: `.cursor/env/master.env.example`, `master.env.local.example`.
+- Regenerate live vault: `node scripts/msc-build-personal-secrets-vault.mjs` → `.cursor/env/Personal-Secrets-Vault.md` (gitignored).
+- Index: `.cursor/env/README.md` · operator card: `.cursor/docs/Vader-Credentials.md`.
+
+
+
 **Fast path (recommended):**
 
 

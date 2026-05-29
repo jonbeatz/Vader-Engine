@@ -71,6 +71,7 @@ export function msc_hydrateVertexEnv() {
   }
 
   msc_stripPayloadDatabaseUrlFromLitellmEnv();
+  msc_syncLitellmMasterKey();
 
   return {
     credentialsPath: process.env.GOOGLE_APPLICATION_CREDENTIALS,
@@ -99,8 +100,88 @@ export function msc_stripPayloadDatabaseUrlFromLitellmEnv() {
   delete process.env.DATABASE_SCHEMA;
 }
 
+/** Read master key from MSC_LITELLM_MASTER_KEY or config/litellm_config.yaml (no logging). */
+export function msc_readLitellmMasterKey() {
+  const env = process.env.MSC_LITELLM_MASTER_KEY?.trim();
+  if (env && !/^your_/i.test(env) && env !== 'your_litellm_master_key_local_only') {
+    return env;
+  }
+
+  const configPath = msc_litellmConfigPath();
+  if (!fs.existsSync(configPath)) return null;
+
+  const text = fs.readFileSync(configPath, 'utf8');
+  const match = text.match(/^\s*master_key:\s*["']?([^"'\n#]+)["']?/m);
+  const fromYaml = match?.[1]?.trim();
+  return fromYaml || null;
+}
+
+/** Align process.env with config master_key when .env.local omits or uses placeholders. */
+export function msc_syncLitellmMasterKey() {
+  const key = msc_readLitellmMasterKey();
+  if (key) {
+    process.env.MSC_LITELLM_MASTER_KEY = key;
+  }
+  return key;
+}
+
 export function msc_litellmAuthHeaders() {
-  const key = process.env.MSC_LITELLM_MASTER_KEY?.trim();
+  const key = msc_syncLitellmMasterKey();
   if (!key) return {};
   return { Authorization: `Bearer ${key}` };
+}
+
+export function msc_litellmFetchHeaders({ ngrok = false } = {}) {
+  return {
+    ...msc_litellmAuthHeaders(),
+    ...(ngrok ? { 'ngrok-skip-browser-warning': 'true' } : {}),
+  };
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/** Poll /v1/models until HTTP 200 or timeout (LiteLLM boot). */
+export async function msc_waitForLitellmReady(port, { timeoutMs = 90000, intervalMs = 1000 } = {}) {
+  const url = `http://127.0.0.1:${port}/v1/models`;
+  const deadline = Date.now() + timeoutMs;
+
+  while (Date.now() < deadline) {
+    try {
+      const res = await fetch(url, {
+        headers: msc_litellmAuthHeaders(),
+        signal: AbortSignal.timeout(4000),
+      });
+      if (res.status === 200) {
+        return { ok: true, status: 200 };
+      }
+    } catch {
+      /* retry until deadline */
+    }
+    await sleep(intervalMs);
+  }
+
+  return { ok: false, status: 0 };
+}
+
+/** Probe OpenAI-compatible /v1/models (local or ngrok). */
+export async function msc_probeLitellmModels(baseV1, { ngrok = false, timeoutMs = 15000 } = {}) {
+  const root = String(baseV1).replace(/\/$/, '');
+  const url = root.endsWith('/v1') ? `${root}/models` : `${root}/v1/models`;
+
+  try {
+    const res = await fetch(url, {
+      headers: msc_litellmFetchHeaders({ ngrok }),
+      signal: AbortSignal.timeout(timeoutMs),
+    });
+    if (!res.ok) {
+      return { ok: false, status: res.status, modelIds: [] };
+    }
+    const body = await res.json();
+    const modelIds = (body.data || []).map((m) => m.id).filter(Boolean);
+    return { ok: true, status: res.status, modelIds };
+  } catch {
+    return { ok: false, status: 0, modelIds: [] };
+  }
 }

@@ -75,6 +75,41 @@ When build errors mention CSR bailout / `useSearchParams` / `useParams`:
 | Provider Error in Cursor | `start google-api` → `verify google-api`; model must be **`vader-3-flash`** |
 | Missing Python deps | `npm run msc:litellm:install-deps` |
 
+### LiteLLM 401 / “Malformed API Key” fix
+
+**Symptom:** `401` on `/v1/models`, log shows `Malformed API Key` / missing `Bearer` prefix, or `start-project:gate` reports LiteLLM `offline` while a stale process holds port 4000.
+
+**Root cause:** Cursor API key does not match LiteLLM `general_settings.master_key` in `config/litellm_config.yaml`, or ngrok was probed before LiteLLM finished booting.
+
+**Recovery (always clean start):**
+
+```bash
+npm run msc:litellm:stop && npm run msc:litellm:start:ngrok
+```
+
+Or say **`start google-api`** in chat (same command chain).
+
+**What the start script does now:**
+
+1. `msc:litellm:stop` — kills ngrok + ports **4000** / **4040** (600ms socket release)
+2. Preflight + port clearance
+3. Starts LiteLLM, waits for **HTTP 200** on `http://127.0.0.1:4000/v1/models` with `Authorization: Bearer <master_key>`
+4. Starts ngrok, prints HTTPS URL, verifies ngrok `/v1/models` returns **200** (includes `ngrok-skip-browser-warning` header)
+
+**Cursor settings (must match config):**
+
+| Setting | Value |
+|---------|--------|
+| Override OpenAI Base URL | ngrok `https://…/v1` printed at start |
+| OpenAI API Key | `MSC_LITELLM_MASTER_KEY` in `.env.local` — same value as `master_key` in `config/litellm_config.yaml` |
+| Model | `vader-3-flash` |
+
+**Verify:**
+
+```bash
+npm run msc:litellm:test:ngrok
+```
+
 Full matrix: [local-ai-proxy-setup.md](./local-ai-proxy-setup.md) · [TROUBLESHOOTING.md](../../TROUBLESHOOTING.md)
 
 ---

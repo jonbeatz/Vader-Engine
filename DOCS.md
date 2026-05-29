@@ -40,6 +40,9 @@ Single entry point for all **Vader Engine v2.6.1** documentation. Technical prec
 | [project-log.md](.cursor/docs/project-log.md) | Session changelog |
 | [local-ai-proxy-setup.md](.cursor/docs/local-ai-proxy-setup.md) | LiteLLM / ngrok / `vader-3-flash` |
 | [.last-sync.json](.cursor/docs/.last-sync.json) | Update Docs sync state |
+| [Vader-Credentials.md](.cursor/docs/Vader-Credentials.md) | LiteLLM / Cursor / GCP personal operator card |
+| [env/README.md](.cursor/env/README.md) | Personal env vault + `master.env.*` reference |
+| [.cursor/README.md](.cursor/README.md) | Agent layer folder index |
 
 ## Agent runbooks (`.cursor/docs/`)
 
@@ -84,7 +87,7 @@ Single entry point for all **Vader Engine v2.6.1** documentation. Technical prec
 | [_archive/old-plans/](../_archive/old-plans/) | Completed implementation plans |
 | [_archive/old-workflow-reference/](../_archive/old-workflow-reference/) | Nova Launcher doc reference |
 
-Visual refs for v0: `.cursor/design_references/v0-Design-Refrences/`
+Visual refs for v0: [media/design-references/](media/design-references/README.md) (`v0-Design-Refrences/`)
 
 ## Examples (sandboxes)
 

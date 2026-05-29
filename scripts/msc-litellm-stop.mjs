@@ -28,4 +28,7 @@ spawnSync(process.execPath, [path.join(scriptsDir, 'msc-kill-dev-port.mjs'), '40
   stdio: 'inherit',
 });
 
+/** Brief pause so Windows releases sockets before restart. */
+await new Promise((r) => setTimeout(r, 600));
+
 console.log(`${BANNER} done`);

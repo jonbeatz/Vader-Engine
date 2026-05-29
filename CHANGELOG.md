@@ -4,6 +4,10 @@
 
 ### Added
 
+- **Personal env vault** — `.cursor/env/` reference contracts (`master.env.*`), gitignored `Personal-Secrets-Vault.md`, and `scripts/msc-build-personal-secrets-vault.mjs` (scans `.env.local`, MCP, optional `env/backups/1–6`)
+- **`.cursor/README.md`** — agent layer folder index
+- **`msc:google-api:start`** — canonical `stop` + `start:ngrok` npm alias for **start google-api**
+- **`Vader-Credentials.md`** — LiteLLM / Cursor / GCP operator card
 - **`update project`** workflow — `.cursor/prompts/Update-Project.md` auto-syncs `UPDATE_LOG.md`, `project-log.md`, `Checkpoint.md`, `.last-sync.json`
 - Nova-pattern agent docs: `.cursor/docs/{TRUTH,Project-Bible,REPAIR_PROTOCOLS,UPDATE_LOG,MCPs,Checkpoint}.md`
 - Rules: `start-project-ritual.mdc`, `vader-repair-ast.mdc`
@@ -11,6 +15,9 @@
 
 ### Changed
 
+- **LiteLLM start reliability** — boot proxy before ngrok; sync `MSC_LITELLM_MASTER_KEY` from `config/litellm_config.yaml`; verify local + ngrok `/v1/models` return **200** before READY
+- **`.cursor` hygiene** — `env/` personal desk; v0 mocks moved to `media/design-references/`; removed stale pre-upgrade snapshots
+- **Standard backup** — includes repo-root `.env.local` (live secrets on private G: drive)
 - **Branding:** Vader Protocol baseline tag renamed from `v2.5.0-SOVEREIGN` to **v2.5.0-Engine** across docs, prompts, and grader banner (semver **2.5.0** unchanged)
 - **Docs:** Lean `DOCS.md` index; obsolete content moved to `_archive/` (no deletes); Cheat Sheet + Operator Card **What You Have Now** table
 - **End project:** §2.5 auto-runs `update project` before closeout handoff
@@ -116,7 +123,7 @@
 
 - Release notes relocated to `docs/releases/`; grader path updated
 - `docs/assets/` index; example `.env.example` coverage; `validate-env` scans sandbox templates
-- Local design captures gitignored under `.cursor/design_references/*.jpg` (etc.)
+- Local design captures gitignored under `media/design-references/**` (v0 JPG/PDF mocks)
 
 ### Grade
 

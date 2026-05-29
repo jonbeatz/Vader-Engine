@@ -16,6 +16,8 @@ Node scripts hydrate via `scripts/lib/msc-load-env.mjs` before reading `process.
 
 Agents must not ask operators to paste secrets into chat — add keys to `.env.example` + values in `.env.local`.
 
+**Personal backup vault (optional):** Regenerate a full local snapshot with `node scripts/msc-build-personal-secrets-vault.mjs` → `.cursor/env/Personal-Secrets-Vault.md` (gitignored). Index: [env/README.md](../env/README.md). Operator card: [Vader-Credentials.md](./Vader-Credentials.md).
+
 ---
 
 ## Two-layer model

@@ -7,6 +7,10 @@
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Personal secrets vault (generated — never commit)
+.cursor/env/Personal-Secrets-Vault.md
+.cursor/ENV-Files/
 *.pem
 *.key
 credentials.json
@@ -61,13 +65,14 @@ playwright/.cache/
 .cursor/docs/README/
 # Legacy upgrade runbooks → _archive/boilerplate-improvement/ (optional local copies)
 
-# Local-only design captures (committed brand media → media/ or docs/assets/README.md)
-.cursor/design_references/*.jpg
-.cursor/design_references/*.jpeg
-.cursor/design_references/*.png
-.cursor/design_references/*.webp
-.cursor/design_references/*.gif
-.cursor/design_references/vader-ops-dashboard.zip
+# Local-only design captures (v0 mocks — see media/design-references/README.md)
+media/design-references/**/*.jpg
+media/design-references/**/*.jpeg
+media/design-references/**/*.png
+media/design-references/**/*.webp
+media/design-references/**/*.gif
+media/design-references/**/*.pdf
+media/design-references/**/*.zip
 
 # MCP / agent screenshots (local verification only — not repo media)
 assets/

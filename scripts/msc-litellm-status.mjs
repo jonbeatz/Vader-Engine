@@ -5,27 +5,20 @@
 import './lib/msc-load-env.mjs';
 
 import process from 'node:process';
-import { msc_hydrateVertexEnv, msc_litellmAuthHeaders } from './lib/msc-litellm-env.mjs';
+import { msc_hydrateVertexEnv, msc_probeLitellmModels } from './lib/msc-litellm-env.mjs';
 
 const { port } = msc_hydrateVertexEnv();
-const base = `http://127.0.0.1:${port}`;
+const probe = await msc_probeLitellmModels(`http://127.0.0.1:${port}/v1`);
 
-try {
-  const res = await fetch(`${base}/v1/models`, {
-    headers: msc_litellmAuthHeaders(),
-    signal: AbortSignal.timeout(3000),
-  });
-  if (res.status === 200) {
-    console.log('online');
-    process.exit(0);
-  }
-  if (res.status === 401) {
-    console.log('online (auth required)');
-    process.exit(0);
-  }
-  console.log('offline');
-  process.exit(1);
-} catch {
-  console.log('offline');
-  process.exit(1);
+if (probe.ok) {
+  console.log('online');
+  process.exit(0);
 }
+
+if (probe.status === 401) {
+  console.log('online (auth mismatch — sync MSC_LITELLM_MASTER_KEY with config master_key)');
+  process.exit(0);
+}
+
+console.log('offline');
+process.exit(1);

@@ -5,7 +5,7 @@
 import './lib/msc-load-env.mjs';
 
 import process from 'node:process';
-import { msc_hydrateVertexEnv, msc_litellmAuthHeaders } from './lib/msc-litellm-env.mjs';
+import { msc_hydrateVertexEnv, msc_probeLitellmModels } from './lib/msc-litellm-env.mjs';
 import {
   msc_fetchNgrokHttpsUrl,
   msc_ngrokAvailable,
@@ -29,25 +29,17 @@ console.log('\n🔍 Testing LiteLLM + ngrok for Cursor Cloud Agent\n');
 
 const { port } = msc_hydrateVertexEnv();
 const localV1 = `http://127.0.0.1:${port}/v1`;
-const headers = msc_litellmAuthHeaders();
+const localProbe = await msc_probeLitellmModels(localV1);
 
-try {
-  const res = await fetch(`${localV1}/models`, {
-    headers,
-    signal: AbortSignal.timeout(5000),
-  });
-  if (res.ok) {
-    const body = await res.json();
-    const ids = (body.data || []).map((m) => m.id);
-    pass(`LiteLLM on port ${port} — models: ${ids.join(', ') || '(none)'}`);
-    if (!ids.includes('vader-3-flash')) {
-      fail('vader-3-flash not in model list');
-    }
-  } else {
-    fail(`LiteLLM HTTP ${res.status} — run: npm run msc:litellm:start:ngrok`);
+if (localProbe.ok) {
+  pass(`LiteLLM on port ${port} — models: ${localProbe.modelIds.join(', ') || '(none)'}`);
+  if (!localProbe.modelIds.includes('vader-3-flash')) {
+    fail('vader-3-flash not in model list');
   }
-} catch {
-  fail(`LiteLLM not reachable at ${localV1} — run: npm run msc:litellm:start:ngrok`);
+} else {
+  fail(
+    `LiteLLM HTTP ${localProbe.status || 'unreachable'} — run: npm run msc:litellm:stop && npm run msc:litellm:start:ngrok`,
+  );
 }
 
 if (!msc_ngrokAvailable()) {
@@ -66,18 +58,13 @@ if (!ngrokUrl) {
   pass(`ngrok HTTPS: ${ngrokUrl}`);
   const remoteV1 = msc_printCursorNgrokSettings(ngrokUrl);
 
-  try {
-    const res = await fetch(`${remoteV1}/models`, {
-      headers,
-      signal: AbortSignal.timeout(15000),
-    });
-    if (res.ok) {
-      pass('Remote ngrok /v1/models reachable');
-    } else {
-      fail(`Remote ngrok HTTP ${res.status} — tunnel may be stale; restart ngrok`);
-    }
-  } catch (err) {
-    fail(`Remote ngrok unreachable: ${err.message}`);
+  const remoteProbe = await msc_probeLitellmModels(remoteV1, { ngrok: true });
+  if (remoteProbe.ok) {
+    pass('Remote ngrok /v1/models reachable (200)');
+  } else {
+    fail(
+      `Remote ngrok HTTP ${remoteProbe.status || 'unreachable'} — run: npm run msc:litellm:stop && npm run msc:litellm:start:ngrok`,
+    );
   }
 }
 

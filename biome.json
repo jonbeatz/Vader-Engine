@@ -31,7 +31,7 @@
       "!**/playwright-report",
       "!**/package-lock.json",
       "!templates",
-      "!**/.cursor/design_references",
+      "!**/media/design-references",
       "!vader-site-deploy",
       "!_archive",
       "!logs",

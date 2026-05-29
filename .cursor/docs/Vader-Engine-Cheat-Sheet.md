@@ -174,9 +174,9 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 
 | Command | What it does |
 |---------|--------------|
-| `npm run msc:backup` | Run backup with default standard exclusions |
-| `npm run msc:backup:standard` | Explicit standard backup mode |
-| `npm run msc:backup:full` | Full backup (includes all folders/files) |
+| `npm run msc:backup` | Standard backup (skips heavy dirs; **includes** `.env.local`) |
+| `npm run msc:backup:standard` | Same as above |
+| `npm run msc:backup:full` | Full mirror (includes `node_modules`, `.next`, etc.) |
 | `npm run msc:backup -- --standard <folder-name>` | Standard backup to custom folder |
 | `npm run msc:backup -- --full <folder-name>` | Full backup to custom folder |
 
@@ -185,6 +185,8 @@ First time only: `npm run msc:litellm:preflight` then `npm run msc:litellm:insta
 ```powershell
 robocopy D:\Cursor_Projectz\Vader-Engine G:\Cursor_Project_BackUpz\Vader-Engine\Vader-Engine-v1-x /MIR /XD node_modules .next logs test-results vader-site-deploy
 ```
+
+> **Security:** Standard backups copy `.env.local` (API keys, PATs). Store backups on a private drive (default `G:\Cursor_Project_BackUpz\`); never sync to public cloud unencrypted.
 
 ### Agent Backup Flow (recommended)
 
@@ -207,7 +209,8 @@ robocopy G:\Cursor_Project_BackUpz\Vader-Engine\Vader-Engine-v1-x D:\Cursor_Proj
 
 | Command | What it does |
 |---------|--------------|
-| `npm run msc:litellm:start:ngrok` | **Cloud Agent** — LiteLLM + ngrok; prints Cursor HTTPS URL |
+| `npm run msc:google-api:start` | **start google-api** — clean stop, LiteLLM boot, ngrok, verify **200** |
+| `npm run msc:litellm:start:ngrok` | LiteLLM + ngrok (same as above without duplicate stop in one npm chain) |
 | `npm run msc:litellm:test:ngrok` | Verify local `:4000` + remote ngrok `/v1/models` |
 | `npm run msc:litellm:start` | Localhost only (`http://127.0.0.1:4000/v1`) |
 | `npm run msc:litellm:verify` | Local Vertex chat smoke |

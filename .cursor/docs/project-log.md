@@ -7,6 +7,22 @@
 - **Current Version:** 2.6.1
 - **Status:** Vader Engine v2.6.1 baseline shipped on `main` · **61/61** grade · release tags `v2.1.0`–`v2.6.1`
 
+### [2026-05-29] - Docs sync + LiteLLM reliable start (commit)
+- **Changed:** LiteLLM start waits for HTTP 200 before ngrok; auth synced from `litellm_config.yaml`
+- **Added:** `msc:google-api:start`, `msc-build-personal-secrets-vault.mjs`, `.cursor/env/`, `Vader-Credentials.md`, `.cursor/README.md`
+- **Moved:** v0 design refs `.cursor/design_references/` → `media/design-references/` (binaries gitignored)
+- **Removed:** `pre-grade-baseline.txt`, `pre-upgrade-commit.txt`
+
+### [2026-05-29] - `.cursor` hygiene (env + design refs)
+- **Renamed:** `ENV-Files/` → `env/`; vault + gitignore + docs paths synced
+- **Moved:** v0 design mocks → `media/design-references/`
+- **Added:** `.cursor/README.md`; standard backup includes `.env.local`
+- **Regenerate vault:** `node scripts/msc-build-personal-secrets-vault.mjs`
+
+### [2026-05-29] - Personal secrets vault (initial)
+- **Added:** `scripts/msc-build-personal-secrets-vault.mjs`, `env/master.env.*`, generated vault (gitignored)
+- **Docs:** `START-HERE.md`, `DOCS.md`, `Vader-Credentials.md`
+
 ### [2026-05-29] - Update Project Checkpoint
 - **Status:** ACTIVE — working on dev branch `Vader-Engine-Dev-v1`
 - **Branch:** `Vader-Engine-Dev-v1`

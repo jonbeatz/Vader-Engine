@@ -84,9 +84,9 @@ export async function msc_fetchNgrokHttpsUrl(timeoutMs = 30000) {
 export function msc_printCursorNgrokSettings(publicBaseUrl) {
   const baseV1 = `${publicBaseUrl.replace(/\/$/, '')}/v1`;
   const keyHint = process.env.MSC_LITELLM_MASTER_KEY?.trim()?.startsWith('your_')
-    ? '(set MSC_LITELLM_MASTER_KEY in .env.local)'
+    ? '(set MSC_LITELLM_MASTER_KEY in .env.local — must match config master_key)'
     : process.env.MSC_LITELLM_MASTER_KEY?.trim()
-      ? 'MSC_LITELLM_MASTER_KEY from .env.local'
+      ? 'MSC_LITELLM_MASTER_KEY (synced with config/litellm_config.yaml)'
       : '(optional — leave blank if LiteLLM has no master_key)';
 
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
