@@ -12,11 +12,8 @@ const REPO_ROOT = path.resolve(__dirname, '..');
 const DEFAULT_BACKUP_ROOT = 'G:\\Cursor_Project_BackUpz';
 const STANDARD_DIRS = ['node_modules', '.next', 'logs', 'test-results', 'vader-site-deploy'];
 const NOTES_REL_PATH = path.join('.cursor', 'BackUp-Notez.md');
-const NOTES_HEADER = `# Backup Notes
-
-Per-backup log (newest entries at top). Standard backups copy \`.env.local\` — keep destination private.
-
-`;
+const NOTES_FOOTER =
+  '\n*Backup created by Vader Engine v2.7.0 — includes source code, config, and portable modules.*\n';
 
 const rawArgs = process.argv.slice(2);
 const noteFlagIndex = rawArgs.findIndex((a) => a === '--note' || a === '-n');
@@ -132,8 +129,8 @@ function prependBackupNote(backupPath, entry, preservedTail = '') {
     tail = fs.readFileSync(notesPath, 'utf8');
   }
 
-  if (!tail.startsWith('# Backup Notes')) {
-    tail = NOTES_HEADER + tail;
+  if (!tail.includes('*Backup created by Vader Engine')) {
+    tail = tail + NOTES_FOOTER;
   }
 
   fs.writeFileSync(notesPath, entry + tail, 'utf8');
@@ -146,11 +143,16 @@ function readExistingNotesBody(backupPath) {
     return '';
   }
   let content = fs.readFileSync(notesPath, 'utf8');
-  const headerEnd = content.indexOf('\n\n', content.indexOf('# Backup Notes'));
-  if (headerEnd !== -1 && content.startsWith('# Backup Notes')) {
-    content = content.slice(headerEnd + 2);
+  const legacyFooterIdx = content.indexOf('\n# Backup Notes\n');
+  if (legacyFooterIdx !== -1) {
+    content = content.slice(0, legacyFooterIdx);
   }
-  return content;
+  const footerIdx = content.indexOf('\n*Backup created by Vader Engine');
+  if (footerIdx !== -1) {
+    content = content.slice(0, footerIdx);
+  }
+  const trimmed = content.trimEnd();
+  return trimmed ? `${trimmed}\n\n` : '';
 }
 
 function askQuestion(rl, question) {
@@ -279,7 +281,8 @@ async function main() {
 
     console.log('📦 Creating backup...\n');
 
-    const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
+    const now = new Date();
+    const timestamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
     const gitInfo = getGitInfo(REPO_ROOT);
     const noteEntry = buildNoteEntry({
       timestamp,
