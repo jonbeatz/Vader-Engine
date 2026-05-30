@@ -22,10 +22,11 @@
 ## Fixed
 
 - **Standard backup** — restored `.env.local` copy (removed erroneous `/XF`)
+- **BackUp-Notez** — local timestamps; operator-friendly footer in each backup folder
 
 ## Technical
 
 - 61/61 integrity maintained
 - 8/8 root Vitest passing
-- Branch milestone: `Vader-Engine-Dev-v2` @ `c4ceac7`
+- Branch milestone: `Vader-Engine-Dev-v2` @ `96c10a6`
 - GitHub release tag: `v2.7.0` (when tagged on merge)

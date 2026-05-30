@@ -122,7 +122,7 @@ Equivalent direct commands:
 - `npm run msc:backup -- --standard <folder-name> --yes --note "why I backed up"`
 - `npm run msc:backup -- --full <folder-name> --yes`
 
-Each backup writes **`.cursor/BackUp-Notez.md`** in the backup folder after robocopy (newest entries at top).
+Each backup writes **`.cursor/BackUp-Notez.md`** in the backup folder after robocopy (newest entries at top; **local timestamp**; friendly footer at bottom).
 
 ### After Standard restore (5 steps)
 
@@ -219,4 +219,4 @@ Optional mid-session: `update project` (without full closeout).
 
 ---
 
-*Last updated: May 29, 2026 — Backup notes (BackUp-Notez.md), --note flag*
+*Last updated: May 29, 2026 — BackUp-Notez local timestamp + footer*

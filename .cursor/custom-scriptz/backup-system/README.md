@@ -50,6 +50,8 @@ Each backup writes **`.cursor/BackUp-Notez.md`** inside the backup folder **afte
 - Optional **My Notes** at top (prompt or `--note`)
 - Git branch, commit, message
 - Type, **Excluded** dirs, **Included (secrets)** row (`.env.local` for Standard)
+- **Timestamp** — local machine time (not UTC)
+- **Footer** — `*Backup created by Vader Engine v2.7.0 — includes source code, config, and portable modules.*`
 
 New entries **prepend** (newest first). Re-backup to the same folder preserves prior note history.
 

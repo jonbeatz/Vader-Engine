@@ -4,6 +4,25 @@ Running record of significant fixes, root causes, and verification. Session summ
 
 ---
 
+## [2026-05-29] — BackUp-Notez timestamp + footer fix
+
+### Fixed
+
+- **`msc-backup.mjs`** (repo + `backup-system` module) — local timestamp in note entries (was UTC); friendly footer at bottom of `BackUp-Notez.md`
+- **`readExistingNotesBody`** — strips legacy `# Backup Notes` header and new footer when re-backing up same folder
+
+### Changed
+
+- **README** — full v2.7.0 product story (portable modules, backup, google-api proxy, roadmap)
+- **Git:** `6db44f7` README polish · `96c10a6` backup notes fix
+
+### Verified
+
+- Test backup `test-timestamp` — local time `2026-05-29 17:17:09` · footer OK
+- G: restore point **`Vader-Engine-v1-w`** @ operator session (custom-scriptz + backup notes workflow)
+
+---
+
 ## [2026-05-29] — v2.7.0 version bump (Dev-v2 milestone)
 
 ### Changed

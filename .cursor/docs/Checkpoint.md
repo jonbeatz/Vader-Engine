@@ -11,7 +11,7 @@ Authoritative build and branch history for Vader Engine releases.
 - **Tags (shipped):** `v2.1.0`, `v2.2.0`, `v2.3.0`, `v2.4.0`, `v2.5.0`, `v2.6.0`, `v2.6.1`
 - **Next tag:** `v2.7.0` (portable modules + backup system)
 - **Release doc:** `docs/releases/RELEASE_v2.7.0.md`
-- **Head:** `c4ceac7` — backup-system v1.2.0 + 8-step agent ritual
+- **Head:** `96c10a6` — BackUp-Notez local timestamp + footer · README v2.7.0 polish
 
 ---
 
@@ -19,8 +19,8 @@ Authoritative build and branch history for Vader Engine releases.
 
 - **Current status:** Portable `custom-scriptz` modules (google-api-proxy + backup-system v1.2.0) · interactive backup + `BackUp-Notez.md` · 8-step agent backup ritual · `Prompt-Module.md` canonical
 - **Restore point:** `Vader-Engine-Dev-v1` @ `c993472` (frozen on remote)
-- **G: backup:** `Vader-Engine-v1-v` @ `5f505b9` (includes BackUp-Notez; `.env.local` present)
-- **Recent:** `c4ceac7` backup ritual docs · `5f505b9` BackUp-Notez · `f149a6c` production portable modules
+- **G: backup:** `Vader-Engine-v1-w` @ `96c10a6` (latest; includes BackUp-Notez + `.env.local`) · prior `v1-v` @ `5f505b9`
+- **Recent:** `96c10a6` BackUp-Notez fix · `6db44f7` README polish · `ca13250` v2.7.0 bump · `c4ceac7` backup ritual
 
 ## Branch: `Vader-Engine-Dev-v1` (2026-05-29) — **frozen**
 
@@ -80,4 +80,4 @@ Authoritative build and branch history for Vader Engine releases.
 
 ---
 
-*Last updated: 2026-05-29 (update project · v2.7.0 bump)*
+*Last updated: 2026-05-29 (update project · v2.7.0 milestone)*

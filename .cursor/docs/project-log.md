@@ -7,6 +7,20 @@
 - **Current Version:** 2.7.0
 - **Status:** v2.7.0 milestone on `Vader-Engine-Dev-v2` · v2.6.1 on `main` · **61/61** grade · release tags `v2.1.0`–`v2.7.0` (v2.7.0 pending tag on merge)
 
+### [2026-05-29 17:20] - Update Project Checkpoint
+- **Status:** BackUp-Notez local timestamp + footer fix shipped · README v2.7.0 polish complete
+- **Branch:** `Vader-Engine-Dev-v2` @ `96c10a6`
+- **G: backup:** `Vader-Engine-v1-w` (operator note: custom-scriptz + backup workflow)
+- **Next:** Merge Dev-v2 → `main` · tag `v2.7.0`
+
+### [2026-05-29] - BackUp-Notez timestamp + footer fix
+- **Fixed:** Local timestamps in note entries; operator-friendly footer (replaces technical header)
+- **Synced:** `backup-system` module copy · UPDATE_LOG · Checkpoint · CHANGELOG
+
+### [2026-05-29] - README v2.7.0 polish
+- **Changed:** Hero, status table, Why Vader Engine, architecture, structure, dev commands, doc links, roadmap
+- **Commit:** `6db44f7` — human-readable message for backup git row
+
 ### [2026-05-29] - Update Project · v2.7.0 version bump
 - **Milestone:** Portable modules + backup-system v1.2.0 branch ready for merge
 - **Version:** `package.json` → **2.7.0** · `RELEASE_v2.7.0.md` · doc sweep across root + `.cursor/docs`

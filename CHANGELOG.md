@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- **BackUp-Notez timestamps** — `msc-backup.mjs` uses local time instead of UTC `toISOString`
+- **BackUp-Notez footer** — operator-friendly footer replaces technical `.env.local` header block
+
+### Changed
+
+- **README v2.7.0 polish** — status table, architecture, dev commands, doc links, roadmap (portable modules + backup)
+- **README commit message** — human-readable summary for backup note git row
+
 ---
 
 ## [2.7.0] - 2026-05-29
