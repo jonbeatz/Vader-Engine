@@ -7,6 +7,15 @@
 - **Current Version:** 2.7.0
 - **Status:** v2.7.0 milestone on `Vader-Engine-Dev-v2` · v2.6.1 on `main` · **61/61** grade · release tags `v2.1.0`–`v2.7.0` (v2.7.0 pending tag on merge)
 
+### [2026-05-29] - Session Closeout
+- **Session Summary:** v2.7.0 milestone on Dev-v2 — portable modules + backup-system v1.2.0; README polish; BackUp-Notez local timestamp + friendly footer; doc sync; G: restore points **v1-w** and **v1-x** @ `f9be13e`
+- **Added/Modified:** `msc-backup.mjs`, `backup-system` module, README, CHANGELOG, Checkpoint, UPDATE_LOG, Operator Card, RELEASE_v2.7.0, tracking docs
+- **Verified:** validate-env PASS · lint PASS · **61/61** grade · **8/8** tests · LiteLLM stopped (status offline expected)
+- **Ports cleared:** 3000, 3001, 3002, 3010, 8080, 4000, 4040
+- **LiteLLM:** stopped
+- **Git:** `Vader-Engine-Dev-v2` clean · synced with `origin`
+- **Next start:** Merge Dev-v2 → `main` · tag `v2.7.0` · `@Start-Project.md`
+
 ### [2026-05-29 17:20] - Update Project Checkpoint
 - **Status:** BackUp-Notez local timestamp + footer fix shipped · README v2.7.0 polish complete
 - **Branch:** `Vader-Engine-Dev-v2` @ `96c10a6`

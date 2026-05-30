@@ -19,7 +19,7 @@ Authoritative build and branch history for Vader Engine releases.
 
 - **Current status:** Portable `custom-scriptz` modules (google-api-proxy + backup-system v1.2.0) · interactive backup + `BackUp-Notez.md` · 8-step agent backup ritual · `Prompt-Module.md` canonical
 - **Restore point:** `Vader-Engine-Dev-v1` @ `c993472` (frozen on remote)
-- **G: backup:** `Vader-Engine-v1-w` @ `96c10a6` (latest; includes BackUp-Notez + `.env.local`) · prior `v1-v` @ `5f505b9`
+- **G: backup:** `Vader-Engine-v1-x` @ `f9be13e` (latest restore point) · prior `v1-w`
 - **Recent:** `96c10a6` BackUp-Notez fix · `6db44f7` README polish · `ca13250` v2.7.0 bump · `c4ceac7` backup ritual
 
 ## Branch: `Vader-Engine-Dev-v1` (2026-05-29) — **frozen**
@@ -80,4 +80,4 @@ Authoritative build and branch history for Vader Engine releases.
 
 ---
 
-*Last updated: 2026-05-29 (update project · v2.7.0 milestone)*
+*Last updated: 2026-05-29 (session closeout)*
